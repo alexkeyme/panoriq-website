@@ -35,11 +35,32 @@ LOCKUP_WIDTHS = [1600, 800, 400]   # horizontal lockup widths
 NAVY = (14, 42, 71)
 WHITE = (255, 255, 255)
 
-# Try Manrope if user dropped it alongside this script
-MANROPE_PATH = ROOT / "Manrope-Bold.ttf"
-FALLBACK_FONT = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
-USE_MANROPE = MANROPE_PATH.exists()
-FONT_PATH = str(MANROPE_PATH) if USE_MANROPE else FALLBACK_FONT
+# Font resolution, in priority order:
+#   1. Manrope-Bold.ttf next to this script (the production pick)
+#   2. Any other .ttf/.otf dropped next to this script (Bold preferred)
+#   3. System Arial Bold as a last-resort Helvetica-adjacent fallback
+SYSTEM_FALLBACK_FONT = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
+
+
+def _resolve_font() -> tuple[str, str]:
+    manrope = ROOT / "Manrope-Bold.ttf"
+    if manrope.exists():
+        return str(manrope), "Manrope-Bold.ttf (user-supplied)"
+
+    local_fonts = sorted(
+        p for p in ROOT.iterdir()
+        if p.is_file() and p.suffix.lower() in {".ttf", ".otf"}
+    )
+    # Prefer a Bold weight if present, else take the first font found.
+    bold = next((p for p in local_fonts if "bold" in p.stem.lower()), None)
+    chosen = bold or (local_fonts[0] if local_fonts else None)
+    if chosen is not None:
+        return str(chosen), f"{chosen.name} (user-supplied)"
+
+    return SYSTEM_FALLBACK_FONT, "Arial Bold (system fallback)"
+
+
+FONT_PATH, FONT_LABEL = _resolve_font()
 
 
 def rasterize(svg_path: Path, size_px: int) -> Image.Image:
@@ -97,7 +118,7 @@ def make_lockup(mark_svg: Path, bg_color, text_color, out_name, widths):
 
 
 def main():
-    print(f"Font: {'Manrope (user-supplied)' if USE_MANROPE else 'Nimbus Sans Bold (fallback)'}")
+    print(f"Font: {FONT_LABEL}")
     print("\n--- Mark (light background) ---")
     save_mark(SVG_DIR / "mark-light.svg", "mark-light", MARK_SIZES)
 
