@@ -1,98 +1,663 @@
 <!doctype html>
-<html class="no-js" lang="en">
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Panoriq - Innovative Solutions for Your Business</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="Panoriq delivers innovative solutions to help your business thrive in the digital age.">
+  <title>Panoriq — See the whole picture</title>
+  <meta name="description" content="Panoriq gives teams a clear view of everything that matters — in one place. Clarity, context, and completeness without the noise.">
 
-  <meta property="og:title" content="Panoriq - Innovative Solutions">
+  <link rel="icon" href="CI/logo/favicon/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="CI/logo/favicon/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="CI/logo/mark-light/mark-light-180.png">
+
+  <meta property="og:title" content="Panoriq — See the whole picture">
+  <meta property="og:description" content="A clear view of everything that matters, in one place.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://alexkeyme.github.io/panoriq-website/">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="Panoriq Company Logo">
+  <meta property="og:image" content="CI/logo/lockup/lockup-light-1600w.png">
+  <meta name="theme-color" content="#0E2A47">
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
 
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#2563eb">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:  { DEFAULT: '#0E2A47', deeper: '#081A2E' },
+            brand: { cyan: '#1FC4C4', cyanDark: '#0FA5A5' },
+            teal:  { DEFAULT: '#1F6B6B', deep: '#0D4A4A' },
+            aqua:  { DEFAULT: '#B8ECEC', surface: '#EAFAFA' },
+            coral: '#FF7A59',
+            amber: '#F5B544',
+            ink:   '#0A0A0A',
+            sand:  '#F7F8F9',
+            fog:   '#EDEFF2',
+            mist:  '#D9DDE2',
+            stone: { 400: '#8A939E', 500: '#5F6974', 600: '#424B55', 700: '#2A323B' }
+          },
+          fontFamily: {
+            display: ['Manrope', 'sans-serif'],
+            sans:    ['Inter', 'sans-serif'],
+            mono:    ['"Space Grotesk"', 'monospace'],
+            serif:   ['Fraunces', 'serif']
+          },
+          letterSpacing: { tightest: '-0.04em' }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    /* Brand accents */
+    .q-cyan { color: #1FC4C4; }
+
+    /* Hero display headline */
+    .display-hero {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: clamp(3.2rem, 10vw, 9rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+    }
+    .display-section {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.25rem, 6vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+    }
+    .eyebrow {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    /* Grid backdrop for hero */
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(184, 236, 236, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184, 236, 236, 0.06) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+
+    /* Subtle grain */
+    .grain { position: relative; }
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.06;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+
+    /* Horizon waves — panoramic band, SVG paths */
+    .wave-layer { transform-origin: center; will-change: transform; }
+    .wave-1 { animation: drift 18s ease-in-out infinite; }
+    .wave-2 { animation: drift 24s ease-in-out infinite reverse; }
+    .wave-3 { animation: drift 30s ease-in-out infinite; }
+    .wave-4 { animation: drift 36s ease-in-out infinite reverse; }
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50%      { transform: translate3d(-36px, -4px, 0); }
+    }
+
+    /* Marquee */
+    .marquee { overflow: hidden; position: relative; }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      width: max-content;
+      animation: marquee 48s linear infinite;
+    }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Giant decorative Q as section signature */
+    .big-q {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: clamp(16rem, 40vw, 44rem);
+      line-height: 0.8;
+      letter-spacing: -0.06em;
+    }
+
+    /* Mark rotate very slow */
+    .spin-slow { animation: spin 120s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Scroll reveal */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    [data-reveal].is-visible { opacity: 1; transform: none; }
+
+    /* Nav glass */
+    .nav-glass {
+      background: rgba(247, 248, 249, 0.7);
+      backdrop-filter: saturate(160%) blur(14px);
+      -webkit-backdrop-filter: saturate(160%) blur(14px);
+      border-bottom: 1px solid rgba(13, 74, 74, 0.08);
+    }
+
+    /* Card stroke hover */
+    .card { transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+    .card:hover { transform: translateY(-4px); }
+
+    /* Horizon divider */
+    .horizon {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(15,165,165,0.0) 0%, rgba(15,165,165,0.5) 50%, rgba(15,165,165,0.0) 100%);
+    }
+
+    /* Process rail — only on md+ where cards are side-by-side */
+    @media (min-width: 768px) {
+      .rail::before {
+        content: '';
+        position: absolute;
+        top: 28px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, #1FC4C4 0%, #0D4A4A 100%);
+      }
+    }
+
+    /* Focus visible */
+    :where(a, button):focus-visible {
+      outline: 2px solid #1FC4C4;
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wave-1, .wave-2, .wave-3, .wave-4, .marquee-track, .spin-slow { animation: none !important; }
+    }
+  </style>
 </head>
 
-<body>
-  <header class="header">
-    <nav class="nav">
-      <div class="nav-brand">
-        <h1>Panoriq</h1>
+<body id="top" class="font-sans bg-sand text-navy">
+
+  <!-- NAV -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-50 nav-glass">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10 py-4 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3">
+        <svg viewBox="0 0 240 240" class="w-9 h-9" aria-hidden="true">
+          <defs><clipPath id="navclip"><circle cx="120" cy="120" r="106"/></clipPath></defs>
+          <circle cx="120" cy="120" r="110" fill="none" stroke="#0E2A47" stroke-width="5"/>
+          <g clip-path="url(#navclip)">
+            <rect x="14" y="14" width="212" height="212" fill="#EAFAFA"/>
+            <path d="M14,118 Q70,92 130,108 T226,108 L226,150 L14,150 Z" fill="#0D4A4A"/>
+            <path d="M14,146 Q60,124 120,140 T226,140 L226,180 L14,180 Z" fill="#1F6B6B"/>
+            <path d="M14,172 Q70,156 130,170 T226,168 L226,200 L14,200 Z" fill="#0FA5A5"/>
+            <path d="M14,192 Q60,178 126,190 T226,188 L226,226 L14,226 Z" fill="#1FC4C4"/>
+          </g>
+        </svg>
+        <span class="font-display text-[22px] font-bold tracking-tightest text-navy">panori<span class="q-cyan">q</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-10 text-[14px] font-medium text-stone-600">
+        <a href="#what" class="hover:text-navy transition">What we do</a>
+        <a href="#capabilities" class="hover:text-navy transition">Capabilities</a>
+        <a href="#process" class="hover:text-navy transition">Process</a>
+        <a href="#contact" class="hover:text-navy transition">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden md:inline-flex items-center gap-2 bg-navy text-white hover:bg-brand-cyan hover:text-navy transition px-4 py-2.5 rounded-full text-[13px] font-semibold">
+          Get in touch
+          <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button id="menuBtn" class="md:hidden p-2 -mr-2 text-navy" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
       </div>
-      <ul class="nav-menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-mist bg-white">
+      <div class="px-6 py-4 flex flex-col gap-3 text-[15px]">
+        <a href="#what" class="py-1">What we do</a>
+        <a href="#capabilities" class="py-1">Capabilities</a>
+        <a href="#process" class="py-1">Process</a>
+        <a href="#contact" class="py-1">Contact</a>
+        <a href="#contact" class="mt-2 inline-flex self-start items-center gap-2 bg-navy text-white px-4 py-2.5 rounded-full text-[13px] font-semibold">Get in touch</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h2>Welcome to Panoriq</h2>
-        <p class="hero-tagline">Innovative solutions that drive your business forward</p>
-        <a href="#contact" class="cta-button">Get Started</a>
-      </div>
-    </section>
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-navy text-white grain">
+    <div class="absolute inset-0 bg-grid opacity-70"></div>
 
-    <section id="about" class="about">
-      <div class="container">
-        <h2>About Panoriq</h2>
-        <p>We are a forward-thinking company dedicated to providing cutting-edge solutions that help businesses thrive in today's competitive landscape. Our team of experts combines creativity with technical excellence to deliver results that exceed expectations.</p>
-      </div>
-    </section>
+    <!-- Ambient glow -->
+    <div class="pointer-events-none absolute -top-40 -right-40 w-[620px] h-[620px] rounded-full blur-3xl opacity-30" style="background: radial-gradient(circle, #1FC4C4 0%, transparent 60%);"></div>
+    <div class="pointer-events-none absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full blur-3xl opacity-20" style="background: radial-gradient(circle, #B8ECEC 0%, transparent 60%);"></div>
 
-    <section id="services" class="services">
-      <div class="container">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <h3>Consulting</h3>
-            <p>Strategic guidance to help you make informed decisions and achieve your business goals.</p>
+    <div class="relative mx-auto max-w-[1400px] px-6 md:px-10 pt-36 md:pt-44 pb-0">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7" data-reveal>
+          <div class="flex items-center gap-4 mb-8">
+            <span class="eyebrow text-aqua/80">01 — Panoriq</span>
+            <span class="h-px w-16 bg-aqua/30"></span>
+            <span class="eyebrow text-aqua/60">Est. 2026</span>
           </div>
-          <div class="service-card">
-            <h3>Development</h3>
-            <p>Custom software solutions tailored to your specific needs and requirements.</p>
+
+          <h1 class="display-hero text-white">
+            See the<br/>
+            <span class="inline-flex items-baseline">
+              <span class="relative">
+                whole
+                <svg class="absolute left-0 -bottom-3 w-full" height="14" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M2 9 Q 75 2, 150 8 T 298 7" fill="none" stroke="#1FC4C4" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </span><br/>
+            picture.
+          </h1>
+
+          <p class="mt-10 max-w-xl text-aqua/90 text-lg md:text-xl leading-relaxed">
+            A clear view of everything that matters — in one place. Panoriq turns
+            scattered signals into a single panorama your team can actually act on.
+          </p>
+
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a href="#contact" class="inline-flex items-center gap-2 bg-brand-cyan text-navy hover:bg-white transition px-6 py-3.5 rounded-full text-[14px] font-semibold">
+              Start a conversation
+              <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#what" class="inline-flex items-center gap-2 border border-white/25 hover:border-white/60 px-6 py-3.5 rounded-full text-[14px] font-semibold text-white transition">
+              See how it works
+            </a>
           </div>
-          <div class="service-card">
-            <h3>Support</h3>
-            <p>Comprehensive support and maintenance to ensure your systems run smoothly.</p>
+        </div>
+
+        <!-- Right column: big mark + legend -->
+        <div class="lg:col-span-5 relative hidden lg:flex items-center justify-center" data-reveal>
+          <div class="relative w-[420px] h-[420px]">
+            <div class="absolute inset-0 spin-slow opacity-80">
+              <svg viewBox="0 0 240 240" class="w-full h-full" aria-hidden="true">
+                <defs><clipPath id="heroclip"><circle cx="120" cy="120" r="106"/></clipPath></defs>
+                <circle cx="120" cy="120" r="110" fill="none" stroke="#1FC4C4" stroke-width="3"/>
+                <g clip-path="url(#heroclip)">
+                  <rect x="14" y="14" width="212" height="212" fill="#0E2A47"/>
+                  <path class="wave-layer wave-1" d="M-20,118 Q70,92 130,108 T260,108 L260,150 L-20,150 Z" fill="#0D4A4A"/>
+                  <path class="wave-layer wave-2" d="M-20,146 Q60,124 120,140 T260,140 L260,180 L-20,180 Z" fill="#1F6B6B"/>
+                  <path class="wave-layer wave-3" d="M-20,172 Q70,156 130,170 T260,168 L260,200 L-20,200 Z" fill="#0FA5A5"/>
+                  <path class="wave-layer wave-4" d="M-20,192 Q60,178 126,190 T260,188 L260,226 L-20,226 Z" fill="#1FC4C4"/>
+                </g>
+              </svg>
+            </div>
+            <!-- Roman numeral layer legend -->
+            <div class="absolute -right-10 top-10 space-y-3 text-right">
+              <div class="flex items-center gap-3 justify-end eyebrow text-aqua/70"><span>Depth</span><span class="font-serif italic text-lg not-italic">Ⅰ</span></div>
+              <div class="flex items-center gap-3 justify-end eyebrow text-aqua/70"><span>Mid</span><span class="font-serif italic text-lg">Ⅱ</span></div>
+              <div class="flex items-center gap-3 justify-end eyebrow text-aqua/70"><span>Surface</span><span class="font-serif italic text-lg">Ⅲ</span></div>
+              <div class="flex items-center gap-3 justify-end eyebrow text-brand-cyan"><span>Signal</span><span class="font-serif italic text-lg">Ⅳ</span></div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2>Get in Touch</h2>
-        <p>Ready to transform your business? Contact us today to learn how we can help.</p>
-        <div class="contact-info">
-          <p><strong>Email:</strong> info@panoriq.com</p>
-          <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-          <a href="mailto:info@panoriq.com" class="cta-button">Send us a message</a>
+      <!-- Panoramic horizon band at base of hero -->
+      <div class="relative mt-20 md:mt-28 -mx-6 md:-mx-10">
+        <svg viewBox="0 0 1600 140" preserveAspectRatio="none" class="w-full h-28 md:h-36" aria-hidden="true">
+          <path class="wave-layer wave-1" d="M-50,60 C 200,20 420,90 700,60 C 980,30 1250,90 1700,60 L1700,140 L-50,140 Z" fill="#0D4A4A"/>
+          <path class="wave-layer wave-2" d="M-50,80 C 220,50 440,100 720,80 C 990,60 1260,110 1700,80 L1700,140 L-50,140 Z" fill="#1F6B6B"/>
+          <path class="wave-layer wave-3" d="M-50,100 C 200,80 450,120 700,100 C 980,80 1240,120 1700,100 L1700,140 L-50,140 Z" fill="#0FA5A5"/>
+          <path class="wave-layer wave-4" d="M-50,118 C 240,100 420,130 720,120 C 1000,110 1280,135 1700,118 L1700,140 L-50,140 Z" fill="#1FC4C4"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <section class="bg-aqua-surface border-y border-mist/60">
+    <div class="marquee py-5">
+      <div class="marquee-track text-navy font-display font-bold text-2xl md:text-3xl tracking-tightest">
+        <!-- duplicated for seamless loop -->
+        <div class="flex items-center gap-12 pr-12">
+          <span>Clarity</span><span class="text-brand-cyan">✦</span>
+          <span>Context</span><span class="text-brand-cyan">✦</span>
+          <span>Completeness</span><span class="text-brand-cyan">✦</span>
+          <span>Confidence</span><span class="text-brand-cyan">✦</span>
+          <span>Cadence</span><span class="text-brand-cyan">✦</span>
+          <span>Craft</span><span class="text-brand-cyan">✦</span>
+        </div>
+        <div class="flex items-center gap-12 pr-12" aria-hidden="true">
+          <span>Clarity</span><span class="text-brand-cyan">✦</span>
+          <span>Context</span><span class="text-brand-cyan">✦</span>
+          <span>Completeness</span><span class="text-brand-cyan">✦</span>
+          <span>Confidence</span><span class="text-brand-cyan">✦</span>
+          <span>Cadence</span><span class="text-brand-cyan">✦</span>
+          <span>Craft</span><span class="text-brand-cyan">✦</span>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 Panoriq. All rights reserved.</p>
+  <!-- WHAT WE DO — Editorial -->
+  <section id="what" class="relative py-28 md:py-40 bg-sand overflow-hidden">
+    <!-- Giant decorative Q -->
+    <div aria-hidden="true" class="absolute -right-24 -top-20 select-none pointer-events-none">
+      <span class="big-q text-aqua-surface">q</span>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] px-6 md:px-10">
+      <div class="grid lg:grid-cols-12 gap-16">
+        <div class="lg:col-span-5" data-reveal>
+          <div class="eyebrow text-stone-500 mb-6">02 — What we do</div>
+          <h2 class="display-section text-navy">
+            Insights,<br/>without<br/>the <span class="q-cyan">noise.</span>
+          </h2>
+        </div>
+
+        <div class="lg:col-span-6 lg:col-start-7 self-end" data-reveal>
+          <p class="text-xl md:text-2xl leading-snug font-display font-medium text-navy max-w-xl">
+            Modern teams drown in dashboards that never quite say what's going on.
+            Panoriq is built on the opposite instinct — <span class="bg-coral/15 text-coral px-1.5 rounded">one clear horizon</span>,
+            four layers of depth, and an interface that surfaces what's actually moving.
+          </p>
+          <p class="mt-6 text-stone-600 leading-relaxed max-w-xl">
+            We work with product, operations, and leadership teams who've outgrown their
+            patchwork of tools. Panoriq doesn't add another tab — it replaces the friction
+            between all of them.
+          </p>
+          <div class="mt-10 flex items-center gap-4">
+            <a href="#capabilities" class="inline-flex items-center gap-2 text-navy font-semibold border-b border-navy/30 hover:border-brand-cyan hover:text-brand-cyanDark transition pb-1">
+              Explore capabilities
+              <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section id="capabilities" class="relative py-28 md:py-36 bg-navy text-white overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-40"></div>
+    <div class="relative mx-auto max-w-[1400px] px-6 md:px-10">
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16 md:mb-24" data-reveal>
+        <div>
+          <div class="eyebrow text-aqua/70 mb-6">03 — Capabilities</div>
+          <h2 class="display-section max-w-3xl">Four layers, one panorama.</h2>
+        </div>
+        <p class="max-w-md text-aqua/80 text-base leading-relaxed">
+          Each capability mirrors a layer of the mark — from deep context to the surface signals
+          you rely on day to day.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5 md:gap-6">
+
+        <!-- Card 01 -->
+        <article class="card group relative rounded-3xl p-8 md:p-10 bg-navy-deeper border border-white/10 hover:border-brand-cyan" data-reveal>
+          <div class="flex items-start justify-between mb-10">
+            <span class="font-mono text-aqua/60 text-sm">Ⅰ — Depth</span>
+            <span class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-brand-cyan">
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none"><path d="M2 10h16M10 2v16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+          </div>
+          <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4">Unified context</h3>
+          <p class="text-aqua/75 leading-relaxed max-w-md">
+            Pull everything that matters — product signals, ops data, customer feedback — into
+            a single source of context that stays current on its own.
+          </p>
+          <ul class="mt-8 space-y-2 text-sm text-aqua/70">
+            <li class="flex gap-3"><span class="text-brand-cyan">—</span> Bi-directional sync with the tools you already use</li>
+            <li class="flex gap-3"><span class="text-brand-cyan">—</span> Zero-config schema detection</li>
+          </ul>
+        </article>
+
+        <!-- Card 02 -->
+        <article class="card group relative rounded-3xl p-8 md:p-10 bg-teal-deep border border-white/10 hover:border-brand-cyan" data-reveal>
+          <div class="flex items-start justify-between mb-10">
+            <span class="font-mono text-aqua/60 text-sm">Ⅱ — Mid</span>
+            <span class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-brand-cyan">
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none"><path d="M3 16c3-6 5-6 7 0s4 6 7 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+          </div>
+          <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4">Live pattern discovery</h3>
+          <p class="text-aqua/75 leading-relaxed max-w-md">
+            Spot what changed, what's working, and what needs attention — without writing
+            another query. Panoriq continuously scans for deviations that matter.
+          </p>
+          <ul class="mt-8 space-y-2 text-sm text-aqua/70">
+            <li class="flex gap-3"><span class="text-brand-cyan">—</span> Anomaly detection without thresholds</li>
+            <li class="flex gap-3"><span class="text-brand-cyan">—</span> Causal paths, not just correlations</li>
+          </ul>
+        </article>
+
+        <!-- Card 03 -->
+        <article class="card group relative rounded-3xl p-8 md:p-10 bg-teal border border-white/10 hover:border-brand-cyan" data-reveal>
+          <div class="flex items-start justify-between mb-10">
+            <span class="font-mono text-aqua/60 text-sm">Ⅲ — Surface</span>
+            <span class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-brand-cyan">
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M10 2v3M10 15v3M2 10h3M15 10h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+          </div>
+          <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4">Built for teams that move</h3>
+          <p class="text-white/85 leading-relaxed max-w-md">
+            Collaborate live. Ship faster. See results sooner. Every view is shareable,
+            every insight traceable — so decisions stop getting lost in the thread.
+          </p>
+          <ul class="mt-8 space-y-2 text-sm text-white/75">
+            <li class="flex gap-3"><span class="text-brand-cyan">—</span> Threaded annotations on any metric</li>
+            <li class="flex gap-3"><span class="text-brand-cyan">—</span> Slack &amp; email-native digests</li>
+          </ul>
+        </article>
+
+        <!-- Card 04 -->
+        <article class="card group relative rounded-3xl p-8 md:p-10 bg-brand-cyan text-navy border border-brand-cyan hover:border-white" data-reveal>
+          <div class="flex items-start justify-between mb-10">
+            <span class="font-mono text-navy/70 text-sm">Ⅳ — Signal</span>
+            <span class="w-10 h-10 rounded-full border border-navy/20 flex items-center justify-center">
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none"><path d="M3 17L8 8l4 5 5-10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4">Only what changed.</h3>
+          <p class="text-navy/80 leading-relaxed max-w-md">
+            A morning briefing that respects your attention. The right signal, in plain language,
+            with the evidence behind it — ready before your first coffee.
+          </p>
+          <ul class="mt-8 space-y-2 text-sm text-navy/75">
+            <li class="flex gap-3"><span>—</span> Narrative briefings, not notification spam</li>
+            <li class="flex gap-3"><span>—</span> Drill from summary to raw data in one click</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="py-28 md:py-36 bg-aqua-surface">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+      <div class="max-w-3xl mb-16" data-reveal>
+        <div class="eyebrow text-teal-deep mb-6">04 — How we work</div>
+        <h2 class="display-section text-navy">From patchwork<br/>to panorama.</h2>
+        <p class="mt-8 text-lg text-teal-deep/80 max-w-xl">
+          A focused three-step engagement — designed so you see value long before you see an invoice.
+        </p>
+      </div>
+
+      <div class="relative rail grid md:grid-cols-3 gap-10 md:gap-6">
+        <div class="relative" data-reveal>
+          <div class="w-14 h-14 rounded-full bg-navy text-white flex items-center justify-center font-display font-bold text-lg ring-8 ring-aqua-surface mb-8">01</div>
+          <h3 class="font-display font-bold text-2xl md:text-3xl tracking-tight text-navy mb-3">Listen &amp; map</h3>
+          <p class="text-teal-deep/80 leading-relaxed max-w-sm">
+            We sit with your team, shadow your workflow, and map every tool, signal, and
+            blind spot. You get a written brief — free, yours to keep.
+          </p>
+        </div>
+
+        <div class="relative" data-reveal>
+          <div class="w-14 h-14 rounded-full bg-teal text-white flex items-center justify-center font-display font-bold text-lg ring-8 ring-aqua-surface mb-8">02</div>
+          <h3 class="font-display font-bold text-2xl md:text-3xl tracking-tight text-navy mb-3">Compose the panorama</h3>
+          <p class="text-teal-deep/80 leading-relaxed max-w-sm">
+            We stand up the Panoriq instance, connect your sources, and tune the layers
+            to how your team actually thinks — not how your vendors organised their APIs.
+          </p>
+        </div>
+
+        <div class="relative" data-reveal>
+          <div class="w-14 h-14 rounded-full bg-brand-cyan text-navy flex items-center justify-center font-display font-bold text-lg ring-8 ring-aqua-surface mb-8">03</div>
+          <h3 class="font-display font-bold text-2xl md:text-3xl tracking-tight text-navy mb-3">Adopt &amp; iterate</h3>
+          <p class="text-teal-deep/80 leading-relaxed max-w-sm">
+            Weekly cadence, measurable changes, a real hand-off. Most teams reach
+            steady state in six weeks — and every subsequent week compounds.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="py-28 md:py-36 bg-sand">
+    <div class="mx-auto max-w-[1100px] px-6 md:px-10 text-center" data-reveal>
+      <div class="eyebrow text-stone-500 mb-8">05 — In practice</div>
+      <blockquote class="font-serif italic text-3xl md:text-5xl lg:text-6xl leading-[1.08] text-navy tracking-tight">
+        "We stopped arguing about which dashboard was right and started
+        arguing about <span class="not-italic font-display font-bold text-brand-cyanDark">what to do next</span>.
+        That's the only meeting that matters."
+      </blockquote>
+      <div class="mt-10 flex items-center justify-center gap-3 text-sm text-stone-500">
+        <span class="w-8 h-px bg-stone-400"></span>
+        <span class="font-semibold text-navy">Head of Operations</span>
+        <span>·</span>
+        <span>Mid-market SaaS</span>
+        <span class="w-8 h-px bg-stone-400"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section id="contact" class="relative bg-brand-cyan text-navy overflow-hidden">
+    <div aria-hidden="true" class="absolute inset-0 opacity-30">
+      <svg viewBox="0 0 1600 600" preserveAspectRatio="none" class="w-full h-full">
+        <path class="wave-layer wave-1" d="M-50,260 C 300,200 500,320 900,260 C 1200,220 1400,310 1700,260 L1700,600 L-50,600 Z" fill="#0FA5A5"/>
+        <path class="wave-layer wave-2" d="M-50,340 C 250,280 550,400 950,340 C 1250,300 1450,380 1700,340 L1700,600 L-50,600 Z" fill="#1F6B6B"/>
+        <path class="wave-layer wave-3" d="M-50,420 C 300,360 600,460 900,420 C 1250,380 1450,450 1700,420 L1700,600 L-50,600 Z" fill="#0D4A4A"/>
+      </svg>
+    </div>
+
+    <div class="relative mx-auto max-w-[1400px] px-6 md:px-10 py-24 md:py-36">
+      <div class="grid lg:grid-cols-12 gap-10 items-end">
+        <div class="lg:col-span-8" data-reveal>
+          <div class="eyebrow text-navy/70 mb-6">06 — Ready?</div>
+          <h2 class="display-section text-navy">
+            Let's see<br/>
+            the whole thing<br/>
+            <span class="font-serif italic font-normal">together.</span>
+          </h2>
+        </div>
+        <div class="lg:col-span-4 space-y-6" data-reveal>
+          <p class="text-navy/85 text-lg leading-relaxed max-w-sm">
+            Tell us what's scattered across your team and we'll show you what a Panoriq panorama would look like — no obligation, no slide deck.
+          </p>
+          <div class="flex flex-col gap-3">
+            <a href="mailto:hello@panoriq.com" class="inline-flex items-center justify-between gap-2 bg-navy text-white hover:bg-navy-deeper transition px-6 py-4 rounded-full text-[14px] font-semibold">
+              <span>hello@panoriq.com</span>
+              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#top" class="inline-flex items-center justify-between gap-2 bg-transparent border border-navy/25 hover:border-navy text-navy transition px-6 py-4 rounded-full text-[14px] font-semibold">
+              <span>Book a 20-min intro</span>
+              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy-deeper text-white">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10 py-16">
+      <div class="grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-5">
+          <a href="#top" class="inline-flex items-center gap-3">
+            <svg viewBox="0 0 240 240" class="w-10 h-10" aria-hidden="true">
+              <defs><clipPath id="footclip"><circle cx="120" cy="120" r="106"/></clipPath></defs>
+              <circle cx="120" cy="120" r="110" fill="none" stroke="#1FC4C4" stroke-width="5"/>
+              <g clip-path="url(#footclip)">
+                <rect x="14" y="14" width="212" height="212" fill="#081A2E"/>
+                <path d="M14,118 Q70,92 130,108 T226,108 L226,150 L14,150 Z" fill="#0D4A4A"/>
+                <path d="M14,146 Q60,124 120,140 T226,140 L226,180 L14,180 Z" fill="#1F6B6B"/>
+                <path d="M14,172 Q70,156 130,170 T226,168 L226,200 L14,200 Z" fill="#0FA5A5"/>
+                <path d="M14,192 Q60,178 126,190 T226,188 L226,226 L14,226 Z" fill="#1FC4C4"/>
+              </g>
+            </svg>
+            <span class="font-display text-2xl font-bold tracking-tightest text-white">panori<span class="q-cyan">q</span></span>
+          </a>
+          <p class="mt-6 max-w-sm text-aqua/70 leading-relaxed">
+            A clear view of everything that matters — in one place.
+          </p>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="eyebrow text-aqua/50 mb-4">Site</div>
+          <ul class="space-y-2 text-aqua/80 text-sm">
+            <li><a href="#what" class="hover:text-white">What we do</a></li>
+            <li><a href="#capabilities" class="hover:text-white">Capabilities</a></li>
+            <li><a href="#process" class="hover:text-white">Process</a></li>
+            <li><a href="#contact" class="hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="eyebrow text-aqua/50 mb-4">Contact</div>
+          <ul class="space-y-2 text-aqua/80 text-sm">
+            <li><a href="mailto:hello@panoriq.com" class="hover:text-white">hello@panoriq.com</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3">
+          <div class="eyebrow text-aqua/50 mb-4">Horizon</div>
+          <p class="text-aqua/70 text-sm leading-relaxed">
+            Panoriq is crafted in Vienna. Built for teams who've outgrown the patchwork.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-aqua/50">
+        <div>© 2026 Panoriq. All rights reserved.</div>
+        <div class="font-mono tracking-widest uppercase">
+          Clarity · Context · Completeness · Confidence
+        </div>
+      </div>
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
-</body>
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
+    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+  </script>
+</body>
 </html>
