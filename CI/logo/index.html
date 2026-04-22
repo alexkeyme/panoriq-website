@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Panoriq — Logo Exports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#0E2A47; --cyan:#1FC4C4; --g500:#5F6974; --g200:#D9DDE2; --g50:#F7F8F9; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; margin:0; background:var(--g50); color:var(--navy); }
+  .container { max-width: 1180px; margin: 0 auto; padding: 48px 40px; }
+  h1 { font-family:'Manrope',sans-serif; font-weight:800; font-size:36px; letter-spacing:-0.02em; margin:0 0 6px; }
+  .subtitle { color: var(--g500); margin-bottom: 40px; }
+  h2 { font-family:'Manrope',sans-serif; font-weight:700; font-size:20px; margin: 36px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--g200); }
+  .note { background:#FFF8E8; border:1px solid #F5D97F; color:#7A5B10; padding:12px 16px; border-radius:10px; font-size:13px; margin-bottom:24px; }
+  .note strong { color:#5C4405; }
+
+  .grid { display:flex; flex-wrap:wrap; gap:18px; align-items:flex-end; }
+  .tile { background:white; border:1px solid var(--g200); border-radius:12px; padding:14px; text-align:center; }
+  .tile.dark { background: var(--navy); border-color: var(--navy); color:white; }
+  .tile img { display:block; margin:0 auto 8px; }
+  .tile .label { font-size:11px; color:var(--g500); font-family:'Space Grotesk',monospace; }
+  .tile.dark .label { color: rgba(255,255,255,0.6); }
+  .tile .filename { font-size:10px; color:var(--g500); margin-top:2px; word-break:break-all; }
+  .tile.dark .filename { color: rgba(255,255,255,0.5); }
+
+  .lockup-row { display:flex; flex-direction:column; gap:16px; }
+  .lockup-tile { background:white; border:1px solid var(--g200); border-radius:12px; padding:20px; }
+  .lockup-tile.dark { background:var(--navy); border-color:var(--navy); }
+  .lockup-tile img { max-width:100%; display:block; }
+  .lockup-tile .caption { font-size:12px; color:var(--g500); margin-top:10px; }
+  .lockup-tile.dark .caption { color: rgba(255,255,255,0.6); }
+
+  .usage { background:white; border:1px solid var(--g200); border-radius:12px; padding:20px 24px; }
+  .usage table { width:100%; border-collapse:collapse; font-size:13px; }
+  .usage td { padding:8px 12px; border-bottom:1px solid var(--g200); }
+  .usage td:first-child { font-family:'Space Grotesk',monospace; color:var(--g500); white-space:nowrap; }
+  .usage tr:last-child td { border-bottom:none; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Panoriq — Logo Exports</h1>
+  <p class="subtitle">PNG exports of Concept A at every size you'll need, plus lockups.</p>
+
+  <div class="note">
+    <strong>Font note:</strong> the sandbox couldn't download Manrope, so the lockup PNGs use Nimbus Sans Bold (Helvetica-adjacent). To re-render with real Manrope, drop <code>Manrope-Bold.ttf</code> into this folder and run <code>python3 generate.py</code>.
+  </div>
+
+  <h2>Mark — light</h2>
+  <div class="grid">
+    <div class="tile"><img src="mark-light/mark-light-256.png" width="128"><div class="label">256px</div><div class="filename">mark-light-256.png</div></div>
+    <div class="tile"><img src="mark-light/mark-light-192.png" width="96"><div class="label">192px · PWA</div><div class="filename">mark-light-192.png</div></div>
+    <div class="tile"><img src="mark-light/mark-light-180.png" width="90"><div class="label">180px · iOS</div><div class="filename">mark-light-180.png</div></div>
+    <div class="tile"><img src="mark-light/mark-light-128.png" width="64"><div class="label">128px</div><div class="filename">mark-light-128.png</div></div>
+    <div class="tile"><img src="mark-light/mark-light-96.png" width="48"><div class="label">96px</div><div class="filename">mark-light-96.png</div></div>
+    <div class="tile"><img src="mark-light/mark-light-64.png" width="32"><div class="label">64px</div><div class="filename">mark-light-64.png</div></div>
+    <div class="tile"><img src="mark-light/mark-light-56.png" width="28"><div class="label">56px · FAB</div><div class="filename">mark-light-56.png</div></div>
+    <div class="tile"><img src="mark-light/mark-light-48.png" width="24"><div class="label">48px</div><div class="filename">mark-light-48.png</div></div>
+    <div class="tile"><img src="mark-light/mark-light-32.png" width="16"><div class="label">32px</div><div class="filename">mark-light-32.png</div></div>
+    <div class="tile"><img src="mark-light/mark-light-24.png" width="12"><div class="label">24px</div><div class="filename">mark-light-24.png</div></div>
+  </div>
+
+  <h2>Mark — dark</h2>
+  <div class="grid">
+    <div class="tile dark"><img src="mark-dark/mark-dark-256.png" width="128"><div class="label">256px</div><div class="filename">mark-dark-256.png</div></div>
+    <div class="tile dark"><img src="mark-dark/mark-dark-192.png" width="96"><div class="label">192px</div><div class="filename">mark-dark-192.png</div></div>
+    <div class="tile dark"><img src="mark-dark/mark-dark-180.png" width="90"><div class="label">180px</div><div class="filename">mark-dark-180.png</div></div>
+    <div class="tile dark"><img src="mark-dark/mark-dark-128.png" width="64"><div class="label">128px</div><div class="filename">mark-dark-128.png</div></div>
+    <div class="tile dark"><img src="mark-dark/mark-dark-96.png" width="48"><div class="label">96px</div><div class="filename">mark-dark-96.png</div></div>
+    <div class="tile dark"><img src="mark-dark/mark-dark-64.png" width="32"><div class="label">64px</div><div class="filename">mark-dark-64.png</div></div>
+    <div class="tile dark"><img src="mark-dark/mark-dark-56.png" width="28"><div class="label">56px · FAB</div><div class="filename">mark-dark-56.png</div></div>
+    <div class="tile dark"><img src="mark-dark/mark-dark-48.png" width="24"><div class="label">48px</div><div class="filename">mark-dark-48.png</div></div>
+    <div class="tile dark"><img src="mark-dark/mark-dark-32.png" width="16"><div class="label">32px</div><div class="filename">mark-dark-32.png</div></div>
+    <div class="tile dark"><img src="mark-dark/mark-dark-24.png" width="12"><div class="label">24px</div><div class="filename">mark-dark-24.png</div></div>
+  </div>
+
+  <h2>Favicon (simplified)</h2>
+  <p class="subtitle" style="margin-bottom:14px; font-size:13px;">Drops fine details (cloud, top ring stroke) so the waves still read at 16–32px. Use these for browser tabs.</p>
+  <div class="grid">
+    <div class="tile"><img src="favicon/favicon-48.png" width="48"><div class="label">48px</div><div class="filename">favicon-48.png</div></div>
+    <div class="tile"><img src="favicon/favicon-32.png" width="32"><div class="label">32px</div><div class="filename">favicon-32.png</div></div>
+    <div class="tile"><img src="favicon/favicon-16.png" width="16"><div class="label">16px</div><div class="filename">favicon-16.png</div></div>
+  </div>
+
+  <h2>Lockup — light</h2>
+  <div class="lockup-row">
+    <div class="lockup-tile"><img src="lockup/lockup-light-1600w.png"><div class="caption">1600w · header / hero</div></div>
+    <div class="lockup-tile"><img src="lockup/lockup-light-800w.png"><div class="caption">800w · retina nav / docs</div></div>
+    <div class="lockup-tile"><img src="lockup/lockup-light-400w.png"><div class="caption">400w · compact nav / email signature</div></div>
+  </div>
+
+  <h2>Lockup — dark</h2>
+  <div class="lockup-row">
+    <div class="lockup-tile dark"><img src="lockup/lockup-dark-1600w.png"><div class="caption">1600w</div></div>
+    <div class="lockup-tile dark"><img src="lockup/lockup-dark-800w.png"><div class="caption">800w</div></div>
+    <div class="lockup-tile dark"><img src="lockup/lockup-dark-400w.png"><div class="caption">400w</div></div>
+  </div>
+
+  <h2>Which size goes where?</h2>
+  <div class="usage">
+    <table>
+      <tr><td>16, 32, 48</td><td>Browser favicon (use <code>favicon/*.png</code>)</td></tr>
+      <tr><td>24, 32, 48</td><td>Toolbar / in-UI icons, small list avatars</td></tr>
+      <tr><td>56</td><td>Android Material FAB (floating action button)</td></tr>
+      <tr><td>64, 72, 96</td><td>Large buttons, cards, sidebar branding</td></tr>
+      <tr><td>128, 144</td><td>macOS / desktop app icons</td></tr>
+      <tr><td>180</td><td>iOS home-screen (Apple touch icon)</td></tr>
+      <tr><td>192</td><td>Android home-screen / PWA manifest</td></tr>
+      <tr><td>256, 512</td><td>App Store listing, social profile, Slack workspace</td></tr>
+      <tr><td>1024, 2048</td><td>Print / high-DPI / master for any future resize</td></tr>
+      <tr><td>Lockup 400w</td><td>Email signatures, compact nav bars</td></tr>
+      <tr><td>Lockup 800w</td><td>Retina nav, docs headers, presentations</td></tr>
+      <tr><td>Lockup 1600w</td><td>Website hero, marketing pages</td></tr>
+    </table>
+  </div>
+
+  <h2>Also in this folder</h2>
+  <div class="usage">
+    <table>
+      <tr><td>svg/mark-light.svg</td><td>Master vector — the source of truth. Scales infinitely, edit in Figma/Illustrator.</td></tr>
+      <tr><td>svg/mark-dark.svg</td><td>Dark-background variant with cyan ring.</td></tr>
+      <tr><td>svg/mark-favicon.svg</td><td>Simplified favicon vector.</td></tr>
+      <tr><td>generate.py</td><td>The export script. Re-run any time you tweak the SVG.</td></tr>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>
