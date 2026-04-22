@@ -1,0 +1,45 @@
+<svg viewBox="0 0 1584 396" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0E2A47"/>
+      <stop offset="1" stop-color="#123456"/>
+    </linearGradient>
+    <clipPath id="markClip"><circle cx="1320" cy="198" r="120"/></clipPath>
+  </defs>
+
+  <!-- Sky / navy background -->
+  <rect width="1584" height="396" fill="url(#skyGrad)"/>
+
+  <!-- Subtle stars/dots -->
+  <g fill="#1FC4C4" opacity="0.35">
+    <circle cx="120" cy="60" r="1.5"/>
+    <circle cx="260" cy="90" r="1"/>
+    <circle cx="440" cy="48" r="1.5"/>
+    <circle cx="620" cy="72" r="1"/>
+    <circle cx="780" cy="40" r="1.5"/>
+    <circle cx="920" cy="88" r="1"/>
+    <circle cx="1080" cy="56" r="1.5"/>
+  </g>
+
+  <!-- Waves stretching across full width -->
+  <path d="M0,250 Q300,210 600,240 T1200,240 T1584,236 L1584,290 L0,290 Z" fill="#0D4A4A"/>
+  <path d="M0,280 Q240,250 520,276 T1040,276 T1584,272 L1584,320 L0,320 Z" fill="#1F6B6B"/>
+  <path d="M0,310 Q280,286 580,308 T1160,308 T1584,304 L1584,350 L0,350 Z" fill="#0FA5A5"/>
+  <path d="M0,340 Q240,320 520,336 T1040,336 T1584,332 L1584,396 L0,396 Z" fill="#1FC4C4"/>
+
+  <!-- Wordmark -->
+  <text x="120" y="216" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-weight="700" font-size="96" fill="#FFFFFF" letter-spacing="-3">panoriq</text>
+  <text x="124" y="260" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-weight="400" font-size="24" fill="#B8ECEC" letter-spacing="4">SPATIAL DATA, MADE CLEAR.</text>
+
+  <!-- Mark on the right -->
+  <circle cx="1320" cy="198" r="124" fill="none" stroke="#1FC4C4" stroke-width="4"/>
+  <g clip-path="url(#markClip)">
+    <rect x="1200" y="78" width="240" height="240" fill="#0E2A47"/>
+    <path d="M1200,196 Q1260,172 1320,186 T1440,186 L1440,228 L1200,228 Z" fill="#0D4A4A"/>
+    <path d="M1200,224 Q1250,204 1320,218 T1440,218 L1440,258 L1200,258 Z" fill="#1F6B6B"/>
+    <path d="M1200,250 Q1260,234 1320,248 T1440,246 L1440,278 L1200,278 Z" fill="#0FA5A5"/>
+    <path d="M1200,270 Q1250,258 1326,268 T1440,266 L1440,320 L1200,320 Z" fill="#1FC4C4"/>
+  </g>
+</svg>
