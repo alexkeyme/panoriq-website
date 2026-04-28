@@ -3,8 +3,11 @@
 # Useful .gitignore templates: https://github.com/github/gitignore
 node_modules
 dist
+_site
 .cache
 .history
 .claude
 .idea
 .playwright-cli
+.DS_Store
+*.log

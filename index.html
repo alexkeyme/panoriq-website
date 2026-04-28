@@ -1,98 +1,306 @@
 <!doctype html>
-<html class="no-js" lang="en">
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Panoriq - Innovative Solutions for Your Business</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="Panoriq delivers innovative solutions to help your business thrive in the digital age.">
+  <title>Panoriq — An agent for 3D point clouds</title>
+  <meta name="description" content="An AI agent that edits, segments, and queries 3D point clouds in plain English. Built for researchers, surveyors, and spatial-data teams.">
 
-  <meta property="og:title" content="Panoriq - Innovative Solutions">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://alexkeyme.github.io/panoriq-website/">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="Panoriq Company Logo">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
+  <link rel="icon" href="CI/logo/favicon/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="CI/logo/favicon/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="CI/logo/mark-light/mark-light-180.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#2563eb">
+
+  <meta property="og:title" content="Panoriq — An agent for 3D point clouds">
+  <meta property="og:description" content="An AI agent that edits, segments, and queries 3D point clouds in plain English.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="CI/logo/lockup/lockup-dark-1600w.png">
+  <meta property="og:url" content="https://alexkeyme.github.io/panoriq-website/">
+  <meta name="theme-color" content="#06141f">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="dist/output.css">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+  <script type="module" src="js/main.js" defer></script>
 </head>
 
-<body>
-  <header class="header">
-    <nav class="nav">
-      <div class="nav-brand">
-        <h1>Panoriq</h1>
-      </div>
-      <ul class="nav-menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+<body class="bg-bg text-fg">
+
+  <!-- HEADER -->
+  <header class="absolute inset-x-0 top-0 z-30">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10 py-6 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3" aria-label="Panoriq home">
+        <svg viewBox="0 0 240 240" class="w-8 h-8" aria-hidden="true">
+          <defs><clipPath id="navclip"><circle cx="120" cy="120" r="106"/></clipPath></defs>
+          <circle cx="120" cy="120" r="110" fill="none" stroke="#1FC4C4" stroke-width="5"/>
+          <g clip-path="url(#navclip)">
+            <rect x="14" y="14" width="212" height="212" fill="#06141f"/>
+            <path d="M14,118 Q70,92 130,108 T226,108 L226,150 L14,150 Z" fill="#0D4A4A"/>
+            <path d="M14,146 Q60,124 120,140 T226,140 L226,180 L14,180 Z" fill="#1F6B6B"/>
+            <path d="M14,172 Q70,156 130,170 T226,168 L226,200 L14,200 Z" fill="#0FA5A5"/>
+            <path d="M14,192 Q60,178 126,190 T226,188 L226,226 L14,226 Z" fill="#1FC4C4"/>
+          </g>
+        </svg>
+        <span class="font-display text-[20px] font-bold tracking-[-0.03em] text-fg">panori<span class="text-accent">q</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-9 eyebrow text-muted">
+        <a href="#what" class="hover:text-fg transition">What</a>
+        <a href="#how" class="hover:text-fg transition">How</a>
+        <a href="#why" class="hover:text-fg transition">Why</a>
+        <a href="#contact" class="hover:text-fg transition">Contact</a>
+      </nav>
+
+      <a href="#contact" class="hidden md:inline-flex items-center gap-2 bg-accent text-bg-deep hover:bg-fg transition px-4 py-2 rounded-full text-[13px] font-semibold">
+        Request access
+        <svg class="w-3 h-3" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h2>Welcome to Panoriq</h2>
-        <p class="hero-tagline">Innovative solutions that drive your business forward</p>
-        <a href="#contact" class="cta-button">Get Started</a>
-      </div>
-    </section>
+  <!-- HERO -->
+  <section id="top" class="relative min-h-[100svh] flex flex-col overflow-hidden">
+    <canvas id="point-cloud" class="absolute inset-0 w-full h-full" aria-hidden="true"></canvas>
+    <div class="absolute inset-0 hero-vignette pointer-events-none"></div>
 
-    <section id="about" class="about">
-      <div class="container">
-        <h2>About Panoriq</h2>
-        <p>We are a forward-thinking company dedicated to providing cutting-edge solutions that help businesses thrive in today's competitive landscape. Our team of experts combines creativity with technical excellence to deliver results that exceed expectations.</p>
-      </div>
-    </section>
+    <div class="relative z-10 flex-1 flex flex-col justify-center mx-auto max-w-[1400px] w-full px-6 md:px-10 pt-32 pb-20">
+      <div class="max-w-4xl" data-reveal>
+        <div class="flex items-center gap-4 mb-10">
+          <span class="eyebrow text-accent-soft/80">01 — Spatial agent</span>
+          <span class="h-px w-16 bg-accent-soft/30"></span>
+          <span class="eyebrow text-muted">v0.1 · private preview</span>
+        </div>
 
-    <section id="services" class="services">
-      <div class="container">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <h3>Consulting</h3>
-            <p>Strategic guidance to help you make informed decisions and achieve your business goals.</p>
+        <h1 class="display-hero text-fg">
+          Point clouds,<br>
+          <span class="text-accent">in plain English.</span>
+        </h1>
+
+        <p class="mt-10 max-w-2xl text-lg md:text-xl text-fg/80 leading-relaxed">
+          An agent that edits, segments, and queries 3D spatial data — so you spend less
+          time scripting pipelines and more time thinking about the data itself.
+        </p>
+
+        <div class="mt-12 flex flex-wrap items-center gap-4">
+          <a href="#contact" class="inline-flex items-center gap-2 bg-accent text-bg-deep hover:bg-fg transition px-6 py-3.5 rounded-full text-[14px] font-semibold">
+            Request early access
+            <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#what" class="inline-flex items-center gap-2 border border-fg/20 hover:border-fg/50 px-6 py-3.5 rounded-full text-[14px] font-semibold text-fg transition">
+            See what it does
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-[1400px] w-full px-6 md:px-10 pb-10 flex items-center justify-between eyebrow text-muted">
+      <span>scroll ↓</span>
+      <span class="hidden md:inline">point-cloud / surface · ground · structure · vegetation</span>
+    </div>
+  </section>
+
+  <!-- WHAT -->
+  <section id="what" class="relative border-t border-line py-28 md:py-40 bg-dotgrid">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+      <div class="grid lg:grid-cols-12 gap-14">
+        <div class="lg:col-span-5" data-reveal>
+          <div class="eyebrow text-muted mb-6">02 — What it does</div>
+          <h2 class="display-section text-fg">
+            Spatial work,<br>
+            without the<br>
+            <span class="text-accent">scripting overhead.</span>
+          </h2>
+        </div>
+
+        <div class="lg:col-span-6 lg:col-start-7 self-end" data-reveal>
+          <p class="text-xl md:text-2xl leading-snug font-display font-medium text-fg max-w-xl">
+            Working with point clouds today means stitching together CloudCompare, PDAL,
+            Python, and a stack of half-remembered shell commands.
+          </p>
+          <p class="mt-6 text-muted leading-relaxed max-w-xl">
+            Panoriq replaces that loop with a single agent you describe your intent to.
+            It plans the operations, runs them, shows you the result, and lets you iterate
+            until the data looks the way it should.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-20 md:mt-28 grid md:grid-cols-3 gap-px bg-line/60 rounded-2xl overflow-hidden">
+        <div class="bg-bg p-8 md:p-10">
+          <div class="eyebrow text-accent mb-6">01 / Edit</div>
+          <h3 class="font-display text-2xl font-bold mb-3 tracking-[-0.02em]">Modify in language.</h3>
+          <p class="text-muted leading-relaxed">
+            "Remove the trees on the north side." "Downsample to 1&nbsp;cm in this region."
+            Describe the change, get the result.
+          </p>
+        </div>
+        <div class="bg-bg p-8 md:p-10">
+          <div class="eyebrow text-accent mb-6">02 / Segment</div>
+          <h3 class="font-display text-2xl font-bold mb-3 tracking-[-0.02em]">Isolate what matters.</h3>
+          <p class="text-muted leading-relaxed">
+            Identify, label, and extract regions — buildings, ground, vegetation —
+            without writing a classifier from scratch.
+          </p>
+        </div>
+        <div class="bg-bg p-8 md:p-10">
+          <div class="eyebrow text-accent mb-6">03 / Query</div>
+          <h3 class="font-display text-2xl font-bold mb-3 tracking-[-0.02em]">Ask spatial questions.</h3>
+          <p class="text-muted leading-relaxed">
+            "How tall is this structure?" "What's the volume of this cavity?"
+            Get answers grounded in the underlying geometry.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="how" class="relative border-t border-line py-28 md:py-40">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+      <div class="max-w-3xl mb-16 md:mb-20" data-reveal>
+        <div class="eyebrow text-muted mb-6">03 — How it works</div>
+        <h2 class="display-section text-fg">
+          Three steps. No new<br>
+          pipelines to learn.
+        </h2>
+      </div>
+
+      <div class="space-y-px bg-line/60 rounded-2xl overflow-hidden">
+        <div class="bg-bg p-8 md:p-12 grid md:grid-cols-[180px_1fr] gap-8 items-baseline" data-reveal>
+          <div class="eyebrow text-accent">step 01 / load</div>
+          <div>
+            <h3 class="font-display text-2xl md:text-3xl font-bold mb-3 tracking-[-0.02em]">Point the agent at your data.</h3>
+            <p class="text-muted leading-relaxed max-w-2xl">
+              Local files or a remote scan. Nothing leaves your environment unless
+              you explicitly send it somewhere — the agent runs against the data in place.
+            </p>
           </div>
-          <div class="service-card">
-            <h3>Development</h3>
-            <p>Custom software solutions tailored to your specific needs and requirements.</p>
+        </div>
+        <div class="bg-bg p-8 md:p-12 grid md:grid-cols-[180px_1fr] gap-8 items-baseline" data-reveal>
+          <div class="eyebrow text-accent">step 02 / instruct</div>
+          <div>
+            <h3 class="font-display text-2xl md:text-3xl font-bold mb-3 tracking-[-0.02em]">Describe what you want.</h3>
+            <p class="text-muted leading-relaxed max-w-2xl">
+              Plain English. The agent breaks the request into operations,
+              runs them, and shows a diff of what changed before you commit.
+            </p>
           </div>
-          <div class="service-card">
-            <h3>Support</h3>
-            <p>Comprehensive support and maintenance to ensure your systems run smoothly.</p>
+        </div>
+        <div class="bg-bg p-8 md:p-12 grid md:grid-cols-[180px_1fr] gap-8 items-baseline" data-reveal>
+          <div class="eyebrow text-accent">step 03 / iterate</div>
+          <div>
+            <h3 class="font-display text-2xl md:text-3xl font-bold mb-3 tracking-[-0.02em]">Refine and export.</h3>
+            <p class="text-muted leading-relaxed max-w-2xl">
+              Undo, branch, refine. When the result is right, export to your format of
+              choice or pipe it straight into the tools you already use.
+            </p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2>Get in Touch</h2>
-        <p>Ready to transform your business? Contact us today to learn how we can help.</p>
-        <div class="contact-info">
-          <p><strong>Email:</strong> info@panoriq.com</p>
-          <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-          <a href="mailto:info@panoriq.com" class="cta-button">Send us a message</a>
+  <!-- WHY / PRINCIPLES -->
+  <section id="why" class="relative border-t border-line py-28 md:py-40 bg-dotgrid">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+      <div class="grid lg:grid-cols-12 gap-14 items-start">
+        <div class="lg:col-span-5" data-reveal>
+          <div class="eyebrow text-muted mb-6">04 — Why now</div>
+          <h2 class="display-section text-fg">
+            Spatial AI,<br>
+            built like<br>
+            <span class="text-accent">infrastructure.</span>
+          </h2>
+        </div>
+
+        <div class="lg:col-span-6 lg:col-start-7 space-y-10" data-reveal>
+          <div>
+            <h3 class="font-display text-xl font-bold mb-2 tracking-[-0.02em]">Reproducible by default.</h3>
+            <p class="text-muted leading-relaxed">
+              Every action the agent takes is recorded as a structured operation —
+              re-runnable, auditable, diffable.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-display text-xl font-bold mb-2 tracking-[-0.02em]">Eval-driven reliability.</h3>
+            <p class="text-muted leading-relaxed">
+              Built on a spatial benchmark suite that measures correctness on real-world
+              tasks — not a chat demo.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-display text-xl font-bold mb-2 tracking-[-0.02em]">Local-first.</h3>
+            <p class="text-muted leading-relaxed">
+              Your data stays where it is. The agent operates against your files,
+              your machine, your rules.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-display text-xl font-bold mb-2 tracking-[-0.02em]">A step toward embodied AI.</h3>
+            <p class="text-muted leading-relaxed">
+              Point clouds are how robots see. Building a reliable spatial agent today
+              is groundwork for the systems that will operate in physical space tomorrow.
+            </p>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 Panoriq. All rights reserved.</p>
+  <!-- CONTACT -->
+  <section id="contact" class="relative border-t border-line py-28 md:py-40 overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-[620px] h-[620px] rounded-full blur-3xl opacity-30 pointer-events-none" style="background: radial-gradient(circle, #1FC4C4 0%, transparent 60%);"></div>
+
+    <div class="relative mx-auto max-w-[1400px] px-6 md:px-10">
+      <div class="max-w-3xl" data-reveal>
+        <div class="eyebrow text-muted mb-6">05 — Get in touch</div>
+        <h2 class="display-section text-fg">
+          Currently in<br>
+          <span class="text-accent">private preview.</span>
+        </h2>
+        <p class="mt-10 text-lg md:text-xl text-fg/80 leading-relaxed max-w-2xl">
+          Working with point clouds and curious whether this fits your workflow?
+          Send a short note describing your use case — every message gets a response.
+        </p>
+
+        <div class="mt-12 flex flex-wrap items-center gap-4">
+          <a href="mailto:alex@kawunu.com?subject=Panoriq%20—%20early%20access" class="inline-flex items-center gap-2 bg-accent text-bg-deep hover:bg-fg transition px-6 py-3.5 rounded-full text-[14px] font-semibold">
+            alex@kawunu.com
+            <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 eyebrow text-muted">
+      <div class="flex items-center gap-3">
+        <svg viewBox="0 0 240 240" class="w-5 h-5" aria-hidden="true">
+          <defs><clipPath id="footclip"><circle cx="120" cy="120" r="106"/></clipPath></defs>
+          <circle cx="120" cy="120" r="110" fill="none" stroke="#1FC4C4" stroke-width="6"/>
+          <g clip-path="url(#footclip)">
+            <rect x="14" y="14" width="212" height="212" fill="#06141f"/>
+            <path d="M14,172 Q70,156 130,170 T226,168 L226,200 L14,200 Z" fill="#0FA5A5"/>
+            <path d="M14,192 Q60,178 126,190 T226,188 L226,226 L14,226 Z" fill="#1FC4C4"/>
+          </g>
+        </svg>
+        <span>© 2026 Panoriq · Built in Germany</span>
+      </div>
+      <div>v0.1 · private preview</div>
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
 </body>
-
 </html>
