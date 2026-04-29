@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Panoriq — An agent for 3D point clouds</title>
-  <meta name="description" content="An AI agent that edits, segments, and queries 3D point clouds in plain English. Built for researchers, surveyors, and spatial-data teams.">
+  <meta name="description" content="An AI agent that edits and queries 3D point clouds in plain English. Built for researchers, surveyors, and spatial-data teams.">
 
   <link rel="icon" href="CI/logo/favicon/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="CI/logo/favicon/favicon-16.png" type="image/png" sizes="16x16">
   <link rel="apple-touch-icon" href="CI/logo/mark-light/mark-light-180.png">
 
   <meta property="og:title" content="Panoriq — An agent for 3D point clouds">
-  <meta property="og:description" content="An AI agent that edits, segments, and queries 3D point clouds in plain English.">
+  <meta property="og:description" content="An AI agent that edits and queries 3D point clouds in plain English.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="CI/logo/lockup/lockup-light-1600w.png">
   <meta name="theme-color" content="#0E2A47">
@@ -278,7 +278,7 @@
           </h1>
 
           <p class="mt-10 max-w-xl text-aqua/90 text-lg md:text-xl leading-relaxed">
-            An agent that edits, segments, and queries 3D spatial data — so you spend less
+            An agent that edits and queries 3D spatial data — so you spend less
             time scripting pipelines and more time thinking about the data itself.
           </p>
 
@@ -352,7 +352,7 @@
           </h2>
         </div>
         <p class="lg:col-span-5 text-stone-600 leading-relaxed text-lg max-w-md" data-reveal>
-          Ninety seconds, no narration: the agent loads a scan, segments it, answers a
+          Ninety seconds, no narration: the agent loads a scan, runs your edits, answers a
           spatial question, and exports — all in plain English.
         </p>
       </div>
@@ -389,19 +389,19 @@
         <!-- duplicated for seamless loop -->
         <div class="flex items-center gap-12 pr-12">
           <span>Edit</span><span class="text-brand-cyan">✦</span>
-          <span>Segment</span><span class="text-brand-cyan">✦</span>
           <span>Query</span><span class="text-brand-cyan">✦</span>
           <span>Classify</span><span class="text-brand-cyan">✦</span>
           <span>Downsample</span><span class="text-brand-cyan">✦</span>
           <span>Align</span><span class="text-brand-cyan">✦</span>
+          <span>Export</span><span class="text-brand-cyan">✦</span>
         </div>
         <div class="flex items-center gap-12 pr-12" aria-hidden="true">
           <span>Edit</span><span class="text-brand-cyan">✦</span>
-          <span>Segment</span><span class="text-brand-cyan">✦</span>
           <span>Query</span><span class="text-brand-cyan">✦</span>
           <span>Classify</span><span class="text-brand-cyan">✦</span>
           <span>Downsample</span><span class="text-brand-cyan">✦</span>
           <span>Align</span><span class="text-brand-cyan">✦</span>
+          <span>Export</span><span class="text-brand-cyan">✦</span>
         </div>
       </div>
     </div>
@@ -452,15 +452,15 @@
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16 md:mb-24" data-reveal>
         <div>
           <div class="eyebrow text-aqua/70 mb-6">03 — Capabilities</div>
-          <h2 class="display-section max-w-3xl">Four moves on a single horizon.</h2>
+          <h2 class="display-section max-w-3xl">Three moves on a single horizon.</h2>
         </div>
         <p class="max-w-md text-aqua/80 text-base leading-relaxed">
-          Edit, segment, query, and trust — the four operations that turn a raw point cloud
+          Edit, query, and trust — the three operations that turn a raw point cloud
           into something you can act on.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-5 md:gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
 
         <!-- Card 01 -->
         <article class="card group relative rounded-3xl p-8 md:p-10 bg-navy-deeper border border-white/10 hover:border-brand-cyan" data-reveal>
@@ -485,34 +485,12 @@
         </article>
 
         <!-- Card 02 -->
-        <article class="card group relative rounded-3xl p-8 md:p-10 bg-teal-deep border border-white/10 hover:border-brand-cyan" data-reveal>
-          <div class="aspect-video rounded-2xl overflow-hidden mb-8 bg-navy-deeper ring-1 ring-white/10">
-            <img src="img/placeholder-segment.svg" alt="Segment preview" class="w-full h-full object-cover">
-          </div>
-          <div class="flex items-start justify-between mb-10">
-            <span class="font-mono text-aqua/60 text-sm">Ⅱ — Segment</span>
-            <span class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-brand-cyan">
-              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none"><path d="M3 16c3-6 5-6 7 0s4 6 7 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            </span>
-          </div>
-          <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4">Isolate what matters</h3>
-          <p class="text-aqua/75 leading-relaxed max-w-md">
-            Identify, label, and extract regions — buildings, ground, vegetation — without
-            writing a classifier from scratch.
-          </p>
-          <ul class="mt-8 space-y-2 text-sm text-aqua/70">
-            <li class="flex gap-3"><span class="text-brand-cyan">—</span> Class-aware extraction in one pass</li>
-            <li class="flex gap-3"><span class="text-brand-cyan">—</span> Refine labels by pointing, not coding</li>
-          </ul>
-        </article>
-
-        <!-- Card 03 -->
         <article class="card group relative rounded-3xl p-8 md:p-10 bg-teal border border-white/10 hover:border-brand-cyan" data-reveal>
           <div class="aspect-video rounded-2xl overflow-hidden mb-8 bg-navy-deeper ring-1 ring-white/10">
             <img src="img/placeholder-query.svg" alt="Query preview" class="w-full h-full object-cover">
           </div>
           <div class="flex items-start justify-between mb-10">
-            <span class="font-mono text-aqua/60 text-sm">Ⅲ — Query</span>
+            <span class="font-mono text-aqua/60 text-sm">Ⅱ — Query</span>
             <span class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-brand-cyan">
               <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M10 2v3M10 15v3M2 10h3M15 10h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </span>
@@ -528,13 +506,13 @@
           </ul>
         </article>
 
-        <!-- Card 04 -->
+        <!-- Card 03 -->
         <article class="card group relative rounded-3xl p-8 md:p-10 bg-brand-cyan text-navy border border-brand-cyan hover:border-white" data-reveal>
           <div class="aspect-video rounded-2xl overflow-hidden mb-8 bg-navy-deeper ring-1 ring-navy/15">
             <img src="img/placeholder-trust.svg" alt="Trust preview" class="w-full h-full object-cover">
           </div>
           <div class="flex items-start justify-between mb-10">
-            <span class="font-mono text-navy/70 text-sm">Ⅳ — Trust</span>
+            <span class="font-mono text-navy/70 text-sm">Ⅲ — Trust</span>
             <span class="w-10 h-10 rounded-full border border-navy/20 flex items-center justify-center">
               <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none"><path d="M3 17L8 8l4 5 5-10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
@@ -676,7 +654,7 @@
             <span class="font-display text-2xl font-bold tracking-tightest text-white">panori<span class="q-cyan">q</span></span>
           </a>
           <p class="mt-6 max-w-sm text-aqua/70 leading-relaxed">
-            An agent for 3D point clouds. Edit, segment, and query spatial data in plain English.
+            An agent for 3D point clouds. Edit and query spatial data in plain English.
           </p>
         </div>
 
@@ -708,7 +686,7 @@
       <div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-aqua/50">
         <div>© 2026 Panoriq. All rights reserved.</div>
         <div class="font-mono tracking-widest uppercase">
-          Edit · Segment · Query · Iterate
+          Edit · Query · Iterate
         </div>
       </div>
     </div>
