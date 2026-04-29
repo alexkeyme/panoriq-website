@@ -332,6 +332,56 @@
     </div>
   </section>
 
+  <!-- DEMO -->
+  <section id="demo" class="relative py-24 md:py-36 bg-sand overflow-hidden">
+    <!-- Subtle decorative horizon -->
+    <div aria-hidden="true" class="absolute inset-x-0 -bottom-24 opacity-30 pointer-events-none">
+      <svg viewBox="0 0 1600 240" preserveAspectRatio="none" class="w-full h-40">
+        <path class="wave-layer wave-1" d="M-50,140 C 240,100 420,160 720,140 C 1000,120 1280,160 1700,140 L1700,240 L-50,240 Z" fill="#B8ECEC"/>
+        <path class="wave-layer wave-2" d="M-50,170 C 220,140 460,200 720,170 C 990,150 1280,200 1700,170 L1700,240 L-50,240 Z" fill="#0FA5A5" opacity="0.35"/>
+      </svg>
+    </div>
+
+    <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
+      <div class="grid lg:grid-cols-12 gap-8 lg:items-end mb-12 md:mb-16">
+        <div class="lg:col-span-7" data-reveal>
+          <div class="eyebrow text-teal-deep mb-6">Watch · 01:30</div>
+          <h2 class="display-section text-navy">
+            See the agent<br/>
+            <span class="font-serif italic font-normal">in motion.</span>
+          </h2>
+        </div>
+        <p class="lg:col-span-5 text-stone-600 leading-relaxed text-lg max-w-md" data-reveal>
+          Ninety seconds, no narration: the agent loads a scan, segments it, answers a
+          spatial question, and exports — all in plain English.
+        </p>
+      </div>
+
+      <div class="relative aspect-video rounded-3xl overflow-hidden bg-navy ring-1 ring-navy/10 shadow-[0_40px_120px_-30px_rgba(13,74,74,0.45)]" data-reveal>
+        <!-- Vimeo facade: click to load. Replace VIMEO_ID in js/main.js with your video ID. -->
+        <button id="demoPlay" class="absolute inset-0 w-full h-full group" aria-label="Play demo video">
+          <img src="img/placeholder-demo.svg" alt="" class="absolute inset-0 w-full h-full object-cover">
+
+          <!-- Play button -->
+          <span class="absolute inset-0 flex items-center justify-center">
+            <span class="relative flex items-center justify-center">
+              <span aria-hidden="true" class="absolute inline-block w-24 h-24 md:w-32 md:h-32 rounded-full bg-brand-cyan/40 blur-2xl"></span>
+              <span class="relative w-20 h-20 md:w-28 md:h-28 rounded-full bg-white/95 group-hover:bg-brand-cyan transition-colors flex items-center justify-center shadow-2xl">
+                <svg class="w-7 h-7 md:w-9 md:h-9 ml-1.5 text-navy" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </span>
+          </span>
+
+          <!-- Bottom-left caption pill -->
+          <span class="absolute bottom-5 md:bottom-7 left-5 md:left-7 inline-flex items-center gap-2 eyebrow text-white/90 bg-navy/45 backdrop-blur px-4 py-2 rounded-full">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span>
+            Watch demo
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- MARQUEE -->
   <section class="bg-aqua-surface border-y border-mist/60">
     <div class="marquee py-5">
@@ -414,9 +464,8 @@
 
         <!-- Card 01 -->
         <article class="card group relative rounded-3xl p-8 md:p-10 bg-navy-deeper border border-white/10 hover:border-brand-cyan" data-reveal>
-          <!-- VIDEO: drop a <source src="videos/edit.mp4" type="video/mp4"> below to enable -->
           <div class="aspect-video rounded-2xl overflow-hidden mb-8 bg-navy-deeper ring-1 ring-white/10">
-            <video class="w-full h-full object-cover" poster="img/placeholder-edit.svg" muted loop autoplay playsinline preload="none" aria-label="Edit demo placeholder"></video>
+            <img src="img/placeholder-edit.svg" alt="Edit preview" class="w-full h-full object-cover">
           </div>
           <div class="flex items-start justify-between mb-10">
             <span class="font-mono text-aqua/60 text-sm">Ⅰ — Edit</span>
@@ -437,9 +486,8 @@
 
         <!-- Card 02 -->
         <article class="card group relative rounded-3xl p-8 md:p-10 bg-teal-deep border border-white/10 hover:border-brand-cyan" data-reveal>
-          <!-- VIDEO: drop a <source src="videos/segment.mp4" type="video/mp4"> below to enable -->
           <div class="aspect-video rounded-2xl overflow-hidden mb-8 bg-navy-deeper ring-1 ring-white/10">
-            <video class="w-full h-full object-cover" poster="img/placeholder-segment.svg" muted loop autoplay playsinline preload="none" aria-label="Segment demo placeholder"></video>
+            <img src="img/placeholder-segment.svg" alt="Segment preview" class="w-full h-full object-cover">
           </div>
           <div class="flex items-start justify-between mb-10">
             <span class="font-mono text-aqua/60 text-sm">Ⅱ — Segment</span>
@@ -460,9 +508,8 @@
 
         <!-- Card 03 -->
         <article class="card group relative rounded-3xl p-8 md:p-10 bg-teal border border-white/10 hover:border-brand-cyan" data-reveal>
-          <!-- VIDEO: drop a <source src="videos/query.mp4" type="video/mp4"> below to enable -->
           <div class="aspect-video rounded-2xl overflow-hidden mb-8 bg-navy-deeper ring-1 ring-white/10">
-            <video class="w-full h-full object-cover" poster="img/placeholder-query.svg" muted loop autoplay playsinline preload="none" aria-label="Query demo placeholder"></video>
+            <img src="img/placeholder-query.svg" alt="Query preview" class="w-full h-full object-cover">
           </div>
           <div class="flex items-start justify-between mb-10">
             <span class="font-mono text-aqua/60 text-sm">Ⅲ — Query</span>
@@ -483,9 +530,8 @@
 
         <!-- Card 04 -->
         <article class="card group relative rounded-3xl p-8 md:p-10 bg-brand-cyan text-navy border border-brand-cyan hover:border-white" data-reveal>
-          <!-- VIDEO: drop a <source src="videos/trust.mp4" type="video/mp4"> below to enable -->
           <div class="aspect-video rounded-2xl overflow-hidden mb-8 bg-navy-deeper ring-1 ring-navy/15">
-            <video class="w-full h-full object-cover" poster="img/placeholder-trust.svg" muted loop autoplay playsinline preload="none" aria-label="Trust demo placeholder"></video>
+            <img src="img/placeholder-trust.svg" alt="Trust preview" class="w-full h-full object-cover">
           </div>
           <div class="flex items-start justify-between mb-10">
             <span class="font-mono text-navy/70 text-sm">Ⅳ — Trust</span>
