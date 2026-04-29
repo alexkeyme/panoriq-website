@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#06121e"/>
+      <stop offset="1" stop-color="#0E2A47"/>
+    </linearGradient>
+    <radialGradient id="glowL" cx="0.18" cy="0.45" r="0.4">
+      <stop offset="0" stop-color="#1FC4C4" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#1FC4C4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowR" cx="0.84" cy="0.6" r="0.4">
+      <stop offset="0" stop-color="#B8ECEC" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#B8ECEC" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dotsD" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#1FC4C4" opacity="0.07"/>
+    </pattern>
+    <clipPath id="markClip"><circle cx="800" cy="450" r="200"/></clipPath>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bgGrad)"/>
+  <rect width="1600" height="900" fill="url(#dotsD)"/>
+  <rect width="1600" height="900" fill="url(#glowL)"/>
+  <rect width="1600" height="900" fill="url(#glowR)"/>
+
+  <!-- Brand mark, large -->
+  <circle cx="800" cy="450" r="208" fill="none" stroke="#1FC4C4" stroke-width="3" opacity="0.85"/>
+  <g clip-path="url(#markClip)">
+    <rect x="600" y="250" width="400" height="400" fill="#0E2A47"/>
+    <path d="M580,438 Q700,406 820,422 T1020,422 L1020,495 L580,495 Z" fill="#0D4A4A"/>
+    <path d="M580,478 Q680,452 800,470 T1020,468 L1020,540 L580,540 Z" fill="#1F6B6B"/>
+    <path d="M580,520 Q700,500 820,514 T1020,512 L1020,580 L580,580 Z" fill="#0FA5A5"/>
+    <path d="M580,560 Q680,540 820,556 T1020,554 L1020,650 L580,650 Z" fill="#1FC4C4"/>
+  </g>
+
+  <!-- Scattered point cloud accent dots -->
+  <g fill="#1FC4C4" opacity="0.55">
+    <circle cx="320" cy="320" r="2"/>
+    <circle cx="380" cy="290" r="1.6"/>
+    <circle cx="280" cy="380" r="1.4"/>
+    <circle cx="430" cy="350" r="2.2"/>
+    <circle cx="220" cy="440" r="1.8"/>
+    <circle cx="350" cy="510" r="1.5"/>
+    <circle cx="450" cy="430" r="1.6"/>
+    <circle cx="1180" cy="330" r="1.8"/>
+    <circle cx="1240" cy="380" r="2"/>
+    <circle cx="1300" cy="320" r="1.4"/>
+    <circle cx="1360" cy="420" r="1.7"/>
+    <circle cx="1280" cy="490" r="1.6"/>
+    <circle cx="1180" cy="540" r="2"/>
+    <circle cx="1340" cy="560" r="1.6"/>
+    <circle cx="1230" cy="610" r="1.5"/>
+  </g>
+
+  <!-- Top-left mono label -->
+  <g font-family="ui-monospace,Space Grotesk,monospace" font-size="18" letter-spacing="4">
+    <text x="60" y="76" fill="#B8ECEC" opacity="0.7">PANORIQ · DEMO</text>
+    <line x1="60" y1="92" x2="220" y2="92" stroke="#1FC4C4" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- Bottom-right duration tag -->
+  <g transform="translate(1430,830)" font-family="ui-monospace,Space Grotesk,monospace" font-size="16" letter-spacing="3">
+    <rect x="0" y="-26" width="110" height="36" rx="18" fill="#06121e" stroke="#1FC4C4" stroke-opacity="0.4" stroke-width="1.2"/>
+    <text x="22" y="-3" fill="#B8ECEC" opacity="0.85">01:30</text>
+    <circle cx="80" cy="-9" r="5" fill="#1FC4C4"/>
+  </g>
+
+  <!-- Bottom-left context line -->
+  <text x="60" y="850" fill="#B8ECEC" opacity="0.55" font-family="ui-monospace,Space Grotesk,monospace" font-size="14" letter-spacing="3">
+    SEE THE AGENT IN MOTION  ·  EDIT · QUERY · TRUST
+  </text>
+</svg>
