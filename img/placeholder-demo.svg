@@ -67,6 +67,6 @@
 
   <!-- Bottom-left context line -->
   <text x="60" y="850" fill="#B8ECEC" opacity="0.55" font-family="ui-monospace,Space Grotesk,monospace" font-size="14" letter-spacing="3">
-    SEE THE AGENT IN MOTION  ·  EDIT · SEGMENT · QUERY · TRUST
+    SEE THE AGENT IN MOTION  ·  EDIT · QUERY · TRUST
   </text>
 </svg>
