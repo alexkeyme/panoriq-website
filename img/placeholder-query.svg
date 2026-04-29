@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="dotsQ" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#1FC4C4" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="#081A2E"/>
+  <rect width="800" height="450" fill="url(#dotsQ)"/>
+
+  <!-- Building outline -->
+  <g transform="translate(400,260)">
+    <path d="M -130 80 L -130 -90 L 0 -130 L 130 -90 L 130 80 Z" stroke="#1FC4C4" stroke-width="1.6" fill="#1FC4C4" fill-opacity="0.06"/>
+    <line x1="-130" y1="-90" x2="130" y2="-90" stroke="#1FC4C4" stroke-width="1.2" opacity="0.55"/>
+
+    <!-- Height dimension -->
+    <line x1="-180" y1="80" x2="-180" y2="-130" stroke="#1FC4C4" stroke-width="1.1" stroke-dasharray="4 3" opacity="0.85"/>
+    <line x1="-185" y1="80" x2="-175" y2="80" stroke="#1FC4C4" stroke-width="1.4"/>
+    <line x1="-185" y1="-130" x2="-175" y2="-130" stroke="#1FC4C4" stroke-width="1.4"/>
+    <rect x="-225" y="-30" width="62" height="22" rx="3" fill="#081A2E" stroke="#1FC4C4" stroke-width="1.1"/>
+    <text x="-194" y="-15" fill="#1FC4C4" font-family="ui-monospace,Space Grotesk,monospace" font-size="12" text-anchor="middle">12.4 m</text>
+
+    <!-- Width dimension -->
+    <line x1="-130" y1="120" x2="130" y2="120" stroke="#1FC4C4" stroke-width="1.1" stroke-dasharray="4 3" opacity="0.85"/>
+    <line x1="-130" y1="115" x2="-130" y2="125" stroke="#1FC4C4" stroke-width="1.4"/>
+    <line x1="130" y1="115" x2="130" y2="125" stroke="#1FC4C4" stroke-width="1.4"/>
+    <rect x="-31" y="132" width="62" height="22" rx="3" fill="#081A2E" stroke="#1FC4C4" stroke-width="1.1"/>
+    <text x="0" y="147" fill="#1FC4C4" font-family="ui-monospace,Space Grotesk,monospace" font-size="12" text-anchor="middle">8.7 m</text>
+  </g>
+
+  <!-- Corner labels -->
+  <text x="32" y="40" fill="#B8ECEC" opacity="0.65" font-family="ui-monospace,Space Grotesk,monospace" font-size="11" letter-spacing="3">[ 03 ] · QUERY · PREVIEW</text>
+  <g transform="translate(720,418)">
+    <circle cx="0" cy="-3" r="9" fill="none" stroke="#1FC4C4" stroke-width="1.3"/>
+    <path d="M -3 -7 L 4 -3 L -3 1 Z" fill="#1FC4C4"/>
+    <text x="20" y="0" fill="#B8ECEC" opacity="0.7" font-family="ui-monospace,Space Grotesk,monospace" font-size="11" letter-spacing="2">00:10</text>
+  </g>
+</svg>

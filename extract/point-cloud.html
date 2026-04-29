@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panoriq · Point cloud extractor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #06141f;
+      --fg: #eafafa;
+      --muted: #7a8b97;
+      --accent: #1fc4c4;
+      --line: #142a3d;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      background: var(--bg); color: var(--fg);
+      font-family: 'Manrope', system-ui, sans-serif;
+      overflow: hidden;
+    }
+    body.transparent { background: transparent; }
+
+    /* The canvas always sits centered, scaled to fit, preserving aspect. */
+    .stage {
+      position: fixed; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background:
+        repeating-conic-gradient(#1a2530 0% 25%, #131e29 0% 50%) 0 0 / 24px 24px;
+    }
+    body.transparent .stage { background: var(--bg); }
+    body.transparent .stage::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        repeating-conic-gradient(#1a2530 0% 25%, #131e29 0% 50%) 0 0 / 24px 24px;
+      opacity: 1;
+    }
+    canvas {
+      display: block;
+      max-width: 100%; max-height: 100%;
+      box-shadow: 0 30px 90px -20px rgba(0,0,0,0.5);
+    }
+
+    /* Floating UI panel */
+    .panel {
+      position: fixed; top: 24px; right: 24px;
+      width: 320px;
+      background: rgba(8, 26, 46, 0.92);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(31, 196, 196, 0.2);
+      border-radius: 16px;
+      padding: 20px;
+      z-index: 10;
+      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .panel.hidden { opacity: 0; transform: translateY(-8px); pointer-events: none; }
+    .panel h1 {
+      font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 14px;
+      letter-spacing: -0.01em; margin: 0 0 4px;
+    }
+    .panel .sub {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 18px;
+    }
+    .row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 12px; gap: 12px;
+    }
+    .row label {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .row select, .row input[type=number] {
+      background: #06141f; color: var(--fg);
+      border: 1px solid var(--line); border-radius: 8px;
+      padding: 6px 10px; font-family: inherit; font-size: 13px;
+      min-width: 110px; outline: none;
+    }
+    .row select:focus, .row input:focus { border-color: var(--accent); }
+    .actions { display: flex; gap: 8px; margin-top: 14px; }
+    button {
+      flex: 1; cursor: pointer;
+      background: var(--accent); color: var(--bg);
+      border: 0; border-radius: 999px;
+      padding: 10px 14px;
+      font-family: inherit; font-weight: 600; font-size: 13px;
+      transition: background 0.2s ease;
+    }
+    button:hover { background: var(--fg); }
+    button.ghost {
+      background: transparent; color: var(--fg);
+      border: 1px solid var(--line);
+    }
+    button.ghost:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+    button.recording { background: #ff5544; color: white; }
+
+    .status {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .status .dot {
+      display: inline-block; width: 6px; height: 6px;
+      border-radius: 50%; background: var(--muted);
+      margin-right: 6px; vertical-align: middle;
+    }
+    .status.live .dot { background: #ff5544; animation: pulse 1s ease-in-out infinite; }
+    .status.ready .dot { background: var(--accent); }
+    @keyframes pulse { 50% { opacity: 0.3; } }
+
+    .hint {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); margin-top: 10px; line-height: 1.6;
+    }
+    kbd {
+      background: var(--line); color: var(--fg);
+      padding: 1px 6px; border-radius: 4px;
+      font-family: 'Space Grotesk', monospace; font-size: 10px;
+    }
+    .switch {
+      display: block;
+      margin-top: 10px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+    }
+    .switch:hover { color: var(--accent); }
+  </style>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <div class="stage">
+    <canvas id="canvas" width="1920" height="1080"></canvas>
+  </div>
+
+  <div class="panel" id="panel">
+    <h1>Point cloud extractor</h1>
+    <div class="sub">Panoriq · v0.1</div>
+
+    <div class="row">
+      <label>Resolution</label>
+      <select id="resolution">
+        <option value="1280x720">720p (1280×720)</option>
+        <option value="1920x1080" selected>1080p (1920×1080)</option>
+        <option value="2560x1440">1440p (2560×1440)</option>
+        <option value="3840x2160">4K (3840×2160)</option>
+        <option value="1080x1080">Square (1080×1080)</option>
+        <option value="1080x1920">Vertical (1080×1920)</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label>Duration</label>
+      <input type="number" id="duration" value="10" min="1" max="120" step="1">
+    </div>
+
+    <div class="row">
+      <label>Background</label>
+      <select id="background">
+        <option value="navy" selected>Navy</option>
+        <option value="black">Black</option>
+        <option value="transparent">Transparent</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label>Density</label>
+      <select id="density">
+        <option value="5000">Sparse · 5k</option>
+        <option value="9000" selected>Default · 9k</option>
+        <option value="14000">Dense · 14k</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label>Speed</label>
+      <select id="speed">
+        <option value="0.04">Slow</option>
+        <option value="0.08" selected>Normal</option>
+        <option value="0.16">Fast</option>
+      </select>
+    </div>
+
+    <div class="actions">
+      <button id="record">Record .webm</button>
+      <button id="hide" class="ghost" title="Hide UI (H)">Hide UI</button>
+    </div>
+
+    <div class="status ready" id="status"><span class="dot"></span><span id="statusText">Ready</span></div>
+
+    <div class="hint">
+      <kbd>H</kbd> Toggle UI · <kbd>R</kbd> Record · <kbd>Space</kbd> Pause<br>
+      Convert to mp4: <span style="text-transform:none">ffmpeg -i in.webm -c:v libx264 -pix_fmt yuv420p out.mp4</span>
+    </div>
+
+    <a class="switch" href="brand-panorama.html">↗ Switch to brand panorama</a>
+  </div>
+
+  <script type="module">
+    import * as THREE from "three";
+
+    // ─── State ──────────────────────────────────────────────────────────
+    const canvas = document.getElementById("canvas");
+    const panel  = document.getElementById("panel");
+    const status = document.getElementById("status");
+    const statusText = document.getElementById("statusText");
+
+    const cfg = {
+      width: 1920,
+      height: 1080,
+      duration: 10,
+      background: "navy",     // navy | black | transparent
+      density: 9000,
+      speed: 0.08,
+    };
+
+    // ─── Scene setup ────────────────────────────────────────────────────
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: true,
+      preserveDrawingBuffer: true, // needed for clean captureStream
+      powerPreference: "high-performance",
+    });
+    renderer.setPixelRatio(1); // we control resolution explicitly
+
+    const scene  = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 0, 7.5);
+
+    // Brand palette
+    const cAccent = new THREE.Color(0x1fc4c4);
+    const cMid    = new THREE.Color(0x1f6b6b);
+    const cDeep   = new THREE.Color(0x0d4a4a);
+
+    let points = null;
+
+    function rebuildPoints() {
+      if (points) {
+        points.geometry.dispose();
+        points.material.dispose();
+        scene.remove(points);
+      }
+      const COUNT = cfg.density;
+      const positions = new Float32Array(COUNT * 3);
+      const colors    = new Float32Array(COUNT * 3);
+
+      for (let i = 0; i < COUNT; i++) {
+        const t = (i / COUNT) * Math.PI * 2;
+        const p = 2, q = 3;
+        const r = 2 + Math.cos(q * t);
+        let x = r * Math.cos(p * t);
+        let y = r * Math.sin(p * t);
+        let z = -Math.sin(q * t) * 1.4;
+
+        const scatter = 0.55;
+        x += (Math.random() - 0.5) * scatter * 2;
+        y += (Math.random() - 0.5) * scatter * 2;
+        z += (Math.random() - 0.5) * scatter;
+
+        positions[i*3] = x; positions[i*3+1] = y; positions[i*3+2] = z;
+
+        const depth = (z + 2) / 4;
+        const c = new THREE.Color().lerpColors(cDeep, cAccent, depth);
+        if (Math.random() < 0.18) c.lerp(cMid, 0.5);
+        colors[i*3] = c.r; colors[i*3+1] = c.g; colors[i*3+2] = c.b;
+      }
+
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+      geo.setAttribute("color",    new THREE.BufferAttribute(colors, 3));
+
+      const mat = new THREE.PointsMaterial({
+        size: 0.025,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.85,
+        sizeAttenuation: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+      });
+
+      points = new THREE.Points(geo, mat);
+      scene.add(points);
+    }
+
+    function applyBackground() {
+      if (cfg.background === "transparent") {
+        renderer.setClearColor(0x000000, 0);
+        document.body.classList.add("transparent");
+      } else if (cfg.background === "black") {
+        renderer.setClearColor(0x000000, 1);
+        document.body.classList.remove("transparent");
+        document.body.style.background = "#000";
+      } else {
+        renderer.setClearColor(0x06141f, 1);
+        document.body.classList.remove("transparent");
+        document.body.style.background = "#06141f";
+      }
+    }
+
+    function applyResolution() {
+      canvas.width = cfg.width;
+      canvas.height = cfg.height;
+      renderer.setSize(cfg.width, cfg.height, false);
+      camera.aspect = cfg.width / cfg.height;
+      camera.updateProjectionMatrix();
+    }
+
+    rebuildPoints();
+    applyBackground();
+    applyResolution();
+
+    // ─── Animation ──────────────────────────────────────────────────────
+    let paused = false;
+    const clock = new THREE.Clock();
+    function tick() {
+      const dt = Math.min(clock.getDelta(), 0.05);
+      if (!paused && points) {
+        points.rotation.y += dt * cfg.speed;
+        points.rotation.x += dt * cfg.speed * 0.35;
+      }
+      renderer.render(scene, camera);
+      requestAnimationFrame(tick);
+    }
+    tick();
+
+    // ─── UI bindings ────────────────────────────────────────────────────
+    document.getElementById("resolution").addEventListener("change", e => {
+      const [w, h] = e.target.value.split("x").map(Number);
+      cfg.width = w; cfg.height = h;
+      applyResolution();
+    });
+    document.getElementById("duration").addEventListener("change", e => {
+      cfg.duration = Math.max(1, Math.min(120, Number(e.target.value) || 10));
+    });
+    document.getElementById("background").addEventListener("change", e => {
+      cfg.background = e.target.value;
+      applyBackground();
+    });
+    document.getElementById("density").addEventListener("change", e => {
+      cfg.density = Number(e.target.value);
+      rebuildPoints();
+    });
+    document.getElementById("speed").addEventListener("change", e => {
+      cfg.speed = Number(e.target.value);
+    });
+
+    // ─── Hide UI ────────────────────────────────────────────────────────
+    const hideBtn = document.getElementById("hide");
+    function toggleUI() { panel.classList.toggle("hidden"); }
+    hideBtn.addEventListener("click", toggleUI);
+    window.addEventListener("keydown", e => {
+      if (e.key === "h" || e.key === "H") toggleUI();
+      else if (e.key === "r" || e.key === "R") record();
+      else if (e.key === " ") { paused = !paused; e.preventDefault(); }
+    });
+
+    // ─── Recording ──────────────────────────────────────────────────────
+    const recordBtn = document.getElementById("record");
+    function setStatus(text, cls) {
+      statusText.textContent = text;
+      status.className = "status " + (cls || "");
+    }
+
+    function pickMimeType(transparent) {
+      // Chrome supports VP9 with alpha in webm.
+      const candidates = transparent
+        ? ["video/webm;codecs=vp9", "video/webm;codecs=vp8"]
+        : ["video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"];
+      for (const m of candidates) {
+        if (MediaRecorder.isTypeSupported(m)) return m;
+      }
+      return "";
+    }
+
+    async function record() {
+      if (recordBtn.dataset.busy === "1") return;
+      recordBtn.dataset.busy = "1";
+      recordBtn.classList.add("recording");
+      const transparent = cfg.background === "transparent";
+      const mimeType = pickMimeType(transparent);
+      if (!mimeType) {
+        setStatus("MediaRecorder not supported", "");
+        recordBtn.dataset.busy = ""; recordBtn.classList.remove("recording");
+        return;
+      }
+
+      const stream = canvas.captureStream(60);
+      const recorder = new MediaRecorder(stream, {
+        mimeType,
+        videoBitsPerSecond: 24_000_000,
+      });
+      const chunks = [];
+      recorder.ondataavailable = e => { if (e.data.size > 0) chunks.push(e.data); };
+      recorder.onstop = () => {
+        const blob = new Blob(chunks, { type: "video/webm" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
+        a.href = url;
+        a.download = `panoriq-pointcloud-${cfg.width}x${cfg.height}-${cfg.duration}s-${stamp}.webm`;
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        const mb = (blob.size / 1024 / 1024).toFixed(1);
+        setStatus(`Done · ${mb} MB`, "ready");
+        recordBtn.textContent = "Record .webm";
+        recordBtn.classList.remove("recording");
+        recordBtn.dataset.busy = "";
+      };
+
+      recorder.start();
+      const startedAt = performance.now();
+      const total = cfg.duration * 1000;
+      setStatus(`Recording 0 / ${cfg.duration}s`, "live");
+
+      const tickStatus = () => {
+        const elapsed = (performance.now() - startedAt) / 1000;
+        if (elapsed >= cfg.duration) {
+          recorder.stop();
+          return;
+        }
+        setStatus(`Recording ${elapsed.toFixed(1)} / ${cfg.duration}s`, "live");
+        requestAnimationFrame(tickStatus);
+      };
+      requestAnimationFrame(tickStatus);
+    }
+
+    recordBtn.addEventListener("click", record);
+  </script>
+
+</body>
+</html>
