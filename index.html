@@ -16,186 +16,16 @@
   <meta property="og:image" content="CI/logo/lockup/lockup-light-1600w.png">
   <meta name="theme-color" content="#0E2A47">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="dist/output.css">
 
   <script type="importmap">
     {
       "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+        "three": "./js/vendor/three.module.js"
       }
     }
   </script>
   <script type="module" src="js/main.js" defer></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy:  { DEFAULT: '#0E2A47', deeper: '#081A2E' },
-            brand: { cyan: '#1FC4C4', cyanDark: '#0FA5A5' },
-            teal:  { DEFAULT: '#1F6B6B', deep: '#0D4A4A' },
-            aqua:  { DEFAULT: '#B8ECEC', surface: '#EAFAFA' },
-            coral: '#FF7A59',
-            amber: '#F5B544',
-            ink:   '#0A0A0A',
-            sand:  '#F7F8F9',
-            fog:   '#EDEFF2',
-            mist:  '#D9DDE2',
-            stone: { 400: '#8A939E', 500: '#5F6974', 600: '#424B55', 700: '#2A323B' }
-          },
-          fontFamily: {
-            display: ['Manrope', 'sans-serif'],
-            sans:    ['Inter', 'sans-serif'],
-            mono:    ['"Space Grotesk"', 'monospace'],
-            serif:   ['Fraunces', 'serif']
-          },
-          letterSpacing: { tightest: '-0.04em' }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    html { scroll-behavior: smooth; }
-    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-
-    /* Brand accents */
-    .q-cyan { color: #1FC4C4; }
-
-    /* Hero display headline */
-    .display-hero {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800;
-      font-size: clamp(3.2rem, 10vw, 9rem);
-      line-height: 0.92;
-      letter-spacing: -0.04em;
-    }
-    .display-section {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2.25rem, 6vw, 5rem);
-      line-height: 0.95;
-      letter-spacing: -0.035em;
-    }
-    .eyebrow {
-      font-family: 'Space Grotesk', monospace;
-      font-size: 12px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-    }
-
-    /* Grid backdrop for hero */
-    .bg-grid {
-      background-image:
-        linear-gradient(rgba(184, 236, 236, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(184, 236, 236, 0.06) 1px, transparent 1px);
-      background-size: 72px 72px;
-    }
-
-    /* Subtle grain */
-    .grain { position: relative; }
-    .grain::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.06;
-      mix-blend-mode: overlay;
-      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    }
-
-    /* Horizon waves — panoramic band, SVG paths */
-    .wave-layer { transform-origin: center; will-change: transform; }
-    .wave-1 { animation: drift 18s ease-in-out infinite; }
-    .wave-2 { animation: drift 24s ease-in-out infinite reverse; }
-    .wave-3 { animation: drift 30s ease-in-out infinite; }
-    .wave-4 { animation: drift 36s ease-in-out infinite reverse; }
-    @keyframes drift {
-      0%, 100% { transform: translate3d(0, 0, 0); }
-      50%      { transform: translate3d(-36px, -4px, 0); }
-    }
-
-    /* Marquee */
-    .marquee { overflow: hidden; position: relative; }
-    .marquee-track {
-      display: flex;
-      gap: 3rem;
-      width: max-content;
-      animation: marquee 48s linear infinite;
-    }
-    .marquee:hover .marquee-track { animation-play-state: paused; }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* Giant decorative Q as section signature */
-    .big-q {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800;
-      font-size: clamp(16rem, 40vw, 44rem);
-      line-height: 0.8;
-      letter-spacing: -0.06em;
-    }
-
-    /* Mark rotate very slow */
-    .spin-slow { animation: spin 120s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* Scroll reveal */
-    [data-reveal] {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-    [data-reveal].is-visible { opacity: 1; transform: none; }
-
-    /* Nav glass */
-    .nav-glass {
-      background: rgba(247, 248, 249, 0.7);
-      backdrop-filter: saturate(160%) blur(14px);
-      -webkit-backdrop-filter: saturate(160%) blur(14px);
-      border-bottom: 1px solid rgba(13, 74, 74, 0.08);
-    }
-
-    /* Card stroke hover */
-    .card { transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
-    .card:hover { transform: translateY(-4px); }
-
-    /* Horizon divider */
-    .horizon {
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(15,165,165,0.0) 0%, rgba(15,165,165,0.5) 50%, rgba(15,165,165,0.0) 100%);
-    }
-
-    /* Process rail — only on md+ where cards are side-by-side */
-    @media (min-width: 768px) {
-      .rail::before {
-        content: '';
-        position: absolute;
-        top: 28px;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, #1FC4C4 0%, #0D4A4A 100%);
-      }
-    }
-
-    /* Focus visible */
-    :where(a, button):focus-visible {
-      outline: 2px solid #1FC4C4;
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .wave-1, .wave-2, .wave-3, .wave-4, .marquee-track, .spin-slow { animation: none !important; }
-    }
-  </style>
 </head>
 
 <body id="top" class="font-sans bg-sand text-navy">
@@ -429,7 +259,7 @@
             until the data looks the way it should.
           </p>
           <div class="mt-10 flex items-center gap-4">
-            <a href="#capabilities" class="inline-flex items-center gap-2 text-navy font-semibold border-b border-navy/30 hover:border-brand-cyan hover:text-brand-cyanDark transition pb-1">
+            <a href="#capabilities" class="inline-flex items-center gap-2 text-navy font-semibold border-b border-navy/30 hover:border-brand-cyan hover:text-brand-cyan-dark transition pb-1">
               See capabilities
               <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -598,7 +428,7 @@
       <div class="eyebrow text-stone-500 mb-8">05 — Working principle</div>
       <blockquote class="font-serif italic text-3xl md:text-5xl lg:text-6xl leading-[1.08] text-navy tracking-tight">
         "Spatial data shouldn't require spatial expertise. The right interface turns
-        a lidar scan into <span class="not-italic font-display font-bold text-brand-cyanDark">a conversation</span>
+        a lidar scan into <span class="not-italic font-display font-bold text-brand-cyan-dark">a conversation</span>
         — and a step toward systems that operate in physical space."
       </blockquote>
       <div class="mt-10 flex items-center justify-center gap-3 text-sm text-stone-500">

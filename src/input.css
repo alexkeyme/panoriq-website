@@ -1,0 +1,279 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────────────────────────
+   Self-hosted variable fonts (woff2)
+   Files in /fonts/, this CSS lives in /dist/, hence ../fonts/.
+   ─────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/manrope-variable.woff2") format("woff2-variations"),
+       url("../fonts/manrope-variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/inter-variable.woff2") format("woff2-variations"),
+       url("../fonts/inter-variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("../fonts/space-grotesk-variable.woff2") format("woff2-variations"),
+       url("../fonts/space-grotesk-variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/fraunces-variable.woff2") format("woff2-variations"),
+       url("../fonts/fraunces-variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fraunces";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/fraunces-italic-variable.woff2") format("woff2-variations"),
+       url("../fonts/fraunces-italic-variable.woff2") format("woff2");
+}
+
+/* ───────────────────────────────────────────────────────────────
+   Theme — brand palette + fonts (Tailwind v4 @theme syntax)
+   ─────────────────────────────────────────────────────────────── */
+@theme {
+  --color-navy: #0E2A47;
+  --color-navy-deeper: #081A2E;
+
+  --color-brand-cyan: #1FC4C4;
+  --color-brand-cyan-dark: #0FA5A5;
+
+  --color-teal: #1F6B6B;
+  --color-teal-deep: #0D4A4A;
+
+  --color-aqua: #B8ECEC;
+  --color-aqua-surface: #EAFAFA;
+
+  --color-coral: #FF7A59;
+  --color-amber: #F5B544;
+  --color-ink:   #0A0A0A;
+  --color-sand:  #F7F8F9;
+  --color-fog:   #EDEFF2;
+  --color-mist:  #D9DDE2;
+
+  --color-stone-400: #8A939E;
+  --color-stone-500: #5F6974;
+  --color-stone-600: #424B55;
+  --color-stone-700: #2A323B;
+
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "Space Grotesk", ui-monospace, monospace;
+  --font-serif:   "Fraunces", serif;
+
+  --tracking-tightest: -0.04em;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   Base
+   ─────────────────────────────────────────────────────────────── */
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   Custom utilities + components used across the site
+   ─────────────────────────────────────────────────────────────── */
+@layer components {
+  .q-cyan { color: #1FC4C4; }
+
+  /* Hero display headline */
+  .display-hero {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: clamp(3.2rem, 10vw, 9rem);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+  }
+  .display-section {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.25rem, 6vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+  }
+  .eyebrow {
+    font-family: "Space Grotesk", monospace;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  /* Hero grid backdrop */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(184, 236, 236, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184, 236, 236, 0.06) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  /* Subtle grain */
+  .grain { position: relative; }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* Horizon waves drift */
+  .wave-layer { transform-origin: center; will-change: transform; }
+  .wave-1 { animation: drift 18s ease-in-out infinite; }
+  .wave-2 { animation: drift 24s ease-in-out infinite reverse; }
+  .wave-3 { animation: drift 30s ease-in-out infinite; }
+  .wave-4 { animation: drift 36s ease-in-out infinite reverse; }
+  @keyframes drift {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%      { transform: translate3d(-36px, -4px, 0); }
+  }
+
+  /* Marquee */
+  .marquee { overflow: hidden; position: relative; }
+  .marquee-track {
+    display: flex;
+    gap: 3rem;
+    width: max-content;
+    animation: marquee 48s linear infinite;
+  }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Giant decorative Q */
+  .big-q {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: clamp(16rem, 40vw, 44rem);
+    line-height: 0.8;
+    letter-spacing: -0.06em;
+  }
+
+  /* Mark rotate */
+  .spin-slow { animation: spin 120s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Scroll reveal */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  [data-reveal].is-visible { opacity: 1; transform: none; }
+
+  /* Nav glass */
+  .nav-glass {
+    background: rgba(247, 248, 249, 0.7);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    border-bottom: 1px solid rgba(13, 74, 74, 0.08);
+  }
+
+  /* Card hover lift */
+  .card { transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+  .card:hover { transform: translateY(-4px); }
+
+  /* Horizon divider */
+  .horizon {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(15,165,165,0.0) 0%, rgba(15,165,165,0.5) 50%, rgba(15,165,165,0.0) 100%);
+  }
+
+  /* Process rail */
+  @media (min-width: 768px) {
+    .rail::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #1FC4C4 0%, #0D4A4A 100%);
+    }
+  }
+
+  /* Focus visible */
+  :where(a, button):focus-visible {
+    outline: 2px solid #1FC4C4;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wave-1, .wave-2, .wave-3, .wave-4, .marquee-track, .spin-slow { animation: none !important; }
+  }
+
+  /* Long-form legal prose (impressum + datenschutz) */
+  .legal-prose { font-family: "Inter", sans-serif; color: #424B55; line-height: 1.7; font-size: 15px; }
+  .legal-prose h2 {
+    font-family: "Manrope", sans-serif; font-weight: 700;
+    font-size: 1.875rem; color: #0E2A47;
+    margin: 3.5rem 0 1.25rem; line-height: 1.15; letter-spacing: -0.02em;
+  }
+  .legal-prose h3 {
+    font-family: "Manrope", sans-serif; font-weight: 700;
+    font-size: 1.25rem; color: #0E2A47;
+    margin: 2rem 0 0.75rem;
+  }
+  .legal-prose h4 {
+    font-family: "Manrope", sans-serif; font-weight: 600;
+    font-size: 1rem; color: #0E2A47;
+    margin: 1.5rem 0 0.5rem;
+  }
+  .legal-prose p { margin-bottom: 1rem; }
+  .legal-prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+  .legal-prose li { margin-bottom: 0.4rem; }
+  .legal-prose a {
+    color: #0FA5A5; text-decoration: underline;
+    text-underline-offset: 2px; word-break: break-word;
+  }
+  .legal-prose a:hover { color: #1FC4C4; }
+  .legal-prose strong { font-weight: 600; color: #0E2A47; }
+  .legal-prose .caps {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    background: white;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid #1FC4C4;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+  }
+  .legal-prose .address {
+    font-style: normal; display: block;
+    padding: 1rem 1.25rem; margin: 0.75rem 0 1.25rem;
+    background: white; border-left: 3px solid #1FC4C4;
+    border-radius: 0 8px 8px 0;
+    color: #2A323B;
+  }
+}
+
+/* Tell Tailwind which files to scan for class usage */
+@source "../*.html";
+@source "../extract/*.html";
