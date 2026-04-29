@@ -4,7 +4,7 @@ import * as THREE from "three";
 // CONFIG: drop your Vimeo video ID here once the demo is uploaded.
 // Find it at the end of your Vimeo URL, e.g. https://vimeo.com/123456789 → "123456789"
 // Leave as "" while you don't have a video yet — the play button will warn in console.
-const VIMEO_ID = "";
+const VIMEO_ID = "1187686744";
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Click-to-load Vimeo facade for the demo section.
