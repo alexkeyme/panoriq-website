@@ -7,3 +7,5 @@ dist
 .history
 .claude
 .idea
+*.log
+.playwright-cli
