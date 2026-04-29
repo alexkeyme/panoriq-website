@@ -4,10 +4,13 @@
   "private": true,
   "description": "Panoriq — an agent for 3D point clouds.",
   "scripts": {
-    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "dev": "concurrently -k -n css,serve -c cyan,green \"npm:watch\" \"npm:serve\"",
+    "watch": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "serve": "python3 -m http.server 4173",
     "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.0.0"
+    "@tailwindcss/cli": "^4.0.0",
+    "concurrently": "^9.0.0"
   }
 }
