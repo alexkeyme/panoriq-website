@@ -132,7 +132,7 @@ def main():
     make_lockup(SVG_DIR / "mark-light.svg", (255, 255, 255, 0), NAVY, "lockup-light", LOCKUP_WIDTHS)
 
     print("\n--- Lockup dark ---")
-    make_lockup(SVG_DIR / "mark-dark.svg", NAVY + (255,), WHITE, "lockup-dark", LOCKUP_WIDTHS)
+    make_lockup(SVG_DIR / "mark-dark.svg", NAVY + (0,), WHITE, "lockup-dark", LOCKUP_WIDTHS)
 
     print("\nDone.")
 
