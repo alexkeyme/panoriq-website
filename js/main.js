@@ -1,37 +1,35 @@
 import * as THREE from "three";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// CONFIG: drop your Vimeo video ID here once the demo is uploaded.
-// Find it at the end of your Vimeo URL, e.g. https://vimeo.com/123456789 → "123456789"
-// Leave as "" while you don't have a video yet — the play button will warn in console.
-const VIMEO_ID = "1187686744";
+// CONFIG: Vimeo IDs for each demo video.
+const VIMEO_IDS = {
+  pointCloud: "1187686744",
+  facade:     "1197400606",
+};
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Click-to-load Vimeo facade for the demo section.
-// Why a facade? It avoids loading Vimeo's player JS on initial page load
-// (faster paint, no third-party tracking until the user actually clicks play).
-(() => {
-  const btn = document.getElementById("demoPlay");
+// Click-to-load Vimeo facade — shared factory used by each play button.
+function initVimeoFacade(buttonId, vimeoId, title) {
+  const btn = document.getElementById(buttonId);
   if (!btn) return;
-
   btn.addEventListener("click", () => {
-    if (!VIMEO_ID) {
-      console.info("[panoriq] Set VIMEO_ID at the top of js/main.js to enable the demo.");
-      return;
-    }
+    if (!vimeoId) return;
     const wrapper = btn.parentElement;
     const iframe = document.createElement("iframe");
     iframe.src =
-      `https://player.vimeo.com/video/${VIMEO_ID}` +
+      `https://player.vimeo.com/video/${vimeoId}` +
       `?autoplay=1&title=0&byline=0&portrait=0&dnt=1&color=1FC4C4`;
     iframe.allow = "autoplay; fullscreen; picture-in-picture";
     iframe.allowFullscreen = true;
     iframe.className = "absolute inset-0 w-full h-full";
     iframe.setAttribute("frameborder", "0");
-    iframe.setAttribute("title", "Panoriq demo");
+    iframe.setAttribute("title", title);
     wrapper.replaceChild(iframe, btn);
   });
-})();
+}
+
+initVimeoFacade("demoPlay",       VIMEO_IDS.pointCloud, "Panoriq point-cloud demo");
+initVimeoFacade("demoPlayFacade", VIMEO_IDS.facade,     "Panoriq facade analysis demo");
 
 // Ambient point-cloud background for the hero.
 // Tuned to sit behind the brand grid + wave-mark without competing.
