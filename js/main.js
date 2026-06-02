@@ -12,6 +12,16 @@ const VIMEO_IDS = {
 function initVimeoFacade(buttonId, vimeoId, title) {
   const btn = document.getElementById(buttonId);
   if (!btn) return;
+
+  // Fetch the real Vimeo thumbnail and swap out the placeholder.
+  const img = btn.querySelector("img");
+  if (img) {
+    fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${vimeoId}&width=1280`)
+      .then(r => r.json())
+      .then(d => { if (d.thumbnail_url) img.src = d.thumbnail_url; })
+      .catch(() => {});
+  }
+
   btn.addEventListener("click", () => {
     if (!vimeoId) return;
     const wrapper = btn.parentElement;
@@ -28,8 +38,8 @@ function initVimeoFacade(buttonId, vimeoId, title) {
   });
 }
 
-initVimeoFacade("demoPlay",       VIMEO_IDS.pointCloud, "Panoriq point-cloud demo");
 initVimeoFacade("demoPlayFacade", VIMEO_IDS.facade,     "Panoriq facade analysis demo");
+initVimeoFacade("demoPlay",       VIMEO_IDS.pointCloud, "Panoriq point-cloud demo");
 
 // Ambient point-cloud background for the hero.
 // Tuned to sit behind the brand grid + wave-mark without competing.
