@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Evaluation · panoriq</title>
+
+  <!-- Private funnel page: keep it out of search indexes. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" href="CI/logo/favicon/favicon-32.png?v=__ASSET_VERSION__" type="image/png" sizes="32x32">
+  <link rel="icon" href="CI/logo/favicon/favicon-16.png?v=__ASSET_VERSION__" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="CI/logo/mark-light/mark-light-180.png?v=__ASSET_VERSION__">
+
+  <meta name="theme-color" content="#0E2A47">
+
+  <link rel="stylesheet" href="dist/output.css?v=__ASSET_VERSION__">
+</head>
+
+<body id="top" class="font-sans bg-sand text-navy">
+
+  <!-- NAV — logo only; deliberately no menu and no link back into the funnel -->
+  <header class="fixed top-0 inset-x-0 z-50 nav-glass">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10 py-4 flex items-center">
+      <a href="/" class="flex items-center gap-3">
+        <svg viewBox="0 0 240 240" class="w-9 h-9" aria-hidden="true">
+          <defs><clipPath id="navclip"><circle cx="120" cy="120" r="106"/></clipPath></defs>
+          <circle cx="120" cy="120" r="110" fill="none" stroke="#0E2A47" stroke-width="5"/>
+          <g clip-path="url(#navclip)">
+            <rect x="14" y="14" width="212" height="212" fill="#EAFAFA"/>
+            <path d="M14,118 Q70,92 130,108 T226,108 L226,150 L14,150 Z" fill="#0D4A4A"/>
+            <path d="M14,146 Q60,124 120,140 T226,140 L226,180 L14,180 Z" fill="#1F6B6B"/>
+            <path d="M14,172 Q70,156 130,170 T226,168 L226,200 L14,200 Z" fill="#0FA5A5"/>
+            <path d="M14,192 Q60,178 126,190 T226,188 L226,226 L14,226 Z" fill="#1FC4C4"/>
+          </g>
+        </svg>
+        <span class="font-display text-[22px] font-bold tracking-tightest text-navy">panori<span class="q-cyan">q</span></span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1 — HEADER -->
+    <section class="relative overflow-hidden bg-navy text-white grain">
+      <div class="absolute inset-0 bg-grid opacity-50 pointer-events-none"></div>
+      <div class="pointer-events-none absolute -top-40 -right-40 w-[620px] h-[620px] rounded-full blur-3xl opacity-30" style="background: radial-gradient(circle, #1FC4C4 0%, transparent 60%);"></div>
+
+      <div class="relative mx-auto max-w-[860px] px-6 md:px-10 pt-36 md:pt-44 pb-20 md:pb-28">
+        <div class="eyebrow text-brand-cyan mb-6">Self-Assessment</div>
+        <h1 class="display-hero">Agent Evaluation</h1>
+        <p class="mt-5 text-2xl md:text-3xl font-serif italic font-normal text-aqua">
+          Get your agent under control.
+        </p>
+        <p class="mt-8 text-lg text-aqua/80 leading-relaxed max-w-2xl">
+          If you're building an LLM agent, chatbot, or copilot, you've probably hit the
+          moment where &ldquo;seems to work&rdquo; isn't enough. This page is a starting point:
+          a self-assessment you can use today, and the option to talk to me directly.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 — THE SCORECARD -->
+    <section class="py-20 md:py-28 bg-sand">
+      <div class="mx-auto max-w-[860px] px-6 md:px-10">
+        <div class="eyebrow text-stone-500 mb-6">01 - The Scorecard</div>
+        <h2 class="display-section text-navy text-[2rem] md:text-[2.75rem] leading-[1.05]">
+          Score where you stand
+        </h2>
+        <p class="mt-6 text-lg text-stone-600 leading-relaxed max-w-2xl">
+          Eight dimensions, scored 0&ndash;3, totalled out of 24. It takes ten minutes
+          and shows you exactly where the gaps are. No form, no email &mdash; just download it.
+        </p>
+        <div class="mt-9">
+          <a href="agent-evaluation-scorecard.pdf?v=__ASSET_VERSION__" download
+             class="inline-flex items-center gap-2.5 bg-navy text-white hover:bg-teal-deep transition px-7 py-3.5 rounded-full text-[14px] font-semibold">
+            <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 1.5v8.5M8 10l3-3M8 10L5 7M2.5 12.5h11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Download the Agent Evaluation Scorecard (PDF)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-[860px] px-6 md:px-10"><div class="horizon"></div></div>
+
+    <!-- SECTION 3 — THE AGENT RELIABILITY REVIEW -->
+    <section class="py-20 md:py-28 bg-sand">
+      <div class="mx-auto max-w-[860px] px-6 md:px-10">
+        <div class="eyebrow text-stone-500 mb-6">02 - Talk it through</div>
+        <h2 class="display-section text-navy text-[2rem] md:text-[2.75rem] leading-[1.05]">
+          Agent Reliability Review
+        </h2>
+        <p class="mt-6 text-lg text-stone-600 leading-relaxed max-w-2xl">
+          A free 30-minute conversation. Bring your agent, your traces, your concerns.
+          I'll look at where you are and what's worth doing next. No pitch.
+        </p>
+        <div class="mt-9">
+          <a href="https://calendly.com/alex-key/agent-reliability-review" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-navy text-white hover:bg-teal-deep transition px-7 py-3.5 rounded-full text-[14px] font-semibold">
+            Book a Review
+            <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER — same as the rest of the site -->
+  <footer class="bg-navy-deeper text-white">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10 py-16">
+      <div class="grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-5">
+          <a href="/" class="inline-flex items-center gap-3">
+            <svg viewBox="0 0 240 240" class="w-10 h-10" aria-hidden="true">
+              <defs><clipPath id="footclip"><circle cx="120" cy="120" r="106"/></clipPath></defs>
+              <circle cx="120" cy="120" r="110" fill="none" stroke="#1FC4C4" stroke-width="5"/>
+              <g clip-path="url(#footclip)">
+                <rect x="14" y="14" width="212" height="212" fill="#081A2E"/>
+                <path d="M14,118 Q70,92 130,108 T226,108 L226,150 L14,150 Z" fill="#0D4A4A"/>
+                <path d="M14,146 Q60,124 120,140 T226,140 L226,180 L14,180 Z" fill="#1F6B6B"/>
+                <path d="M14,172 Q70,156 130,170 T226,168 L226,200 L14,200 Z" fill="#0FA5A5"/>
+                <path d="M14,192 Q60,178 126,190 T226,188 L226,226 L14,226 Z" fill="#1FC4C4"/>
+              </g>
+            </svg>
+            <span class="font-display text-2xl font-bold tracking-tightest text-white">panori<span class="q-cyan">q</span></span>
+          </a>
+          <p class="mt-6 max-w-sm text-aqua/70 leading-relaxed">
+            Alex Key - independent AI contractor helping teams embed reliable
+            AI agents into their existing products.
+          </p>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="eyebrow text-aqua/50 mb-4">Connect</div>
+          <ul class="space-y-2 text-aqua/80 text-sm">
+            <li><a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="hover:text-white">LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3 md:col-start-10">
+          <div class="eyebrow text-aqua/50 mb-4">Legal</div>
+          <ul class="space-y-2 text-aqua/80 text-sm">
+            <li><a href="impressum.html" target="_blank" class="hover:text-white">Impressum / Imprint</a></li>
+            <li><a href="datenschutz.html" target="_blank" class="hover:text-white">Datenschutzerklärung / Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-aqua/50">
+        <div>© 2026 Kawunu GmbH. All rights reserved.</div>
+        <div class="font-mono tracking-widest uppercase">
+          panoriq is the AI contracting practice of Kawunu GmbH
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
