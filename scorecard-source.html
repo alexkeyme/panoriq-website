@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: "Manrope";
+    font-weight: 100 900;
+    src: url("file:///Users/alex/kawunu/workspace-kawunu/panoriq-website/fonts/manrope-variable.woff2") format("woff2-variations");
+  }
+  @font-face {
+    font-family: "Inter";
+    font-weight: 100 900;
+    src: url("file:///Users/alex/kawunu/workspace-kawunu/panoriq-website/fonts/inter-variable.woff2") format("woff2-variations");
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-weight: 300 700;
+    src: url("file:///Users/alex/kawunu/workspace-kawunu/panoriq-website/fonts/space-grotesk-variable.woff2") format("woff2-variations");
+  }
+
+  :root {
+    --navy: #0E2A47;
+    --navy-deeper: #081A2E;
+    --cyan: #1FC4C4;
+    --cyan-dark: #0FA5A5;
+    --teal-deep: #0D4A4A;
+    --aqua-surface: #EAFAFA;
+    --sand: #F7F8F9;
+    --stone-500: #5F6974;
+    --stone-600: #424B55;
+    --coral: #FF7A59;
+    --amber: #F5B544;
+  }
+
+  @page {
+    size: A4;
+    margin: 14mm 15mm 12mm;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--stone-600);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+
+  .eyebrow {
+    font-family: "Space Grotesk", monospace;
+    font-size: 8pt;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  /* ── Masthead ─────────────────────────────── */
+  .masthead {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .masthead .mark { flex: 0 0 auto; }
+  .masthead h1 {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    font-size: 23pt;
+    line-height: 1.0;
+    color: #fff;
+    margin: 6px 0 7px;
+  }
+  .masthead h1 .q { color: var(--cyan); }
+  .masthead p {
+    margin: 0;
+    color: var(--aqua-surface);
+    opacity: 0.85;
+    font-size: 9.5pt;
+    max-width: 62ch;
+  }
+
+  .lede {
+    font-size: 10.5pt;
+    color: var(--stone-600);
+    margin: 0 0 16px;
+    max-width: 78ch;
+  }
+  .lede strong { color: var(--navy); font-weight: 600; }
+
+  /* ── Scoring legend ───────────────────────── */
+  .legend {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .legend .cell {
+    background: var(--sand);
+    border: 1px solid #E3E7EB;
+    border-radius: 8px;
+    padding: 9px 11px;
+  }
+  .legend .n {
+    font-family: "Space Grotesk", monospace;
+    font-weight: 600;
+    font-size: 13pt;
+    color: var(--cyan-dark);
+    line-height: 1;
+  }
+  .legend .lbl {
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 9pt;
+    margin: 5px 0 2px;
+  }
+  .legend .desc { font-size: 8pt; color: var(--stone-500); line-height: 1.35; }
+
+  /* ── Dimensions ───────────────────────────── */
+  .dim {
+    display: flex;
+    gap: 14px;
+    padding: 13px 0;
+    border-top: 1px solid #E6E9ED;
+    break-inside: avoid;
+  }
+  .dim .num {
+    flex: 0 0 auto;
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: 16pt;
+    color: var(--cyan);
+    width: 26px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  .dim .body { flex: 1 1 auto; }
+  .dim h3 {
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 11.5pt;
+    margin: 1px 0 3px;
+    letter-spacing: -0.01em;
+  }
+  .dim p { margin: 0; font-size: 9.5pt; color: var(--stone-600); max-width: 86ch; }
+  .boxes {
+    flex: 0 0 auto;
+    align-self: center;
+    font-family: "Space Grotesk", monospace;
+    font-size: 11pt;
+    letter-spacing: 0.10em;
+    color: var(--teal-deep);
+    white-space: nowrap;
+  }
+  .boxes b { color: var(--stone-500); font-weight: 400; font-size: 8.5pt; }
+
+  /* ── Result section ───────────────────────── */
+  .section-head {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    color: var(--navy);
+    font-size: 14pt;
+    letter-spacing: -0.02em;
+    margin: 26px 0 12px;
+  }
+  .band {
+    display: flex;
+    gap: 12px;
+    padding: 9px 0;
+    break-inside: avoid;
+  }
+  .band .range {
+    flex: 0 0 64px;
+    font-family: "Space Grotesk", monospace;
+    font-weight: 600;
+    font-size: 10pt;
+    color: #fff;
+    background: var(--teal-deep);
+    border-radius: 6px;
+    text-align: center;
+    padding: 5px 0;
+    height: fit-content;
+  }
+  .band:nth-child(2) .range { background: var(--coral); }
+  .band:nth-child(3) .range { background: var(--amber); color: var(--navy); }
+  .band:nth-child(4) .range { background: var(--cyan-dark); }
+  .band .txt { font-size: 9.5pt; }
+  .band .txt strong { color: var(--navy); font-weight: 600; }
+
+  /* ── Callout ──────────────────────────────── */
+  .callout {
+    background: var(--aqua-surface);
+    border-left: 3px solid var(--cyan);
+    border-radius: 0 8px 8px 0;
+    padding: 13px 16px;
+    margin: 22px 0 0;
+    break-inside: avoid;
+  }
+  .callout .eyebrow { margin-bottom: 5px; display: block; }
+  .callout p { margin: 0; font-size: 9.5pt; color: var(--stone-600); }
+  .callout strong { color: var(--navy); font-weight: 600; }
+
+  /* ── Footer ───────────────────────────────── */
+  .foot {
+    margin-top: 26px;
+    padding-top: 12px;
+    border-top: 1px solid #E6E9ED;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Space Grotesk", monospace;
+    font-size: 8pt;
+    letter-spacing: 0.04em;
+    color: var(--stone-500);
+    text-transform: uppercase;
+  }
+  .foot .name { color: var(--navy); font-weight: 600; }
+</style>
+</head>
+<body>
+
+  <div class="masthead">
+    <svg class="mark" viewBox="0 0 240 240" width="52" height="52" aria-hidden="true">
+      <defs><clipPath id="c"><circle cx="120" cy="120" r="106"/></clipPath></defs>
+      <circle cx="120" cy="120" r="110" fill="none" stroke="#1FC4C4" stroke-width="6"/>
+      <g clip-path="url(#c)">
+        <rect x="14" y="14" width="212" height="212" fill="#081A2E"/>
+        <path d="M14,118 Q70,92 130,108 T226,108 L226,150 L14,150 Z" fill="#0D4A4A"/>
+        <path d="M14,146 Q60,124 120,140 T226,140 L226,180 L14,180 Z" fill="#1F6B6B"/>
+        <path d="M14,172 Q70,156 130,170 T226,168 L226,200 L14,200 Z" fill="#0FA5A5"/>
+        <path d="M14,192 Q60,178 126,190 T226,188 L226,226 L14,226 Z" fill="#1FC4C4"/>
+      </g>
+    </svg>
+    <div>
+      <span class="eyebrow">Self-Assessment</span>
+      <h1>Agent Evaluation Scorecard</h1>
+      <p>A self-assessment for teams building LLM agents. Mark where your team is today &mdash; honestly. The point is to find the gaps, not to feel good.</p>
+    </div>
+  </div>
+
+  <p class="lede">For each dimension below, mark where your team is today. Score each from <strong>0</strong> to <strong>3</strong> using the scale, then add it up out of 24.</p>
+
+  <div class="legend">
+    <div class="cell"><div class="n">0</div><div class="lbl">Absent</div><div class="desc">We don&rsquo;t do this at all.</div></div>
+    <div class="cell"><div class="n">1</div><div class="lbl">Ad-hoc</div><div class="desc">Sometimes, manually, no system.</div></div>
+    <div class="cell"><div class="n">2</div><div class="lbl">Established</div><div class="desc">A defined process. It runs.</div></div>
+    <div class="cell"><div class="n">3</div><div class="lbl">Mature</div><div class="desc">Automated, continuous, feeds back into development.</div></div>
+  </div>
+
+  <div class="dim">
+    <div class="num">1</div>
+    <div class="body">
+      <h3>Defined success criteria</h3>
+      <p>Can anyone on your team write down in one paragraph what &ldquo;good&rdquo; looks like? Not &ldquo;it answers correctly&rdquo; &mdash; concrete, measurable, agreed across engineering, product, and the people who actually use it.</p>
+    </div>
+    <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
+  </div>
+
+  <div class="dim">
+    <div class="num">2</div>
+    <div class="body">
+      <h3>Evaluation dataset</h3>
+      <p>A curated set of inputs covering typical, ambiguous, edge, and known-failure cases. It is version-controlled. It grows.</p>
+    </div>
+    <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
+  </div>
+
+  <div class="dim">
+    <div class="num">3</div>
+    <div class="body">
+      <h3>Automated evaluation runs</h3>
+      <p>You can run your evaluation suite on demand and on every meaningful change &mdash; prompt, model, tool, code. Results are recorded.</p>
+    </div>
+    <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
+  </div>
+
+  <div class="dim">
+    <div class="num">4</div>
+    <div class="body">
+      <h3>Trace visibility</h3>
+      <p>For any failure or surprising output, you can see the full execution: prompts, tool calls, intermediate steps, model responses, latency, cost. Not just the final answer.</p>
+    </div>
+    <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
+  </div>
+
+  <div class="dim">
+    <div class="num">5</div>
+    <div class="body">
+      <h3>Reproducible failures</h3>
+      <p>When a user reports a problem or an evaluation fails, you can re-run the exact case and reliably see the same failure. You don&rsquo;t lose bugs to &ldquo;couldn&rsquo;t reproduce.&rdquo;</p>
+    </div>
+    <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
+  </div>
+
+  <div class="dim">
+    <div class="num">6</div>
+    <div class="body">
+      <h3>Version comparison</h3>
+      <p>You can compare two versions of your agent &mdash; different prompts, models, tool descriptions &mdash; side by side on the same dataset. You see which is better, and where.</p>
+    </div>
+    <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
+  </div>
+
+  <div class="dim">
+    <div class="num">7</div>
+    <div class="body">
+      <h3>Production monitoring</h3>
+      <p>You see how the agent behaves in production with real users, not just on your curated dataset. Production failures flow back into the evaluation dataset.</p>
+    </div>
+    <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
+  </div>
+
+  <div class="dim">
+    <div class="num">8</div>
+    <div class="body">
+      <h3>Ownership of quality</h3>
+      <p>There is a named person or team accountable for agent quality. They have the time, tools, and authority to act on what evaluation reveals.</p>
+    </div>
+    <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
+  </div>
+
+  <div class="section-head">How to read your result &mdash; total / 24</div>
+
+  <div class="band">
+    <div class="range">0&ndash;8</div>
+    <div class="txt"><strong>The &ldquo;seems to work&rdquo; zone.</strong> Most teams are here. The risk is that you only find out what&rsquo;s broken when a user does. Start with dimensions 1, 2, and 4.</div>
+  </div>
+  <div class="band">
+    <div class="range">9&ndash;16</div>
+    <div class="txt"><strong>Some structure, not yet a system.</strong> Typical gap: you have a dataset and traces, but no automated runs and no production feedback loop. Connect what you already have.</div>
+  </div>
+  <div class="band">
+    <div class="range">17&ndash;24</div>
+    <div class="txt"><strong>A real evaluation discipline.</strong> The remaining work is depth &mdash; better metrics, harder edge cases, faster iteration. The structure is in place.</div>
+  </div>
+
+  <div class="callout">
+    <span class="eyebrow">A note on dimension 1</span>
+    <p>This is the one most teams skip and most regret skipping. <strong>&ldquo;What does good look like?&rdquo;</strong> is not an engineering question &mdash; it requires product, domain experts, and the people who will actually use the output. If you can&rsquo;t answer it, no amount of tooling setup will help.</p>
+  </div>
+
+  <div class="foot">
+    <span class="name">Alex Key &mdash; panoriq.ai</span>
+    <span>Spatial AI engineering &middot; Independent practice</span>
+  </div>
+
+</body>
+</html>
