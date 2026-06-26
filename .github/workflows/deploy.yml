@@ -43,7 +43,6 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html 404.html impressum.html datenschutz.html agent-evaluation.html _site/
-          cp agent-evaluation-scorecard.pdf _site/
           cp -r CI img js fonts dist _site/
           [ -d extract ] && cp -r extract _site/extract || true
           cp favicon.ico icon.png icon.svg robots.txt site.webmanifest _site/ 2>/dev/null || true
