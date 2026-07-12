@@ -1,27 +1,15 @@
 import * as THREE from "three";
 
-// ─────────────────────────────────────────────────────────────────────────────
 // CONFIG: Vimeo IDs for each demo video.
 const VIMEO_IDS = {
   cloudCompare: "1200804594",
   pointCloud:   "1187686744",
   facade:       "1197400606",
 };
-// ─────────────────────────────────────────────────────────────────────────────
-
-// Click-to-load Vimeo facade — shared factory used by each play button.
+// Click-to-load Vimeo facade shared by each play button.
 function initVimeoFacade(buttonId, vimeoId, title) {
   const btn = document.getElementById(buttonId);
   if (!btn) return;
-
-  // Fetch the real Vimeo thumbnail and swap out the placeholder.
-  const img = btn.querySelector("img");
-  if (img) {
-    fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${vimeoId}&width=1280`)
-      .then(r => r.json())
-      .then(d => { if (d.thumbnail_url) img.src = d.thumbnail_url; })
-      .catch(() => {});
-  }
 
   btn.addEventListener("click", () => {
     if (!vimeoId) return;
@@ -32,6 +20,7 @@ function initVimeoFacade(buttonId, vimeoId, title) {
       `?autoplay=1&title=0&byline=0&portrait=0&dnt=1&color=1FC4C4`;
     iframe.allow = "autoplay; fullscreen; picture-in-picture";
     iframe.allowFullscreen = true;
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
     iframe.className = "absolute inset-0 w-full h-full";
     iframe.setAttribute("frameborder", "0");
     iframe.setAttribute("title", title);
