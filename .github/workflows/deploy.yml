@@ -46,7 +46,7 @@ jobs:
           cp -r CI img js fonts dist _site/
           find _site/CI -name '*.html' -delete
           [ -d extract ] && cp -r extract _site/extract || true
-          cp favicon.ico icon.png icon.svg robots.txt site.webmanifest _site/ 2>/dev/null || true
+          cp favicon.ico icon.png icon.svg robots.txt sitemap.xml site.webmanifest _site/ 2>/dev/null || true
 
       - name: Version asset URLs
         run: |
