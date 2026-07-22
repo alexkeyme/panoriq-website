@@ -2,6 +2,7 @@ import * as THREE from "three";
 
 // CONFIG: Vimeo IDs for each demo video.
 const VIMEO_IDS = {
+  glacier:      "1212004912",
   cloudCompare: "1200804594",
   pointCloud:   "1187686744",
   facade:       "1197400606",
@@ -28,6 +29,7 @@ function initVimeoFacade(buttonId, vimeoId, title) {
   });
 }
 
+initVimeoFacade("demoPlayGlacier",      VIMEO_IDS.glacier,      "Panoriq glacier change demo");
 initVimeoFacade("demoPlayCloudCompare", VIMEO_IDS.cloudCompare, "Panoriq CloudCompare integration demo");
 initVimeoFacade("demoPlay",             VIMEO_IDS.pointCloud,   "Panoriq point-cloud demo");
 initVimeoFacade("demoPlayFacade",       VIMEO_IDS.facade,       "Panoriq facade analysis demo");

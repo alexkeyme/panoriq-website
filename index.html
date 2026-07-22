@@ -269,11 +269,46 @@
         </p>
       </div>
 
-      <!-- Piece 01: CloudCompare integration video -->
+      <!-- Piece 01: Glacier change video -->
       <div class="mb-10 md:mb-14" data-reveal>
         <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
           <div>
-            <span class="font-mono text-teal-deep text-sm">Ⅰ - tool use</span>
+            <span class="font-mono text-teal-deep text-sm">Ⅰ - long-running agent</span>
+            <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight text-navy mt-2">An agent that measures glacier change</h3>
+          </div>
+          <p class="text-stone-600 leading-relaxed max-w-md text-sm md:text-base">
+            A long-running agent works through a complete analysis on its own:
+            it takes survey data of an alpine glacier and calculates how the ice has
+            changed - the kind of multi-step task agents can now carry end to end.
+          </p>
+        </div>
+
+        <div class="relative aspect-video rounded-3xl overflow-hidden bg-navy ring-1 ring-navy/10 shadow-[0_40px_120px_-30px_rgba(13,74,74,0.45)]">
+          <!-- Vimeo facade: click to load. Vimeo IDs live in js/main.js. -->
+          <button id="demoPlayGlacier" class="absolute inset-0 w-full h-full group" aria-label="Load glacier change demo from Vimeo and play">
+            <img src="img/vimeo-glacier.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+
+            <span class="absolute inset-0 flex items-center justify-center p-4 bg-navy/20 group-hover:bg-navy/10 transition-colors">
+              <span class="block max-w-xl rounded-2xl bg-navy/90 backdrop-blur-md px-5 py-4 md:px-7 md:py-6 text-center text-white shadow-2xl ring-1 ring-white/15">
+                <span class="block eyebrow text-brand-cyan">External video - Vimeo</span>
+                <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                  Load video from Vimeo · 02:15
+                </span>
+                <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
+                  Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See our privacy policy for details.
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Piece 02: CloudCompare integration video -->
+      <div class="mb-10 md:mb-14" data-reveal>
+        <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+          <div>
+            <span class="font-mono text-teal-deep text-sm">Ⅱ - tool use</span>
             <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight text-navy mt-2">An agent that drives CloudCompare</h3>
           </div>
           <p class="text-stone-600 leading-relaxed max-w-md text-sm md:text-base">
@@ -293,40 +328,6 @@
                 <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
                   <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                   Load video from Vimeo · 02:19
-                </span>
-                <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
-                  Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See our privacy policy for details.
-                </span>
-              </span>
-            </span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Piece 02: Point cloud video -->
-      <div class="mb-10 md:mb-14" data-reveal>
-        <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
-          <div>
-            <span class="font-mono text-teal-deep text-sm">Ⅱ - panoriq</span>
-            <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight text-navy mt-2">An agent for 3D point clouds</h3>
-          </div>
-          <p class="text-stone-600 leading-relaxed max-w-md text-sm md:text-base">
-            My own R&amp;D: an agent that edits and queries point clouds in plain English -
-            ninety seconds, no narration. The kind of agentic tooling I build for spatial-software teams.
-          </p>
-        </div>
-
-        <div class="relative aspect-video rounded-3xl overflow-hidden bg-navy ring-1 ring-navy/10 shadow-[0_40px_120px_-30px_rgba(13,74,74,0.45)]">
-          <!-- Vimeo facade: click to load. Vimeo IDs live in js/main.js. -->
-          <button id="demoPlay" class="absolute inset-0 w-full h-full group" aria-label="Load point-cloud demo from Vimeo and play">
-            <img src="img/vimeo-point-cloud.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
-
-            <span class="absolute inset-0 flex items-center justify-center p-4 bg-navy/20 group-hover:bg-navy/10 transition-colors">
-              <span class="block max-w-xl rounded-2xl bg-navy/90 backdrop-blur-md px-5 py-4 md:px-7 md:py-6 text-center text-white shadow-2xl ring-1 ring-white/15">
-                <span class="block eyebrow text-brand-cyan">External video - Vimeo</span>
-                <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
-                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                  Load video from Vimeo · 01:30
                 </span>
                 <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
                   Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See our privacy policy for details.
@@ -419,6 +420,44 @@
         </article>
 
       </div>
+
+      <!-- Archive: earlier demo, collapsed by default -->
+      <details class="group/archive mt-10 md:mt-14 rounded-3xl bg-white ring-1 ring-mist open:ring-brand-cyan/40" data-reveal>
+        <summary class="list-none cursor-pointer select-none p-6 md:p-8 flex items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+          <div>
+            <span class="eyebrow text-stone-500">From the archive</span>
+            <h3 class="font-display font-bold text-xl md:text-2xl tracking-tight text-navy mt-2">An agent for 3D point clouds</h3>
+          </div>
+          <span class="shrink-0 w-10 h-10 rounded-full border border-mist flex items-center justify-center text-teal-deep transition-transform group-open/archive:rotate-180">
+            <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-6 md:px-8 md:pb-8">
+          <p class="text-stone-600 leading-relaxed max-w-2xl text-sm md:text-base mb-6">
+            My own R&amp;D: an agent that edits and queries point clouds in plain English -
+            ninety seconds, no narration. The kind of agentic tooling I build for spatial-software teams.
+          </p>
+          <div class="relative aspect-video rounded-2xl overflow-hidden bg-navy ring-1 ring-navy/10">
+            <!-- Vimeo facade: click to load. Vimeo IDs live in js/main.js. -->
+            <button id="demoPlay" class="absolute inset-0 w-full h-full group" aria-label="Load point-cloud demo from Vimeo and play">
+              <img src="img/vimeo-point-cloud.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+
+              <span class="absolute inset-0 flex items-center justify-center p-4 bg-navy/20 group-hover:bg-navy/10 transition-colors">
+                <span class="block max-w-xl rounded-2xl bg-navy/90 backdrop-blur-md px-5 py-4 md:px-7 md:py-6 text-center text-white shadow-2xl ring-1 ring-white/15">
+                  <span class="block eyebrow text-brand-cyan">External video - Vimeo</span>
+                  <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    Load video from Vimeo · 01:30
+                  </span>
+                  <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
+                    Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See our privacy policy for details.
+                  </span>
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </details>
     </div>
   </section>
 
