@@ -51,7 +51,7 @@ inline in that file - there is no `tailwind.config.js`.
 | `impressum.html`, `datenschutz.html`, `404.html` | legal / plumbing | - |
 
 **The two-audience rule.** The main site sells agent engineering to companies that *make*
-spatial software. The training page sells a two-day workshop to companies that *process*
+spatial software. The training page sells a two half-day workshop to companies that *process*
 spatial data. These are different offers with different buyers, and the training must never
 become the site's headline message. Cross-links from `index.html` are deliberately quiet:
 one nav link, one line at the end of the contact section, one footer link. Do not expand

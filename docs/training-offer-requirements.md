@@ -10,7 +10,7 @@ a copy preference - do not reword or "improve" it without asking.
 
 ## 1. What this page is for
 
-A two-day paid workshop, "Claude Code for geo data processing", sold to geo data service
+A paid workshop over two half-days, "Claude Code for geo data processing", sold to geo data service
 firms as a cash-bridge offer.
 
 **It is a leave-behind, not a landing page.** Every reader arrives the same way: Alex sends a
@@ -24,7 +24,7 @@ It is not a funnel, a lead magnet, or a content hub.
 
 Success condition: a managing partner at a 10-100 person firm reads it in a few minutes and
 knows whether to take the conversation further. Two things must land - that the boring half of
-their week is now automatable, which most of them do not know, and what the two days actually
+their week is now automatable, which most of them do not know, and what the workshop actually
 contain. Price and terms must be answerable from the page, but they are not the point of it.
 
 ## 2. Positioning guardrails
@@ -52,7 +52,7 @@ changes, change all of them and check both pages.
 
 | Fact | Value |
 |---|---|
-| Duration | 2 days |
+| Duration | 2 half-days (changed from 2 full days, 2026-07-26 - check every string) |
 | Price | €4,900 net, flat per company, not per seat |
 | Group size | Up to 6 people included |
 | Extra participants | €500 each, hard cap 8 total |
@@ -85,15 +85,25 @@ already in progress on LinkedIn, not a lead generator. The order below front-loa
 things a warm reader wants (the surprise, then the agenda) and leaves the commercial detail
 for the bottom half. **Keep it short.** Adding paragraphs is the failure mode here.
 
-1. **Hero** - outcome first, in the reader's language, never the tool name. Orienting facts
-   only, as a one-line strip: duration, group size, location, language. **No price and no CTA
-   in the hero** - the reader has not yet learned what they are pricing, and they already know
-   how to reach Alex.
-2. **The point** - the one idea to land: the boring half of the week is automatable now, and
-   most teams have not seen this yet. Includes the margin argument for fixed-price work and
-   the admission that agents handle only part of it, not unsupervised. Two paragraphs, no more.
-3. **Agenda** - the centrepiece, and the reason it sits this high. Six modules across two days,
-   day one on prepared datasets, day two on the client's data, plus the compliance block.
+1. **Hero** - carries the whole pitch on its own, in this order: who it is for, the problem,
+   the solution. The reader must think *that's us* before they learn anything is being sold.
+   - The eyebrow **names the audience** - surveying, point cloud and GIS teams. Not "workshop".
+   - The headline is the **problem**, not the offer. Their best people spend half the week
+     wrangling data.
+   - Then one line of solution: an agent does most of that now, driving their existing stack,
+     and Alex will show them how over two half-days on their own data.
+   - Right column: the **"what changes" card** - one real instruction typed in plain language
+     and what the agent does with it. This does the work that no paragraph can, because the
+     surprise is concrete. Keep it a real geo task, keep the CRS check in it.
+   - Orienting facts strip: duration, group size, location, language.
+   - **No price and no CTA in the hero** - the reader has not yet learned what they are
+     pricing, and they already know how to reach Alex.
+2. **The point** - the margin argument for fixed-price work, plus the one line that makes it
+   new: it no longer takes a developer. Two paragraphs, no more. Do not re-list the chores
+   here; the hero already did that, and the repetition is the first thing that creeps back in.
+3. **Agenda** - the centrepiece, and the reason it sits this high. Six modules across two
+   half-days, the first on prepared datasets, the second on the client's data, plus the
+   compliance block.
    Module 6 (Trust: where agents get CRS, units and nodata quietly wrong) sells the workshop
    and must not be cut or softened. Roughly 60% hands-on must be stated. The one-week-ahead
    dataset handover and "your data stays on your machines" ride along as a single line here -
