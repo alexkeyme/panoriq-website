@@ -91,6 +91,9 @@ paragraphs is the failure mode. `docs/training-offer-requirements.md` has the fu
   for any new embed - it is a GDPR requirement, not a preference.
 - **Copy voice:** first person, direct, no hype, no marketing padding. Use hyphens, never
   em dashes. State limitations plainly where they exist; that honesty is part of the pitch.
+- **US English** throughout: `recognize`, `behavior`, `math`. This includes comments. The
+  German legal boilerplate in `datenschutz.html` is exempt - do not edit legal text for
+  spelling.
 
 ## Bilingual pages
 

@@ -58,6 +58,7 @@ changes, change all of them and check both pages.
 | Extra participants | €500 each, hard cap 8 total |
 | Travel | Included within DACH; remote same price |
 | Guarantee | Free follow-up session until it delivers. **Never** a refund on the page |
+| Participant cost | A Claude subscription each. **No price on the page** - tiers and prices move, and naming one dates the page |
 | Support | 90 days of async questions after the workshop |
 | Languages | Delivery in German or English |
 | Availability | One company at a time. No dates on the page - see below |
@@ -66,6 +67,13 @@ changes, change all of them and check both pages.
 Three things deliberately absent from the page, and they must stay absent: the pilot rate
 (~€3,900, a private negotiating lever), any refund offer, and any email address - the page is
 indexed and Alex already gets enough spam. LinkedIn is the only channel on it.
+
+**Copy is US English.** Decided 2026-07-26.
+
+**The margin line must not exclude anyone.** It reads "those hours either come off your
+margin or crowd out the work you would rather be selling", which is true whether a firm bills
+fixed-price or by the hour. An earlier draft said "in fixed-price work" and would have lost
+every reader who bills time and materials at the first paragraph.
 
 **No dates, no slot counts.** Removed 2026-07-26. Scarcity does nothing when every reader has
 already been contacted directly, and a month named on the page is stale the moment it passes.
