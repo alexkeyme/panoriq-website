@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude Code for Geo Data Processing | 2 half-day workshop | panoriq</title>
+  <meta name="description" content="A hands-on workshop over two half-days where your analysts automate the point cloud and raster chores that eat their week. The second half-day runs on your own data.">
+
+  <!-- Offer page for service firms - a different audience to the main site. Indexed,
+       but deliberately not promoted in the main navigation, so the vendor message on
+       index.html stays the site's headline. -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://panoriq.com/training.html">
+
+  <link rel="icon" href="CI/logo/favicon/favicon-32.png?v=__ASSET_VERSION__" type="image/png" sizes="32x32">
+  <link rel="icon" href="CI/logo/favicon/favicon-16.png?v=__ASSET_VERSION__" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="CI/logo/mark-light/mark-light-180.png?v=__ASSET_VERSION__">
+
+  <meta property="og:site_name" content="panoriq">
+  <meta property="og:title" content="Claude Code for Geo Data Processing - 2 half-day workshop">
+  <meta property="og:description" content="Two half-days, up to six people, on your own data. Your analysts automate the processing chores that eat their week.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://panoriq.com/training.html">
+  <meta property="og:image" content="https://panoriq.com/CI/logo/lockup/lockup-light-1600w.png">
+  <meta property="og:image:alt" content="panoriq - Claude Code for geo data processing">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code for Geo Data Processing - 2 half-day workshop">
+  <meta name="twitter:description" content="Two half-days, up to six people, on your own data. Your analysts automate the processing chores that eat their week.">
+  <meta name="twitter:image" content="https://panoriq.com/CI/logo/lockup/lockup-light-1600w.png">
+  <meta name="theme-color" content="#0E2A47">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "@id": "https://panoriq.com/training.html#course",
+      "name": "Claude Code for Geo Data Processing",
+      "description": "A hands-on workshop over two half-days for geo data service firms. Analysts learn to drive AI agents across the tools they already use, including how to catch the CRS, unit and nodata errors agents get quietly wrong. The second half-day runs on the client's own data.",
+      "url": "https://panoriq.com/training.html",
+      "inLanguage": ["en", "de"],
+      "teaches": [
+        "Driving GIS and point cloud tools from plain language",
+        "Automating repeated raster and point cloud processing steps",
+        "Verifying agent output for CRS, unit and nodata errors"
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Surveying, scan-to-BIM and geodata service firms"
+      },
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://panoriq.com/#organization",
+        "name": "panoriq",
+        "url": "https://panoriq.com/"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": ["onsite", "online"],
+        "courseWorkload": "PT8H",
+        "maximumAttendeeCapacity": 8,
+        "instructor": {
+          "@type": "Person",
+          "name": "Alex Key",
+          "sameAs": "https://www.linkedin.com/in/keyalex"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "4900",
+        "priceCurrency": "EUR",
+        "category": "Flat price per company, up to 6 participants",
+        "availability": "https://schema.org/LimitedAvailability",
+        "url": "https://panoriq.com/training.html"
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="dist/output.css?v=__ASSET_VERSION__">
+</head>
+
+<body id="top" class="font-sans bg-sand text-navy">
+
+  <!-- NAV - logo only. No menu: this page has one job. -->
+  <header class="fixed top-0 inset-x-0 z-50 nav-glass">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10 py-4 flex items-center gap-4">
+      <a href="/" class="flex items-center gap-3">
+        <svg viewBox="0 0 240 240" class="w-9 h-9" aria-hidden="true">
+          <defs><clipPath id="navclip"><circle cx="120" cy="120" r="106"/></clipPath></defs>
+          <circle cx="120" cy="120" r="110" fill="none" stroke="#0E2A47" stroke-width="5"/>
+          <g clip-path="url(#navclip)">
+            <rect x="14" y="14" width="212" height="212" fill="#EAFAFA"/>
+            <path d="M14,118 Q70,92 130,108 T226,108 L226,150 L14,150 Z" fill="#0D4A4A"/>
+            <path d="M14,146 Q60,124 120,140 T226,140 L226,180 L14,180 Z" fill="#1F6B6B"/>
+            <path d="M14,172 Q70,156 130,170 T226,168 L226,200 L14,200 Z" fill="#0FA5A5"/>
+            <path d="M14,192 Q60,178 126,190 T226,188 L226,226 L14,226 Z" fill="#1FC4C4"/>
+          </g>
+        </svg>
+        <span class="font-display text-[22px] font-bold tracking-tightest text-navy">panori<span class="q-cyan">q</span></span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-navy text-white grain">
+      <div class="absolute inset-0 bg-grid opacity-50 pointer-events-none"></div>
+      <div class="pointer-events-none absolute -top-40 -right-40 w-[620px] h-[620px] rounded-full blur-3xl opacity-30" style="background: radial-gradient(circle, #1FC4C4 0%, transparent 60%);"></div>
+      <div class="pointer-events-none absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full blur-3xl opacity-20" style="background: radial-gradient(circle, #B8ECEC 0%, transparent 60%);"></div>
+
+      <div class="relative mx-auto max-w-[1400px] px-6 md:px-10 pt-36 md:pt-44 pb-0">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <!-- Left: the problem, then the solution. The reader should recognize
+               themselves in the headline before they learn what is being sold. -->
+          <div class="lg:col-span-7 text-center lg:text-left" data-reveal>
+            <div class="eyebrow text-brand-cyan mb-8">For surveying, point cloud and GIS teams</div>
+
+            <h1 class="display-hero text-white text-balance">
+              Your best people<br>
+              wrangle data<br>
+              <span class="font-serif italic font-normal">half the week.</span>
+            </h1>
+
+            <p class="mt-10 max-w-2xl mx-auto lg:mx-0 text-aqua/90 text-lg md:text-xl leading-relaxed">
+              Converting, projecting, tiling, classifying, repairing broken metadata.
+              The same pipeline for the fortieth time. Those hours either come off your
+              margin or crowd out the work you would rather be selling.
+            </p>
+
+            <p class="mt-6 max-w-2xl mx-auto lg:mx-0 text-white text-lg md:text-xl leading-relaxed">
+              AI Agents can do a lot of that now - driving PDAL, GDAL, Python, and the rest of
+              your stack for you. So your team can focus on the hard stuff.
+            </p>
+
+            <p class="mt-6 max-w-2xl mx-auto lg:mx-0 text-white text-lg md:text-xl leading-relaxed">
+              In two half-days I show you and your team how, on your own data, using widely available tools.
+            </p>
+
+            <!-- Orienting facts only. Price sits further down, after the agenda. -->
+            <dl class="mt-12 flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-3 text-sm">
+              <div class="flex items-baseline gap-2">
+                <dt class="text-aqua/50">Duration</dt><dd class="text-white font-medium">2 half-days</dd>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <dt class="text-aqua/50">Group</dt><dd class="text-white font-medium">Up to 6</dd>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <dt class="text-aqua/50">Where</dt><dd class="text-white font-medium">Your office or remote</dd>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <dt class="text-aqua/50">Language</dt><dd class="text-white font-medium">German or English</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Right: what the shift actually looks like. Showing one real instruction
+               does more than another paragraph claiming agents are useful. -->
+          <div class="lg:col-span-5" data-reveal>
+            <div class="relative rounded-3xl border border-white/12 bg-white/7 p-6 md:p-8 shadow-2xl backdrop-blur">
+              <div class="absolute -top-3 left-8 inline-flex items-center gap-2 rounded-full bg-brand-cyan px-4 py-1.5 text-[12px] font-semibold uppercase tracking-widest text-navy">
+                What changes
+              </div>
+
+              <p class="mt-5 text-sm text-aqua/60">You type this:</p>
+              <p class="mt-3 font-mono text-[15px] leading-relaxed text-white">
+                &ldquo;Here's a lidar scan of a glacier, four epochs, all different file formats.
+                Calculate the volume change across all epochs.&rdquo;
+              </p>
+
+              <div class="mt-7 pt-6 border-t border-white/10">
+                <p class="text-sm text-aqua/60">The agent does this:</p>
+                <ul class="mt-4 space-y-3 text-[15px] text-aqua/90">
+                  <li class="flex gap-3">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-cyan"></span>
+                    Converts, merges, and trims the data
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-cyan"></span>
+                    Calculates the volume change across all epochs
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-cyan"></span>
+                    Validates the results and writes a ready report.
+                  </li>
+                </ul>
+              </div>
+
+              <p class="mt-7 text-sm text-aqua/70 leading-relaxed">
+                The only thing you need is a Claude license, and the tools your team already runs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO SLOT - when a recording exists, drop a Vimeo facade here to match the
+           pattern on the main page (button + poster + consent copy, ID in js/main.js).
+           Do not hold the page for it. -->
+
+      <!-- Panoramic horizon band -->
+      <div class="relative mt-20 md:mt-28">
+        <svg viewBox="0 0 1600 140" preserveAspectRatio="none" class="w-full h-28 md:h-36 block" aria-hidden="true">
+          <path class="wave-layer wave-1" d="M-50,60 C 200,20 420,90 700,60 C 980,30 1250,90 1700,60 L1700,140 L-50,140 Z" fill="#0D4A4A"/>
+          <path class="wave-layer wave-2" d="M-50,80 C 220,50 440,100 720,80 C 990,60 1260,110 1700,80 L1700,140 L-50,140 Z" fill="#1F6B6B"/>
+          <path class="wave-layer wave-3" d="M-50,100 C 200,80 450,120 700,100 C 980,80 1240,120 1700,100 L1700,140 L-50,140 Z" fill="#0FA5A5"/>
+          <path class="wave-layer wave-4" d="M-50,118 C 240,100 420,130 720,120 C 1000,110 1280,135 1700,118 L1700,140 L-50,140 Z" fill="#1FC4C4"/>
+          <path d="M-50,128 C 240,114 460,138 740,130 C 1010,122 1300,140 1700,126 L1700,140 L-50,140 Z" fill="#F7F8F9"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 01 - THE AGENDA. Moved up deliberately: this is the part that sells the workshop. -->
+    <section class="relative py-20 md:py-28 bg-sand overflow-hidden">
+      <div aria-hidden="true" class="absolute -right-24 -top-20 select-none pointer-events-none">
+        <span class="big-q text-aqua-surface">q</span>
+      </div>
+
+      <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
+        <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16" data-reveal>
+          <div class="eyebrow text-stone-500 mb-6">01 - The agenda</div>
+          <h2 class="display-section text-navy">
+            The two<br>
+            <span class="font-serif italic font-normal">half-days</span>
+          </h2>
+          <p class="mt-8 text-lg text-stone-600 leading-relaxed">
+            Hands-on in the second half-day, after a solid foundation in the first.
+            So you walk away with real results right away.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5 md:gap-6">
+          <!-- First half-day -->
+          <div class="rounded-3xl p-8 md:p-10 bg-white ring-1 ring-mist" data-reveal>
+            <span class="font-mono text-teal-deep text-sm">Half-day one - foundations</span>
+            <h3 class="font-display font-bold text-2xl md:text-3xl tracking-tight text-navy mt-2 mb-8">
+              Getting agents to do real work
+            </h3>
+
+            <div class="space-y-6">
+              <div>
+                <h4 class="font-display font-bold text-navy">1. The mindset shift</h4>
+                <p class="mt-1.5 text-stone-600 leading-relaxed">
+                  An agent with a terminal, not a coding tool. &ldquo;Here's a folder of LAZ
+                  files, ground-classify them and give me a quality report.&rdquo;
+                </p>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-navy">2. Wrangling and conversion</h4>
+                <p class="mt-1.5 text-stone-600 leading-relaxed">
+                  Batch conversion across E57, LAS/LAZ, COPC, Shapefile, GPKG, GeoParquet.
+                  Reprojection, tiling, merging, repairing broken CRS metadata.
+                </p>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-navy">3. Point cloud pre-processing</h4>
+                <p class="mt-1.5 text-stone-600 leading-relaxed">
+                  PDAL pipelines described in plain language: denoising, thinning, clipping,
+                  ground classification, DEM and DSM generation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second half-day -->
+          <div class="rounded-3xl p-8 md:p-10 bg-navy text-white ring-1 ring-brand-cyan/30" data-reveal>
+            <span class="font-mono text-brand-cyan text-sm">Half-day two - your data</span>
+            <h3 class="font-display font-bold text-2xl md:text-3xl tracking-tight mt-2 mb-8">
+              From one-off to something you keep using
+            </h3>
+
+            <div class="space-y-6">
+              <div>
+                <h4 class="font-display font-bold text-white">4. Analysis and reporting</h4>
+                <p class="mt-1.5 text-aqua/80 leading-relaxed">
+                  Volume calculations, change detection, zonal statistics, plots, a formatted
+                  report at the end. Dataset to deliverable in one session.
+                </p>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-white">5. Your first agent</h4>
+                <p class="mt-1.5 text-aqua/80 leading-relaxed">
+                  Turning a workflow into a reusable skill or script. Running it headless on
+                  a schedule or a watch folder, with checkpoints and validation.
+                </p>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-white">6. Trust</h4>
+                <p class="mt-1.5 text-aqua/80 leading-relaxed">
+                  Where agents silently get geo wrong: CRS, units, nodata. The module that
+                  decides whether any of this reaches a client deliverable.
+                </p>
+              </div>
+              <div class="pt-6 border-t border-white/10">
+                <h4 class="font-display font-bold text-white">Plus</h4>
+                <p class="mt-1.5 text-aqua/80 leading-relaxed">
+                  The compliance questions you'll be asked internally anyway: data privacy,
+                  on-premise and EU hosting, what to tell your public sector clients.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Was its own section. It is one logistics line, so it lives with the agenda now. -->
+      </div>
+    </section>
+
+    <!-- HIDDEN 2026-07-26 - reads as out of place in the shortened page. Kept for
+         later: the "not a fit" column does real qualifying work if the page ever
+         goes to a colder audience. Uncomment as a whole and renumber the eyebrows.
+    <!&#45;&#45; 03 - WHO IT'S FOR &#45;&#45;>
+    <section class="relative py-20 md:py-28 bg-sand">
+      <div class="mx-auto max-w-[1100px] px-6 md:px-10">
+        <div class="max-w-3xl mx-auto text-center mb-12" data-reveal>
+          <div class="eyebrow text-stone-500 mb-6">03 - Who it's for</div>
+          <h2 class="display-section text-navy">
+            Who should be<br>
+            <span class="font-serif italic font-normal">in the room</span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5 md:gap-6">
+          <div class="rounded-3xl p-8 md:p-10 bg-white ring-1 ring-brand-cyan/40" data-reveal>
+            <div class="eyebrow text-teal-deep mb-5">A good fit</div>
+            <p class="text-stone-600 leading-relaxed">
+              Surveying, scan-to-BIM, GIS, drone and photogrammetry teams - and specifically
+              the power users in them. The ones who have opened the QGIS Python console or
+              built the FME workbenches, who get asked when something breaks.
+            </p>
+            <p class="mt-4 text-stone-600 leading-relaxed">
+              No programming background required. Comfort with unfamiliar software is.
+            </p>
+          </div>
+
+          <div class="rounded-3xl p-8 md:p-10 bg-white ring-1 ring-mist" data-reveal>
+            <div class="eyebrow text-stone-400 mb-5">Not a fit</div>
+            <p class="text-stone-600 leading-relaxed">
+              Anyone wanting a general AI strategy session - this is hands-on work on real
+              datasets. Developers who want to build agent products of their
+              own: different course, different room.
+            </p>
+            <p class="mt-4 text-stone-600 leading-relaxed">
+              And people for whom a file path is already a hurdle. They will have a bad two
+              days, and so will everyone else.
+            </p>
+          </div>
+        </div>
+
+        <p class="mt-10 text-center text-stone-500 max-w-2xl mx-auto leading-relaxed" data-reveal>
+          Not sure who to send? Name the two people everyone goes to with data problems.
+          Those two.
+        </p>
+      </div>
+    </section>
+    -->
+
+    <!-- 02 - WHAT YOU KEEP -->
+    <section class="relative py-20 md:py-28 bg-navy text-white overflow-hidden">
+      <div class="absolute inset-0 bg-grid opacity-40"></div>
+      <div class="relative mx-auto max-w-[1400px] px-6 md:px-10">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
+          <div class="lg:col-span-5 text-center lg:text-left" data-reveal>
+            <div class="eyebrow text-aqua/70 mb-6">02 - Outcomes</div>
+            <h2 class="display-section">
+              You keep<br>
+              <span class="font-serif italic font-normal">what we build.</span>
+            </h2>
+          </div>
+
+          <div class="lg:col-span-6 lg:col-start-7 self-end" data-reveal>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-cyan"></span>
+                <p class="text-aqua/90 leading-relaxed">
+                  <span class="text-white font-medium">Working automations for two or three of your own recurring chores</span>,
+                  built on your data during the workshop.
+                </p>
+              </div>
+              <div class="flex gap-4">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-cyan"></span>
+                <p class="text-aqua/90 leading-relaxed">
+                  <span class="text-white font-medium">A project template</span> so the next
+                  automation starts from something instead of nothing.
+                </p>
+              </div>
+              <div class="flex gap-4">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-cyan"></span>
+                <p class="text-aqua/90 leading-relaxed">
+                  <span class="text-white font-medium">A verification routine</span> for the
+                  places an agent gets geo quietly wrong. Your real risk is a wrong number in
+                  a deliverable.
+                </p>
+              </div>
+              <div class="flex gap-4">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-cyan"></span>
+                <p class="text-aqua/90 leading-relaxed">
+                  Materials and 90 days of async (email) support.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 - WHO RUNS IT. Same treatment as the About block on index.html. -->
+    <section class="relative py-20 md:py-28 bg-sand">
+      <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div class="lg:col-span-5 text-center lg:text-left" data-reveal>
+            <div class="eyebrow text-stone-500 mb-6">03 - Who runs it</div>
+            <h2 class="display-section text-navy">
+              Alex Key,<br>
+              <span class="font-serif italic font-normal">not a trainer.</span>
+            </h2>
+            <img src="img/profile-picture.png?v=__ASSET_VERSION__"
+                 alt="Alex Key" width="800" height="800" loading="lazy"
+                 class="mt-10 mx-auto lg:mx-0 w-44 h-44 md:w-56 md:h-56 rounded-3xl object-cover ring-1 ring-mist">
+          </div>
+
+          <div class="lg:col-span-6 lg:col-start-7 text-center lg:text-left" data-reveal>
+            <p class="text-xl md:text-2xl leading-snug font-display font-medium max-w-xl mx-auto lg:mx-0 text-navy">
+              I build AI agents for spatial data as my actual work - for the companies that
+              <span class="text-teal-deep">make the software you use</span>.
+            </p>
+            <p class="mt-6 text-stone-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Geoinformatics background, fifteen years shipping software, and before AI I led
+              software and product teams at BMW, Audi and DriveNow and ran my own engineering
+              studio. I am not teaching you a tool I read about.
+            </p>
+            <p class="mt-5 text-stone-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              The part that matters for this workshop: I know where agents get geo wrong,
+              because I spend my weeks finding out. That is a different thing from a general
+              AI trainer who has never opened a PDAL pipeline, and it is why module 6 exists.
+            </p>
+            <!-- The demos on the main page are the proof behind "not a trainer", so this
+                 gets equal weight to the contact button rather than a text link. -->
+            <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              <a href="/#work"
+                 class="inline-flex items-center gap-2 bg-navy hover:bg-teal-deep text-white transition px-7 py-3.5 rounded-full text-[14px] font-semibold">
+                Watch the agent work
+                <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 border border-navy/20 text-navy hover:bg-white transition px-7 py-3.5 rounded-full text-[14px] font-semibold">
+                Reach me on LinkedIn
+              </a>
+            </div>
+            <p class="mt-4 text-sm text-stone-500">
+              Short videos of agents doing real spatial work - glacier change detection,
+              a CloudCompare integration, facade analysis.
+            </p>
+            <!-- TESTIMONIALS: add after the first workshop. Name, role, company, and one
+                 specific sentence. Nothing generic. -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-[1100px] px-6 md:px-10"><div class="horizon"></div></div>
+
+    <!-- 04 - PRICE -->
+    <section class="relative py-20 md:py-28 bg-sand">
+      <div class="mx-auto max-w-[900px] px-6 md:px-10">
+        <div class="max-w-3xl mx-auto text-center mb-12" data-reveal>
+          <div class="eyebrow text-stone-500 mb-6">04 - Price</div>
+          <h2 class="display-section text-navy">
+            One price,<br>
+            <span class="font-serif italic font-normal">no seat math.</span>
+          </h2>
+        </div>
+
+        <div class="rounded-3xl p-8 md:p-10 bg-white ring-2 ring-navy" data-reveal>
+          <div class="font-display text-5xl font-bold tracking-tightest text-navy">&euro;4,900</div>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            Net, flat, for the whole team. Not per seat.
+          </p>
+          <ul class="mt-7 space-y-0 text-[15px]">
+            <li class="py-3.5 border-t border-mist text-stone-600">
+              Two half-days, up to 6 people. &euro;500 per additional participant, to a hard
+              cap of 8. Past that it stops being hands-on.
+            <li class="py-3.5 border-t border-mist text-stone-600">
+              On-site, travel within Germany, Austria and Switzerland included.
+            </li>
+            <li class="py-3.5 border-t border-mist text-stone-600">
+              One company at a time, so the workshop is built around your data rather than
+              shared with strangers.
+            </li>
+            <li class="py-3.5 border-t border-mist text-navy font-medium">
+              If the workshop doesn't deliver, I keep working with your team until it does.
+              A follow-up session, at no cost.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-[900px] px-6 md:px-10"><div class="horizon"></div></div>
+
+    <!-- FAQ -->
+    <section class="relative pt-14 md:pt-20 pb-20 md:pb-28 bg-sand">
+      <div class="mx-auto max-w-[900px] px-6 md:px-10">
+        <!-- Needs the headline: without it the section padding above reads as dead space,
+             because every other section fills that band with a display-section. -->
+        <div class="text-center mb-12" data-reveal>
+          <div class="eyebrow text-stone-500 mb-6">05 - Questions</div>
+          <h2 class="display-section text-navy">
+            Questions people<br>
+            <span class="font-serif italic font-normal">ask first.</span>
+          </h2>
+        </div>
+
+        <div class="space-y-3" data-reveal>
+          <details class="group/faq rounded-2xl bg-white ring-1 ring-mist open:ring-brand-cyan/40">
+            <summary class="list-none cursor-pointer select-none p-6 flex items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+              <h3 class="font-display font-bold text-lg tracking-tight text-navy">What does the team need beforehand?</h3>
+              <span class="shrink-0 w-9 h-9 rounded-full border border-mist flex items-center justify-center text-teal-deep transition-transform group-open/faq:rotate-180">
+                <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </summary>
+            <p class="px-6 pb-6 text-stone-600 leading-relaxed">
+              Laptops they have admin rights on, and a Claude subscription per participant.
+              I send exact setup instructions two weeks ahead and help if anything fights
+              back. Nobody needs to install anything clever.
+            </p>
+          </details>
+
+          <details class="group/faq rounded-2xl bg-white ring-1 ring-mist open:ring-brand-cyan/40">
+            <summary class="list-none cursor-pointer select-none p-6 flex items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+              <h3 class="font-display font-bold text-lg tracking-tight text-navy">Does anyone need to be able to program?</h3>
+              <span class="shrink-0 w-9 h-9 rounded-full border border-mist flex items-center justify-center text-teal-deep transition-transform group-open/faq:rotate-180">
+                <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </summary>
+            <p class="px-6 pb-6 text-stone-600 leading-relaxed">
+              No. It helps if some of them have written a script or a model builder chain at
+              some point, because they will recognize what the agent is doing. It is not a
+              requirement.
+            </p>
+          </details>
+
+          <details class="group/faq rounded-2xl bg-white ring-1 ring-mist open:ring-brand-cyan/40">
+            <summary class="list-none cursor-pointer select-none p-6 flex items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+              <h3 class="font-display font-bold text-lg tracking-tight text-navy">On-site or remote?</h3>
+              <span class="shrink-0 w-9 h-9 rounded-full border border-mist flex items-center justify-center text-teal-deep transition-transform group-open/faq:rotate-180">
+                <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </summary>
+            <p class="px-6 pb-6 text-stone-600 leading-relaxed">
+              Both work, same price - travel is included either way. I would push for on-site:
+              it is noticeably better when someone gets stuck.
+            </p>
+          </details>
+
+          <details class="group/faq rounded-2xl bg-white ring-1 ring-mist open:ring-brand-cyan/40">
+            <summary class="list-none cursor-pointer select-none p-6 flex items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+              <h3 class="font-display font-bold text-lg tracking-tight text-navy">What happens after the workshop?</h3>
+              <span class="shrink-0 w-9 h-9 rounded-full border border-mist flex items-center justify-center text-teal-deep transition-transform group-open/faq:rotate-180">
+                <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </summary>
+            <p class="px-6 pb-6 text-stone-600 leading-relaxed">
+              90 days of async questions and support included, usually via email or video calls if needed.
+            </p>
+          </details>
+
+          <details class="group/faq rounded-2xl bg-white ring-1 ring-mist open:ring-brand-cyan/40">
+            <summary class="list-none cursor-pointer select-none p-6 flex items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+              <h3 class="font-display font-bold text-lg tracking-tight text-navy">Is this going to be out of date in six months?</h3>
+              <span class="shrink-0 w-9 h-9 rounded-full border border-mist flex items-center justify-center text-teal-deep transition-transform group-open/faq:rotate-180">
+                <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </summary>
+            <p class="px-6 pb-6 text-stone-600 leading-relaxed">
+              The specific commands, partly - the tools move fast. The way of working, no.
+              And that is what the workshop is actually about.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSE -->
+    <section class="relative py-20 md:py-28 bg-navy text-white overflow-hidden">
+      <div class="absolute inset-0 bg-grid opacity-40"></div>
+      <div class="pointer-events-none absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full blur-3xl opacity-25" style="background: radial-gradient(circle, #1FC4C4 0%, transparent 60%);"></div>
+      <div class="relative mx-auto max-w-[1100px] px-6 md:px-10 text-center" data-reveal>
+        <h2 class="display-section">
+          Two half-days.<br>
+          <span class="font-serif italic font-normal">Then your team keeps going.</span>
+        </h2>
+        <p class="mt-8 text-aqua/80 leading-relaxed max-w-xl mx-auto">
+          If this looks useful, reply to me on LinkedIn and we'll work out whether it fits
+          and when.
+        </p>
+        <div class="mt-10 flex justify-center">
+          <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-brand-cyan text-navy hover:bg-white transition px-7 py-3.5 rounded-full text-[14px] font-semibold">
+            Message me on LinkedIn
+            <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy-deeper text-white">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10 py-16">
+      <div class="grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-5">
+          <a href="/" class="inline-flex items-center gap-3">
+            <svg viewBox="0 0 240 240" class="w-10 h-10" aria-hidden="true">
+              <defs><clipPath id="footclip"><circle cx="120" cy="120" r="106"/></clipPath></defs>
+              <circle cx="120" cy="120" r="110" fill="none" stroke="#1FC4C4" stroke-width="5"/>
+              <g clip-path="url(#footclip)">
+                <rect x="14" y="14" width="212" height="212" fill="#081A2E"/>
+                <path d="M14,118 Q70,92 130,108 T226,108 L226,150 L14,150 Z" fill="#0D4A4A"/>
+                <path d="M14,146 Q60,124 120,140 T226,140 L226,180 L14,180 Z" fill="#1F6B6B"/>
+                <path d="M14,172 Q70,156 130,170 T226,168 L226,200 L14,200 Z" fill="#0FA5A5"/>
+                <path d="M14,192 Q60,178 126,190 T226,188 L226,226 L14,226 Z" fill="#1FC4C4"/>
+              </g>
+            </svg>
+            <span class="font-display text-2xl font-bold tracking-tightest text-white">panori<span class="q-cyan">q</span></span>
+          </a>
+          <p class="mt-6 max-w-sm text-aqua/70 leading-relaxed">
+            Alex Key - independent AI engineer helping spatial software vendors ship
+            reliable agents in products used by external customers.
+          </p>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="eyebrow text-aqua/50 mb-4">Site</div>
+          <ul class="space-y-2 text-aqua/80 text-sm">
+            <li><a href="/" class="hover:text-white">Main site</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="eyebrow text-aqua/50 mb-4">Connect</div>
+          <ul class="space-y-2 text-aqua/80 text-sm">
+            <li><a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="hover:text-white">LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3">
+          <div class="eyebrow text-aqua/50 mb-4">Legal</div>
+          <ul class="space-y-2 text-aqua/80 text-sm">
+            <li><a href="impressum.html" target="_blank" class="hover:text-white">Impressum / Imprint</a></li>
+            <li><a href="datenschutz.html" target="_blank" class="hover:text-white">Datenschutzerkl&auml;rung / Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-aqua/50">
+        <div>&copy; 2026 Kawunu GmbH. All rights reserved.</div>
+        <div class="font-mono tracking-widest uppercase">
+          panoriq is the AI contracting practice of Kawunu GmbH
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal - same behavior as the main page.
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
