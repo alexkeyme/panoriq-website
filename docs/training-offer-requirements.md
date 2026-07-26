@@ -8,18 +8,24 @@ a copy preference - do not reword or "improve" it without asking.
 
 ---
 
-## 1. What these pages are for
+## 1. What this page is for
 
 A two-day paid workshop, "Claude Code for geo data processing", sold to geo data service
-firms as a cash-bridge offer. The pages exist to close a sale that starts with a LinkedIn
-direct message: the recipient replies, gets the link, and either books a 20-minute call or
-writes an email.
+firms as a cash-bridge offer.
 
-They are not a funnel, a lead magnet, or a content hub. One page per language, one job.
+**It is a leave-behind, not a landing page.** Every reader arrives the same way: Alex sends a
+short LinkedIn message to gauge interest, they express some, and he sends the link. They read
+it, and they reply on LinkedIn. Nobody discovers this page on their own and converts. That
+single fact decides most of the design questions below - it is why there is no email capture,
+no calendar link, no scarcity, and no CTA in the hero. The page has to inform a warm reader,
+not persuade a cold one.
 
-Success condition: a managing partner at a 10-100 person firm can read the page and decide,
-without a call, whether this is worth 20 minutes. That means price, format, dates and terms
-must all be answerable from the page alone.
+It is not a funnel, a lead magnet, or a content hub.
+
+Success condition: a managing partner at a 10-100 person firm reads it in a few minutes and
+knows whether to take the conversation further. Two things must land - that the boring half of
+their week is now automatable, which most of them do not know, and what the two days actually
+contain. Price and terms must be answerable from the page, but they are not the point of it.
 
 ## 2. Positioning guardrails
 
@@ -56,42 +62,56 @@ changes, change all of them and check both pages.
 | Guarantee | Free follow-up session until it delivers. **Never** a refund on the page |
 | Support | 90 days of async questions after the workshop |
 | Languages | Delivery in German or English |
-| Availability | Two slots, September 2026, one company per slot |
-| Booking | Email alex@kawunu.com. No calendar link - outreach runs through LinkedIn DMs |
+| Availability | One company at a time. No dates on the page - see below |
+| Booking | LinkedIn reply. No calendar link, and no email address anywhere on the page |
 
-Two things deliberately absent from the page, and they must stay absent: the pilot rate
-(~€3,900, a private negotiating lever) and any refund offer.
+Three things deliberately absent from the page, and they must stay absent: the pilot rate
+(~€3,900, a private negotiating lever), any refund offer, and any email address - the page is
+indexed and Alex already gets enough spam. LinkedIn is the only channel on it.
+
+**No dates, no slot counts.** Removed 2026-07-26. Scarcity does nothing when every reader has
+already been contacted directly, and a month named on the page is stale the moment it passes.
+Dates are agreed in the conversation, not advertised. Do not reintroduce a "two slots left"
+card.
 
 ## 4. Required content
 
-Each page must contain these blocks, in this order. Substance is required; exact wording is
+The page must contain these blocks, in this order. Substance is required; exact wording is
 editable except where noted.
 
-1. **Hero** - outcome first, in the reader's language, never the tool name. Format facts and
-   price visible without scrolling. Primary CTA plus the honest qualifier that the exchange
-   is for deciding fit.
-2. **Why this exists** - the cost of manual processing, framed as margin in fixed-price work.
-   Must include the admission that agents handle only part of the work, and not unsupervised.
-3. **Who it's for / not for** - both columns required. The "not for" column is not optional;
-   it does qualifying work. Fit is defined by behaviour (power users who push tools past
-   their defaults) not job title. Must state that programming is not a prerequisite.
-4. **Outcomes** - what the team keeps: working automations on their own data, a project
-   template, everyone able to drive their existing tools from plain language, and a
-   verification routine. Materials, certificate, 90-day support.
-5. **Agenda** - six modules across two days, day one on prepared datasets, day two on the
-   client's data, plus the compliance block. Module 6 (Trust: where agents get CRS, units and
-   nodata quietly wrong) is the module that sells the workshop and must not be cut or softened.
-   Roughly 60% hands-on must be stated.
-6. **It runs on your data** - the one-week-ahead dataset handover, and the statement that
-   their data stays on their machines.
-7. **Who runs it** - named human, the geoinformatics-plus-agents combination, and why that
-   differs from a general AI trainer.
-8. **Price, terms, dates** - all of section 3, visible, with the guarantee as the last and
-   most prominent term.
-9. **FAQ** - at minimum: prerequisites, programming requirement, on-site vs remote, what
+Restructured 2026-07-26. The old order was a conversion funnel - qualify, convince, handle
+objections, close. That is the wrong shape: this page is a leave-behind for a conversation
+already in progress on LinkedIn, not a lead generator. The order below front-loads the two
+things a warm reader wants (the surprise, then the agenda) and leaves the commercial detail
+for the bottom half. **Keep it short.** Adding paragraphs is the failure mode here.
+
+1. **Hero** - outcome first, in the reader's language, never the tool name. Orienting facts
+   only, as a one-line strip: duration, group size, location, language. **No price and no CTA
+   in the hero** - the reader has not yet learned what they are pricing, and they already know
+   how to reach Alex.
+2. **The point** - the one idea to land: the boring half of the week is automatable now, and
+   most teams have not seen this yet. Includes the margin argument for fixed-price work and
+   the admission that agents handle only part of it, not unsupervised. Two paragraphs, no more.
+3. **Agenda** - the centrepiece, and the reason it sits this high. Six modules across two days,
+   day one on prepared datasets, day two on the client's data, plus the compliance block.
+   Module 6 (Trust: where agents get CRS, units and nodata quietly wrong) sells the workshop
+   and must not be cut or softened. Roughly 60% hands-on must be stated. The one-week-ahead
+   dataset handover and "your data stays on your machines" ride along as a single line here -
+   they used to be a section of their own, which was more weight than a logistics detail earns.
+4. **Who it's for / not for** - both columns required; the "not for" column does the
+   qualifying. Fit is defined by behaviour (power users who push tools past their defaults),
+   not job title. Must state that programming is not a prerequisite. A sentence or two each.
+5. **Outcomes** - what the team keeps: working automations on their own data, a project
+   template, a verification routine. Materials, certificate, 90-day support.
+6. **Who runs it** - named human with a portrait, the geoinformatics-plus-agents combination,
+   and why that differs from a general AI trainer. This is a credibility block, so it sits
+   after the value and before the price. LinkedIn is the contact here. Mirrors the About block
+   on `index.html`.
+7. **Price** - all of section 3, with the guarantee as the last and most prominent term. No
+   dates, no availability card.
+8. **FAQ** - at minimum: prerequisites, programming requirement, on-site vs remote, what
    happens afterwards, and whether it will be out of date in six months.
-10. **Closing CTA** - email plus LinkedIn, and the plain address in text. Some buyers copy the
-    address rather than click a `mailto:`.
+9. **Closing CTA** - one line, one button: reply on LinkedIn.
 
 ## 5. Functional requirements
 
@@ -162,36 +182,33 @@ A change to either page is done when all of these pass:
 **T-1. Register the page for deployment.** DONE 2026-07-26. `training.html` is in the `cp`
 line. Confirm the URL resolves after the next deploy.
 
-**T-2. Fix the booking link.** DONE 2026-07-26, by removing it. There is no calendar link.
-Every CTA is now `mailto:alex@kawunu.com` with a prefilled subject, plus a LinkedIn link in
-the closing block. Outreach runs as LinkedIn DMs, so the page only has to accept a reply. If
-a Calendly event is ever created, three CTAs change.
+**T-2. Fix the booking link.** DONE 2026-07-26, by removing it. No calendar link and no email
+address. The two contact points are both LinkedIn: one in the "who runs it" block, one in the
+closing block. Outreach runs as LinkedIn DMs, so the page only has to accept a reply.
 
 **T-3. German copy review.** PARKED with the German page (section 6). Nothing to review while
 the site is English only.
 
-**T-4. Video in the hero.** Both pages have a commented-out slot. When a screen recording of
-a real chore exists, add it as a click-to-load Vimeo facade per FR-3, with the ID in
-`js/main.js` alongside the existing demos. Do not block T-1 or T-2 on this.
+**T-4. Video in the hero.** DROPPED from the hero 2026-07-26 - the slot went with the
+restructure, and the hero is now deliberately light. A short screen recording of a real chore
+would still be the single strongest addition to this page; if one gets made, it belongs beside
+the agenda, as a click-to-load Vimeo facade per FR-3 with the ID in `js/main.js`.
 
-**T-5. Testimonials.** Placeholder comment sits in the "who runs it" block. After the first
+**T-5. Testimonials.** Placeholder comment sits in the "who runs it" block, under the portrait. After the first
 delivered workshop, add name, role, company and one specific sentence. Two good ones beat
 six vague ones. Anonymous quotes are worse than none.
 
-**T-6. Keep dates current.** The slot count lives in one place per page - "Two slots open"
-in `training.html`, "Zwei Termine frei" in `training-de.html`, both in the September card of
-the price section. "September" additionally appears in the hero eyebrow, the two CTA labels
-and the closing headline on each page, so a move to Q4 touches roughly five strings per page.
-Update the count as slots sell. A page advertising slots that are gone reads as neglected.
+**T-6. Keep dates current.** DROPPED 2026-07-26 - there are no dates on the page any more.
+See the note under section 3.
 
 ## 9. Out of scope
 
 Do not build these without an explicit request:
 
-- Forms, email capture, newsletter signup, or any lead-gen mechanism. The CTA is a calendar
-  link and an email address.
+- Forms, email capture, newsletter signup, or any lead-gen mechanism. The CTA is a LinkedIn
+  link, and that is the whole of it.
 - Analytics, tracking pixels, cookie banners, A/B testing.
-- A German version of `index.html`. Only the training pages are bilingual.
+- A German version of `index.html`.
 - Pricing tables, tier comparisons, or per-seat calculators. One price, deliberately.
 - A booking or payment flow. Invoices are handled outside the site.
 - Blog, resources section, or downloadable PDF version of the offer.
@@ -201,6 +218,6 @@ Do not build these without an explicit request:
 - ~~Whether the pages go public in search.~~ Decided 2026-07-26: yes for `training.html`, see G-3.
 - Whether a one-day variant at a lower price is offered. Currently not, to avoid two SKUs on
   one page.
-- What replaces the September framing once both slots are sold or the month passes.
+- Whether dates ever go back on the page. Currently no - see section 3.
 - Whether the offer continues at all after the first paid pilot. It is deliberately
   time-boxed (G-5).

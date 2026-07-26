@@ -61,6 +61,12 @@ them or move training copy into the hero without being asked.
 from crawlers: those three quiet cross-links, and no presence in the main navigation. Adding
 a banner, a hero CTA or a fourth link breaks the rule even though the page is public.
 
+**`training.html` is a leave-behind, not a landing page.** Every reader gets there from a
+LinkedIn message Alex sent them, and replies on LinkedIn. So: no email address anywhere on it
+(it is indexed, and the spam is real), no calendar link, no scarcity, no dates, no CTA in the
+hero, and price below the agenda rather than above it. It is meant to stay short - adding
+paragraphs is the failure mode. `docs/training-offer-requirements.md` has the full spec.
+
 ## Design conventions to follow
 
 - Sections carry a numbered eyebrow: `01 - What I do`, `02 - Selected work`.
