@@ -121,13 +121,18 @@
             </h1>
 
             <p class="mt-10 max-w-2xl text-aqua/90 text-lg md:text-xl leading-relaxed">
-              Reprojecting, tiling, converting, classifying, repairing broken CRS metadata.
-              The same pipeline for the fortieth time.
+              Converting, projecting, tiling, classifying, repairing broken metadata.
+              The same pipeline for the fortieth time. In fixed-price work, those hours
+              come straight off the margin.
             </p>
 
             <p class="mt-6 max-w-2xl text-white text-lg md:text-xl leading-relaxed">
-              An AI agent can do most of that now - driving PDAL, GDAL, QGIS and the rest of
-              your stack for you. In two half-days I show your team how, on your own data.
+              AI Agents can do most of that now - driving PDAL, GDAL, Python, and the rest of
+              your stack for you. So your team can focus on the hard stuff.
+            </p>
+
+            <p class="mt-6 max-w-2xl text-white text-lg md:text-xl leading-relaxed">
+              In two half-days I show your team how, on your own data.
             </p>
 
             <!-- Orienting facts only. Price sits further down, after the agenda. -->
@@ -157,8 +162,8 @@
 
               <p class="mt-5 text-sm text-aqua/60">You type this:</p>
               <p class="mt-3 font-mono text-[15px] leading-relaxed text-white">
-                &ldquo;Here's a folder of LAZ files. Ground-classify them, build a DTM at 50 cm,
-                and tell me which tiles look wrong.&rdquo;
+                &ldquo;Here's a lidar scan of a glacier, four epochs, all different file formats.
+                Calculate the volume change across all epochs.&rdquo;
               </p>
 
               <div class="mt-7 pt-6 border-t border-white/10">
@@ -166,15 +171,15 @@
                 <ul class="mt-4 space-y-3 text-[15px] text-aqua/90">
                   <li class="flex gap-3">
                     <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-cyan"></span>
-                    Writes and runs the PDAL pipeline
+                    Converts, merges, and trims the data
                   </li>
                   <li class="flex gap-3">
                     <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-cyan"></span>
-                    Checks the CRS before it trusts it
+                    Calculates the volume change across all epochs
                   </li>
                   <li class="flex gap-3">
                     <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-cyan"></span>
-                    Flags the four tiles with holes
+                    Validates the results and writes a ready report.
                   </li>
                 </ul>
               </div>
@@ -203,31 +208,7 @@
       </div>
     </section>
 
-    <!-- 01 - THE POINT. The one thing to land: the boring half is automatable now. -->
-    <section class="relative py-20 md:py-28 bg-sand">
-      <div class="mx-auto max-w-[1100px] px-6 md:px-10">
-        <div class="max-w-3xl" data-reveal>
-          <div class="eyebrow text-stone-500 mb-6">01 - The point</div>
-          <h2 class="display-section text-navy">
-            The boring half<br>
-            <span class="font-serif italic font-normal">is automatable now.</span>
-          </h2>
-          <p class="mt-8 text-lg text-stone-600 leading-relaxed">
-            Not the judgement - the legwork. In fixed-price work those hours come straight
-            off the margin, and the two people on your team who could script their way out
-            of them are already the two with no time.
-          </p>
-          <p class="mt-5 text-lg text-stone-600 leading-relaxed">
-            What changed is that it no longer takes a developer. An analyst describes the
-            job in plain language and the agent writes the pipeline, runs it, and checks
-            the result. Not all of the work, and not without supervision - which is exactly
-            what the second half-day is for. Most teams have not seen this yet.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 02 - THE AGENDA. Moved up deliberately: this is the part that sells the workshop. -->
+    <!-- 01 - THE AGENDA. Moved up deliberately: this is the part that sells the workshop. -->
     <section class="relative py-20 md:py-28 bg-sand overflow-hidden">
       <div aria-hidden="true" class="absolute -right-24 -top-20 select-none pointer-events-none">
         <span class="big-q text-aqua-surface">q</span>
@@ -235,7 +216,7 @@
 
       <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
         <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16" data-reveal>
-          <div class="eyebrow text-stone-500 mb-6">02 - The agenda</div>
+          <div class="eyebrow text-stone-500 mb-6">01 - The agenda</div>
           <h2 class="display-section text-navy">
             The two<br>
             <span class="font-serif italic font-normal">half-days</span>
@@ -327,7 +308,10 @@
       </div>
     </section>
 
-    <!-- 03 - WHO IT'S FOR -->
+    <!-- HIDDEN 2026-07-26 - reads as out of place in the shortened page. Kept for
+         later: the "not a fit" column does real qualifying work if the page ever
+         goes to a colder audience. Uncomment as a whole and renumber the eyebrows.
+    <!&#45;&#45; 03 - WHO IT'S FOR &#45;&#45;>
     <section class="relative py-20 md:py-28 bg-sand">
       <div class="mx-auto max-w-[1100px] px-6 md:px-10">
         <div class="max-w-3xl mx-auto text-center mb-12" data-reveal>
@@ -371,14 +355,15 @@
         </p>
       </div>
     </section>
+    -->
 
-    <!-- 04 - WHAT YOU KEEP -->
+    <!-- 02 - WHAT YOU KEEP -->
     <section class="relative py-20 md:py-28 bg-navy text-white overflow-hidden">
       <div class="absolute inset-0 bg-grid opacity-40"></div>
       <div class="relative mx-auto max-w-[1400px] px-6 md:px-10">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
           <div class="lg:col-span-5" data-reveal>
-            <div class="eyebrow text-aqua/70 mb-6">04 - Outcomes</div>
+            <div class="eyebrow text-aqua/70 mb-6">02 - Outcomes</div>
             <h2 class="display-section">
               You keep<br>
               <span class="font-serif italic font-normal">what we build.</span>
@@ -421,12 +406,12 @@
       </div>
     </section>
 
-    <!-- 05 - WHO RUNS IT. Same treatment as the About block on index.html. -->
+    <!-- 03 - WHO RUNS IT. Same treatment as the About block on index.html. -->
     <section class="relative py-20 md:py-28 bg-sand">
       <div class="mx-auto max-w-[1400px] px-6 md:px-10">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div class="lg:col-span-5" data-reveal>
-            <div class="eyebrow text-stone-500 mb-6">05 - Who runs it</div>
+            <div class="eyebrow text-stone-500 mb-6">03 - Who runs it</div>
             <h2 class="display-section text-navy">
               Alex Key,<br>
               <span class="font-serif italic font-normal">not a trainer.</span>
@@ -451,14 +436,23 @@
               because I spend my weeks finding out. That is a different thing from a general
               AI trainer who has never opened a PDAL pipeline, and it is why module 6 exists.
             </p>
+            <!-- The demos on the main page are the proof behind "not a trainer", so this
+                 gets equal weight to the contact button rather than a text link. -->
             <div class="mt-8 flex flex-wrap items-center gap-4">
-              <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener"
+              <a href="/#work"
                  class="inline-flex items-center gap-2 bg-navy hover:bg-teal-deep text-white transition px-7 py-3.5 rounded-full text-[14px] font-semibold">
-                Reach me on LinkedIn
+                Watch the agent work
                 <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
-              <a href="/" class="text-sm font-semibold text-teal-deep underline underline-offset-4 decoration-teal-deep/40 hover:decoration-teal-deep">See the agent work on panoriq.com</a>
+              <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 border border-navy/20 text-navy hover:bg-white transition px-7 py-3.5 rounded-full text-[14px] font-semibold">
+                Reach me on LinkedIn
+              </a>
             </div>
+            <p class="mt-4 text-sm text-stone-500">
+              Short videos of agents doing real spatial work - glacier change detection,
+              a CloudCompare integration, facade analysis.
+            </p>
             <!-- TESTIMONIALS: add after the first workshop. Name, role, company, and one
                  specific sentence. Nothing generic. -->
           </div>
@@ -468,11 +462,11 @@
 
     <div class="mx-auto max-w-[1100px] px-6 md:px-10"><div class="horizon"></div></div>
 
-    <!-- 06 - PRICE -->
+    <!-- 04 - PRICE -->
     <section class="relative py-20 md:py-28 bg-sand">
       <div class="mx-auto max-w-[900px] px-6 md:px-10">
         <div class="max-w-3xl mx-auto text-center mb-12" data-reveal>
-          <div class="eyebrow text-stone-500 mb-6">06 - Price</div>
+          <div class="eyebrow text-stone-500 mb-6">04 - Price</div>
           <h2 class="display-section text-navy">
             One price,<br>
             <span class="font-serif italic font-normal">no seat maths.</span>
@@ -482,20 +476,19 @@
         <div class="rounded-3xl p-8 md:p-10 bg-white ring-2 ring-navy" data-reveal>
           <div class="font-display text-5xl font-bold tracking-tightest text-navy">&euro;4,900</div>
           <p class="mt-3 text-stone-600 leading-relaxed">
-            Net, flat, for the whole team. Two half-days, up to 6 people. Travel within Germany,
-            Austria and Switzerland included. Remote costs the same. One company at a time,
-            so the workshop is built around your data rather than shared with strangers.
+            Net, flat, for the whole team. Not per seat.
           </p>
           <ul class="mt-7 space-y-0 text-[15px]">
             <li class="py-3.5 border-t border-mist text-stone-600">
-              &euro;500 per additional participant, to a hard cap of 8. Past that it stops
-              being hands-on.
+              Two half-days, up to 6 people. &euro;500 per additional participant, to a hard
+              cap of 8. Past that it stops being hands-on.
             </li>
             <li class="py-3.5 border-t border-mist text-stone-600">
-              50% on booking to hold the date, 50% invoiced on the day of the workshop.
+              Travel within Germany, Austria and Switzerland included. Remote costs the same.
             </li>
             <li class="py-3.5 border-t border-mist text-stone-600">
-              One free reschedule with 14 days notice. The deposit moves with you.
+              One company at a time, so the workshop is built around your data rather than
+              shared with strangers.
             </li>
             <li class="py-3.5 border-t border-mist text-navy font-medium">
               If the workshop doesn't deliver, I keep working with your team until it does.

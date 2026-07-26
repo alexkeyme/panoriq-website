@@ -57,8 +57,6 @@ changes, change all of them and check both pages.
 | Group size | Up to 6 people included |
 | Extra participants | €500 each, hard cap 8 total |
 | Travel | Included within DACH; remote same price |
-| Payment | 50% on booking to hold the date, 50% invoiced on the workshop day |
-| Reschedule | One free, with 14+ days notice, deposit carries over |
 | Guarantee | Free follow-up session until it delivers. **Never** a refund on the page |
 | Support | 90 days of async questions after the workshop |
 | Languages | Delivery in German or English |
@@ -98,9 +96,9 @@ for the bottom half. **Keep it short.** Adding paragraphs is the failure mode he
    - Orienting facts strip: duration, group size, location, language.
    - **No price and no CTA in the hero** - the reader has not yet learned what they are
      pricing, and they already know how to reach Alex.
-2. **The point** - the margin argument for fixed-price work, plus the one line that makes it
-   new: it no longer takes a developer. Two paragraphs, no more. Do not re-list the chores
-   here; the hero already did that, and the repetition is the first thing that creeps back in.
+2. ~~**The point**~~ - **removed 2026-07-26.** Once the hero carried problem *and* solution,
+   this section restated both and read as filler. The margin sentence it existed for now sits
+   in the hero's first paragraph. Do not reinstate it as a section.
 3. **Agenda** - the centrepiece, and the reason it sits this high. Six modules across two
    half-days, the first on prepared datasets, the second on the client's data, plus the
    compliance block.
@@ -108,17 +106,23 @@ for the bottom half. **Keep it short.** Adding paragraphs is the failure mode he
    and must not be cut or softened. Roughly 60% hands-on must be stated. The one-week-ahead
    dataset handover and "your data stays on your machines" ride along as a single line here -
    they used to be a section of their own, which was more weight than a logistics detail earns.
-4. **Who it's for / not for** - both columns required; the "not for" column does the
-   qualifying. Fit is defined by behaviour (power users who push tools past their defaults),
-   not job title. Must state that programming is not a prerequisite. A sentence or two each.
+4. **Who it's for / not for** - **commented out in the page 2026-07-26**, kept in the file.
+   It read as out of place once the page shortened. The markup is intact behind an HTML
+   comment; uncomment as a whole and renumber the eyebrows if a colder audience ever needs the
+   qualifying. If restored: both columns required, fit defined by behaviour (power users who
+   push tools past their defaults) not job title, and programming is not a prerequisite.
 5. **Outcomes** - what the team keeps: working automations on their own data, a project
    template, a verification routine. Materials, certificate, 90-day support.
 6. **Who runs it** - named human with a portrait, the geoinformatics-plus-agents combination,
    and why that differs from a general AI trainer. This is a credibility block, so it sits
-   after the value and before the price. LinkedIn is the contact here. Mirrors the About block
-   on `index.html`.
-7. **Price** - all of section 3, with the guarantee as the last and most prominent term. No
-   dates, no availability card.
+   after the value and before the price. Mirrors the About block on `index.html`. Two buttons:
+   the demos at `/#work` first, because they are the proof behind "not a trainer", then
+   LinkedIn. The `/#work` anchor must stay - a bare `/` lands on the hero and looks broken.
+7. **Price** - one card: the number, then bullets, guarantee last and most prominent. No
+   dates, no availability card. Payment split and reschedule terms are **not** on the page as
+   of 2026-07-26 - they are negotiation detail for the conversation, and listing them made the
+   card read like a contract. The bullets carry what a buyer needs to judge the price: group
+   size and the extra-seat rate, travel, and one company at a time.
 8. **FAQ** - at minimum: prerequisites, programming requirement, on-site vs remote, what
    happens afterwards, and whether it will be out of date in six months.
 9. **Closing CTA** - one line, one button: reply on LinkedIn.
