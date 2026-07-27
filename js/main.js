@@ -1,38 +1,6 @@
 import * as THREE from "three";
 
-// CONFIG: Vimeo IDs for each demo video.
-const VIMEO_IDS = {
-  glacier:      "1212004912",
-  cloudCompare: "1200804594",
-  pointCloud:   "1187686744",
-  facade:       "1197400606",
-};
-// Click-to-load Vimeo facade shared by each play button.
-function initVimeoFacade(buttonId, vimeoId, title) {
-  const btn = document.getElementById(buttonId);
-  if (!btn) return;
-
-  btn.addEventListener("click", () => {
-    if (!vimeoId) return;
-    const wrapper = btn.parentElement;
-    const iframe = document.createElement("iframe");
-    iframe.src =
-      `https://player.vimeo.com/video/${vimeoId}` +
-      `?autoplay=1&title=0&byline=0&portrait=0&dnt=1&color=1FC4C4`;
-    iframe.allow = "autoplay; fullscreen; picture-in-picture";
-    iframe.allowFullscreen = true;
-    iframe.referrerPolicy = "strict-origin-when-cross-origin";
-    iframe.className = "absolute inset-0 w-full h-full";
-    iframe.setAttribute("frameborder", "0");
-    iframe.setAttribute("title", title);
-    wrapper.replaceChild(iframe, btn);
-  });
-}
-
-initVimeoFacade("demoPlayGlacier",      VIMEO_IDS.glacier,      "Panoriq glacier change demo");
-initVimeoFacade("demoPlayCloudCompare", VIMEO_IDS.cloudCompare, "Panoriq CloudCompare integration demo");
-initVimeoFacade("demoPlay",             VIMEO_IDS.pointCloud,   "Panoriq point-cloud demo");
-initVimeoFacade("demoPlayFacade",       VIMEO_IDS.facade,       "Panoriq facade analysis demo");
+// The Vimeo facades live in js/vimeo.js, which loads on pages without the hero canvas too.
 
 // Ambient point-cloud background for the hero.
 // Tuned to sit behind the brand grid + wave-mark without competing.

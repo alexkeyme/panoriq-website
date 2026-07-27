@@ -1,7 +1,7 @@
 # Requirements: training offer pages
 
-Status: both pages exist and render. This document is the spec they must satisfy, plus the
-work that is still open. Read it before changing `training.html` or `training-de.html`.
+Status: the page is live and indexed. This document is the spec it must satisfy, plus the
+work that is still open. Read it before changing `training.html`.
 
 Owner of all commercial decisions: Alex. Anything marked LOCKED is a business decision, not
 a copy preference - do not reword or "improve" it without asking.
@@ -104,6 +104,9 @@ for the bottom half. **Keep it short.** Adding paragraphs is the failure mode he
    - Orienting facts strip: duration, group size, location, language.
    - **No price and no CTA in the hero** - the reader has not yet learned what they are
      pricing, and they already know how to reach Alex.
+   - Below the two columns, still inside the hero and above the wave band: the **video band**,
+     full width, no eyebrow. See T-4 for what it shows. It carries no eyebrow because it is
+     part of the hero, so the numbered sections still run `01 - The agenda` to `05 - Questions`.
 2. ~~**The point**~~ - **removed 2026-07-26.** Once the hero carried problem *and* solution,
    this section restated both and read as filler. The margin sentence it existed for now sits
    in the hero's first paragraph. Do not reinstate it as a section.
@@ -114,18 +117,24 @@ for the bottom half. **Keep it short.** Adding paragraphs is the failure mode he
    and must not be cut or softened. Roughly 60% hands-on must be stated. The one-week-ahead
    dataset handover and "your data stays on your machines" ride along as a single line here -
    they used to be a section of their own, which was more weight than a logistics detail earns.
-4. **Who it's for / not for** - **commented out in the page 2026-07-26**, kept in the file.
-   It read as out of place once the page shortened. The markup is intact behind an HTML
-   comment; uncomment as a whole and renumber the eyebrows if a colder audience ever needs the
-   qualifying. If restored: both columns required, fit defined by behaviour (power users who
-   push tools past their defaults) not job title, and programming is not a prerequisite.
+   That line went missing in an edit and was restored 2026-07-27; it is required content.
+4. **Audience filter, compact** - restored 2026-07-27 as a quiet strip, NOT the old
+   two-column block (that block was commented out 2026-07-26 because it outweighed the
+   shortened page, and its markup was deleted 2026-07-27). Form: one short paragraph at the
+   end of the agenda section, directly under the logistics line and styled the same (small,
+   stone-500, no card, no eyebrow of its own). Content, three sentences maximum: who belongs in the room -
+   the power users, the people colleagues go to when data breaks, no programming required -
+   and who does not: teams wanting a general AI strategy workshop, developers building agent
+   products, people for whom a file path is a hurdle. Fit is behaviour, not job title. The
+   filter earns its place by making the rest of the page read as honest, not by its size.
 5. **Outcomes** - what the team keeps: working automations on their own data, a project
    template, a verification routine. Materials, certificate, 90-day support.
 6. **Who runs it** - named human with a portrait, the geoinformatics-plus-agents combination,
    and why that differs from a general AI trainer. This is a credibility block, so it sits
-   after the value and before the price. Mirrors the About block on `index.html`. Two buttons:
-   the demos at `/#work` first, because they are the proof behind "not a trainer", then
-   LinkedIn. The `/#work` anchor must stay - a bare `/` lands on the hero and looks broken.
+   after the value and before the price. Mirrors the About block on `index.html`. One button:
+   LinkedIn. (The `/#work` demos button was removed 2026-07-27 - it dropped the training
+   audience into vendor-framed messaging on the homepage at the moment they were deciding.
+   The embedded video takes over the proof job; see T-4.)
 7. **Price** - one card: the number, then bullets, guarantee last and most prominent. No
    dates, no availability card. Payment split and reschedule terms are **not** on the page as
    of 2026-07-26 - they are negotiation detail for the conversation, and listing them made the
@@ -142,7 +151,9 @@ for the bottom half. **Keep it short.** Adding paragraphs is the failure mode he
   Adding a CDN link, web font service or analytics script violates this.
 - **FR-3.** Any third-party embed uses the click-to-load facade pattern from `index.html`:
   poster image, button, consent text naming what the provider receives, link to
-  `datenschutz.html`. This is a GDPR requirement.
+  `datenschutz.html`. This is a GDPR requirement. The facade helper and the Vimeo IDs live in
+  `js/vimeo.js` (split out of `js/main.js` 2026-07-27, so this page loads the facade without
+  the three.js hero bundle). `training.html` loads that one module and nothing else.
 - **FR-4.** Every local asset URL carries `?v=__ASSET_VERSION__`.
 - **FR-5.** `training.html` appears in the `cp` list in `.github/workflows/deploy.yml`. A page
   missing from that list builds successfully and silently never deploys.
@@ -211,10 +222,22 @@ closing block. Outreach runs as LinkedIn DMs, so the page only has to accept a r
 **T-3. German copy review.** PARKED with the German page (section 6). Nothing to review while
 the site is English only.
 
-**T-4. Video in the hero.** DROPPED from the hero 2026-07-26 - the slot went with the
-restructure, and the hero is now deliberately light. A short screen recording of a real chore
-would still be the single strongest addition to this page; if one gets made, it belongs beside
-the agenda, as a click-to-load Vimeo facade per FR-3 with the ID in `js/main.js`.
+**T-4. Embed the video.** Facade BUILT 2026-07-27, two assets outstanding. Placement settled:
+a full-width band inside the hero, below the headline and the "what changes" card, above the
+wave band - the outreach message describes the page as "video at the top, format and price
+below", so a DM reader hits it before the agenda. Click-to-load Vimeo facade per FR-3, ID in
+`js/vimeo.js`, poster image self-hosted.
+
+Still open, and both block shipping: `VIMEO_IDS.training` is `""`, which leaves the play button
+inert, and the poster is a stand-in (`img/vimeo-point-cloud.jpg`) rather than a frame from the
+recording. Do not deploy the band in that state - either set the real ID and poster, or comment
+the band out until they exist. One English recording serves everywhere.
+
+Content (decided): an agent cleans up a messy folder of point clouds -
+conversion, reprojection, broken CRS metadata - ending on a QA table of which files were
+wrong; includes one real failure the human catches (staged-looking perfection is the failure
+mode). Once embedded, this page is the single destination sent in outreach message 2; the
+LinkedIn feed version is a separate native upload, not a link to this page.
 
 **T-5. Testimonials.** Placeholder comment sits in the "who runs it" block, under the portrait. After the first
 delivered workshop, add name, role, company and one specific sentence. Two good ones beat
@@ -222,6 +245,10 @@ six vague ones. Anonymous quotes are worse than none.
 
 **T-6. Keep dates current.** DROPPED 2026-07-26 - there are no dates on the page any more.
 See the note under section 3.
+
+**T-7. Restore the audience filter as a compact strip.** DONE 2026-07-27. One quiet paragraph
+at the end of the agenda section, under the restored logistics line; the commented-out
+two-column block is deleted.
 
 ## 9. Out of scope
 

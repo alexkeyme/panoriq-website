@@ -76,6 +76,8 @@
   </script>
 
   <link rel="stylesheet" href="dist/output.css?v=__ASSET_VERSION__">
+
+  <script type="module" src="js/vimeo.js?v=__ASSET_VERSION__" defer></script>
 </head>
 
 <body id="top" class="font-sans bg-sand text-navy">
@@ -192,9 +194,36 @@
         </div>
       </div>
 
-      <!-- VIDEO SLOT - when a recording exists, drop a Vimeo facade here to match the
-           pattern on the main page (button + poster + consent copy, ID in js/main.js).
-           Do not hold the page for it. -->
+      <!-- The recording carries the proof, so it sits in the hero rather than beside the
+           agenda: a reader arriving from a LinkedIn message hits it before anything is sold. -->
+      <div class="relative mx-auto max-w-[1400px] px-6 md:px-10 mt-16 md:mt-20" data-reveal>
+        <div class="relative aspect-video rounded-3xl overflow-hidden bg-navy ring-1 ring-white/10 shadow-[0_40px_120px_-30px_rgba(13,74,74,0.45)]">
+          <!-- Vimeo facade: click to load. Vimeo IDs live in js/vimeo.js. -->
+          <button id="trainingPlay" class="absolute inset-0 w-full h-full group" aria-label="Load the workshop preview from Vimeo and play">
+            <!-- TODO: replace with a frame from the workshop recording once it exists. -->
+            <img src="img/vimeo-point-cloud.jpg?v=__ASSET_VERSION__" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+
+            <span class="absolute inset-0 flex items-center justify-center p-4 bg-navy/20 group-hover:bg-navy/10 transition-colors">
+              <span class="block max-w-xl rounded-2xl bg-navy/90 backdrop-blur-md px-5 py-4 md:px-7 md:py-6 text-center text-white shadow-2xl ring-1 ring-white/15">
+                <span class="block eyebrow text-brand-cyan">External video - Vimeo</span>
+                <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                  Load video from Vimeo
+                </span>
+                <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
+                  Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies.
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+        <p class="mt-5 text-center text-sm text-aqua/70 leading-relaxed max-w-2xl mx-auto">
+          An agent cleaning up a folder of point clouds: converting, reprojecting, repairing
+          broken CRS metadata, then reporting which files were wrong - including the one it got
+          wrong and I had to catch. Hosted by Vimeo and blocked until you load it; see the
+          <a href="datenschutz.html" target="_blank" class="underline underline-offset-4 hover:text-white">privacy policy</a>.
+        </p>
+      </div>
 
       <!-- Panoramic horizon band -->
       <div class="relative mt-20 md:mt-28">
@@ -300,58 +329,22 @@
           </div>
         </div>
 
-        <!-- Was its own section. It is one logistics line, so it lives with the agenda now. -->
-      </div>
-    </section>
-
-    <!-- HIDDEN 2026-07-26 - reads as out of place in the shortened page. Kept for
-         later: the "not a fit" column does real qualifying work if the page ever
-         goes to a colder audience. Uncomment as a whole and renumber the eyebrows.
-    <!&#45;&#45; 03 - WHO IT'S FOR &#45;&#45;>
-    <section class="relative py-20 md:py-28 bg-sand">
-      <div class="mx-auto max-w-[1100px] px-6 md:px-10">
-        <div class="max-w-3xl mx-auto text-center mb-12" data-reveal>
-          <div class="eyebrow text-stone-500 mb-6">03 - Who it's for</div>
-          <h2 class="display-section text-navy">
-            Who should be<br>
-            <span class="font-serif italic font-normal">in the room</span>
-          </h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-5 md:gap-6">
-          <div class="rounded-3xl p-8 md:p-10 bg-white ring-1 ring-brand-cyan/40" data-reveal>
-            <div class="eyebrow text-teal-deep mb-5">A good fit</div>
-            <p class="text-stone-600 leading-relaxed">
-              Surveying, scan-to-BIM, GIS, drone and photogrammetry teams - and specifically
-              the power users in them. The ones who have opened the QGIS Python console or
-              built the FME workbenches, who get asked when something breaks.
-            </p>
-            <p class="mt-4 text-stone-600 leading-relaxed">
-              No programming background required. Comfort with unfamiliar software is.
-            </p>
-          </div>
-
-          <div class="rounded-3xl p-8 md:p-10 bg-white ring-1 ring-mist" data-reveal>
-            <div class="eyebrow text-stone-400 mb-5">Not a fit</div>
-            <p class="text-stone-600 leading-relaxed">
-              Anyone wanting a general AI strategy session - this is hands-on work on real
-              datasets. Developers who want to build agent products of their
-              own: different course, different room.
-            </p>
-            <p class="mt-4 text-stone-600 leading-relaxed">
-              And people for whom a file path is already a hurdle. They will have a bad two
-              days, and so will everyone else.
-            </p>
-          </div>
-        </div>
-
+        <!-- Both were sections of their own once. They are a logistics line and a fit line,
+             so they ride along with the agenda instead. -->
         <p class="mt-10 text-center text-stone-500 max-w-2xl mx-auto leading-relaxed" data-reveal>
-          Not sure who to send? Name the two people everyone goes to with data problems.
-          Those two.
+          A week ahead you send me two or three real datasets and the tasks your team is most
+          tired of, and I prepare against those. Your data stays on your machines.
+        </p>
+        <p class="mt-5 text-center text-stone-500 max-w-2xl mx-auto leading-relaxed" data-reveal>
+          Send the power users: the two people everyone else goes to when the data breaks, the
+          ones who have opened the QGIS Python console or built the FME workbenches. No
+          programming background required, but comfort with unfamiliar software is - fit here is
+          behavior, not job title. It is the wrong room for a general AI strategy session, for
+          developers who want to build agent products of their own, and for anyone who finds a
+          file path a hurdle.
         </p>
       </div>
     </section>
-    -->
 
     <!-- 02 - WHAT YOU KEEP -->
     <section class="relative py-20 md:py-28 bg-navy text-white overflow-hidden">
@@ -432,19 +425,14 @@
               because I spend my weeks finding out. That is a different thing from a general
               AI trainer who has never opened a PDAL pipeline, and it is why module 6 exists.
             </p>
-            <!-- The demos on the main page are the proof behind "not a trainer", so this
-                 gets equal weight to the contact button rather than a text link. -->
+            <!-- One button. The video in the hero carries the proof, so nothing here points
+                 back to the homepage and its vendor framing. -->
             <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-
               <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener"
                  class="inline-flex items-center gap-2 border border-navy/20 text-navy hover:bg-white transition px-7 py-3.5 rounded-full text-[14px] font-semibold">
                 Reach me on LinkedIn
               </a>
             </div>
-            <p class="mt-4 text-sm text-stone-500">
-              Short videos of agents doing real spatial work - glacier change detection,
-              a CloudCompare integration, facade analysis.
-            </p>
             <!-- TESTIMONIALS: add after the first workshop. Name, role, company, and one
                  specific sentence. Nothing generic. -->
           </div>

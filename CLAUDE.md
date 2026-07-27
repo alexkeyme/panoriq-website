@@ -87,8 +87,10 @@ paragraphs is the failure mode. `docs/training-offer-requirements.md` has the fu
   self-hosted. Do not add a CDN link, a Google Fonts tag, or an analytics script.
 - **Third-party embeds need a click-to-load facade.** Videos use a poster image plus a
   button that only loads Vimeo on click, with consent copy naming what Vimeo receives and a
-  link to `datenschutz.html`. Vimeo IDs live in `js/main.js`. Follow that pattern exactly
-  for any new embed - it is a GDPR requirement, not a preference.
+  link to `datenschutz.html`. Vimeo IDs and the facade helper live in `js/vimeo.js`, which
+  loads on `index.html` and `training.html`; `js/main.js` is the three.js hero only, so a page
+  with no canvas loads `js/vimeo.js` alone. Follow that pattern exactly for any new embed - it
+  is a GDPR requirement, not a preference.
 - **Copy voice:** first person, direct, no hype, no marketing padding. Use hyphens, never
   em dashes. State limitations plainly where they exist; that honesty is part of the pitch.
 - **US English** throughout: `recognize`, `behavior`, `math`. This includes comments. The
