@@ -46,7 +46,7 @@ inline in that file - there is no `tailwind.config.js`.
 |---|---|---|
 | `index.html` | Spatial software vendors - the core ICP | yes |
 | `training.html` | Geo data service firms, EN | yes |
-| `drafts/training-de.html` | German version, parked, not deployed | - |
+| `training-de.html` | Same offer, German (Du form) | yes |
 | `agent-evaluation.html` | Private funnel page, scorecard download | no |
 | `impressum.html`, `datenschutz.html`, `404.html` | legal / plumbing | - |
 
@@ -99,15 +99,16 @@ paragraphs is the failure mode. `docs/training-offer-requirements.md` has the fu
 
 ## Bilingual pages
 
-**The site is English only right now.** `drafts/training-de.html` is a complete German
-version, parked: not deployed, not linked, not scanned by Tailwind (`@source` only covers
-root-level HTML). It predates the English-only changes, so it still contains a Calendly link,
-a language toggle and `noindex` - reconcile it against the requirements doc before reviving it.
+The training page is bilingual: `training.html` (EN) and `training-de.html` (DE), live since
+2026-07-28. The convention is separate files, not runtime i18n: each carries the full
+`hreflang` triplet (`en`, `de`, `x-default` pointing at EN) and an EN/DE pill toggle in the
+nav (current language is a non-link `<span>` with `aria-current`). German copy uses **Du
+form** - decided 2026-07-28, reversing the earlier Sie decision. German number format:
+`4.900 €`, symbol after the number; English `€4,900`. Do not normalize one to the other.
 
-If a German page comes back, the convention is separate files, not runtime i18n: `X.html`
-(EN) and `X-de.html` (DE), each with the full `hreflang` triplet (`en`, `de`, `x-default`
-pointing at EN) and an EN/DE pill toggle in the nav. German pages use Sie form - the audience
-includes traditional Vermessungs- and Ingenieurbüros. Both files go in the deploy list.
+**Any content change to one page requires the matching change to the other in the same
+commit.** Both files are in the deploy `cp` list and in `sitemap.xml`. `index.html` stays
+English only.
 
 ## SEO
 

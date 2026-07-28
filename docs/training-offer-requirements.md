@@ -164,20 +164,13 @@ for the bottom half. **Keep it short.** Adding paragraphs is the failure mode he
   Content must be readable with JavaScript disabled - reveal is decoration, not gating.
 - **FR-8.** Responsive from 390px to 1440px+. No horizontal scroll at any width.
 
-## 6. Bilingual requirements - parked
+## 6. Bilingual requirements
 
-**English only as of 2026-07-26.** The German page is parked at `drafts/training-de.html`,
-out of the deploy list and out of Tailwind's `@source` scan. The offer itself is still
-delivered in German or English; only the page is English.
-
-`training.html` therefore carries no `hreflang` links and no EN/DE toggle. Nothing links to
-the parked file.
-
-If German is revived, the rules below apply again, and three things have to happen with it:
-move the file back to the repo root, add it to the `cp` line in `deploy.yml`, and re-add the
-`hreflang` triplet plus the nav toggle to both pages. The parked file predates the
-English-only changes, so it still contains a Calendly link, a language toggle and
-`noindex` - reconcile it against sections 3 and 5 before shipping it.
+**Live again as of 2026-07-28.** `training-de.html` sits at the repo root, in the deploy `cp`
+line and in `sitemap.xml`; the old parked draft under `drafts/` is deleted. It was rewritten
+from the current English page rather than revived, so the Calendly link, the old toggle and
+`noindex` from the 2026-07 draft never came back. The reversal of the English-only decision
+(2026-07-26) was Alex's call on 2026-07-28.
 
 - **FR-9.** One file per language: `training.html` (en), `training-de.html` (de). No runtime
   i18n, no JSON dictionaries, no client-side language detection.
@@ -185,12 +178,15 @@ English-only changes, so it still contains a Calendly link, a language toggle an
   pointing at the English page.
 - **FR-11.** EN/DE pill toggle in the nav on both pages. The current language is a non-link
   `<span>` with `aria-current`; the other is an anchor to its counterpart.
-- **FR-12.** German uses Sie throughout. The audience includes traditional Vermessungs- and
-  Ingenieurbüros where du reads wrong on a public page.
+- **FR-12.** German uses **Du** throughout. ~~Sie~~ reversed 2026-07-28 by Alex - the page
+  speaks in the same direct first-person voice as the English one, and the buyers it goes to
+  arrive from a LinkedIn conversation that is already on Du terms.
 - **FR-13.** German number format: `4.900 €` with the symbol after the number. English:
-  `€4,900`. Do not normalise one to the other.
+  `€4,900`. Do not normalize one to the other.
 - **FR-14.** The two pages carry the same offer. Any content change to one requires the
   matching change to the other in the same commit.
+- **FR-15.** The video stays English on both pages - one recording serves everywhere. The
+  German page says so in its caption and translates the facade's consent copy.
 
 ## 7. Acceptance criteria
 
@@ -204,10 +200,9 @@ A change to either page is done when all of these pass:
 3. No `h1` or `h2.display-section` wraps beyond its intended line count at 1440px. Measure
    it - count the visual line boxes in the rendered heading rather than judging by eye at
    reduced scale. Headlines that wrap into an extra line look broken at full size.
-4. Every value in section 3 matches between the English and German page. *(Parked while the
-   German page is in `drafts/` - see section 6.)*
-5. `hreflang` links resolve; the language toggle round-trips EN → DE → EN. *(Parked, as above.)*
-6. `training.html` is present in the deploy `cp` line, and the JSON-LD parses.
+4. Every value in section 3 matches between the English and German page.
+5. `hreflang` links resolve; the language toggle round-trips EN → DE → EN.
+6. Both training pages are present in the deploy `cp` line, and the JSON-LD parses.
 7. Screenshots at 390px and 1440px reviewed before calling it done.
 
 ## 8. Open work, in priority order
@@ -219,8 +214,10 @@ line. Confirm the URL resolves after the next deploy.
 address. The two contact points are both LinkedIn: one in the "who runs it" block, one in the
 closing block. Outreach runs as LinkedIn DMs, so the page only has to accept a reply.
 
-**T-3. German copy review.** PARKED with the German page (section 6). Nothing to review while
-the site is English only.
+**T-3. German copy review.** ACTIVE again as of 2026-07-28 - `training-de.html` is live, in
+Du form, translated fresh from the current English page. Alex reads it once for tone and
+Fachvokabular (DGM/DOM vs DEM/DSM, "Liefergegenstand", the Du register) before sending it to
+anyone.
 
 **T-4. Embed the video.** DONE 2026-07-28. A full-width band inside the hero, below the
 headline and the "what changes" card, above the wave band - the outreach message describes the
