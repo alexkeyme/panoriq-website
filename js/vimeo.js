@@ -29,10 +29,11 @@ function initVimeoFacade(buttonId, vimeoId, title) {
   });
 }
 
-// Free Vimeo accounts ignore outro=nothing and show a "More from" grid of other videos when
-// playback finishes. Swapping the poster back in at the "ended" event replaces that grid, and
-// leaves the click-to-load state exactly as it started. Talks to the player through its
-// postMessage API, so no Vimeo script is loaded on the page.
+// Free Vimeo accounts ignore outro=nothing and show a "More from" grid when playback finishes.
+// Restoring the poster at the "ended" event is meant to replace that grid. It does not actually
+// suppress it on the free tier - tested 2026-07-28 - and is kept only because it costs nothing
+// and starts working if the account is upgraded. Talks to the player over postMessage, so no
+// Vimeo script is loaded on the page.
 function restoreFacadeOnEnd(wrapper, iframe, btn) {
   const ORIGIN = "https://player.vimeo.com";
   const post = (method) =>
