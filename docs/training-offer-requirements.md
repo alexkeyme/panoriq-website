@@ -114,19 +114,16 @@ for the bottom half. **Keep it short.** Adding paragraphs is the failure mode he
    half-days, the first on prepared datasets, the second on the client's data, plus the
    compliance block.
    Module 6 (Trust: where agents get CRS, units and nodata quietly wrong) sells the workshop
-   and must not be cut or softened. Roughly 60% hands-on must be stated. The one-week-ahead
-   dataset handover and "your data stays on your machines" ride along as a single line here -
-   they used to be a section of their own, which was more weight than a logistics detail earns.
-   That line went missing in an edit and was restored 2026-07-27; it is required content.
-4. **Audience filter, compact** - restored 2026-07-27 as a quiet strip, NOT the old
-   two-column block (that block was commented out 2026-07-26 because it outweighed the
-   shortened page, and its markup was deleted 2026-07-27). Form: one short paragraph at the
-   end of the agenda section, directly under the logistics line and styled the same (small,
-   stone-500, no card, no eyebrow of its own). Content, three sentences maximum: who belongs in the room -
-   the power users, the people colleagues go to when data breaks, no programming required -
-   and who does not: teams wanting a general AI strategy workshop, developers building agent
-   products, people for whom a file path is a hurdle. Fit is behaviour, not job title. The
-   filter earns its place by making the rest of the page read as honest, not by its size.
+   and must not be cut or softened. Roughly 60% hands-on must be stated.
+   ~~The one-week-ahead dataset handover and "your data stays on your machines" line~~ -
+   removed by Alex 2026-07-28, from both pages, after being restored 2026-07-27. The dataset
+   handover and the data-stays-local reassurance now live only in the conversation, not on
+   the page. If a prospect ever balks at sending data, this is the first thing to put back.
+4. **Audience filter, compact** - one short paragraph at the end of the agenda section
+   (small, stone-500, no card, no eyebrow of its own; the old two-column block is deleted).
+   Who belongs in the room: the power users, the people colleagues go to when data breaks,
+   no programming required. Who does not: trimmed 2026-07-28 to a single exclusion - a
+   general AI strategy session. Fit is behavior, not job title.
 5. **Outcomes** - what the team keeps: working automations on their own data, a project
    template, a verification routine. Materials, certificate, 90-day support.
 6. **Who runs it** - named human with a portrait, the geoinformatics-plus-agents combination,
@@ -183,8 +180,10 @@ from the current English page rather than revived, so the Calendly link, the old
   arrive from a LinkedIn conversation that is already on Du terms.
 - **FR-13.** German number format: `4.900 €` with the symbol after the number. English:
   `€4,900`. Do not normalize one to the other.
-- **FR-14.** The two pages carry the same offer. Any content change to one requires the
-  matching change to the other in the same commit.
+- **FR-14.** The two pages carry the same offer and the same commercial facts (section 3).
+  A change to those requires the matching change to the other page in the same commit.
+  Wording, headlines and section framing may diverge - decided 2026-07-28, German is written
+  to sound right in German rather than to mirror the English.
 - **FR-15.** The video stays English on both pages - one recording serves everywhere. The
   German page says so in its caption and translates the facade's consent copy.
 

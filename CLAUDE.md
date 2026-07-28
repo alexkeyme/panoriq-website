@@ -106,9 +106,11 @@ nav (current language is a non-link `<span>` with `aria-current`). German copy u
 form** - decided 2026-07-28, reversing the earlier Sie decision. German number format:
 `4.900 €`, symbol after the number; English `€4,900`. Do not normalize one to the other.
 
-**Any content change to one page requires the matching change to the other in the same
-commit.** Both files are in the deploy `cp` list and in `sitemap.xml`. `index.html` stays
-English only.
+**The two pages carry the same offer and the same commercial facts** (price, group size,
+guarantee, terms) - a change to those needs the matching change on the other page in the
+same commit. Wording, headlines and section framing may diverge; the German is written to
+sound right in German, not to mirror the English sentence by sentence (decided 2026-07-28).
+Both files are in the deploy `cp` list and in `sitemap.xml`. `index.html` stays English only.
 
 ## SEO
 
