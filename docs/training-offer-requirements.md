@@ -222,22 +222,27 @@ closing block. Outreach runs as LinkedIn DMs, so the page only has to accept a r
 **T-3. German copy review.** PARKED with the German page (section 6). Nothing to review while
 the site is English only.
 
-**T-4. Embed the video.** Facade BUILT 2026-07-27, two assets outstanding. Placement settled:
-a full-width band inside the hero, below the headline and the "what changes" card, above the
-wave band - the outreach message describes the page as "video at the top, format and price
-below", so a DM reader hits it before the agenda. Click-to-load Vimeo facade per FR-3, ID in
-`js/vimeo.js`, poster image self-hosted.
+**T-4. Embed the video.** DONE 2026-07-28. A full-width band inside the hero, below the
+headline and the "what changes" card, above the wave band - the outreach message describes the
+page as "video at the top, format and price below", so a DM reader hits it before the agenda.
+Click-to-load Vimeo facade per FR-3, ID `1213557993` in `js/vimeo.js`, poster self-hosted at
+`img/vimeo-training.jpg`.
 
-Still open, and both block shipping: `VIMEO_IDS.training` is `""`, which leaves the play button
-inert, and the poster is a stand-in (`img/vimeo-point-cloud.jpg`) rather than a frame from the
-recording. Do not deploy the band in that state - either set the real ID and poster, or comment
-the band out until they exist. One English recording serves everywhere.
+What shipped is **not** the recording described below. It is "Three things you can try with
+Claude Code today", 1:40, which opens as a vertical talking-head clip and then goes to the
+desktop. It works as proof, but two things follow from it:
 
-Content (decided): an agent cleans up a messy folder of point clouds -
-conversion, reprojection, broken CRS metadata - ending on a QA table of which files were
-wrong; includes one real failure the human catches (staged-looking perfection is the failure
-mode). Once embedded, this page is the single destination sent in outreach message 2; the
-LinkedIn feed version is a separate native upload, not a link to this page.
+- The poster is Vimeo's own thumbnail, taken from the vertical opening, so it sits pillarboxed
+  in the 16:9 band. Picking a desktop frame as the thumbnail in Vimeo and re-saving it to
+  `img/vimeo-training.jpg` is the fix; Vimeo blocks headless frame capture, so it has to be done
+  in their UI.
+- The screen recording originally specced for this slot is still worth making: an agent cleans
+  up a messy folder of point clouds - conversion, reprojection, broken CRS metadata - ending on
+  a QA table of which files were wrong, including one real failure the human catches
+  (staged-looking perfection is the failure mode). If it gets made, it replaces the ID here.
+
+This page is the single destination sent in outreach message 2. The LinkedIn feed version stays
+a separate native upload, not a link to this page.
 
 **T-5. Testimonials.** Placeholder comment sits in the "who runs it" block, under the portrait. After the first
 delivered workshop, add name, role, company and one specific sentence. Two good ones beat
