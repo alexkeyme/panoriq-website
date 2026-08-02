@@ -1,76 +1,54 @@
 # /// script
 # requires-python = ">=3.10"
 # dependencies = [
-#     "cairosvg",
 #     "pillow",
 # ]
 # ///
 """
-Panoriq — PNG export generator.
+Panoriq - PNG export generator.
 
 Reads the master SVGs and rasterizes them at many sizes. The lockup
-(mark + wordmark) is composited using PIL: the mark is rendered from
-SVG via cairosvg, text is rendered with a system font.
-
-NOTE: This sandbox does not have Manrope available, so the lockup PNGs
-use Nimbus Sans Bold as a Helvetica-adjacent stand-in. For production
-lockups, re-render locally with Manrope-Bold.ttf in the same directory
-and flip USE_MANROPE = True below.
+(mark + wordmark) is composited using PIL with the checked-in Manrope
+font. Missing brand inputs are an error so exports stay deterministic.
 """
-import os
 import io
+import shutil
+import subprocess
 from pathlib import Path
-import cairosvg
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).parent
 SVG_DIR = ROOT / "svg"
 OUT = ROOT
+PROJECT_ROOT = ROOT.parent.parent
 
 # ----- config -----
 MARK_SIZES = [2048, 1024, 512, 256, 192, 180, 144, 128, 96, 72, 64, 56, 48, 32, 24, 16]
 FAVICON_SIZES = [48, 32, 16]       # use mark-favicon.svg for these (simpler, reads better)
 LOCKUP_WIDTHS = [1600, 800, 400]   # horizontal lockup widths
 
-NAVY = (14, 42, 71)
+INK = (7, 49, 59)
+DARK = (4, 30, 38)
+SIGNAL = (27, 203, 184)
 WHITE = (255, 255, 255)
 
-# Font resolution, in priority order:
-#   1. Manrope-Bold.ttf next to this script (the production pick)
-#   2. Any other .ttf/.otf dropped next to this script (Bold preferred)
-#   3. System Arial Bold as a last-resort Helvetica-adjacent fallback
-SYSTEM_FALLBACK_FONT = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
+FONT_PATH = ROOT.parent / "fonts" / "Manrope" / "static" / "Manrope-Bold.ttf"
+if not FONT_PATH.exists():
+    raise FileNotFoundError(f"Required brand font is missing: {FONT_PATH}")
 
-
-def _resolve_font() -> tuple[str, str]:
-    manrope = ROOT / "Manrope-Bold.ttf"
-    if manrope.exists():
-        return str(manrope), "Manrope-Bold.ttf (user-supplied)"
-
-    local_fonts = sorted(
-        p for p in ROOT.iterdir()
-        if p.is_file() and p.suffix.lower() in {".ttf", ".otf"}
-    )
-    # Prefer a Bold weight if present, else take the first font found.
-    bold = next((p for p in local_fonts if "bold" in p.stem.lower()), None)
-    chosen = bold or (local_fonts[0] if local_fonts else None)
-    if chosen is not None:
-        return str(chosen), f"{chosen.name} (user-supplied)"
-
-    return SYSTEM_FALLBACK_FONT, "Arial Bold (system fallback)"
-
-
-FONT_PATH, FONT_LABEL = _resolve_font()
+RSVG_CONVERT = shutil.which("rsvg-convert")
+if not RSVG_CONVERT:
+    raise FileNotFoundError("rsvg-convert is required to export the SVG masters")
 
 
 def rasterize(svg_path: Path, size_px: int) -> Image.Image:
     """Render an SVG at the given square pixel size, transparent bg."""
-    png_bytes = cairosvg.svg2png(
-        url=str(svg_path),
-        output_width=size_px,
-        output_height=size_px,
+    result = subprocess.run(
+        [RSVG_CONVERT, "-w", str(size_px), "-h", str(size_px), str(svg_path)],
+        check=True,
+        capture_output=True,
     )
-    return Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    return Image.open(io.BytesIO(result.stdout)).convert("RGBA")
 
 
 def save_mark(svg_path: Path, prefix: str, sizes):
@@ -105,20 +83,22 @@ def make_lockup(mark_svg: Path, bg_color, text_color, out_name, widths):
         font_size = int(mark_size * 0.72)
         font = ImageFont.truetype(FONT_PATH, font_size)
         draw = ImageDraw.Draw(canvas)
-        text = "panoriq"
+        text = "panori"
         # measure for vertical centering
         bbox = draw.textbbox((0, 0), text, font=font)
         text_h = bbox[3] - bbox[1]
         text_x = pad_left + mark_size + pad_gap
         text_y = (height - text_h) // 2 - bbox[1]
         draw.text((text_x, text_y), text, font=font, fill=text_color)
+        q_x = text_x + draw.textlength(text, font=font)
+        draw.text((q_x, text_y), "q", font=font, fill=SIGNAL)
 
         canvas.save(out_dir / f"{out_name}-{width}w.png", optimize=True)
         print(f"  lockup/{out_name}-{width}w.png")
 
 
 def main():
-    print(f"Font: {FONT_LABEL}")
+    print(f"Font: {FONT_PATH.name}")
     print("\n--- Mark (light background) ---")
     save_mark(SVG_DIR / "mark-light.svg", "mark-light", MARK_SIZES)
 
@@ -129,10 +109,18 @@ def main():
     save_mark(SVG_DIR / "mark-favicon.svg", "favicon", FAVICON_SIZES)
 
     print("\n--- Lockup light ---")
-    make_lockup(SVG_DIR / "mark-light.svg", (255, 255, 255, 0), NAVY, "lockup-light", LOCKUP_WIDTHS)
+    make_lockup(SVG_DIR / "mark-light.svg", WHITE + (255,), INK, "lockup-light", LOCKUP_WIDTHS)
 
     print("\n--- Lockup dark ---")
-    make_lockup(SVG_DIR / "mark-dark.svg", NAVY + (0,), WHITE, "lockup-dark", LOCKUP_WIDTHS)
+    make_lockup(SVG_DIR / "mark-dark.svg", DARK + (255,), WHITE, "lockup-dark", LOCKUP_WIDTHS)
+
+    print("\n--- Root site icons ---")
+    app_icon = rasterize(SVG_DIR / "mark-light.svg", 192)
+    app_icon.save(PROJECT_ROOT / "icon.png", optimize=True)
+    favicon_master = rasterize(SVG_DIR / "mark-favicon.svg", 256)
+    favicon_master.save(PROJECT_ROOT / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
+    print("  icon.png")
+    print("  favicon.ico")
 
     print("\nDone.")
 

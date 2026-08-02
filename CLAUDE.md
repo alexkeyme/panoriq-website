@@ -50,16 +50,11 @@ inline in that file - there is no `tailwind.config.js`.
 | `agent-evaluation.html` | Private funnel page, scorecard download | no |
 | `impressum.html`, `datenschutz.html`, `404.html` | legal / plumbing | - |
 
-**The two-audience rule.** The main site sells agent engineering to companies that *make*
-spatial software. The training page sells a two half-day workshop to companies that *process*
-spatial data. These are different offers with different buyers, and the training must never
-become the site's headline message. Cross-links from `index.html` are deliberately quiet:
-one nav link, one line at the end of the contact section, one footer link. Do not expand
-them or move training copy into the hero without being asked.
-
-`training.html` is indexed, but the separation is held by placement rather than by hiding it
-from crawlers: those three quiet cross-links, and no presence in the main navigation. Adding
-a banner, a hero CTA or a fourth link breaks the rule even though the page is public.
+**The two-audience rule.** The main site is a credibility and portfolio check for people who
+usually know Alex through LinkedIn or an in-person meeting. It sells agent engineering to
+companies that *make* spatial software. The training page is a separately shared leave-behind
+for companies that *process* spatial data. These are different offers with different buyers.
+Do not link the training offer from `index.html` or move its copy into the main site.
 
 **`training.html` is a leave-behind, not a landing page.** Every reader gets there from a
 LinkedIn message Alex sent them, and replies on LinkedIn. So: no email address anywhere on it
@@ -69,17 +64,18 @@ paragraphs is the failure mode. `docs/training-offer-requirements.md` has the fu
 
 ## Design conventions to follow
 
-- Sections carry a numbered eyebrow: `01 - What I do`, `02 - Selected work`.
-- Section headlines use `display-section` with the second line in serif italic:
-  `First line<br><span class="font-serif italic font-normal">second line.</span>`
-  Keep each line short. Long lines wrap into a third line and look broken at 1440px -
-  measure rendered line count if unsure rather than eyeballing at reduced scale.
-- Cards: `rounded-3xl p-8 bg-white ring-1 ring-mist`, with `card` added for hover lift.
+- The identity is built around a contour-filled lowercase q: spatial layers contained within
+  an operational system, with the terminal dot representing a result or completed tool call.
+- Sections carry a numbered kicker: `01 / What I do`, `02 / Selected work`.
+- Main-page headlines use `display-section-v2`, with Fraunces italic reserved for one short
+  human or editorial phrase. Manrope is the only sans-serif family.
+- Prefer broad editorial surfaces and rules over grids of interchangeable cards. Containers
+  are reserved for actual cases, artifacts, or grouped information.
 - Buttons are pills: `px-7 py-3.5 rounded-full text-[14px] font-semibold`. Dark on light is
   `bg-navy hover:bg-teal-deep`; on navy backgrounds use `bg-brand-cyan text-navy hover:bg-white`.
   Most carry a small arrow SVG.
 - Every page ends with the same IntersectionObserver snippet driving `[data-reveal]`.
-- Roman numerals (`Ⅰ Ⅱ Ⅲ`) in `font-mono text-teal-deep` mark items within a section.
+- Uppercase labels use Manrope at small sizes with generous tracking. Do not add a third typeface.
 
 ## Hard constraints
 

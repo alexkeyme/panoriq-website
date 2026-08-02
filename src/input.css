@@ -13,22 +13,6 @@
        url("../fonts/manrope-variable.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("../fonts/inter-variable.woff2") format("woff2-variations"),
-       url("../fonts/inter-variable.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Space Grotesk";
-  font-style: normal;
-  font-weight: 300 700;
-  font-display: swap;
-  src: url("../fonts/space-grotesk-variable.woff2") format("woff2-variations"),
-       url("../fonts/space-grotesk-variable.woff2") format("woff2");
-}
-@font-face {
   font-family: "Fraunces";
   font-style: normal;
   font-weight: 100 900;
@@ -46,36 +30,36 @@
 }
 
 /* ───────────────────────────────────────────────────────────────
-   Theme — brand palette + fonts (Tailwind v4 @theme syntax)
+   Theme - brand palette + fonts (Tailwind v4 @theme syntax)
    ─────────────────────────────────────────────────────────────── */
 @theme {
-  --color-navy: #0E2A47;
-  --color-navy-deeper: #081A2E;
+  --color-navy: #07313B;
+  --color-navy-deeper: #041E26;
 
-  --color-brand-cyan: #1FC4C4;
-  --color-brand-cyan-dark: #0FA5A5;
+  --color-brand-cyan: #1BCBB8;
+  --color-brand-cyan-dark: #0FA996;
 
-  --color-teal: #1F6B6B;
-  --color-teal-deep: #0D4A4A;
+  --color-teal: #2F756F;
+  --color-teal-deep: #14554F;
 
-  --color-aqua: #B8ECEC;
-  --color-aqua-surface: #EAFAFA;
+  --color-aqua: #BAF2E8;
+  --color-aqua-surface: #E8F8F3;
 
-  --color-coral: #FF7A59;
-  --color-amber: #F5B544;
-  --color-ink:   #0A0A0A;
-  --color-sand:  #F7F8F9;
-  --color-fog:   #EDEFF2;
-  --color-mist:  #D9DDE2;
+  --color-coral: #F26B52;
+  --color-amber: #E9A23B;
+  --color-ink:   #071A1E;
+  --color-sand:  #F4F1E8;
+  --color-fog:   #ECE9DF;
+  --color-mist:  #D9D8D0;
 
-  --color-stone-400: #8A939E;
-  --color-stone-500: #5F6974;
-  --color-stone-600: #424B55;
-  --color-stone-700: #2A323B;
+  --color-stone-400: #879195;
+  --color-stone-500: #647278;
+  --color-stone-600: #46575D;
+  --color-stone-700: #293C42;
 
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-sans:    "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono:    "Space Grotesk", ui-monospace, monospace;
+  --font-sans:    "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "Manrope", ui-monospace, monospace;
   --font-serif:   "Fraunces", serif;
 
   --tracking-tightest: -0.04em;
@@ -96,7 +80,75 @@
    Custom utilities + components used across the site
    ─────────────────────────────────────────────────────────────── */
 @layer components {
-  .q-cyan { color: #1FC4C4; }
+  .q-cyan { color: #1BCBB8; }
+
+  .display-hero-v2 {
+    font-family: "Manrope", sans-serif;
+    font-weight: 760;
+    font-size: clamp(3.2rem, 7.7vw, 7.6rem);
+    line-height: 0.88;
+    letter-spacing: -0.065em;
+  }
+
+  .display-section-v2 {
+    font-family: "Manrope", sans-serif;
+    font-weight: 720;
+    font-size: clamp(2.5rem, 5.6vw, 5.5rem);
+    line-height: 0.94;
+    letter-spacing: -0.05em;
+  }
+
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .kicker::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: currentColor;
+  }
+
+  .field-grid {
+    background-image:
+      linear-gradient(rgba(186, 242, 232, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(186, 242, 232, 0.08) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .field-grid-light {
+    background-image:
+      linear-gradient(rgba(7, 49, 59, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(7, 49, 59, 0.055) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .signal-scan {
+    animation: signal-scan 6s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  @keyframes signal-scan {
+    0%, 100% { transform: translateY(-12px); opacity: 0.3; }
+    50% { transform: translateY(150px); opacity: 0.9; }
+  }
+
+  .case-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .case-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 28px 70px -42px rgba(4, 30, 38, 0.55);
+  }
 
   /* Hero display headline */
   .display-hero {
@@ -119,7 +171,7 @@
     letter-spacing: -0.035em;
   }
   .eyebrow {
-    font-family: "Space Grotesk", monospace;
+    font-family: "Manrope", sans-serif;
     font-size: 12px;
     letter-spacing: 0.28em;
     text-transform: uppercase;
@@ -201,7 +253,7 @@
 
   /* Nav glass */
   .nav-glass {
-    background: rgba(247, 248, 249, 0.7);
+    background: rgba(244, 241, 232, 0.78);
     backdrop-filter: saturate(160%) blur(14px);
     -webkit-backdrop-filter: saturate(160%) blur(14px);
     border-bottom: 1px solid rgba(13, 74, 74, 0.08);
@@ -232,17 +284,17 @@
 
   /* Focus visible */
   :where(a, button):focus-visible {
-    outline: 2px solid #1FC4C4;
+    outline: 2px solid #1BCBB8;
     outline-offset: 3px;
     border-radius: 4px;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .wave-1, .wave-2, .wave-3, .wave-4, .marquee-track, .spin-slow { animation: none !important; }
+    .wave-1, .wave-2, .wave-3, .wave-4, .marquee-track, .spin-slow, .signal-scan { animation: none !important; }
   }
 
   /* Long-form legal prose (impressum + datenschutz) */
-  .legal-prose { font-family: "Inter", sans-serif; color: #424B55; line-height: 1.7; font-size: 15px; }
+  .legal-prose { font-family: "Manrope", sans-serif; color: #46575D; line-height: 1.7; font-size: 15px; }
   .legal-prose h2 {
     font-family: "Manrope", sans-serif; font-weight: 700;
     font-size: 1.875rem; color: #0E2A47;

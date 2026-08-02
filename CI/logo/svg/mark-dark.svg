@@ -1,13 +1,17 @@
-<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">panoriq mark</title>
+  <desc id="desc">A lowercase q containing layered spatial contour lines.</desc>
   <defs>
-    <clipPath id="clip"><circle cx="120" cy="120" r="106"/></clipPath>
+    <clipPath id="field-clip-dark">
+      <circle cx="30" cy="30" r="23"/>
+    </clipPath>
   </defs>
-  <circle cx="120" cy="120" r="110" fill="none" stroke="#1FC4C4" stroke-width="4"/>
-  <g clip-path="url(#clip)">
-    <rect x="14" y="14" width="212" height="212" fill="#0E2A47"/>
-    <path d="M14,118 Q70,92 130,108 T226,108 L226,150 L14,150 Z" fill="#0D4A4A"/>
-    <path d="M14,146 Q60,124 120,140 T226,140 L226,180 L14,180 Z" fill="#1F6B6B"/>
-    <path d="M14,172 Q70,156 130,170 T226,168 L226,200 L14,200 Z" fill="#0FA5A5"/>
-    <path d="M14,192 Q60,178 126,190 T226,188 L226,226 L14,226 Z" fill="#1FC4C4"/>
+  <circle cx="30" cy="30" r="23" fill="#0A4048"/>
+  <g clip-path="url(#field-clip-dark)" fill="none" stroke-linecap="round">
+    <path d="M2 24C12 17 22 18 31 22C41 26 49 25 60 17" stroke="#2F756F" stroke-width="5"/>
+    <path d="M1 35C13 27 23 29 33 33C43 37 52 35 62 28" stroke="#1BCBB8" stroke-width="5"/>
+    <path d="M3 46C14 39 25 40 35 44C45 48 53 46 62 40" stroke="#66E7D6" stroke-width="5"/>
   </g>
+  <path d="M30 5.5C16.5 5.5 5.5 16.5 5.5 30S16.5 54.5 30 54.5C36.2 54.5 41.9 52.2 46.2 48.5L58.5 59" fill="none" stroke="#66E7D6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="58.5" cy="59" r="2.5" fill="#F26B52"/>
 </svg>

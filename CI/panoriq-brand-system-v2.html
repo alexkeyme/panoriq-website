@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>panoriq / Brand system v2</title>
+  <style>
+    @font-face{font-family:Manrope;src:url('../fonts/manrope-variable.woff2') format('woff2');font-weight:100 900}
+    @font-face{font-family:Fraunces;src:url('../fonts/fraunces-italic-variable.woff2') format('woff2');font-style:italic;font-weight:100 900}
+    :root{--ink:#07313B;--dark:#041E26;--signal:#1BCBB8;--teal:#2F756F;--teal-deep:#14554F;--ice:#BAF2E8;--paper:#F4F1E8;--line:#D9D8D0;--slate:#46575D;--clay:#F26B52}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,system-ui,sans-serif}.wrap{max-width:1180px;margin:auto;padding:64px 32px 100px}.top{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end;padding-bottom:60px;border-bottom:1px solid rgba(7,49,59,.18)}h1{font-size:clamp(56px,9vw,116px);line-height:.85;letter-spacing:-.065em;margin:22px 0 0}h1 em{font-family:Fraunces,serif;font-weight:400;color:var(--teal-deep)}.kicker{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep)}.intro{font-size:20px;line-height:1.55;color:var(--slate);margin:0}.section{padding:64px 0;border-bottom:1px solid rgba(7,49,59,.18)}h2{font-size:34px;letter-spacing:-.04em;margin:10px 0 30px}.logo-stage{display:grid;grid-template-columns:1fr 1fr;gap:18px}.logo-card{min-height:260px;border-radius:24px;padding:36px;display:flex;align-items:center;justify-content:center}.logo-card.light{background:#fff}.logo-card.dark{background:var(--dark)}.lockup{display:flex;align-items:center;gap:20px;font-size:54px;font-weight:800;letter-spacing:-.055em}.lockup img{width:92px}.lockup .q{color:var(--signal)}.dark .lockup{color:white}.palette{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.swatch{overflow:hidden;border-radius:18px;background:#fff}.color{height:130px}.meta{padding:14px;font-size:12px}.meta strong{display:block;font-size:14px;margin-bottom:4px}.type-grid,.principles{display:grid;grid-template-columns:1fr 1fr;gap:18px}.type-card,.principle{border-radius:24px;background:#fff;padding:30px}.display{font-size:56px;line-height:.95;letter-spacing:-.055em;font-weight:800}.editorial{font-family:Fraunces,serif;font-style:italic;font-size:54px;line-height:1}.principle strong{display:block;font-size:20px;margin-bottom:12px}.principle p{color:var(--slate);line-height:1.6;margin:0}.dont{color:var(--clay)}@media(max-width:760px){.top,.logo-stage,.type-grid,.principles{grid-template-columns:1fr}.palette{grid-template-columns:1fr 1fr}.wrap{padding:40px 20px}.lockup{font-size:38px}.lockup img{width:70px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="top">
+      <div><div class="kicker">panoriq / Brand system v2</div><h1>Spatial complexity,<br><em>made operational.</em></h1></div>
+      <p class="intro">A calm, technically serious identity for an engineering practice that turns spatial AI experiments into dependable product behavior.</p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">01 / Mark and wordmark</div><h2>The q is the system.</h2>
+      <div class="logo-stage">
+        <div class="logo-card light"><div class="lockup"><img src="logo/svg/mark-light.svg" alt=""><span>panori<span class="q">q</span></span></div></div>
+        <div class="logo-card dark"><div class="lockup"><img src="logo/svg/mark-dark.svg" alt=""><span>panori<span class="q">q</span></span></div></div>
+      </div>
+      <p class="intro" style="margin-top:24px;max-width:760px">The mark keeps the layered spatial field but turns its container into an unmistakable lowercase q. The terminal dot acts as a result, coordinate, or completed tool call.</p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">02 / Color</div><h2>Cartographic, not aquatic.</h2>
+      <div class="palette">
+        <div class="swatch"><div class="color" style="background:#041E26"></div><div class="meta"><strong>Deep field</strong>#041E26 / primary dark</div></div>
+        <div class="swatch"><div class="color" style="background:#07313B"></div><div class="meta"><strong>Spatial ink</strong>#07313B / text and structure</div></div>
+        <div class="swatch"><div class="color" style="background:#1BCBB8"></div><div class="meta"><strong>Signal</strong>#1BCBB8 / action and trace</div></div>
+        <div class="swatch"><div class="color" style="background:#F4F1E8"></div><div class="meta"><strong>Map paper</strong>#F4F1E8 / primary surface</div></div>
+        <div class="swatch"><div class="color" style="background:#14554F"></div><div class="meta"><strong>Contour deep</strong>#14554F / secondary dark</div></div>
+        <div class="swatch"><div class="color" style="background:#2F756F"></div><div class="meta"><strong>Contour</strong>#2F756F / layers and charts</div></div>
+        <div class="swatch"><div class="color" style="background:#BAF2E8"></div><div class="meta"><strong>Ice</strong>#BAF2E8 / dark-surface text</div></div>
+        <div class="swatch"><div class="color" style="background:#F26B52"></div><div class="meta"><strong>Result</strong>#F26B52 / rare terminal accent</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">03 / Typography</div><h2>One workhorse, one human note.</h2>
+      <div class="type-grid">
+        <div class="type-card"><div class="display">Manrope</div><p>Wordmark, display, body, labels, and UI. Weight and scale create the hierarchy.</p></div>
+        <div class="type-card"><div class="editorial">Fraunces italic</div><p>Used sparingly to add a human, editorial counterpoint to the technical system.</p></div>
+      </div>
+    </section>
+
+    <section class="section" style="border:0">
+      <div class="kicker">04 / Principles</div><h2>How the identity behaves.</h2>
+      <div class="principles">
+        <div class="principle"><strong>Show the workflow</strong><p>Use traces, contours, tool states, real spatial artifacts, and intermediate results. Avoid generic AI imagery.</p></div>
+        <div class="principle"><strong>Be precise</strong><p>Describe what the agent does, the data it touches, and where the limitations are. Evidence beats superlatives.</p></div>
+        <div class="principle"><strong>Let the system breathe</strong><p>Use large type, strong alignment, broad paper surfaces, and restrained motion. Not every element needs a container.</p></div>
+        <div class="principle"><strong class="dont">Do not perform futurism</strong><p>No glowing brains, neon gradients, magic language, or fake dashboards. The actual engineering is interesting enough.</p></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

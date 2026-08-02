@@ -1,11 +1,6 @@
-<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <clipPath id="clip"><circle cx="120" cy="120" r="110"/></clipPath>
-  </defs>
-  <circle cx="120" cy="120" r="116" fill="#0E2A47"/>
-  <g clip-path="url(#clip)">
-    <path d="M10,132 Q70,104 130,124 T230,120 L230,170 L10,170 Z" fill="#1F6B6B"/>
-    <path d="M10,162 Q70,140 130,160 T230,156 L230,200 L10,200 Z" fill="#0FA5A5"/>
-    <path d="M10,188 Q60,172 130,188 T230,184 L230,230 L10,230 Z" fill="#1FC4C4"/>
-  </g>
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="29" cy="29" r="22" fill="#07313B"/>
+  <path d="M11 29C20 23 29 24 38 28C45 31 50 30 54 27" fill="none" stroke="#1BCBB8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M29 5C15.7 5 5 15.7 5 29S15.7 53 29 53C35 53 40.5 50.8 44.7 47.2L59 59" fill="none" stroke="#07313B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="59" cy="59" r="3" fill="#F26B52"/>
 </svg>

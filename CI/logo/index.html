@@ -4,12 +4,11 @@
 <meta charset="UTF-8">
 <title>panoriq | Logo exports</title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --navy:#0E2A47; --cyan:#1FC4C4; --g500:#5F6974; --g200:#D9DDE2; --g50:#F7F8F9; }
+  @font-face { font-family:Manrope; src:url('../../fonts/manrope-variable.woff2') format('woff2'); font-weight:100 900; }
+  :root { --navy:#07313B; --cyan:#1BCBB8; --g500:#647278; --g200:#D9D8D0; --g50:#F4F1E8; }
   * { box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; margin:0; background:var(--g50); color:var(--navy); }
+  body { font-family: 'Manrope', sans-serif; margin:0; background:var(--g50); color:var(--navy); }
   .container { max-width: 1180px; margin: 0 auto; padding: 48px 40px; }
   h1 { font-family:'Manrope',sans-serif; font-weight:800; font-size:36px; letter-spacing:-0.02em; margin:0 0 6px; }
   .subtitle { color: var(--g500); margin-bottom: 40px; }
@@ -43,13 +42,13 @@
 <body>
 <div class="container">
   <h1>panoriq - Logo exports</h1>
-  <p class="subtitle">PNG exports of Concept A at every size you'll need, plus lockups.</p>
+  <p class="subtitle">Deterministic PNG exports of the contour-q mark and Manrope wordmark.</p>
 
   <div class="note">
-    <strong>Font note:</strong> the sandbox couldn't download Manrope, so the lockup PNGs use Nimbus Sans Bold (Helvetica-adjacent). To re-render with real Manrope, drop <code>Manrope-Bold.ttf</code> into this folder and run <code>python3 generate.py</code>.
+    <strong>Font source:</strong> lockup PNGs are generated with the checked-in <code>CI/fonts/Manrope/static/Manrope-Bold.ttf</code>. The export script fails if that exact file is unavailable.
   </div>
 
-  <h2>Mark — light</h2>
+  <h2>Mark - light</h2>
   <div class="grid">
     <div class="tile"><img src="mark-light/mark-light-256.png" width="128"><div class="label">256px</div><div class="filename">mark-light-256.png</div></div>
     <div class="tile"><img src="mark-light/mark-light-192.png" width="96"><div class="label">192px · PWA</div><div class="filename">mark-light-192.png</div></div>
@@ -63,7 +62,7 @@
     <div class="tile"><img src="mark-light/mark-light-24.png" width="12"><div class="label">24px</div><div class="filename">mark-light-24.png</div></div>
   </div>
 
-  <h2>Mark — dark</h2>
+  <h2>Mark - dark</h2>
   <div class="grid">
     <div class="tile dark"><img src="mark-dark/mark-dark-256.png" width="128"><div class="label">256px</div><div class="filename">mark-dark-256.png</div></div>
     <div class="tile dark"><img src="mark-dark/mark-dark-192.png" width="96"><div class="label">192px</div><div class="filename">mark-dark-192.png</div></div>
@@ -78,21 +77,21 @@
   </div>
 
   <h2>Favicon (simplified)</h2>
-  <p class="subtitle" style="margin-bottom:14px; font-size:13px;">Drops fine details (cloud, top ring stroke) so the waves still read at 16–32px. Use these for browser tabs.</p>
+  <p class="subtitle" style="margin-bottom:14px; font-size:13px;">Uses one contour and the q terminal so the idea remains legible at 16-32px. Use these for browser tabs.</p>
   <div class="grid">
     <div class="tile"><img src="favicon/favicon-48.png" width="48"><div class="label">48px</div><div class="filename">favicon-48.png</div></div>
     <div class="tile"><img src="favicon/favicon-32.png" width="32"><div class="label">32px</div><div class="filename">favicon-32.png</div></div>
     <div class="tile"><img src="favicon/favicon-16.png" width="16"><div class="label">16px</div><div class="filename">favicon-16.png</div></div>
   </div>
 
-  <h2>Lockup — light</h2>
+  <h2>Lockup - light</h2>
   <div class="lockup-row">
     <div class="lockup-tile"><img src="lockup/lockup-light-1600w.png"><div class="caption">1600w · header / hero</div></div>
     <div class="lockup-tile"><img src="lockup/lockup-light-800w.png"><div class="caption">800w · retina nav / docs</div></div>
     <div class="lockup-tile"><img src="lockup/lockup-light-400w.png"><div class="caption">400w · compact nav / email signature</div></div>
   </div>
 
-  <h2>Lockup — dark</h2>
+  <h2>Lockup - dark</h2>
   <div class="lockup-row">
     <div class="lockup-tile dark"><img src="lockup/lockup-dark-1600w.png"><div class="caption">1600w</div></div>
     <div class="lockup-tile dark"><img src="lockup/lockup-dark-800w.png"><div class="caption">800w</div></div>
@@ -120,7 +119,7 @@
   <h2>Also in this folder</h2>
   <div class="usage">
     <table>
-      <tr><td>svg/mark-light.svg</td><td>Master vector — the source of truth. Scales infinitely, edit in Figma/Illustrator.</td></tr>
+      <tr><td>svg/mark-light.svg</td><td>Master vector - the source of truth. Scales infinitely, edit in Figma/Illustrator.</td></tr>
       <tr><td>svg/mark-dark.svg</td><td>Dark-background variant with cyan ring.</td></tr>
       <tr><td>svg/mark-favicon.svg</td><td>Simplified favicon vector.</td></tr>
       <tr><td>generate.py</td><td>The export script. Re-run any time you tweak the SVG.</td></tr>
