@@ -595,6 +595,75 @@
     font-size: 12px;
   }
 
+  .concept-visual__problem {
+    position: absolute;
+    z-index: 4;
+    right: 32px;
+    bottom: 42px;
+    left: 32px;
+    border: 1px solid rgba(212, 255, 245, 0.26);
+    padding: clamp(24px, 3vw, 38px);
+    background: rgba(3, 31, 36, 0.82);
+    backdrop-filter: blur(14px);
+  }
+
+  .concept-visual__eyebrow {
+    display: inline-flex;
+    padding: 7px 9px;
+    background: var(--concept-signal);
+    color: var(--concept-ink-deep);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .concept-visual__problem h2 {
+    max-width: 470px;
+    margin: 22px 0 10px;
+    color: white;
+    font-family: "Fraunces", serif;
+    font-size: clamp(1.75rem, 2.8vw, 2.8rem);
+    font-style: italic;
+    font-weight: 430;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+  .concept-visual__problem > p {
+    margin: 0;
+    color: rgba(212, 255, 245, 0.68);
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .concept-visual__problem ul {
+    display: grid;
+    gap: 11px;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .concept-visual__problem li {
+    position: relative;
+    padding-left: 18px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .concept-visual__problem li::before {
+    position: absolute;
+    top: 0.6em;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--concept-signal);
+    content: "";
+  }
+
   .concept-pulse {
     width: 9px;
     height: 9px;
@@ -697,6 +766,18 @@
     letter-spacing: -0.05em;
   }
 
+  .concept-intro__statement em,
+  .concept-section-head h2 em {
+    color: #0e766c;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 420;
+  }
+
+  .concept-work .concept-section-head h2 em {
+    color: var(--concept-signal);
+  }
+
   .concept-intro__aside {
     border-top: 1px solid rgba(8, 47, 53, 0.35);
     padding-top: 22px;
@@ -739,6 +820,10 @@
     line-height: 1.6;
   }
 
+  .concept-section-head > p a {
+    border-bottom: 1px solid currentColor;
+  }
+
   .concept-section-head--dark > p {
     color: #47686c;
   }
@@ -754,6 +839,10 @@
 
   .concept-project--reverse .concept-project__meta {
     order: 3;
+  }
+
+  .concept-project--reverse {
+    grid-template-columns: minmax(420px, 2fr) minmax(250px, 1.05fr) minmax(145px, 0.55fr);
   }
 
   .concept-project--reverse .concept-project__copy {
@@ -920,6 +1009,10 @@
     list-style: none;
   }
 
+  .concept-method__steps--three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .concept-method__steps li {
     min-height: 330px;
     border-right: 1px solid rgba(8, 47, 53, 0.24);
@@ -959,6 +1052,31 @@
   .concept-evidence {
     padding: clamp(90px, 11vw, 170px) 0;
     background: var(--concept-paper);
+  }
+
+  .concept-evidence__head {
+    display: grid;
+    grid-template-columns: 0.5fr 1.55fr 0.75fr;
+    gap: clamp(30px, 5vw, 80px);
+    align-items: end;
+    margin-bottom: 64px;
+  }
+
+  .concept-evidence__head h2 {
+    margin: 0;
+    font-size: clamp(2.6rem, 4.8vw, 5.8rem);
+    font-weight: 650;
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+  }
+
+  .concept-evidence__head p {
+    margin: 0;
+    border-top: 1px solid rgba(8, 47, 53, 0.3);
+    padding-top: 18px;
+    color: #476469;
+    font-size: 14px;
+    line-height: 1.65;
   }
 
   .concept-evidence__grid {
@@ -1003,7 +1121,7 @@
   .concept-evidence__feature h2 {
     max-width: 800px;
     margin: 28px 0 0;
-    font-size: clamp(2.6rem, 5vw, 6rem);
+    font-size: clamp(2.2rem, 3.8vw, 4.4rem);
     font-weight: 650;
     line-height: 0.96;
     letter-spacing: -0.06em;
@@ -1082,13 +1200,15 @@
 
   .concept-about__grid {
     display: grid;
-    grid-template-columns: minmax(300px, 0.82fr) minmax(430px, 1.18fr);
+    grid-template-columns: minmax(240px, 0.52fr) minmax(430px, 1.48fr);
     gap: clamp(50px, 9vw, 150px);
     align-items: center;
   }
 
   .concept-about__portrait {
     position: relative;
+    width: min(100%, 280px);
+    justify-self: center;
   }
 
   .concept-about__portrait::before {
@@ -1288,8 +1408,16 @@
       gap: 30px;
     }
 
+    .concept-project--reverse {
+      grid-template-columns: minmax(380px, 1.6fr) minmax(250px, 0.9fr) 120px;
+    }
+
     .concept-method__steps {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .concept-method__steps--three {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .concept-method__steps li:nth-child(2) {
@@ -1303,6 +1431,15 @@
 
     .concept-method__steps li:nth-child(3) {
       padding-left: 0;
+    }
+
+    .concept-method__steps--three li:nth-child(2) {
+      border-right: 1px solid rgba(8, 47, 53, 0.24);
+    }
+
+    .concept-method__steps--three li:nth-child(3) {
+      border-top: 0;
+      padding-left: clamp(20px, 2.5vw, 38px);
     }
 
     .concept-contact__grid {
@@ -1362,7 +1499,8 @@
     }
 
     .concept-intro__grid,
-    .concept-contact__grid {
+    .concept-contact__grid,
+    .concept-evidence__head {
       grid-template-columns: 1fr;
     }
 
@@ -1391,6 +1529,24 @@
       padding-bottom: 70px;
     }
 
+    .concept-method__steps--three {
+      grid-template-columns: 1fr;
+    }
+
+    .concept-method__steps--three li,
+    .concept-method__steps--three li:first-child,
+    .concept-method__steps--three li:last-child,
+    .concept-method__steps--three li:nth-child(3) {
+      min-height: 250px;
+      border-top: 1px solid rgba(8, 47, 53, 0.24);
+      border-right: 0;
+      padding: 28px 0;
+    }
+
+    .concept-method__steps--three li:first-child {
+      border-top: 0;
+    }
+
     .concept-project--reverse .concept-project__meta,
     .concept-project--reverse .concept-project__copy,
     .concept-project--reverse .concept-video-frame {
@@ -1417,7 +1573,7 @@
     }
 
     .concept-about__portrait {
-      width: min(86%, 520px);
+      width: min(72%, 260px);
       margin-inline: auto;
     }
 
@@ -1494,6 +1650,31 @@
       display: none;
     }
 
+    .concept-visual__problem {
+      right: 18px;
+      bottom: 18px;
+      left: 18px;
+      padding: 20px;
+    }
+
+    .concept-visual__problem h2 {
+      margin-top: 15px;
+      font-size: 1.55rem;
+    }
+
+    .concept-visual__problem > p {
+      display: none;
+    }
+
+    .concept-visual__problem ul {
+      gap: 7px;
+      margin-top: 14px;
+    }
+
+    .concept-visual__problem li {
+      font-size: 10px;
+    }
+
     .concept-hero__foot ul {
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
@@ -1563,7 +1744,7 @@
     }
 
     .concept-evidence__feature h2 {
-      font-size: clamp(2.4rem, 12vw, 4rem);
+      font-size: clamp(1.85rem, 9vw, 3.2rem);
     }
 
     .concept-tag {
@@ -1575,7 +1756,7 @@
     }
 
     .concept-about__portrait {
-      width: calc(100% - 18px);
+      width: min(72%, 220px);
     }
 
     .concept-about__portrait > span {
@@ -1616,6 +1797,370 @@
     .concept-video img,
     .concept-text-link span {
       transition: none;
+    }
+  }
+}
+
+/* Training pages use the same field-report design without changing their copy. */
+@layer components {
+  .concept-training {
+    --training-paper: #f2f0e8;
+    --training-paper-deep: #e7e4da;
+    --training-ink: #082f35;
+    --training-ink-deep: #031f24;
+    --training-signal: #21d6b5;
+    --training-signal-soft: #bdf8e9;
+    background: var(--training-paper);
+    color: var(--training-ink);
+  }
+
+  .concept-training .training-nav {
+    background: rgba(242, 240, 232, 0.9);
+    border-bottom: 1px solid rgba(8, 47, 53, 0.2);
+    backdrop-filter: blur(14px);
+  }
+
+  .concept-training .training-nav > div {
+    min-height: 78px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .concept-training .training-nav .rounded-full {
+    border-radius: 0;
+  }
+
+  .concept-training .training-hero {
+    padding-top: 18px;
+    background:
+      radial-gradient(circle at 18% 30%, rgba(33, 214, 181, 0.13), transparent 25%),
+      var(--training-paper);
+    color: var(--training-ink);
+  }
+
+  .concept-training .training-hero > .absolute,
+  .concept-training .training-hero > .pointer-events-none {
+    display: none;
+  }
+
+  .concept-training .training-hero__inner {
+    width: min(100% - 40px, 1500px);
+    max-width: none;
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 110px;
+  }
+
+  .concept-training .training-hero__grid {
+    gap: clamp(44px, 6vw, 100px);
+    min-height: 730px;
+    border-bottom: 1px solid rgba(8, 47, 53, 0.2);
+    padding: 60px 0 72px;
+  }
+
+  .concept-training .training-hero__copy {
+    color: var(--training-ink);
+  }
+
+  .concept-training .training-hero__copy .eyebrow {
+    color: #0e766c;
+  }
+
+  .concept-training .training-hero__copy h1 {
+    color: var(--training-ink);
+    font-size: clamp(4.2rem, 6.8vw, 8rem);
+    line-height: 0.84;
+    letter-spacing: -0.07em;
+  }
+
+  .concept-training .training-hero__copy h1 .font-serif {
+    color: #0e766c;
+    font-weight: 420;
+  }
+
+  .concept-training .training-hero__copy > p {
+    color: #3e6064;
+  }
+
+  .concept-training .training-hero__copy > p + p {
+    color: var(--training-ink);
+  }
+
+  .concept-training .training-hero__copy dl {
+    border-top: 1px solid rgba(8, 47, 53, 0.25);
+    padding-top: 22px;
+  }
+
+  .concept-training .training-hero__copy dt {
+    color: #698085;
+  }
+
+  .concept-training .training-hero__copy dd {
+    color: var(--training-ink);
+  }
+
+  .concept-training .training-hero__example > div {
+    overflow: hidden;
+    border: 1px solid rgba(212, 255, 245, 0.18);
+    border-radius: 0;
+    background:
+      linear-gradient(rgba(189, 248, 233, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(189, 248, 233, 0.07) 1px, transparent 1px),
+      var(--training-ink-deep);
+    background-size: 54px 54px;
+    color: white;
+    box-shadow: 24px 24px 0 rgba(8, 47, 53, 0.09);
+  }
+
+  .concept-training .training-hero__example .bg-brand-cyan {
+    border-radius: 0;
+    background: var(--training-signal);
+  }
+
+  .concept-training .training-video-block {
+    width: min(100% - 40px, 1500px);
+    max-width: none;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .concept-training .training-video-frame {
+    border: 1px solid rgba(212, 255, 245, 0.18);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .concept-training .training-video-frame::before {
+    position: absolute;
+    z-index: 4;
+    inset: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    content: "";
+    pointer-events: none;
+  }
+
+  .concept-training .training-video-frame button > span > span {
+    border-radius: 0;
+  }
+
+  .concept-training .training-video-frame .rounded-full,
+  .concept-training .training-video-frame .rounded-2xl {
+    border-radius: 0;
+  }
+
+  .concept-training .training-video-block > p {
+    color: #59787b;
+  }
+
+  .concept-training .training-video-block > p a {
+    color: var(--training-ink);
+  }
+
+  .concept-training .training-horizon {
+    display: none;
+  }
+
+  .concept-training .training-workshop,
+  .concept-training .training-price,
+  .concept-training .training-faq,
+  .concept-training .training-facilitator {
+    background: var(--training-paper);
+  }
+
+  .concept-training .training-workshop {
+    padding-top: clamp(90px, 10vw, 150px);
+    padding-bottom: clamp(90px, 10vw, 150px);
+  }
+
+  .concept-training .training-workshop > [aria-hidden="true"] {
+    display: none;
+  }
+
+  .concept-training .training-workshop .max-w-3xl,
+  .concept-training .training-price .max-w-3xl,
+  .concept-training .training-faq .text-center {
+    max-width: 900px;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .concept-training :is(.training-workshop, .training-price, .training-faq) .display-section {
+    max-width: 980px;
+    font-size: clamp(3.2rem, 6.5vw, 7.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+  }
+
+  .concept-training :is(.training-workshop, .training-price, .training-faq) .display-section .font-serif {
+    color: #0e766c;
+    font-weight: 420;
+  }
+
+  .concept-training .training-agenda {
+    gap: 0;
+    border: 1px solid rgba(8, 47, 53, 0.24);
+  }
+
+  .concept-training .training-agenda__card {
+    border-radius: 0;
+    padding: clamp(30px, 4vw, 58px);
+    box-shadow: none;
+  }
+
+  .concept-training .training-agenda__card:first-child {
+    border-right: 1px solid rgba(8, 47, 53, 0.24);
+  }
+
+  .concept-training .training-agenda__card--dark {
+    background: var(--training-ink-deep);
+  }
+
+  .concept-training .training-outcomes {
+    padding-top: clamp(90px, 10vw, 150px);
+    padding-bottom: clamp(90px, 10vw, 150px);
+    background: var(--training-ink-deep);
+  }
+
+  .concept-training .training-outcomes .display-section,
+  .concept-training .training-facilitator .display-section {
+    font-size: clamp(3rem, 5.5vw, 6.4rem);
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+  }
+
+  .concept-training .training-facilitator {
+    padding-top: clamp(90px, 10vw, 150px);
+    padding-bottom: clamp(90px, 10vw, 150px);
+  }
+
+  .concept-training .training-facilitator img {
+    width: 220px;
+    height: 220px;
+    border-radius: 0;
+  }
+
+  .concept-training .training-facilitator a,
+  .concept-training .training-close a {
+    border-radius: 0;
+  }
+
+  .concept-training .training-price > div,
+  .concept-training .training-faq > div {
+    max-width: 1100px;
+  }
+
+  .concept-training .training-price [data-reveal]:last-child {
+    border: 1px solid var(--training-ink);
+    border-radius: 0;
+    background: #faf9f4;
+    box-shadow: 18px 18px 0 rgba(8, 47, 53, 0.08);
+  }
+
+  .concept-training .training-faq details {
+    border: 1px solid rgba(8, 47, 53, 0.2);
+    border-radius: 0;
+    background: #faf9f4;
+    box-shadow: none;
+  }
+
+  .concept-training .training-faq details + details {
+    margin-top: -1px;
+  }
+
+  .concept-training .training-faq summary > span {
+    border-radius: 0;
+  }
+
+  .concept-training .training-close {
+    background: var(--training-signal-soft);
+    color: var(--training-ink);
+  }
+
+  .concept-training .training-close > .absolute,
+  .concept-training .training-close > .pointer-events-none {
+    display: none;
+  }
+
+  .concept-training .training-close .display-section {
+    color: var(--training-ink);
+    font-size: clamp(3.4rem, 7vw, 8rem);
+    line-height: 0.88;
+    letter-spacing: -0.07em;
+  }
+
+  .concept-training .training-close .display-section .font-serif {
+    color: #0e766c;
+    font-weight: 420;
+  }
+
+  .concept-training .training-close p {
+    color: #436568;
+  }
+
+  .concept-training .training-close a {
+    background: var(--training-ink);
+    color: white;
+  }
+
+  .concept-training .training-footer {
+    background: var(--training-ink-deep);
+  }
+
+  .concept-training :where(a, button, summary):focus-visible {
+    outline: 2px solid #ff795e;
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 1023px) {
+    .concept-training .training-hero__grid {
+      min-height: auto;
+      padding-top: 48px;
+    }
+
+    .concept-training .training-hero__copy {
+      text-align: left;
+    }
+
+    .concept-training .training-hero__copy > p,
+    .concept-training .training-hero__copy dl {
+      margin-left: 0;
+    }
+
+    .concept-training .training-hero__copy dl {
+      justify-content: flex-start;
+    }
+
+    .concept-training .training-hero__example {
+      max-width: 680px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .concept-training .training-hero__inner,
+    .concept-training .training-video-block {
+      width: min(100% - 30px, 1500px);
+    }
+
+    .concept-training .training-hero__copy h1 {
+      font-size: clamp(3.45rem, 16vw, 5.8rem);
+    }
+
+    .concept-training .training-agenda {
+      border: 0;
+    }
+
+    .concept-training .training-agenda__card {
+      border: 1px solid rgba(8, 47, 53, 0.24);
+    }
+
+    .concept-training .training-agenda__card:first-child {
+      border-right: 1px solid rgba(8, 47, 53, 0.24);
+      border-bottom: 0;
+    }
+
+    .concept-training .training-facilitator img {
+      width: 180px;
+      height: 180px;
     }
   }
 }
