@@ -30,7 +30,7 @@
 }
 
 /* ───────────────────────────────────────────────────────────────
-   Theme — brand palette + fonts (Tailwind v4 @theme syntax)
+   Theme - brand palette + fonts (Tailwind v4 @theme syntax)
    ─────────────────────────────────────────────────────────────── */
 @theme {
   --color-navy: #07313B;
@@ -167,16 +167,18 @@
   .spin-slow { animation: spin 120s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* Scroll reveal */
-  [data-reveal] {
+  /* Scroll reveal. Hidden state is scoped to .js on the root element,
+     set by an inline script in <head>, so content stays visible when
+     JavaScript never runs. */
+  .js [data-reveal] {
     opacity: 0;
     transform: translateY(16px);
     transition: opacity 0.55s ease, transform 0.55s ease;
   }
-  [data-reveal].is-visible { opacity: 1; transform: none; }
+  .js [data-reveal].is-visible { opacity: 1; transform: none; }
 
   @media (prefers-reduced-motion: reduce) {
-    [data-reveal] {
+    .js [data-reveal] {
       opacity: 1;
       transform: none;
       transition: none;
