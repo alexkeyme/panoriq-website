@@ -30,7 +30,7 @@
 }
 
 /* ───────────────────────────────────────────────────────────────
-   Theme - brand palette + fonts (Tailwind v4 @theme syntax)
+   Theme — brand palette + fonts (Tailwind v4 @theme syntax)
    ─────────────────────────────────────────────────────────────── */
 @theme {
   --color-navy: #07313B;
@@ -82,74 +82,6 @@
 @layer components {
   .q-cyan { color: #1BCBB8; }
 
-  .display-hero-v2 {
-    font-family: "Manrope", sans-serif;
-    font-weight: 760;
-    font-size: clamp(3.2rem, 7.7vw, 7.6rem);
-    line-height: 0.88;
-    letter-spacing: -0.065em;
-  }
-
-  .display-section-v2 {
-    font-family: "Manrope", sans-serif;
-    font-weight: 720;
-    font-size: clamp(2.5rem, 5.6vw, 5.5rem);
-    line-height: 0.94;
-    letter-spacing: -0.05em;
-  }
-
-  .kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    font-family: "Manrope", sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-
-  .kicker::before {
-    content: '';
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 999px;
-    background: currentColor;
-  }
-
-  .field-grid {
-    background-image:
-      linear-gradient(rgba(186, 242, 232, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(186, 242, 232, 0.08) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  .field-grid-light {
-    background-image:
-      linear-gradient(rgba(7, 49, 59, 0.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(7, 49, 59, 0.055) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  .signal-scan {
-    animation: signal-scan 6s ease-in-out infinite;
-    transform-origin: center;
-  }
-
-  @keyframes signal-scan {
-    0%, 100% { transform: translateY(-12px); opacity: 0.3; }
-    50% { transform: translateY(150px); opacity: 0.9; }
-  }
-
-  .case-card {
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-  }
-
-  .case-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 28px 70px -42px rgba(4, 30, 38, 0.55);
-  }
-
   /* Hero display headline */
   .display-hero {
     font-family: "Manrope", sans-serif;
@@ -180,8 +112,8 @@
   /* Hero grid backdrop */
   .bg-grid {
     background-image:
-      linear-gradient(rgba(184, 236, 236, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(184, 236, 236, 0.06) 1px, transparent 1px);
+      linear-gradient(rgba(186, 242, 232, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(186, 242, 232, 0.06) 1px, transparent 1px);
     background-size: 72px 72px;
   }
 
@@ -256,7 +188,7 @@
     background: rgba(244, 241, 232, 0.78);
     backdrop-filter: saturate(160%) blur(14px);
     -webkit-backdrop-filter: saturate(160%) blur(14px);
-    border-bottom: 1px solid rgba(13, 74, 74, 0.08);
+    border-bottom: 1px solid rgba(20, 85, 79, 0.08);
   }
 
   /* Card hover lift */
@@ -266,7 +198,7 @@
   /* Horizon divider */
   .horizon {
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(15,165,165,0.0) 0%, rgba(15,165,165,0.5) 50%, rgba(15,165,165,0.0) 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(15,169,150,0.0) 0%, rgba(15,169,150,0.5) 50%, rgba(15,169,150,0.0) 100%);
   }
 
   /* Process rail */
@@ -278,7 +210,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, #1FC4C4 0%, #0D4A4A 100%);
+      background: linear-gradient(90deg, #1BCBB8 0%, #14554F 100%);
     }
   }
 
@@ -290,35 +222,35 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .wave-1, .wave-2, .wave-3, .wave-4, .marquee-track, .spin-slow, .signal-scan { animation: none !important; }
+    .wave-1, .wave-2, .wave-3, .wave-4, .marquee-track, .spin-slow { animation: none !important; }
   }
 
   /* Long-form legal prose (impressum + datenschutz) */
   .legal-prose { font-family: "Manrope", sans-serif; color: #46575D; line-height: 1.7; font-size: 15px; }
   .legal-prose h2 {
     font-family: "Manrope", sans-serif; font-weight: 700;
-    font-size: 1.875rem; color: #0E2A47;
+    font-size: 1.875rem; color: #07313B;
     margin: 3.5rem 0 1.25rem; line-height: 1.15; letter-spacing: -0.02em;
   }
   .legal-prose h3 {
     font-family: "Manrope", sans-serif; font-weight: 700;
-    font-size: 1.25rem; color: #0E2A47;
+    font-size: 1.25rem; color: #07313B;
     margin: 2rem 0 0.75rem;
   }
   .legal-prose h4 {
     font-family: "Manrope", sans-serif; font-weight: 600;
-    font-size: 1rem; color: #0E2A47;
+    font-size: 1rem; color: #07313B;
     margin: 1.5rem 0 0.5rem;
   }
   .legal-prose p { margin-bottom: 1rem; }
   .legal-prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
   .legal-prose li { margin-bottom: 0.4rem; }
   .legal-prose a {
-    color: #0FA5A5; text-decoration: underline;
+    color: #0FA996; text-decoration: underline;
     text-underline-offset: 2px; word-break: break-word;
   }
-  .legal-prose a:hover { color: #1FC4C4; }
-  .legal-prose strong { font-weight: 600; color: #0E2A47; }
+  .legal-prose a:hover { color: #1BCBB8; }
+  .legal-prose strong { font-weight: 600; color: #07313B; }
   .legal-prose .caps {
     display: block;
     text-transform: uppercase;
@@ -326,14 +258,14 @@
     letter-spacing: 0.02em;
     background: white;
     padding: 1rem 1.25rem;
-    border-left: 3px solid #1FC4C4;
+    border-left: 3px solid #1BCBB8;
     border-radius: 0 8px 8px 0;
     margin: 1rem 0;
   }
   .legal-prose .address {
     font-style: normal; display: block;
     padding: 1rem 1.25rem; margin: 0.75rem 0 1.25rem;
-    background: white; border-left: 3px solid #1FC4C4;
+    background: white; border-left: 3px solid #1BCBB8;
     border-radius: 0 8px 8px 0;
     color: #2A323B;
   }

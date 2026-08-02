@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -14,376 +14,590 @@
 
   <meta property="og:site_name" content="panoriq">
   <meta property="og:title" content="panoriq | AI Agents for Spatial Software">
-  <meta property="og:description" content="Agent engineering for GIS, point-cloud, and 3D software - built past the demo.">
+  <meta property="og:description" content="I help spatial software teams design, build, and ship reliable AI agents for GIS, point clouds, and 3D workflows - from first prototype to production.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://panoriq.com/">
   <meta property="og:locale" content="en_GB">
-  <meta property="og:image" content="https://panoriq.com/CI/logo/lockup/lockup-dark-1600w.png">
+  <meta property="og:image" content="https://panoriq.com/CI/logo/lockup/lockup-light-1600w.png">
   <meta property="og:image:alt" content="panoriq - AI agents for spatial software">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="panoriq | AI Agents for Spatial Software">
-  <meta name="twitter:description" content="Agent engineering for GIS, point-cloud, and 3D software - built past the demo.">
-  <meta name="twitter:image" content="https://panoriq.com/CI/logo/lockup/lockup-dark-1600w.png">
-  <meta name="theme-color" content="#041E26">
+  <meta name="twitter:description" content="I help spatial software teams design, build, and ship reliable AI agents for GIS, point clouds, and 3D workflows - from first prototype to production.">
+  <meta name="twitter:image" content="https://panoriq.com/CI/logo/lockup/lockup-light-1600w.png">
+  <meta name="theme-color" content="#07313B">
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://panoriq.com/#website",
-        "url": "https://panoriq.com/",
-        "name": "panoriq",
-        "publisher": { "@id": "https://panoriq.com/#organization" }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://panoriq.com/#organization",
-        "name": "panoriq",
-        "legalName": "Kawunu GmbH",
-        "url": "https://panoriq.com/",
-        "logo": "https://panoriq.com/CI/logo/mark-light/mark-light-180.png",
-        "description": "AI agent engineering for spatial software.",
-        "founder": { "@id": "https://panoriq.com/#alex-key" },
-        "sameAs": [
-          "https://www.linkedin.com/company/panoriq",
-          "https://github.com/alexkeyme"
-        ]
-      },
-      {
-        "@type": "Person",
-        "@id": "https://panoriq.com/#alex-key",
-        "name": "Alex Key",
-        "url": "https://panoriq.com/",
-        "jobTitle": "AI Engineer",
-        "worksFor": { "@id": "https://panoriq.com/#organization" },
-        "sameAs": [
-          "https://www.linkedin.com/in/keyalex",
-          "https://github.com/alexkeyme"
-        ]
-      }
-    ]
-  }
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://panoriq.com/#website",
+          "url": "https://panoriq.com/",
+          "name": "panoriq",
+          "publisher": { "@id": "https://panoriq.com/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://panoriq.com/#organization",
+          "name": "panoriq",
+          "legalName": "Kawunu GmbH",
+          "url": "https://panoriq.com/",
+          "logo": "https://panoriq.com/CI/logo/mark-light/mark-light-180.png",
+          "description": "Independent AI engineering practice helping spatial software vendors build reliable agents into products and platforms used by external customers.",
+          "founder": { "@id": "https://panoriq.com/#alex-key" },
+          "email": "alex@kawunu.com",
+          "knowsAbout": [
+            "AI agents",
+            "Large language model applications",
+            "Geographic information systems",
+            "Point cloud processing",
+            "3D geospatial software"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/panoriq",
+            "https://github.com/alexkeyme"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://panoriq.com/#alex-key",
+          "name": "Alex Key",
+          "url": "https://panoriq.com/",
+          "jobTitle": "AI Engineer",
+          "worksFor": { "@id": "https://panoriq.com/#organization" },
+          "sameAs": [
+            "https://www.linkedin.com/in/keyalex",
+            "https://github.com/alexkeyme"
+          ]
+        }
+      ]
+    }
   </script>
 
   <link rel="stylesheet" href="dist/output.css?v=__ASSET_VERSION__">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./js/vendor/three.module.js"
+      }
+    }
+  </script>
   <script type="module" src="js/vimeo.js?v=__ASSET_VERSION__" defer></script>
+  <script type="module" src="js/main.js?v=__ASSET_VERSION__" defer></script>
 </head>
 
-<body id="top" class="bg-sand font-sans text-navy">
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-brand-cyan focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-navy">Skip to content</a>
+<body id="top" class="font-sans bg-sand text-navy">
 
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-navy-deeper/90 text-white backdrop-blur-xl">
-    <div class="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-4 md:px-10">
-      <a href="#top" class="flex items-center gap-3" aria-label="panoriq home">
-        <img src="CI/logo/svg/mark-dark.svg?v=__ASSET_VERSION__" alt="" class="h-10 w-10">
-        <span class="font-display text-[22px] font-extrabold tracking-[-0.045em]">panori<span class="text-brand-cyan">q</span></span>
+  <!-- NAV -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-50 nav-glass">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10 py-4 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="CI/logo/svg/mark-light.svg?v=__ASSET_VERSION__" alt="" class="w-9 h-9">
+        <span class="font-display text-[22px] font-bold tracking-tightest text-navy">panori<span class="q-cyan">q</span></span>
       </a>
 
-      <nav class="flex items-center gap-5 md:gap-8" aria-label="Main navigation">
-        <a href="#work" class="hidden text-xs font-bold uppercase tracking-[0.16em] text-aqua/70 transition hover:text-white sm:block">Work</a>
-        <a href="#method" class="hidden text-xs font-bold uppercase tracking-[0.16em] text-aqua/70 transition hover:text-white md:block">Method</a>
-        <a href="#about" class="hidden text-xs font-bold uppercase tracking-[0.16em] text-aqua/70 transition hover:text-white lg:block">About</a>
-        <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-xs font-bold text-white transition hover:border-brand-cyan hover:text-brand-cyan">
-          LinkedIn
-          <svg viewBox="0 0 16 16" class="h-3.5 w-3.5" fill="none" aria-hidden="true"><path d="M3 13 13 3m0 0H6m7 0v7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </nav>
+      <!-- Cross-link for service firms arriving from LinkedIn. Different audience,
+           different offer - kept understated so the vendor message stays primary. -->
+      <a href="training.html" class="inline-flex items-center gap-2 text-[13px] font-semibold text-teal-deep hover:text-navy transition">
+        <span class="hidden sm:inline">Looking for training?</span>
+        <span class="sm:hidden">Training</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </header>
 
-  <main id="main">
-    <section class="relative overflow-hidden bg-navy-deeper pt-28 text-white md:pt-36">
-      <div class="field-grid absolute inset-0 opacity-60" aria-hidden="true"></div>
-      <div class="absolute -left-40 top-20 h-[480px] w-[480px] rounded-full bg-teal-deep/30 blur-[120px]" aria-hidden="true"></div>
-      <div class="absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-brand-cyan/15 blur-[120px]" aria-hidden="true"></div>
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-navy text-white grain">
+    <canvas id="point-cloud" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
+    <div class="absolute inset-0 bg-grid opacity-50 pointer-events-none"></div>
 
-      <div class="relative mx-auto grid min-h-[760px] max-w-[1440px] items-center gap-16 px-5 pb-20 md:px-10 lg:grid-cols-12 lg:gap-10 lg:pb-28">
-        <div class="lg:col-span-7" data-reveal>
-          <div class="kicker mb-8 text-brand-cyan">Agent engineering for spatial software</div>
-          <h1 class="display-hero-v2 max-w-[950px] text-white">
-            AI agents for<br>
-            spatial software.
-          </h1>
-          <p class="mt-5 font-serif text-3xl italic leading-tight text-brand-cyan md:text-5xl">Built past the demo.</p>
-          <p class="mt-9 max-w-2xl text-lg leading-relaxed text-aqua/80 md:text-xl">
-            I help teams building GIS, point-cloud, and 3D products design, evaluate, and ship agentic features that work with real spatial data.
-          </p>
-          <div class="mt-10 flex flex-wrap gap-3">
-            <a href="#work" class="inline-flex items-center gap-2 rounded-full bg-brand-cyan px-6 py-3.5 text-sm font-extrabold text-navy transition hover:bg-white">
-              View selected work
-              <svg viewBox="0 0 16 16" class="h-4 w-4" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="#method" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-sm font-bold text-white transition hover:border-brand-cyan hover:text-brand-cyan">How I work</a>
+    <!-- Ambient glow -->
+    <div class="pointer-events-none absolute -top-40 -right-40 w-[620px] h-[620px] rounded-full blur-3xl opacity-30" style="background: radial-gradient(circle, #1BCBB8 0%, transparent 60%);"></div>
+    <div class="pointer-events-none absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full blur-3xl opacity-20" style="background: radial-gradient(circle, #BAF2E8 0%, transparent 60%);"></div>
+
+    <div class="relative mx-auto max-w-[1400px] px-6 md:px-10 pt-36 md:pt-44 pb-0">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 text-center lg:text-left" data-reveal>
+          <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4 gap-y-3 mb-8">
+            <span class="eyebrow text-aqua/80">Alex Key</span>
+            <span class="h-px w-16 bg-aqua/30"></span>
+            <span class="eyebrow text-aqua/60">AI Engineer</span>
           </div>
-        </div>
 
-        <div class="lg:col-span-5" data-reveal>
-          <div class="overflow-hidden rounded-[2rem] border border-aqua/20 bg-[#062831]/85 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.7)]">
-            <div class="flex items-center justify-between border-b border-aqua/15 px-5 py-4">
-              <span class="text-[11px] font-extrabold uppercase tracking-[0.2em] text-aqua/60">Field note / 001</span>
-              <span class="flex items-center gap-2 text-[11px] font-bold text-brand-cyan"><span class="h-1.5 w-1.5 rounded-full bg-brand-cyan"></span>Agent trace</span>
-            </div>
-
-            <div class="relative aspect-[4/3] overflow-hidden bg-[#082F38] p-5">
-              <svg viewBox="0 0 520 390" class="h-full w-full" role="img" aria-labelledby="field-title field-desc">
-                <title id="field-title">Spatial agent workflow</title>
-                <desc id="field-desc">A contour field showing an agent moving from source data through classification and measurement to a result.</desc>
-                <defs>
-                  <pattern id="field-dots" width="24" height="24" patternUnits="userSpaceOnUse">
-                    <circle cx="2" cy="2" r="1.4" fill="#BAF2E8" opacity="0.16"/>
-                  </pattern>
-                  <linearGradient id="trace-gradient" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#66E7D6"/>
-                    <stop offset="1" stop-color="#F26B52"/>
-                  </linearGradient>
-                </defs>
-                <rect width="520" height="390" fill="url(#field-dots)"/>
-                <g fill="none" stroke="#2F756F" stroke-width="2" opacity="0.75">
-                  <path d="M-30 87C52 29 142 46 202 93s143 60 210 11 116-31 145-3"/>
-                  <path d="M-42 123C46 69 126 84 188 127s151 56 225 17 111-27 147 2"/>
-                  <path d="M-52 161C34 112 119 124 184 166s154 49 229 13 116-18 157 17"/>
-                  <path d="M-38 204C42 158 126 168 192 207s150 45 220 16 112-11 153 24"/>
-                  <path d="M-22 250C54 210 132 217 198 251s139 38 207 15 112-4 151 31"/>
-                  <path d="M4 298C73 265 142 270 207 298s126 33 189 16 106 2 139 35"/>
-                </g>
-                <path d="M72 290C121 253 131 196 196 193s80-76 142-69 61 70 119 86" fill="none" stroke="url(#trace-gradient)" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 10"/>
-                <g fill="#66E7D6" stroke="#082F38" stroke-width="5">
-                  <circle cx="72" cy="290" r="9"/>
-                  <circle cx="196" cy="193" r="9"/>
-                  <circle cx="338" cy="124" r="9"/>
-                </g>
-                <circle cx="457" cy="210" r="11" fill="#F26B52" stroke="#082F38" stroke-width="5"/>
-                <g fill="#BAF2E8" font-family="Manrope, sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">
-                  <text x="52" y="322">SOURCE</text>
-                  <text x="165" y="178">CLASSIFY</text>
-                  <text x="308" y="107">COMPARE</text>
-                  <text x="427" y="240">MEASURE</text>
-                </g>
-                <path class="signal-scan" d="M38 80H482" stroke="#66E7D6" stroke-width="1.5" opacity="0.6"/>
+          <h1 class="display-hero text-white text-balance">
+            <span class="sm:whitespace-nowrap">Spatial software</span><br>
+            <span class="relative inline-block whitespace-nowrap">
+              <span>is changing.</span>
+              <svg class="absolute left-0 -bottom-3 w-full" height="14" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M2 9 Q 75 2, 150 8 T 298 7" fill="none" stroke="#1BCBB8" stroke-width="4" stroke-linecap="round"/>
               </svg>
+            </span>
+          </h1>
+
+          <p class="mt-10 max-w-2xl mx-auto lg:mx-0 text-aqua/90 text-lg md:text-xl leading-relaxed">
+            AI agents are remaking software in every industry: users describe the outcome
+            they want, and the software gets them there.
+            Spatial data is next.
+          </p>
+          <div class="mt-10 hidden lg:flex flex-wrap items-center gap-4">
+            <a href="#what-i-do" class="inline-flex items-center gap-2 bg-brand-cyan text-navy hover:bg-white transition px-6 py-3.5 rounded-full text-[14px] font-semibold">
+              See how I work
+              <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Right column: client's problem -->
+        <div class="lg:col-span-5" data-reveal>
+          <div class="relative rounded-3xl border border-white/12 bg-white/7 p-6 md:p-8 shadow-2xl backdrop-blur">
+            <div class="absolute -top-3 left-8 inline-flex items-center gap-2 rounded-full bg-brand-cyan px-4 py-1.5 text-[12px] font-semibold uppercase tracking-widest text-navy">
+              The catch
             </div>
 
-            <div class="grid grid-cols-3 border-t border-aqua/15">
-              <div class="border-r border-aqua/15 p-4"><span class="block text-[10px] uppercase tracking-[0.18em] text-aqua/60">Input</span><strong class="mt-1 block text-sm text-white">Point cloud</strong></div>
-              <div class="border-r border-aqua/15 p-4"><span class="block text-[10px] uppercase tracking-[0.18em] text-aqua/60">Tools</span><strong class="mt-1 block text-sm text-white">4 invoked</strong></div>
-              <div class="p-4"><span class="block text-[10px] uppercase tracking-[0.18em] text-aqua/60">Output</span><strong class="mt-1 block text-sm text-white">Measured</strong></div>
-            </div>
-          </div>
-        </div>
-      </div>
+            <h2 class="mt-4 font-serif italic text-2xl md:text-3xl text-white leading-snug">
+              &ldquo;Isn&rsquo;t there some AI for that?&rdquo;
+            </h2>
+            <p class="mt-3 text-aqua/80 text-sm leading-relaxed">
+              Your users have started asking. The hard part isn't adding AI - it's making it useful:
+            </p>
 
-      <div class="relative border-t border-white/10">
-        <div class="mx-auto flex max-w-[1440px] flex-wrap items-center gap-x-9 gap-y-3 px-5 py-5 text-[11px] font-bold uppercase tracking-[0.18em] text-aqua/60 md:px-10">
-          <span class="text-brand-cyan">Working field</span>
-          <span>GIS</span><span>Point clouds</span><span>3D workflows</span><span>Tool use</span><span>Evaluation</span><span>Observability</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="method" class="relative overflow-hidden bg-sand py-24 md:py-32">
-      <div class="field-grid-light absolute inset-0" aria-hidden="true"></div>
-      <div class="relative mx-auto max-w-[1320px] px-5 md:px-10">
-        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div class="lg:col-span-5" data-reveal>
-            <div class="kicker text-teal-deep">01 / What I do</div>
-            <h2 class="display-section-v2 mt-7 text-navy">Move from AI experiment to <span class="font-serif font-normal italic text-teal-deep">product behavior.</span></h2>
-          </div>
-          <div class="lg:col-span-6 lg:col-start-7" data-reveal>
-            <p class="max-w-xl text-xl font-medium leading-relaxed text-stone-700">Agent features fail when language models are treated as the whole product. I work on the surrounding system: tools, state, evaluation, observability, and the spatial domain logic that makes the agent useful.</p>
-          </div>
-        </div>
-
-        <div class="mt-20 border-t border-navy/15">
-          <article class="grid gap-5 border-b border-navy/15 py-8 md:grid-cols-12 md:items-start" data-reveal>
-            <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-cyan md:col-span-2">01 / Find</span>
-            <h3 class="font-display text-2xl font-extrabold tracking-[-0.035em] text-navy md:col-span-4">Choose the job worth making agentic</h3>
-            <p class="leading-relaxed text-stone-600 md:col-span-5 md:col-start-8">Map the workflow, the users, the failure modes, and where an agent can do something that deterministic software cannot.</p>
-          </article>
-          <article class="grid gap-5 border-b border-navy/15 py-8 md:grid-cols-12 md:items-start" data-reveal>
-            <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-cyan md:col-span-2">02 / Build</span>
-            <h3 class="font-display text-2xl font-extrabold tracking-[-0.035em] text-navy md:col-span-4">Give the agent real spatial tools</h3>
-            <p class="leading-relaxed text-stone-600 md:col-span-5 md:col-start-8">Connect GIS, point-cloud, and 3D operations so the model can inspect, transform, compare, and explain actual data.</p>
-          </article>
-          <article class="grid gap-5 border-b border-navy/15 py-8 md:grid-cols-12 md:items-start" data-reveal>
-            <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-cyan md:col-span-2">03 / Ship</span>
-            <h3 class="font-display text-2xl font-extrabold tracking-[-0.035em] text-navy md:col-span-4">Engineer beyond the happy path</h3>
-            <p class="leading-relaxed text-stone-600 md:col-span-5 md:col-start-8">Add evaluation, tracing, recovery, and human checkpoints so a promising prototype can become dependable product behavior.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="work" class="bg-[#E8F8F3] py-24 md:py-32">
-      <div class="mx-auto max-w-[1320px] px-5 md:px-10">
-        <div class="grid gap-8 lg:grid-cols-12 lg:items-end" data-reveal>
-          <div class="lg:col-span-7">
-            <div class="kicker text-teal-deep">02 / Selected work</div>
-            <h2 class="display-section-v2 mt-7 text-navy">Proof in the <span class="font-serif font-normal italic text-teal-deep">workflow.</span></h2>
-          </div>
-          <p class="max-w-lg leading-relaxed text-stone-600 lg:col-span-4 lg:col-start-9">A selection of agent systems working with spatial tools and data. Loading a video connects to Vimeo, which receives technical data such as your IP address and may set cookies.</p>
-        </div>
-
-        <article class="case-card mt-16 overflow-hidden rounded-[2rem] bg-navy-deeper text-white" data-reveal>
-          <div class="grid lg:grid-cols-5">
-            <div class="relative aspect-video overflow-hidden lg:col-span-3 lg:aspect-auto lg:min-h-[520px]">
-              <button type="button" id="demoPlayGlacier" class="group absolute inset-0 h-full w-full" aria-label="Load glacier change demo from Vimeo and play">
-                <img src="img/vimeo-glacier.jpg?v=__ASSET_VERSION__" alt="" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover grayscale-[20%] transition duration-700 group-hover:scale-[1.02] group-hover:grayscale-0">
-                <span class="absolute inset-0 bg-gradient-to-t from-navy-deeper/60 via-transparent to-transparent"></span>
-                <span class="absolute bottom-5 left-5 inline-flex items-center gap-3 rounded-full bg-brand-cyan px-5 py-3 text-sm font-extrabold text-navy shadow-xl transition group-hover:bg-white">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                  Load video from Vimeo / 02:19
-                </span>
-              </button>
-            </div>
-            <div class="flex flex-col justify-between p-7 md:p-10 lg:col-span-2 lg:p-12">
-              <div>
-                <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-cyan">Case 01 / Long-running agent</span>
-                <h3 class="mt-6 font-display text-3xl font-extrabold leading-tight tracking-[-0.04em] md:text-4xl">Measuring glacier change from two point clouds</h3>
-                <p class="mt-6 leading-relaxed text-aqua/75">The agent plans a multi-step analysis, works through spatial tooling, checks intermediate outputs, and returns a measured result instead of a chat response.</p>
+            <div class="mt-7 space-y-6">
+              <div class="flex gap-4">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-cyan"></span>
+                <p class="text-aqua/90 leading-relaxed">
+                  Find where an agent creates real value in your product and its workflows.
+                </p>
               </div>
-              <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-white/15 pt-6 text-sm">
-                <div><dt class="text-aqua/60">Behavior</dt><dd class="mt-1 font-bold text-white">Long-running</dd></div>
-                <div><dt class="text-aqua/60">Domain</dt><dd class="mt-1 font-bold text-white">Change analysis</dd></div>
-              </dl>
+              <div class="flex gap-4">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-cyan"></span>
+                <p class="text-aqua/90 leading-relaxed">
+                  Make it work with geodata, GIS, and point clouds - not just a chat interface.
+                </p>
+              </div>
+              <div class="flex gap-4">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-cyan"></span>
+                <p class="text-aqua/90 leading-relaxed">
+                  Move beyond the demo to something your customers can actually rely on.
+                </p>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <div class="lg:hidden flex flex-col gap-3 mt-4">
+          <a href="#what-i-do" class="inline-flex items-center justify-center gap-2 w-full bg-brand-cyan text-navy hover:bg-white transition px-6 py-3.5 rounded-full text-[14px] font-semibold">
+            See how I work
+            <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Panoramic horizon band at base of hero (full bleed, flows into next section) -->
+    <div class="relative mt-20 md:mt-28">
+      <svg viewBox="0 0 1600 140" preserveAspectRatio="none" class="w-full h-28 md:h-36 block" aria-hidden="true">
+        <path class="wave-layer wave-1" d="M-50,60 C 200,20 420,90 700,60 C 980,30 1250,90 1700,60 L1700,140 L-50,140 Z" fill="#14554F"/>
+        <path class="wave-layer wave-2" d="M-50,80 C 220,50 440,100 720,80 C 990,60 1260,110 1700,80 L1700,140 L-50,140 Z" fill="#2F756F"/>
+        <path class="wave-layer wave-3" d="M-50,100 C 200,80 450,120 700,100 C 980,80 1240,120 1700,100 L1700,140 L-50,140 Z" fill="#0FA996"/>
+        <path class="wave-layer wave-4" d="M-50,118 C 240,100 420,130 720,120 C 1000,110 1280,135 1700,118 L1700,140 L-50,140 Z" fill="#1BCBB8"/>
+        <path d="M-50,128 C 240,114 460,138 740,130 C 1010,122 1300,140 1700,126 L1700,140 L-50,140 Z" fill="#F4F1E8"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- WHAT I DO -->
+  <section id="what-i-do" class="relative py-20 md:py-28 bg-sand overflow-hidden">
+    <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
+      <div class="max-w-3xl mx-auto mb-10 md:mb-14 text-center" data-reveal>
+        <div class="eyebrow text-stone-500 mb-6">01 - What I do</div>
+        <h2 class="display-section text-navy">
+          I help you nail<br/>
+          <span class="font-serif italic font-normal">this transition.</span>
+        </h2>
+        <p class="mt-8 max-w-2xl mx-auto text-lg text-stone-600 leading-relaxed">
+          I'm an AI engineer who works with spatial software vendors as a contractor -
+          hands-on, embedded with your team, from first experiment to production in
+          products and platforms used by external customers.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 md:gap-6">
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅰ</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Find where agents fit</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            We start from your product and your users' workflows, and identify where
+            an agent creates real value - not where the hype says it should.
+          </p>
+        </div>
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅱ</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Built for spatial data</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            Agents that drive your existing tools and understand geodata, GIS, and
+            point clouds - whether your users manage farmland, mines, or 3D scans.
+            Deeply integrated, not a chatbot bolted on the side.
+          </p>
+        </div>
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅲ</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Beyond the demo</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            Production-grade architecture, evaluation, and fine-tuning - so what ships
+            is something your customers can rely on, not a prototype.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="relative py-20 md:py-28 bg-sand overflow-hidden">
+    <!-- Giant decorative Q -->
+    <div aria-hidden="true" class="absolute -right-24 -top-20 select-none pointer-events-none">
+      <span class="big-q text-aqua-surface">q</span>
+    </div>
+
+    <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
+      <div class="max-w-3xl mx-auto mb-14 md:mb-20 text-center" data-reveal>
+        <div class="eyebrow text-stone-500 mb-6">02 - Selected work</div>
+        <h2 class="display-section text-navy">
+          The future<br/>
+          <span class="font-serif italic font-normal">of spatial software</span>
+        </h2>
+        <p class="mt-6 text-sm leading-relaxed text-stone-500">
+          Videos are hosted by Vimeo and remain blocked until you explicitly load one.
+          Details are available in our
+          <a href="datenschutz.html" target="_blank" class="underline underline-offset-4 hover:text-navy">privacy policy</a>.
+        </p>
+      </div>
+
+      <!-- Piece 01: Glacier change video -->
+      <div class="mb-10 md:mb-14" data-reveal>
+        <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+          <div>
+            <span class="font-mono text-teal-deep text-sm">Ⅰ - long-running agent</span>
+            <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight text-navy mt-2">An agent that measures glacier change</h3>
+          </div>
+          <p class="text-stone-600 leading-relaxed max-w-md text-sm md:text-base">
+            A long-running agent works through a complete analysis on its own:
+            it takes survey data of an alpine glacier and calculates how the ice has
+            changed - the kind of multi-step task agents can now carry end to end.
+          </p>
+        </div>
+
+        <div class="relative aspect-video rounded-3xl overflow-hidden bg-navy ring-1 ring-navy/10 shadow-[0_40px_120px_-30px_rgba(13,74,74,0.45)]">
+          <!-- Vimeo facade: click to load. Vimeo IDs live in js/vimeo.js. -->
+          <button id="demoPlayGlacier" class="absolute inset-0 w-full h-full group" aria-label="Load glacier change demo from Vimeo and play">
+            <img src="img/vimeo-glacier.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+
+            <span class="absolute inset-0 flex items-center justify-center p-4 bg-navy/20 group-hover:bg-navy/10 transition-colors">
+              <span class="block max-w-xl rounded-2xl bg-navy/90 backdrop-blur-md px-5 py-4 md:px-7 md:py-6 text-center text-white shadow-2xl ring-1 ring-white/15">
+                <span class="block eyebrow text-brand-cyan">External video - Vimeo</span>
+                <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                  Load video from Vimeo · 02:15
+                </span>
+                <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
+                  Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See our privacy policy for details.
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Piece 02: CloudCompare integration video -->
+      <div class="mb-10 md:mb-14" data-reveal>
+        <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+          <div>
+            <span class="font-mono text-teal-deep text-sm">Ⅱ - tool use</span>
+            <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight text-navy mt-2">An agent that drives CloudCompare</h3>
+          </div>
+          <p class="text-stone-600 leading-relaxed max-w-md text-sm md:text-base">
+            Agents are most powerful when they can reach for the tools experts already use.
+            Here an AI agent I built drives CloudCompare to run a volume calculation for slope monitoring.
+          </p>
+        </div>
+
+        <div class="relative aspect-video rounded-3xl overflow-hidden bg-navy ring-1 ring-navy/10 shadow-[0_40px_120px_-30px_rgba(13,74,74,0.45)]">
+          <!-- Vimeo facade: click to load. Vimeo IDs live in js/vimeo.js. -->
+          <button id="demoPlayCloudCompare" class="absolute inset-0 w-full h-full group" aria-label="Load CloudCompare integration demo from Vimeo and play">
+            <img src="img/vimeo-cloudcompare.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+
+            <span class="absolute inset-0 flex items-center justify-center p-4 bg-navy/20 group-hover:bg-navy/10 transition-colors">
+              <span class="block max-w-xl rounded-2xl bg-navy/90 backdrop-blur-md px-5 py-4 md:px-7 md:py-6 text-center text-white shadow-2xl ring-1 ring-white/15">
+                <span class="block eyebrow text-brand-cyan">External video - Vimeo</span>
+                <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                  Load video from Vimeo · 02:19
+                </span>
+                <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
+                  Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See our privacy policy for details.
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Piece 03: Facade analysis video -->
+      <div class="mb-10 md:mb-14" data-reveal>
+        <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+          <div>
+            <span class="font-mono text-teal-deep text-sm">Ⅲ - facade analysis</span>
+            <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight text-navy mt-2">An agent for building facade analysis</h3>
+          </div>
+          <p class="text-stone-600 leading-relaxed max-w-md text-sm md:text-base">
+            The same agentic approach applied to imagery: the agent scans a building facade,
+            identifies structural elements, and counts windows and objects - no manual annotation.
+          </p>
+        </div>
+
+        <div class="relative aspect-video rounded-3xl overflow-hidden bg-navy ring-1 ring-navy/10 shadow-[0_40px_120px_-30px_rgba(13,74,74,0.45)]">
+          <button id="demoPlayFacade" class="absolute inset-0 w-full h-full group" aria-label="Load facade analysis demo from Vimeo and play">
+            <img src="img/vimeo-facade.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+
+            <span class="absolute inset-0 flex items-center justify-center p-4 bg-navy/20 group-hover:bg-navy/10 transition-colors">
+              <span class="block max-w-xl rounded-2xl bg-navy/90 backdrop-blur-md px-5 py-4 md:px-7 md:py-6 text-center text-white shadow-2xl ring-1 ring-white/15">
+                <span class="block eyebrow text-brand-cyan">External video - Vimeo</span>
+                <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                  Load video from Vimeo · 00:53
+                </span>
+                <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
+                  Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See our privacy policy for details.
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pieces 04 + 05 -->
+      <div class="grid md:grid-cols-2 gap-5 md:gap-6">
+
+        <!-- Piece 04: Research paper -->
+        <article class="card group relative rounded-3xl p-8 md:p-10 bg-white ring-1 ring-mist hover:ring-brand-cyan flex flex-col" data-reveal>
+          <div class="flex items-start justify-between mb-8">
+            <span class="font-mono text-teal-deep text-sm">Ⅳ - Research</span>
+            <span class="inline-flex items-center gap-2 text-xs font-semibold text-amber bg-amber/10 px-3 py-1.5 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber"></span>
+              In publication · ISPRS 2026
+            </span>
+          </div>
+          <h3 class="font-display font-bold text-xl md:text-2xl leading-tight tracking-tight text-navy mb-4">
+            LLM-SUPERVISED POINT CLOUD PROCESSING: FROM UNSUPERVISED 3D SCENE-GRAPH GENERATION TO INTERACTIVE SCENE MANIPULATION
+          </h3>
+          <p class="text-stone-600 leading-relaxed">
+            Pairing graph-based point-cloud segmentation with an LLM agent that reasons over
+            a scene and edits it to spec. Presented at the XXV ISPRS Congress 2026 in Toronto;
+            the paper is currently in publication.
+          </p>
+          <div class="mt-8 pt-6 border-t border-mist flex items-center gap-3 text-sm text-stone-400">
+            <span class="w-8 h-px bg-stone-300"></span>
+            Full paper available once published -
+            <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="font-semibold text-teal-deep underline underline-offset-4 decoration-teal-deep/40 hover:decoration-teal-deep">get in touch for a copy</a>
           </div>
         </article>
 
-        <div class="mt-6 grid gap-6 lg:grid-cols-2">
-          <article class="case-card overflow-hidden rounded-[2rem] bg-white ring-1 ring-navy/10" data-reveal>
-            <div class="relative aspect-video overflow-hidden bg-navy">
-              <button type="button" id="demoPlayCloudCompare" class="group absolute inset-0 h-full w-full" aria-label="Load CloudCompare integration demo from Vimeo and play">
-                <img src="img/vimeo-cloudcompare.jpg?v=__ASSET_VERSION__" alt="" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.02]">
-                <span class="absolute inset-0 bg-navy/20"></span>
-                <span class="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-extrabold text-navy transition group-hover:bg-brand-cyan">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Load Vimeo / 01:37
-                </span>
-              </button>
-            </div>
-            <div class="p-7 md:p-9">
-              <span class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-teal-deep">Case 02 / Tool use</span>
-              <h3 class="mt-4 font-display text-2xl font-extrabold tracking-[-0.035em] text-navy">An agent that drives CloudCompare</h3>
-              <p class="mt-4 leading-relaxed text-stone-600">Natural-language intent becomes visible operations in an established point-cloud application, with the user still able to inspect what happened.</p>
-            </div>
-          </article>
-
-          <article class="case-card overflow-hidden rounded-[2rem] bg-white ring-1 ring-navy/10" data-reveal>
-            <div class="relative aspect-video overflow-hidden bg-navy">
-              <button type="button" id="demoPlayFacade" class="group absolute inset-0 h-full w-full" aria-label="Load facade analysis demo from Vimeo and play">
-                <img src="img/vimeo-facade.jpg?v=__ASSET_VERSION__" alt="" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.02]">
-                <span class="absolute inset-0 bg-navy/20"></span>
-                <span class="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-extrabold text-navy transition group-hover:bg-brand-cyan">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Load Vimeo / 01:56
-                </span>
-              </button>
-            </div>
-            <div class="p-7 md:p-9">
-              <span class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-teal-deep">Case 03 / Spatial reasoning</span>
-              <h3 class="mt-4 font-display text-2xl font-extrabold tracking-[-0.035em] text-navy">Building facade analysis</h3>
-              <p class="mt-4 leading-relaxed text-stone-600">A facade workflow combining geometric operations, domain decisions, and an agent interface rather than stopping at text generation.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="mt-6 grid gap-6 md:grid-cols-2">
-          <article class="rounded-[2rem] border border-navy/15 p-7 md:p-9" data-reveal>
-            <span class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-teal-deep">Research / In review</span>
-            <h3 class="mt-4 font-display text-2xl font-extrabold tracking-[-0.035em] text-navy">Agentic systems for geospatial analysis</h3>
-            <p class="mt-4 leading-relaxed text-stone-600">Research into how tool-using agents can plan, execute, and evaluate spatial workflows. <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="font-bold text-teal-deep underline decoration-brand-cyan underline-offset-4">Ask me for a copy.</a></p>
-          </article>
-          <article class="rounded-[2rem] bg-brand-cyan p-7 text-navy md:p-9" data-reveal>
-            <span class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-navy/60">Course / Hands-on</span>
-            <h3 class="mt-4 font-display text-2xl font-extrabold tracking-[-0.035em]">Spatial AI Operating System</h3>
-            <p class="mt-4 leading-relaxed text-navy/75">An online course built with Dr. Florent Poux. Students create an agent that works with spatial data from first principles to a functioning pipeline.</p>
-            <a href="https://learngeodata.eu/course/spatial-ai-operating-system" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold underline underline-offset-4">View the course <span aria-hidden="true">↗</span></a>
-          </article>
-        </div>
-
-        <details class="mt-6 rounded-[2rem] border border-navy/15 bg-white" data-reveal>
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-5 p-7 [&::-webkit-details-marker]:hidden md:p-9">
-            <span><span class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-stone-500">From the archive</span><strong class="mt-2 block text-xl text-navy">An agent for 3D point clouds</strong></span>
-            <span class="flex h-10 w-10 items-center justify-center rounded-full border border-navy/15 text-teal-deep">↓</span>
-          </summary>
-          <div class="px-7 pb-7 md:px-9 md:pb-9">
-            <div class="relative aspect-video overflow-hidden rounded-2xl bg-navy">
-              <button type="button" id="demoPlay" class="group absolute inset-0 h-full w-full" aria-label="Load point-cloud demo from Vimeo and play">
-                <img src="img/vimeo-point-cloud.jpg?v=__ASSET_VERSION__" alt="" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover">
-                <span class="absolute inset-0 flex items-center justify-center bg-navy/25"><span class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-extrabold text-navy transition group-hover:bg-brand-cyan">Load video from Vimeo / 01:30</span></span>
-              </button>
-            </div>
+        <!-- Piece 05: Online course -->
+        <article class="card group relative rounded-3xl p-8 md:p-10 bg-navy text-white ring-1 ring-white/10 hover:ring-brand-cyan flex flex-col" data-reveal>
+          <div class="flex items-start justify-between mb-8">
+            <span class="font-mono text-aqua/60 text-sm">Ⅴ - Course</span>
+            <span class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-brand-cyan">
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none"><path d="M3 5l7-3 7 3-7 3-7-3zM3 5v6M17 8v4c0 1.5-3.1 3-7 3s-7-1.5-7-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </div>
-        </details>
+          <h3 class="font-display font-bold text-2xl md:text-3xl tracking-tight mb-4">Online course</h3>
+          <p class="text-aqua/80 leading-relaxed">
+            The
+            <a href="https://learngeodata.eu/course/spatial-ai-operating-system" target="_blank" rel="noopener" class="font-semibold text-brand-cyan underline underline-offset-4 decoration-brand-cyan/40 hover:decoration-brand-cyan">Spatial AI Operating System</a>,
+            built together with Dr. Florent Poux. Students build their own AI agent that works
+            with spatial data - hands-on, from first principles to a working pipeline.
+          </p>
+          <a href="https://learngeodata.eu/course/spatial-ai-operating-system" target="_blank" rel="noopener" class="mt-8 pt-6 border-t border-white/10 inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan hover:text-white transition">
+            View the course
+            <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
 
-        <p class="mt-6 text-xs leading-relaxed text-stone-500">Loading a video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See the <a href="datenschutz.html" target="_blank" class="font-bold underline underline-offset-4">privacy policy</a> for details.</p>
       </div>
-    </section>
 
-    <section id="about" class="bg-sand py-24 md:py-32">
-      <div class="mx-auto grid max-w-[1200px] gap-12 px-5 md:px-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+      <!-- Archive: earlier demo, collapsed by default -->
+      <details class="group/archive mt-10 md:mt-14 rounded-3xl bg-white ring-1 ring-mist open:ring-brand-cyan/40" data-reveal>
+        <summary class="list-none cursor-pointer select-none p-6 md:p-8 flex items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+          <div>
+            <span class="eyebrow text-stone-500">From the archive</span>
+            <h3 class="font-display font-bold text-xl md:text-2xl tracking-tight text-navy mt-2">An agent for 3D point clouds</h3>
+          </div>
+          <span class="shrink-0 w-10 h-10 rounded-full border border-mist flex items-center justify-center text-teal-deep transition-transform group-open/archive:rotate-180">
+            <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-6 md:px-8 md:pb-8">
+          <p class="text-stone-600 leading-relaxed max-w-2xl text-sm md:text-base mb-6">
+            My own R&amp;D: an agent that edits and queries point clouds in plain English -
+            ninety seconds, no narration. The kind of agentic tooling I build for spatial-software teams.
+          </p>
+          <div class="relative aspect-video rounded-2xl overflow-hidden bg-navy ring-1 ring-navy/10">
+            <!-- Vimeo facade: click to load. Vimeo IDs live in js/vimeo.js. -->
+            <button id="demoPlay" class="absolute inset-0 w-full h-full group" aria-label="Load point-cloud demo from Vimeo and play">
+              <img src="img/vimeo-point-cloud.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+
+              <span class="absolute inset-0 flex items-center justify-center p-4 bg-navy/20 group-hover:bg-navy/10 transition-colors">
+                <span class="block max-w-xl rounded-2xl bg-navy/90 backdrop-blur-md px-5 py-4 md:px-7 md:py-6 text-center text-white shadow-2xl ring-1 ring-white/15">
+                  <span class="block eyebrow text-brand-cyan">External video - Vimeo</span>
+                  <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    Load video from Vimeo · 01:30
+                  </span>
+                  <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
+                    Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See our privacy policy for details.
+                  </span>
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="relative py-20 md:py-28 bg-navy text-white overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-40"></div>
+    <div class="relative mx-auto max-w-[1400px] px-6 md:px-10">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
         <div class="lg:col-span-5" data-reveal>
-          <div class="relative mx-auto max-w-md">
-            <div class="absolute -inset-4 rounded-[2.5rem] border border-teal-deep/20"></div>
-            <img src="img/profile-picture.png?v=__ASSET_VERSION__" alt="Portrait of Alex Key" loading="lazy" decoding="async" class="relative aspect-square w-full rounded-[2rem] object-cover grayscale-[10%]">
-            <div class="absolute -bottom-5 -right-3 rounded-2xl bg-brand-cyan px-5 py-4 text-navy shadow-xl">
-              <span class="block text-[10px] font-extrabold uppercase tracking-[0.18em] text-navy/75">Based in</span>
-              <strong class="mt-1 block">Germany / working globally</strong>
-            </div>
-          </div>
+          <div class="eyebrow text-aqua/70 mb-6">03 - About</div>
+          <h2 class="display-section">
+            Fifteen years<br/>
+            <span class="font-serif italic font-normal">shipping software.</span>
+          </h2>
         </div>
-        <div class="lg:col-span-6 lg:col-start-7" data-reveal>
-          <div class="kicker text-teal-deep">03 / About</div>
-          <h2 class="display-section-v2 mt-7 text-navy">Fifteen years of <span class="font-serif font-normal italic text-teal-deep">shipping software.</span></h2>
-          <p class="mt-8 text-xl font-medium leading-relaxed text-stone-700">I am Alex Key, an independent AI engineer. I work hands-on from rapid prototyping to production-oriented system design.</p>
-          <p class="mt-5 leading-relaxed text-stone-600">My focus is LLM agents and orchestration, retrieval pipelines, spatial and 3D data reasoning, and the evaluation and observability that keep them reliable. Before AI, I led software and product teams at BMW, Audi, and DriveNow, and ran my own engineering studio.</p>
-          <div class="mt-8 flex flex-wrap gap-2 text-xs font-bold text-teal-deep">
-            <span class="rounded-full border border-teal-deep/20 px-3 py-2">LangGraph</span>
-            <span class="rounded-full border border-teal-deep/20 px-3 py-2">LangChain</span>
-            <span class="rounded-full border border-teal-deep/20 px-3 py-2">LangSmith</span>
-            <span class="rounded-full border border-teal-deep/20 px-3 py-2">Python</span>
+
+        <div class="lg:col-span-6 lg:col-start-7 self-end" data-reveal>
+          <p class="text-xl md:text-2xl leading-snug font-display font-medium max-w-xl">
+            I'm an independent AI engineer based in Germany. I work hands-on -
+            from rapid prototyping to <span class="text-brand-cyan">production-oriented system design</span>.
+          </p>
+          <p class="mt-6 text-aqua/75 leading-relaxed max-w-xl">
+            My focus is LLM agents and orchestration, retrieval pipelines, spatial and 3D
+            data reasoning, and the evaluation and observability that keep them reliable.
+            Before AI, I led software and product teams at BMW, Audi, and DriveNow, and
+            ran my own engineering studio, Kawunu, delivering production systems for
+            enterprise and industrial clients across mobility, manufacturing, healthcare,
+            and logistics.
+          </p>
+          <p class="mt-5 text-aqua/75 leading-relaxed max-w-xl">
+            For the longer version, see my
+            <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="font-semibold text-brand-cyan underline underline-offset-4 decoration-brand-cyan/40 hover:decoration-brand-cyan">background on LinkedIn</a>.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-2.5 text-sm">
+            <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-aqua/80">LangGraph</span>
+            <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-aqua/80">LangChain</span>
+            <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-aqua/80">LangSmith</span>
+            <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-aqua/80">Python</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" class="bg-navy-deeper py-24 text-white md:py-32">
-      <div class="mx-auto max-w-[1100px] px-5 text-center md:px-10" data-reveal>
-        <div class="kicker text-brand-cyan">04 / Continue the conversation</div>
-        <h2 class="display-section-v2 mx-auto mt-7 max-w-4xl">You probably know me <span class="font-serif font-normal italic text-brand-cyan">already.</span></h2>
-        <p class="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-aqua/75">If something here connects to a product or workflow we have discussed, reply to me where the conversation started. LinkedIn is usually the easiest place.</p>
-        <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="mt-10 inline-flex items-center gap-2 rounded-full bg-brand-cyan px-7 py-3.5 text-sm font-extrabold text-navy transition hover:bg-white">
-          Continue on LinkedIn
-          <svg viewBox="0 0 16 16" class="h-4 w-4" fill="none" aria-hidden="true"><path d="M3 13 13 3m0 0H6m7 0v7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 md:py-28 bg-sand">
+    <div class="mx-auto max-w-[1100px] px-6 md:px-10 text-center" data-reveal>
+      <div class="eyebrow text-stone-500 mb-8">04 - Work with me</div>
+      <h2 class="display-section text-navy">
+        Are you building spatial data software?<br/>
+        <span class="font-serif italic font-normal">Let's make it Agentic</span>
+      </h2>
+      <p class="mt-8 text-lg text-stone-600 max-w-xl mx-auto leading-relaxed">
+        I take on a small number of engineering and R&amp;D engagements at a time.
+        If you build a spatial, geospatial, or 3D product for external users, get in touch.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-navy text-white hover:bg-teal-deep transition px-7 py-3.5 rounded-full text-[14px] font-semibold">
+          Reach out on LinkedIn
+          <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
-    </section>
-  </main>
 
-  <footer class="border-t border-white/10 bg-navy-deeper text-white">
-    <div class="mx-auto flex max-w-[1440px] flex-col gap-8 px-5 py-10 md:flex-row md:items-center md:justify-between md:px-10">
-      <a href="#top" class="flex items-center gap-3">
-        <img src="CI/logo/svg/mark-dark.svg?v=__ASSET_VERSION__" alt="" class="h-10 w-10">
-        <span class="font-display text-xl font-extrabold tracking-[-0.045em]">panori<span class="text-brand-cyan">q</span></span>
-      </a>
-      <div class="flex flex-wrap gap-x-6 gap-y-3 text-xs font-bold text-aqua/60">
-        <a href="impressum.html" class="hover:text-white">Impressum / Imprint</a>
-        <a href="datenschutz.html" class="hover:text-white">Privacy</a>
-        <span>© 2026 Kawunu GmbH</span>
+      <!-- Exit for the other audience: service firms, not software vendors. -->
+      <p class="mt-10 text-sm text-stone-500 max-w-xl mx-auto leading-relaxed">
+        Running a surveying, scan-to-BIM or geodata team rather than a software product?
+        <a href="training.html" class="font-semibold text-teal-deep underline underline-offset-4 decoration-teal-deep/40 hover:decoration-teal-deep">There is a workshop for that.</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy-deeper text-white">
+    <div class="mx-auto max-w-[1400px] px-6 md:px-10 py-16">
+      <div class="grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-5">
+          <a href="#top" class="inline-flex items-center gap-3">
+            <img src="CI/logo/svg/mark-dark.svg?v=__ASSET_VERSION__" alt="" class="w-10 h-10">
+            <span class="font-display text-2xl font-bold tracking-tightest text-white">panori<span class="q-cyan">q</span></span>
+          </a>
+          <p class="mt-6 max-w-sm text-aqua/70 leading-relaxed">
+            Alex Key - independent AI engineer helping spatial software vendors ship
+            reliable agents in products used by external customers.
+          </p>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="eyebrow text-aqua/50 mb-4">Site</div>
+          <ul class="space-y-2 text-aqua/80 text-sm">
+            <li><a href="#work" class="hover:text-white">Work</a></li>
+            <li><a href="#about" class="hover:text-white">About</a></li>
+            <li><a href="#contact" class="hover:text-white">Contact</a></li>
+            <li><a href="training.html" class="hover:text-white">Training</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="eyebrow text-aqua/50 mb-4">Connect</div>
+          <ul class="space-y-2 text-aqua/80 text-sm">
+            <li><a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="hover:text-white">LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3">
+          <div class="eyebrow text-aqua/50 mb-4">Legal</div>
+          <ul class="space-y-2 text-aqua/80 text-sm">
+            <li><a href="impressum.html" target="_blank" class="hover:text-white">Impressum / Imprint</a></li>
+            <li><a href="datenschutz.html" target="_blank" class="hover:text-white">Datenschutzerklärung / Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-aqua/50">
+        <div>© 2026 Kawunu GmbH. All rights reserved.</div>
+        <div class="font-mono tracking-widest uppercase">
+          panoriq is the AI contracting practice of Kawunu GmbH
+        </div>
       </div>
     </div>
   </footer>
 
   <script>
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('[data-reveal]').forEach((element) => revealObserver.observe(element));
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
   </script>
 </body>
 </html>
