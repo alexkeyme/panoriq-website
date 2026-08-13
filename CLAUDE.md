@@ -54,12 +54,18 @@ inline in that file - there is no `tailwind.config.js`.
 spatial software. The training page sells a two half-day workshop to companies that *process*
 spatial data. These are different offers with different buyers, and the training must never
 become the site's headline message. Cross-links from `index.html` are deliberately quiet:
-one nav link, one line at the end of the contact section, one footer link. Do not expand
-them or move training copy into the hero without being asked.
+one nav link, one ghost secondary button in the hero, one line at the end of the contact
+section, one footer link. Do not expand them or move training copy into the hero headline
+without being asked.
+
+The hero button ("Working with geo data? Training") was added 2026-08-13 as a deliberate
+exception: training outreach recipients do check the homepage, and the vendor copy reads as
+gibberish to them, so they get an audience-named off-ramp. It stays ghost-styled (outline,
+never filled) so the vendor CTA keeps the visual lead.
 
 `training.html` is indexed, but the separation is held by placement rather than by hiding it
-from crawlers: those three quiet cross-links, and no presence in the main navigation. Adding
-a banner, a hero CTA or a fourth link breaks the rule even though the page is public.
+from crawlers: those four quiet cross-links, and no presence in the main navigation. Adding
+a banner, a filled hero CTA or a fifth link breaks the rule even though the page is public.
 
 **`training.html` is a leave-behind, not a landing page.** Every reader gets there from a
 LinkedIn message Alex sent them, and replies on LinkedIn. So: no email address anywhere on it
