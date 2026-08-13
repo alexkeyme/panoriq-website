@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.documentElement.classList.add("js")</script>
   <title>panoriq | AI Agents for Spatial Software</title>
-  <meta name="description" content="I help spatial software teams design, build, and ship reliable AI agents for GIS, point clouds, and 3D workflows - from first prototype to production.">
+  <meta name="description" content="I help spatial software teams design, build, and ship reliable AI agents for GIS, point clouds, satellite imagery, and 3D workflows - from first prototype to production.">
   <link rel="canonical" href="https://panoriq.com/">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
@@ -15,7 +15,7 @@
 
   <meta property="og:site_name" content="panoriq">
   <meta property="og:title" content="panoriq | AI Agents for Spatial Software">
-  <meta property="og:description" content="I help spatial software teams design, build, and ship reliable AI agents for GIS, point clouds, and 3D workflows - from first prototype to production.">
+  <meta property="og:description" content="I help spatial software teams design, build, and ship reliable AI agents for GIS, point clouds, satellite imagery, and 3D workflows - from first prototype to production.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://panoriq.com/">
   <meta property="og:locale" content="en_GB">
@@ -23,7 +23,7 @@
   <meta property="og:image:alt" content="panoriq - AI agents for spatial software">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="panoriq | AI Agents for Spatial Software">
-  <meta name="twitter:description" content="I help spatial software teams design, build, and ship reliable AI agents for GIS, point clouds, and 3D workflows - from first prototype to production.">
+  <meta name="twitter:description" content="I help spatial software teams design, build, and ship reliable AI agents for GIS, point clouds, satellite imagery, and 3D workflows - from first prototype to production.">
   <meta name="twitter:image" content="https://panoriq.com/CI/logo/lockup/lockup-light-1600w.png">
   <meta name="theme-color" content="#07313B">
 
@@ -53,6 +53,7 @@
             "Large language model applications",
             "Geographic information systems",
             "Point cloud processing",
+            "Remote sensing and satellite imagery",
             "3D geospatial software"
           ],
           "sameAs": [
@@ -175,7 +176,7 @@
               <div class="flex gap-4">
                 <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-cyan"></span>
                 <p class="text-aqua/90 leading-relaxed">
-                  Make it work with geodata, GIS, and point clouds - not just a chat interface.
+                  Make it work with GIS data, point clouds, and satellite imagery - not just a chat interface.
                 </p>
               </div>
               <div class="flex gap-4">
@@ -240,8 +241,9 @@
           <span class="font-mono text-teal-deep text-sm">Ⅱ</span>
           <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Built for spatial data</h3>
           <p class="mt-3 text-stone-600 leading-relaxed">
-            Agents that drive your existing tools and understand geodata, GIS, and
-            point clouds - whether your users manage farmland, mines, or 3D scans.
+            Agents that drive your existing tools and understand geodata, GIS,
+            point clouds, and satellite imagery - whether your users manage
+            farmland, mines, or 3D scans.
             Deeply integrated, not a chatbot bolted on the side.
           </p>
         </div>
@@ -380,13 +382,48 @@
         </div>
       </div>
 
-      <!-- Pieces 04 + 05 -->
+      <!-- Piece 04: Crop monitoring video -->
+      <div class="mb-10 md:mb-14" data-reveal>
+        <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+          <div>
+            <span class="font-mono text-teal-deep text-sm">Ⅳ - raster data</span>
+            <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight text-navy mt-2">An agent that monitors crops from satellite imagery</h3>
+          </div>
+          <p class="text-stone-600 leading-relaxed max-w-md text-sm md:text-base">
+            Spatial data is more than point clouds. This agent works on raster data:
+            it reads crop stress from satellite imagery, reasons about the likely cause
+            field by field, and plans which fields an advisor should visit first.
+          </p>
+        </div>
+
+        <div class="relative aspect-video rounded-3xl overflow-hidden bg-navy ring-1 ring-navy/10 shadow-[0_40px_120px_-30px_rgba(13,74,74,0.45)]">
+          <!-- Vimeo facade: click to load. Vimeo IDs live in js/vimeo.js. -->
+          <button id="demoPlayAgtech" class="absolute inset-0 w-full h-full group" aria-label="Load crop monitoring demo from Vimeo and play">
+            <img src="img/vimeo-agtech.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+
+            <span class="absolute inset-0 flex items-center justify-center p-4 bg-navy/20 group-hover:bg-navy/10 transition-colors">
+              <span class="block max-w-xl rounded-2xl bg-navy/90 backdrop-blur-md px-5 py-4 md:px-7 md:py-6 text-center text-white shadow-2xl ring-1 ring-white/15">
+                <span class="block eyebrow text-brand-cyan">External video - Vimeo</span>
+                <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                  Load video from Vimeo · 01:52
+                </span>
+                <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
+                  Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See our privacy policy for details.
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pieces 05 + 06 -->
       <div class="grid md:grid-cols-2 gap-5 md:gap-6">
 
-        <!-- Piece 04: Research paper -->
+        <!-- Piece 05: Research paper -->
         <article class="card group relative rounded-3xl p-8 md:p-10 bg-white ring-1 ring-mist hover:ring-brand-cyan flex flex-col" data-reveal>
           <div class="flex items-start justify-between mb-8">
-            <span class="font-mono text-teal-deep text-sm">Ⅳ - Research</span>
+            <span class="font-mono text-teal-deep text-sm">Ⅴ - Research</span>
             <span class="inline-flex items-center gap-2 text-xs font-semibold text-teal-deep bg-teal-deep/10 px-3 py-1.5 rounded-full">
               <span class="w-1.5 h-1.5 rounded-full bg-teal-deep"></span>
               Published · ISPRS 2026
@@ -406,10 +443,10 @@
           </div>
         </article>
 
-        <!-- Piece 05: Online course -->
+        <!-- Piece 06: Online course -->
         <article class="card group relative rounded-3xl p-8 md:p-10 bg-navy text-white ring-1 ring-white/10 hover:ring-brand-cyan flex flex-col" data-reveal>
           <div class="flex items-start justify-between mb-8">
-            <span class="font-mono text-aqua/60 text-sm">Ⅴ - Course</span>
+            <span class="font-mono text-aqua/60 text-sm">Ⅵ - Course</span>
             <span class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-brand-cyan">
               <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none"><path d="M3 5l7-3 7 3-7 3-7-3zM3 5v6M17 8v4c0 1.5-3.1 3-7 3s-7-1.5-7-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>

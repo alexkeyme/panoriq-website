@@ -4,6 +4,7 @@ const VIMEO_IDS = {
   cloudCompare: "1200804594",
   pointCloud:   "1187686744",
   facade:       "1197400606",
+  agtech:       "1215729078",
   training:     "1213557993",
 };
 // Click-to-load Vimeo facade shared by each play button.
@@ -59,4 +60,5 @@ initVimeoFacade("demoPlayGlacier",      VIMEO_IDS.glacier,      "Panoriq glacier
 initVimeoFacade("demoPlayCloudCompare", VIMEO_IDS.cloudCompare, "Panoriq CloudCompare integration demo");
 initVimeoFacade("demoPlay",             VIMEO_IDS.pointCloud,   "Panoriq point-cloud demo");
 initVimeoFacade("demoPlayFacade",       VIMEO_IDS.facade,       "Panoriq facade analysis demo");
+initVimeoFacade("demoPlayAgtech",       VIMEO_IDS.agtech,       "Panoriq crop monitoring demo");
 initVimeoFacade("trainingPlay",         VIMEO_IDS.training,     "Three things you can try with Claude Code today");
