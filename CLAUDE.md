@@ -1,7 +1,9 @@
 # panoriq-website
 
-Static marketing site for panoriq (the AI contracting practice of Kawunu GmbH). Plain HTML
-plus Tailwind, no framework, deployed to GitHub Pages. Personal brand: Alex Key.
+Static marketing site for Alex Key, independent AI engineer (legal entity: Kawunu GmbH).
+Plain HTML plus Tailwind, no framework, deployed to GitHub Pages. The site presents the
+personal brand; "panoriq" was demoted on 2026-08-25 and only survives in legal boilerplate,
+the LinkedIn company URL and the domain URLs (domain swap to the personal domain pending).
 
 ## Commands
 
@@ -44,24 +46,23 @@ inline in that file - there is no `tailwind.config.js`.
 
 | Page | Audience | Indexed |
 |---|---|---|
-| `index.html` | Spatial software vendors - the core ICP | yes |
+| `index.html` | Point cloud / spatial data teams (practitioners, main play); spatial software vendors second | yes |
 | `training.html` | Geo data service firms, EN | yes |
 | `training-de.html` | Same offer, German (Du form) | yes |
 | `agent-evaluation.html` | Private funnel page, scorecard download | no |
 | `impressum.html`, `datenschutz.html`, `404.html` | legal / plumbing | - |
 
-**The two-audience rule.** The main site sells agent engineering to companies that *make*
-spatial software. The training page sells a two half-day workshop to companies that *process*
-spatial data. These are different offers with different buyers, and the training must never
-become the site's headline message. Cross-links from `index.html` are deliberately quiet:
+**The two-offer rule.** The main site sells agent engineering (automating spatial data
+processing, point clouds first) to teams that process spatial data and to vendors that build
+software for them. The training page sells a two half-day Claude Code workshop. These are
+different offers, and the training must never become the site's headline message. Cross-links from `index.html` are deliberately quiet:
 one nav link, one ghost secondary button in the hero, one line at the end of the contact
 section, one footer link. Do not expand them or move training copy into the hero headline
 without being asked.
 
-The hero button ("Working with geo data? Training") was added 2026-08-13 as a deliberate
-exception: training outreach recipients do check the homepage, and the vendor copy reads as
-gibberish to them, so they get an audience-named off-ramp. It stays ghost-styled (outline,
-never filled) so the vendor CTA keeps the visual lead.
+The hero button ("Claude Code workshop for geo teams") was added 2026-08-13 as a deliberate
+exception: training outreach recipients do check the homepage and need a named off-ramp. It stays ghost-styled (outline,
+never filled) so the engineering CTA keeps the visual lead.
 
 `training.html` is indexed, but the separation is held by placement rather than by hiding it
 from crawlers: those four quiet cross-links, and no presence in the main navigation. Adding
@@ -99,6 +100,12 @@ paragraphs is the failure mode. `docs/training-offer-requirements.md` has the fu
   is a GDPR requirement, not a preference.
 - **Copy voice:** first person, direct, no hype, no marketing padding. Use hyphens, never
   em dashes. State limitations plainly where they exist; that honesty is part of the pitch.
+- **Never name algorithm problems as what gets solved.** Listing registration, classification
+  or segmentation as the pain makes readers expect "AI will fix our classifier", which is
+  not on offer. Name the workflow around the algorithms instead: project setup, moving data
+  between tools, re-runs, checks, the last five percent, deliverables. Approved wording:
+  "I don't promise a better classifier - I automate the work around it."
+- **Rejected wording:** "services, not software".
 - **US English** throughout: `recognize`, `behavior`, `math`. This includes comments. The
   German legal boilerplate in `datenschutz.html` is exempt - do not edit legal text for
   spelling.
