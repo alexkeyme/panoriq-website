@@ -110,7 +110,7 @@
 
   <!-- HERO - rung 1: the around-work is priced in as unavoidable. It is not, anymore. -->
   <section class="relative overflow-hidden bg-navy text-white grain">
-    <canvas id="point-cloud" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
+    <canvas id="point-cloud" class="absolute inset-0 w-full h-full pointer-events-none opacity-40 lg:opacity-100" aria-hidden="true"></canvas>
     <div class="absolute inset-0 bg-grid opacity-50 pointer-events-none"></div>
 
     <!-- Ambient glow -->
@@ -124,7 +124,7 @@
             <img src="img/profile-picture.png?v=__ASSET_VERSION__" alt="Alex Key" width="800" height="800"
                  class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover ring-2 ring-white/20">
             <span class="eyebrow text-aqua/80">Alex Key</span>
-            <span class="h-px w-10 bg-aqua/30"></span>
+            <span class="hidden lg:block h-px w-10 bg-aqua/30"></span>
             <span class="eyebrow text-aqua/60">Independent AI engineer · Germany</span>
           </div>
 
@@ -138,7 +138,7 @@
             </span>
           </h1>
 
-          <p class="mt-10 max-w-2xl mx-auto lg:mx-0 text-aqua/90 text-lg md:text-xl leading-relaxed">
+          <p class="mt-10 max-w-2xl mx-auto lg:mx-0 text-white/90 text-lg md:text-xl leading-relaxed">
             Agents that take over the work around your point cloud processing - the setup,
             the re-runs, the checks, the deliverables - so your team gets its hours back,
             with results held to your own quality standards.
@@ -147,13 +147,6 @@
             I work hands-on, as a contractor, with your tools and your team - from finding
             the right workflow to an agent in production.
           </p>
-          <div class="mt-10 flex justify-center lg:justify-start">
-            <!-- Scroll cue, not a CTA: the page is meant to be read in order. -->
-            <a href="#what-agents-do" class="inline-flex items-center gap-2 text-aqua/80 hover:text-white transition text-[14px] font-semibold">
-              First, what agents actually do
-              <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
         </div>
 
         <!-- Right column: the resignation belief, named -->
@@ -194,6 +187,14 @@
         </div>
       </div>
 
+      <!-- Scroll cue, not a CTA: the page is meant to be read in order. -->
+      <div class="mt-14 md:mt-20 flex justify-center" data-reveal>
+        <a href="#demos" class="inline-flex items-center gap-3 border border-white/25 hover:border-brand-cyan text-white hover:text-brand-cyan transition px-7 py-3.5 rounded-full text-base md:text-lg font-semibold">
+          First, see what agents actually do
+          <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
     </div>
 
     <!-- Panoramic horizon band at base of hero (full bleed, flows into next section) -->
@@ -208,56 +209,8 @@
     </div>
   </section>
 
-  <!-- 01 WHAT AGENTS ACTUALLY DO - rung 2, the bridge belief. Two misconceptions, one contrast. -->
-  <section id="what-agents-do" class="relative py-20 md:py-28 bg-sand overflow-hidden">
-    <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
-      <div class="max-w-3xl mx-auto mb-10 md:mb-14 text-center" data-reveal>
-        <div class="eyebrow text-stone-500 mb-6">01 - What agents actually do</div>
-        <h2 class="display-section text-navy">
-          Not a chatbot.<br/>
-          <span class="font-serif italic font-normal">Not a detector.</span>
-        </h2>
-        <p class="mt-8 max-w-2xl mx-auto text-lg text-stone-600 leading-relaxed">
-          "AI on our data" usually means one of two things to people. Neither is what I build.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-5 md:gap-6">
-        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
-          <span class="font-mono text-stone-400 text-sm">What people expect</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">A chatbot that talks about your data</h3>
-          <p class="mt-3 text-stone-600 leading-relaxed">
-            Ask a question, get a summary. Useful for a quick answer. It never touches the
-            workflow, and the hours stay exactly where they were.
-          </p>
-        </div>
-        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
-          <span class="font-mono text-stone-400 text-sm">What people expect</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">A model that detects or classifies</h3>
-          <p class="mt-3 text-stone-600 leading-relaxed">
-            One step of the pipeline, done a bit better or a bit worse. Those models improve
-            slowly, and I don't promise a better classifier. Everything around that step
-            still has to be done by hand.
-          </p>
-        </div>
-        <div class="card rounded-3xl p-8 bg-navy text-white ring-1 ring-navy" data-reveal>
-          <span class="font-mono text-brand-cyan text-sm">What I build</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-white mt-4">An agent that runs the workflow</h3>
-          <p class="mt-3 text-aqua/85 leading-relaxed">
-            It opens your tools, runs the steps, checks the results, re-runs what failed and
-            assembles the deliverable - unattended, for minutes or hours - then brings you
-            the result and the evidence. Work on the data, not chat about it.
-          </p>
-        </div>
-      </div>
-
-      <p class="mt-10 md:mt-14 text-center font-serif italic text-xl md:text-2xl text-navy/80 max-w-2xl mx-auto" data-reveal>
-        Nobody believes this from a paragraph. Everybody gets it from watching one run.
-      </p>
-    </div>
-  </section>
-
-  <!-- 02 SEE WHAT IS POSSIBLE ALREADY - rung 2 proof. Each demo: claim, video, belief line. -->
+  <!-- 01 SEE WHAT IS NOW BECOMING POSSIBLE - rung 2: the bridge belief, one frame, then proof.
+       Each demo: claim, video, belief line. -->
   <section id="demos" class="relative py-20 md:py-28 bg-sand overflow-hidden">
     <!-- Giant decorative Q -->
     <div aria-hidden="true" class="absolute -right-24 -top-20 select-none pointer-events-none">
@@ -266,14 +219,19 @@
 
     <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
       <div class="max-w-3xl mx-auto mb-14 md:mb-20 text-center" data-reveal>
-        <div class="eyebrow text-stone-500 mb-6">02 - See what is possible already</div>
+        <div class="eyebrow text-stone-500 mb-6">01 - See what is now becoming possible</div>
         <h2 class="display-section text-navy">
-          Agents at work<br/>
-          <span class="font-serif italic font-normal">on spatial data.</span>
+          Not a chatbot.<br/>
+          <span class="font-serif italic font-normal">Not a detector.</span>
         </h2>
         <p class="mt-8 max-w-2xl mx-auto text-lg text-stone-600 leading-relaxed">
-          Three agents I built, on real data, doing real chores. Watch one to the end -
-          the point is what happens while nobody is clicking.
+          Agents that execute long-running manual tasks on their own, while keeping humans
+          in full control. Not a chatbot that talks about your data, not a model that
+          detects a little better - an agent that opens your tools, runs the steps, checks
+          the results and brings you the deliverable.
+        </p>
+        <p class="mt-4 max-w-2xl mx-auto text-lg text-stone-600 leading-relaxed">
+          Nobody believes this from a paragraph. Watch one run.
         </p>
         <p class="mt-6 text-sm leading-relaxed text-stone-500">
           Videos are hosted by Vimeo and remain blocked until you explicitly load one.
@@ -422,47 +380,47 @@
   <section id="reliability" class="relative py-20 md:py-28 bg-sand overflow-hidden">
     <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
       <div class="max-w-3xl mx-auto mb-10 md:mb-14 text-center" data-reveal>
-        <div class="eyebrow text-stone-500 mb-6">03 - Reliability</div>
+        <div class="eyebrow text-stone-500 mb-6">02 - Reliability</div>
         <h2 class="display-section text-navy">
           Reliable by design,<br/>
           <span class="font-serif italic font-normal">not by luck.</span>
         </h2>
         <p class="mt-8 max-w-2xl mx-auto text-lg text-stone-600 leading-relaxed">
-          A demo proves an agent can do the job once. Your team needs it to do the job on
-          Tuesday, on the ugly dataset, without anyone watching. That is engineering work,
-          and it is most of what I do.
+          A demo shows an agent can do the job once. Your team needs it to do the job every
+          week, on the ugly dataset, without anyone watching. Making that true is most of
+          my work, and it comes down to three plain things.
         </p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-5 md:gap-6">
         <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
           <span class="font-mono text-teal-deep text-sm">Ⅰ</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Success is defined with your experts</h3>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">We agree on what "correct" means</h3>
           <p class="mt-3 text-stone-600 leading-relaxed">
-            Before an agent runs anything, we write down what a correct result looks like -
-            in your team's terms, on your data. Their judgment becomes the yardstick.
+            Before the agent runs anything, your experts and I write down what a good
+            result looks like, on your own data. Their judgment is the yardstick, not mine.
           </p>
         </div>
         <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
           <span class="font-mono text-teal-deep text-sm">Ⅱ</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Every run is measured</h3>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">We test it like you would test a new hire</h3>
           <p class="mt-3 text-stone-600 leading-relaxed">
-            Test sets and repeated runs show where the agent is right, where it fails, and
-            how often. Numbers your team can check, not a demo reel.
+            The agent gets a stack of real past projects to work through. We count where it
+            gets them right, where it fails, and how often - before it touches live work.
           </p>
         </div>
         <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
           <span class="font-mono text-teal-deep text-sm">Ⅲ</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Checkpoints where they belong</h3>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">A person stays in charge</h3>
           <p class="mt-3 text-stone-600 leading-relaxed">
-            Steps with real consequences wait for a person. The agent brings the result and
-            the evidence; your team decides. Autonomy is earned per step, not assumed.
+            Steps with real consequences wait for someone on your team to say go. The agent
+            does the work and shows its evidence; your people make the call.
           </p>
         </div>
       </div>
 
       <p class="mt-10 md:mt-14 text-center font-serif italic text-xl md:text-2xl text-navy/80 max-w-2xl mx-auto" data-reveal>
-        Agents fail in ways that look confident. The work is finding those failures before your clients do.
+        Agents make mistakes that look confident. My job is to find them before your clients do.
       </p>
     </div>
   </section>
@@ -471,7 +429,7 @@
   <section id="your-tools" class="relative py-20 md:py-28 bg-sand overflow-hidden">
     <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
       <div class="max-w-3xl mx-auto mb-10 md:mb-14 text-center" data-reveal>
-        <div class="eyebrow text-stone-500 mb-6">04 - How it fits</div>
+        <div class="eyebrow text-stone-500 mb-6">03 - How it fits</div>
         <h2 class="display-section text-navy">
           Your tools.<br/>
           <span class="font-serif italic font-normal">No new platform.</span>
@@ -513,47 +471,13 @@
     </div>
   </section>
 
-  <!-- 05 ABOUT -->
-  <section id="about" class="relative py-20 md:py-28 bg-navy text-white overflow-hidden">
-    <div class="absolute inset-0 bg-grid opacity-40"></div>
-    <div class="relative mx-auto max-w-[1400px] px-6 md:px-10">
-      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
-        <div class="lg:col-span-5" data-reveal>
-          <div class="eyebrow text-aqua/70 mb-6">05 - About</div>
-          <h2 class="display-section">
-            Fifteen years<br/>
-            <span class="font-serif italic font-normal">shipping software.</span>
-          </h2>
-        </div>
-
-        <div class="lg:col-span-6 lg:col-start-7 self-end" data-reveal>
-          <p class="text-xl md:text-2xl leading-snug font-display font-medium max-w-xl">
-            I'm an independent AI engineer based in Germany. I work hands-on -
-            from rapid prototyping to <span class="text-brand-cyan">production-oriented system design</span>.
-          </p>
-          <p class="mt-6 text-aqua/75 leading-relaxed max-w-xl">
-            My focus is LLM agents and orchestration for spatial and 3D data, and the
-            evaluation that keeps them reliable. I studied geoinformatics and mining
-            geomatics. Before AI, I led software and product teams at BMW, Audi, and
-            DriveNow, and ran my own engineering studio, Kawunu, delivering production
-            systems for clients in mobility, manufacturing, healthcare, and logistics.
-          </p>
-          <p class="mt-5 text-aqua/75 leading-relaxed max-w-xl">
-            For the longer version, see my
-            <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="font-semibold text-brand-cyan underline underline-offset-4 decoration-brand-cyan/40 hover:decoration-brand-cyan">background on LinkedIn</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 06 WORK WITH ME - what I do, named but not linked; vendors named at the bottom. -->
+  <!-- 04 WORK WITH ME - what I do, named but not linked; vendors named at the bottom. -->
   <section id="contact" class="py-20 md:py-28 bg-sand">
     <div class="mx-auto max-w-[1300px] px-6 md:px-10">
       <div class="max-w-4xl mx-auto text-center" data-reveal>
-        <div class="eyebrow text-stone-500 mb-8">06 - Work with me</div>
+        <div class="eyebrow text-stone-500 mb-8">04 - Work with me</div>
         <h2 class="display-section text-navy">
-          Processing point clouds?<br/>
+          <span class="sm:whitespace-nowrap">Processing point clouds?</span><br/>
           <span class="font-serif italic font-normal">Let's talk.</span>
         </h2>
         <p class="mt-8 text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
@@ -607,6 +531,43 @@
           workflows your users run by hand today become something your product does for them,
           with reliability you can measure.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 ABOUT - last on purpose: who is behind all this, once the argument is made. -->
+  <section id="about" class="relative py-20 md:py-28 bg-navy text-white overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-40"></div>
+    <div class="relative mx-auto max-w-[1400px] px-6 md:px-10">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
+        <div class="lg:col-span-5" data-reveal>
+          <div class="eyebrow text-aqua/70 mb-6">05 - About</div>
+          <h2 class="display-section">
+            Fifteen years<br/>
+            <span class="font-serif italic font-normal">shipping software.</span>
+          </h2>
+          <img src="img/profile-picture.png?v=__ASSET_VERSION__"
+               alt="Alex Key" width="800" height="800" loading="lazy"
+               class="mt-8 w-52 h-52 md:w-72 md:h-72 rounded-3xl object-cover ring-1 ring-white/10">
+        </div>
+
+        <div class="lg:col-span-6 lg:col-start-7 self-end" data-reveal>
+          <p class="text-xl md:text-2xl leading-snug font-display font-medium max-w-xl">
+            I'm an independent AI engineer based in Germany. I work hands-on -
+            from rapid prototyping to <span class="text-brand-cyan">production-oriented system design</span>.
+          </p>
+          <p class="mt-6 text-aqua/75 leading-relaxed max-w-xl">
+            My focus is LLM agents and orchestration for spatial and 3D data, and the
+            evaluation that keeps them reliable. I studied geoinformatics and mining
+            geomatics. Before AI, I led software and product teams at BMW, Audi, and
+            DriveNow, and ran my own engineering studio, Kawunu, delivering production
+            systems for clients in mobility, manufacturing, healthcare, and logistics.
+          </p>
+          <p class="mt-5 text-aqua/75 leading-relaxed max-w-xl">
+            For the longer version, see my
+            <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="font-semibold text-brand-cyan underline underline-offset-4 decoration-brand-cyan/40 hover:decoration-brand-cyan">background on LinkedIn</a>.
+          </p>
+        </div>
       </div>
     </div>
   </section>
