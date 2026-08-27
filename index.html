@@ -211,7 +211,7 @@
 
   <!-- 01 SEE WHAT IS NOW BECOMING POSSIBLE - rung 2: the bridge belief, one frame, then proof.
        Each demo: claim, video, belief line. -->
-  <section id="demos" class="relative py-20 md:py-28 bg-sand overflow-hidden">
+  <section id="demos" class="relative pt-20 md:pt-28 pb-12 md:pb-16 bg-sand overflow-hidden">
     <!-- Giant decorative Q -->
     <div aria-hidden="true" class="absolute -right-24 -top-20 select-none pointer-events-none">
       <span class="big-q text-aqua-surface">q</span>
@@ -376,54 +376,67 @@
     </div>
   </section>
 
-  <!-- 02 YOUR TOOLS - rung 4: no IT project, no new platform. -->
-  <section id="your-tools" class="relative py-20 md:py-28 bg-sand overflow-hidden">
+  <!-- 02 YOUR TOOLS - rung 4: no IT project, no new platform.
+       Deliberately a different layout from the card grids around it: left-aligned
+       headline, numbered list with rules on the right, white ground. -->
+  <section id="your-tools" class="relative py-16 md:py-20 bg-white overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-40 pointer-events-none"></div>
     <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
-      <div class="max-w-3xl mx-auto mb-10 md:mb-14 text-center" data-reveal>
-        <div class="eyebrow text-stone-500 mb-6">02 - How it fits</div>
-        <h2 class="display-section text-navy">
-          Your tools stay.<br/>
-          <span class="font-serif italic font-normal">No new platform.</span>
-        </h2>
-        <p class="mt-8 max-w-2xl mx-auto text-lg text-stone-600 leading-relaxed">
-          This is not an IT project. Projects turn around faster without adding headcount,
-          your experts spend their time on judgment instead of clicking through the same
-          pipeline again, and the work stops depending on the one person who knows every
-          tool's quirks.
-        </p>
-      </div>
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div class="lg:col-span-6" data-reveal>
+          <div class="eyebrow text-stone-500 mb-6">02 - How it fits</div>
+          <h2 class="display-section text-navy">
+            Your tools stay.<br/>
+            <span class="font-serif italic font-normal">No new platform.</span>
+          </h2>
+          <p class="mt-8 text-lg text-stone-600 leading-relaxed max-w-md">
+            This is not an IT project. Projects turn around faster without adding headcount,
+            your experts spend their time on judgment instead of clicking through the same
+            pipeline again, and the work stops depending on the one person who knows every
+            tool's quirks.
+          </p>
+        </div>
 
-      <div class="grid md:grid-cols-3 gap-5 md:gap-6">
-        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
-          <span class="font-mono text-teal-deep text-sm">Ⅰ</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Start from the real workflow</h3>
-          <p class="mt-3 text-stone-600 leading-relaxed">
-            We look at where the hours actually go and pick the chore where an agent saves
-            the most - not where the hype points.
-          </p>
-        </div>
-        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
-          <span class="font-mono text-teal-deep text-sm">Ⅱ</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Your software, driven by an agent</h3>
-          <p class="mt-3 text-stone-600 leading-relaxed">
-            The agent works in the tools you already license and trust - point cloud
-            software, GIS, scripts, spreadsheets. Nothing to migrate, nothing to re-learn.
-          </p>
-        </div>
-        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
-          <span class="font-mono text-teal-deep text-sm">Ⅲ</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Built to hand over</h3>
-          <p class="mt-3 text-stone-600 leading-relaxed">
-            Documented, observable, and owned by your team when I leave - not a black box
-            that needs me to babysit it.
-          </p>
+        <div class="lg:col-span-6" data-reveal>
+          <ol class="border-t border-mist">
+            <li class="grid grid-cols-[3rem_1fr] gap-4 py-7 border-b border-mist">
+              <span class="font-mono text-teal-deep text-lg leading-none pt-1">Ⅰ</span>
+              <div>
+                <h3 class="font-display font-bold text-xl tracking-tight text-navy">Start from the real workflow</h3>
+                <p class="mt-2 text-stone-600 leading-relaxed">
+                  We look at where the hours actually go and pick the chore where an agent saves
+                  the most - not where the hype points.
+                </p>
+              </div>
+            </li>
+            <li class="grid grid-cols-[3rem_1fr] gap-4 py-7 border-b border-mist">
+              <span class="font-mono text-teal-deep text-lg leading-none pt-1">Ⅱ</span>
+              <div>
+                <h3 class="font-display font-bold text-xl tracking-tight text-navy">Your software, driven by an agent</h3>
+                <p class="mt-2 text-stone-600 leading-relaxed">
+                  The agent works in the tools you already license and trust - point cloud
+                  software, GIS, scripts, spreadsheets. Nothing to migrate, nothing to re-learn.
+                </p>
+              </div>
+            </li>
+            <li class="grid grid-cols-[3rem_1fr] gap-4 py-7 border-b border-mist">
+              <span class="font-mono text-teal-deep text-lg leading-none pt-1">Ⅲ</span>
+              <div>
+                <h3 class="font-display font-bold text-xl tracking-tight text-navy">Built to hand over</h3>
+                <p class="mt-2 text-stone-600 leading-relaxed">
+                  Documented, observable, and owned by your team when I leave - not a black box
+                  that needs me to babysit it.
+                </p>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 03 WORK WITH ME - what I do, named but not linked; vendors named at the bottom. -->
-  <section id="contact" class="py-20 md:py-28 bg-sand">
+  <section id="contact" class="pt-16 md:pt-20 pb-20 md:pb-28 bg-sand">
     <div class="mx-auto max-w-[1300px] px-6 md:px-10">
       <div class="max-w-4xl mx-auto text-center" data-reveal>
         <div class="eyebrow text-stone-500 mb-8">03 - Work with me</div>
