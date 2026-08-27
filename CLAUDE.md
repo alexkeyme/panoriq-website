@@ -52,21 +52,20 @@ inline in that file - there is no `tailwind.config.js`.
 | `agent-evaluation.html` | Private funnel page, scorecard download | no |
 | `impressum.html`, `datenschutz.html`, `404.html` | legal / plumbing | - |
 
-**The two-offer rule.** The main site sells agent engineering (automating spatial data
-processing, point clouds first) to teams that process spatial data and to vendors that build
-software for them. The training page sells a two half-day Claude Code workshop. These are
-different offers, and the training must never become the site's headline message. Cross-links from `index.html` are deliberately quiet:
-one nav link, one ghost secondary button in the hero, one line at the end of the contact
-section, one footer link. Do not expand them or move training copy into the hero headline
-without being asked.
+**The page is an explanation, not a funnel (decided 2026-08-27).** Readers arrive from a
+DM, a conference conversation or a LinkedIn post and will not self-serve into buying. So
+`index.html` has no hero CTA, no in-page navigation, and is structured to be read top to
+bottom along the belief ladder in `Belief building.md` (GTM folder): hero = the around-work
+is automatable (rung 1), 01 = not a chatbot, not a detector (rung 2), 02 = demos as proof,
+03 = reliability is engineered (rung 3), 04 = your tools, no new platform (rung 4), 05 =
+about, 06 = work with me. Do not add a CTA above section 06 or links that let readers skip
+section 01.
 
-The hero button ("Claude Code workshop for geo teams") was added 2026-08-13 as a deliberate
-exception: training outreach recipients do check the homepage and need a named off-ramp. It stays ghost-styled (outline,
-never filled) so the engineering CTA keeps the visual lead.
-
-`training.html` is indexed, but the separation is held by placement rather than by hiding it
-from crawlers: those four quiet cross-links, and no presence in the main navigation. Adding
-a banner, a filled hero CTA or a fifth link breaks the rule even though the page is public.
+**Offers are named, not linked.** Section 06 names advisory, process automation and the
+workshop as cards without links or prices; the vendor track sits in a navy box at the very
+bottom and never in the hero. The workshop page stays live but is linked from the footer
+only - the old hero ghost button and nav link are gone. Do not re-add them without being
+asked.
 
 **`training.html` is a leave-behind, not a landing page.** Every reader gets there from a
 LinkedIn message Alex sent them, and replies on LinkedIn. So: no email address anywhere on it
@@ -76,7 +75,7 @@ paragraphs is the failure mode. `docs/training-offer-requirements.md` has the fu
 
 ## Design conventions to follow
 
-- Sections carry a numbered eyebrow: `01 - What I do`, `02 - Selected work`.
+- Sections carry a numbered eyebrow: `01 - What agents actually do`, `02 - See what is possible already`.
 - Section headlines use `display-section` with the second line in serif italic:
   `First line<br><span class="font-serif italic font-normal">second line.</span>`
   Keep each line short. Long lines wrap into a third line and look broken at 1440px -
@@ -87,6 +86,8 @@ paragraphs is the failure mode. `docs/training-offer-requirements.md` has the fu
   Most carry a small arrow SVG.
 - Every page ends with the same IntersectionObserver snippet driving `[data-reveal]`.
 - Roman numerals (`Ⅰ Ⅱ Ⅲ`) in `font-mono text-teal-deep` mark items within a section.
+- Demos follow the framed-demo format: claim paragraph, video facade, one serif italic
+  belief line underneath. Never publish a naked demo.
 
 ## Hard constraints
 

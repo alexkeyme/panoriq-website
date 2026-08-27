@@ -99,18 +99,16 @@
         <img src="CI/logo/svg/mark-light.svg?v=__ASSET_VERSION__" alt="" class="w-9 h-9">
         <span class="font-display text-[22px] font-bold tracking-tightest text-navy">Alex Key</span>
       </a>
-
-      <!-- Cross-link to the workshop. Different offer - kept understated so the
-           engineering message stays primary. -->
-      <a href="training.html" class="inline-flex items-center gap-2 text-[13px] font-semibold text-teal-deep hover:text-navy transition">
-        <span class="hidden sm:inline">Looking for training?</span>
-        <span class="sm:hidden">Training</span>
+      <!-- No in-page navigation on purpose: the page is meant to be read top to bottom.
+           The workshop page is reachable from the footer only. -->
+      <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-[13px] font-semibold text-teal-deep hover:text-navy transition">
+        LinkedIn
         <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO - rung 1: the around-work is priced in as unavoidable. It is not, anymore. -->
   <section class="relative overflow-hidden bg-navy text-white grain">
     <canvas id="point-cloud" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
     <div class="absolute inset-0 bg-grid opacity-50 pointer-events-none"></div>
@@ -123,15 +121,17 @@
       <div class="grid lg:grid-cols-12 gap-10 items-center">
         <div class="lg:col-span-7 text-center lg:text-left" data-reveal>
           <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4 gap-y-3 mb-8">
-            <span class="eyebrow text-aqua/80">Independent AI engineer</span>
-            <span class="h-px w-16 bg-aqua/30"></span>
-            <span class="eyebrow text-aqua/60">Spatial data · point clouds</span>
+            <img src="img/profile-picture.png?v=__ASSET_VERSION__" alt="Alex Key" width="800" height="800"
+                 class="w-14 h-14 rounded-full object-cover ring-2 ring-white/20">
+            <span class="eyebrow text-aqua/80">Alex Key</span>
+            <span class="h-px w-10 bg-aqua/30"></span>
+            <span class="eyebrow text-aqua/60">Independent AI engineer · Germany</span>
           </div>
 
           <h1 class="display-hero text-white text-balance">
-            <span class="sm:whitespace-nowrap">AI agents</span><br>
-            <span class="relative inline-block whitespace-nowrap">
-              <span>for spatial data.</span>
+            <span class="sm:whitespace-nowrap">I build AI agents</span><br>
+            <span class="relative inline-block sm:whitespace-nowrap">
+              <span>for point clouds.</span>
               <svg class="absolute left-0 -bottom-3 w-full" height="14" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">
                 <path d="M2 9 Q 75 2, 150 8 T 298 7" fill="none" stroke="#1BCBB8" stroke-width="4" stroke-linecap="round"/>
               </svg>
@@ -139,73 +139,58 @@
           </h1>
 
           <p class="mt-10 max-w-2xl mx-auto lg:mx-0 text-aqua/90 text-lg md:text-xl leading-relaxed">
-            I build AI agents that automate spatial data processing - point clouds first.
+            Agents that take over the work around your point cloud processing - the setup,
+            the re-runs, the checks, the deliverables - so your team gets its hours back,
+            with results held to your own quality standards.
           </p>
           <p class="mt-6 max-w-2xl mx-auto lg:mx-0 text-white text-lg md:text-xl leading-relaxed">
-            Your team gets its hours back: the setup, re-runs, checks and deliverables
-            that eat days of expert time run on their own - with results held to your
-            own quality standards, not mine.
+            I work hands-on, as a contractor, with your tools and your team - from finding
+            the right workflow to an agent in production.
           </p>
-          <div class="mt-10 hidden lg:flex flex-wrap items-center gap-4">
-            <a href="#what-i-do" class="inline-flex items-center gap-2 bg-brand-cyan text-navy hover:bg-white transition px-6 py-3.5 rounded-full text-[14px] font-semibold">
-              See how I work
-              <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <!-- Off-ramp to the workshop: quiet ghost style so the engineering
-                 CTA keeps the visual lead. -->
-            <a href="training.html" class="inline-flex items-center gap-2 border border-white/25 text-white hover:border-brand-cyan hover:text-brand-cyan transition px-6 py-3.5 rounded-full text-[14px] font-semibold">
-              Claude Code workshop for geo teams
-              <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="mt-10 flex justify-center lg:justify-start">
+            <!-- Scroll cue, not a CTA: the page is meant to be read in order. -->
+            <a href="#what-agents-do" class="inline-flex items-center gap-2 text-aqua/80 hover:text-white transition text-[14px] font-semibold">
+              First, what agents actually do
+              <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- Right column: client's problem -->
+        <!-- Right column: the resignation belief, named -->
         <div class="lg:col-span-5" data-reveal>
           <div class="relative rounded-3xl border border-white/12 bg-white/7 p-6 md:p-8 shadow-2xl backdrop-blur">
             <div class="absolute -top-3 left-8 inline-flex items-center gap-2 rounded-full bg-brand-cyan px-4 py-1.5 text-[12px] font-semibold uppercase tracking-widest text-navy">
-              The catch
+              The hidden cost
             </div>
 
             <h2 class="mt-4 font-serif italic text-2xl md:text-3xl text-white leading-snug">
-              &ldquo;Can&rsquo;t AI just do all of this?&rdquo;
+              &ldquo;That&rsquo;s just what point cloud work takes.&rdquo;
             </h2>
             <p class="mt-3 text-aqua/80 text-sm leading-relaxed">
-              Some of it - and the useful part is not where most people look first:
+              The hours around the actual processing are priced in as unavoidable. They are not, anymore:
             </p>
 
             <div class="mt-7 space-y-6">
               <div class="flex gap-4">
                 <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-cyan"></span>
                 <p class="text-aqua/90 leading-relaxed">
-                  Not the algorithms. Classification and registration improve step by step - no agent changes that.
+                  Project setup and moving data between tools - formats, coordinate systems, folders, naming.
                 </p>
               </div>
               <div class="flex gap-4">
                 <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-cyan"></span>
                 <p class="text-aqua/90 leading-relaxed">
-                  The work around them: project setup, moving data between tools, re-runs, checks, the last five percent, deliverables. That is where the hours go - and what agents take over.
+                  Running the steps, checking the result, running again with different parameters, fixing the last five percent.
                 </p>
               </div>
               <div class="flex gap-4">
                 <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-cyan"></span>
                 <p class="text-aqua/90 leading-relaxed">
-                  Trusted, not just demoed: every automated step is measured against your team&rsquo;s own quality judgment.
+                  Assembling deliverables and reports - the part nobody was hired for and everybody does.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="lg:hidden flex flex-col gap-3 mt-4">
-          <a href="#what-i-do" class="inline-flex items-center justify-center gap-2 w-full bg-brand-cyan text-navy hover:bg-white transition px-6 py-3.5 rounded-full text-[14px] font-semibold">
-            See how I work
-            <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="training.html" class="inline-flex items-center justify-center gap-2 w-full border border-white/25 text-white hover:border-brand-cyan hover:text-brand-cyan transition px-6 py-3.5 rounded-full text-[14px] font-semibold">
-            Claude Code workshop for geo teams
-            <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
         </div>
       </div>
 
@@ -223,57 +208,57 @@
     </div>
   </section>
 
-  <!-- WHAT I DO -->
-  <section id="what-i-do" class="relative py-20 md:py-28 bg-sand overflow-hidden">
+  <!-- 01 WHAT AGENTS ACTUALLY DO - rung 2, the bridge belief. Two misconceptions, one contrast. -->
+  <section id="what-agents-do" class="relative py-20 md:py-28 bg-sand overflow-hidden">
     <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
       <div class="max-w-3xl mx-auto mb-10 md:mb-14 text-center" data-reveal>
-        <div class="eyebrow text-stone-500 mb-6">01 - What I do</div>
+        <div class="eyebrow text-stone-500 mb-6">01 - What agents actually do</div>
         <h2 class="display-section text-navy">
-          Your tools.<br/>
-          <span class="font-serif italic font-normal">Automated.</span>
+          Not a chatbot.<br/>
+          <span class="font-serif italic font-normal">Not a detector.</span>
         </h2>
         <p class="mt-8 max-w-2xl mx-auto text-lg text-stone-600 leading-relaxed">
-          What that means for you: projects turn around faster without adding headcount,
-          your experts spend their time on judgment instead of clicking through the same
-          pipeline again, and the work stops depending on the one person who knows every
-          tool's quirks. I work hands-on, with your tools, from finding the right workflow
-          to an agent in production - and with spatial software vendors bringing agents
-          into their products.
+          "AI on our data" usually means one of two things to people. Neither is what I build.
         </p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-5 md:gap-6">
         <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
-          <span class="font-mono text-teal-deep text-sm">Ⅰ</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Find where agents fit</h3>
+          <span class="font-mono text-stone-400 text-sm">What people expect</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">A chatbot that talks about your data</h3>
           <p class="mt-3 text-stone-600 leading-relaxed">
-            We start from your real workflow and identify where an agent saves actual
-            hours - not where the hype points.
+            Ask a question, get a summary. Useful for a quick answer. It never touches the
+            workflow, and the hours stay exactly where they were.
           </p>
         </div>
         <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
-          <span class="font-mono text-teal-deep text-sm">Ⅱ</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Your tools, not new algorithms</h3>
+          <span class="font-mono text-stone-400 text-sm">What people expect</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">A model that detects or classifies</h3>
           <p class="mt-3 text-stone-600 leading-relaxed">
-            Agents that drive the software you already use and understand point clouds,
-            geodata, and GIS. I don't promise a better classifier - I automate the work
-            around it.
+            One step of the pipeline, done a bit better or a bit worse. Those models improve
+            slowly, and I don't promise a better classifier. Everything around that step
+            still has to be done by hand.
           </p>
         </div>
-        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
-          <span class="font-mono text-teal-deep text-sm">Ⅲ</span>
-          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Beyond the demo</h3>
-          <p class="mt-3 text-stone-600 leading-relaxed">
-            Production-grade architecture and evaluation - so what ships is something
-            your team can rely on, not a prototype.
+        <div class="card rounded-3xl p-8 bg-navy text-white ring-1 ring-navy" data-reveal>
+          <span class="font-mono text-brand-cyan text-sm">What I build</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-white mt-4">An agent that runs the workflow</h3>
+          <p class="mt-3 text-aqua/85 leading-relaxed">
+            It opens your tools, runs the steps, checks the results, re-runs what failed and
+            assembles the deliverable - unattended, for minutes or hours - then brings you
+            the result and the evidence. Work on the data, not chat about it.
           </p>
         </div>
       </div>
+
+      <p class="mt-10 md:mt-14 text-center font-serif italic text-xl md:text-2xl text-navy/80 max-w-2xl mx-auto" data-reveal>
+        Nobody believes this from a paragraph. Everybody gets it from watching one run.
+      </p>
     </div>
   </section>
 
-  <!-- WORK -->
-  <section id="work" class="relative py-20 md:py-28 bg-sand overflow-hidden">
+  <!-- 02 SEE WHAT IS POSSIBLE ALREADY - rung 2 proof. Each demo: claim, video, belief line. -->
+  <section id="demos" class="relative py-20 md:py-28 bg-sand overflow-hidden">
     <!-- Giant decorative Q -->
     <div aria-hidden="true" class="absolute -right-24 -top-20 select-none pointer-events-none">
       <span class="big-q text-aqua-surface">q</span>
@@ -281,11 +266,15 @@
 
     <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
       <div class="max-w-3xl mx-auto mb-14 md:mb-20 text-center" data-reveal>
-        <div class="eyebrow text-stone-500 mb-6">02 - Selected work</div>
+        <div class="eyebrow text-stone-500 mb-6">02 - See what is possible already</div>
         <h2 class="display-section text-navy">
           Agents at work<br/>
           <span class="font-serif italic font-normal">on spatial data.</span>
         </h2>
+        <p class="mt-8 max-w-2xl mx-auto text-lg text-stone-600 leading-relaxed">
+          Three agents I built, on real data, doing real chores. Watch one to the end -
+          the point is what happens while nobody is clicking.
+        </p>
         <p class="mt-6 text-sm leading-relaxed text-stone-500">
           Videos are hosted by Vimeo and remain blocked until you explicitly load one.
           Details are available in our
@@ -293,51 +282,14 @@
         </p>
       </div>
 
-      <!-- Piece 01: CloudCompare integration video -->
-      <div class="mb-10 md:mb-14" data-reveal>
+      <div class="mb-14 md:mb-20" data-reveal>
         <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
           <div>
-            <span class="font-mono text-teal-deep text-sm">Ⅰ - tool use</span>
-            <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight text-navy mt-2">An agent that drives CloudCompare</h3>
-          </div>
-          <p class="text-stone-600 leading-relaxed max-w-md text-sm md:text-base">
-            Agents are most powerful when they can reach for the tools experts already use.
-            Here an AI agent I built drives CloudCompare to run a volume calculation for slope monitoring.
-          </p>
-        </div>
-
-        <div class="relative aspect-video rounded-3xl overflow-hidden bg-navy ring-1 ring-navy/10 shadow-[0_40px_120px_-30px_rgba(13,74,74,0.45)]">
-          <!-- Vimeo facade: click to load. Vimeo IDs live in js/vimeo.js. -->
-          <button id="demoPlayCloudCompare" class="absolute inset-0 w-full h-full group" aria-label="Load CloudCompare integration demo from Vimeo and play">
-            <img src="img/vimeo-cloudcompare.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
-
-            <span class="absolute inset-0 flex items-center justify-center p-4 bg-navy/20 group-hover:bg-navy/10 transition-colors">
-              <span class="block max-w-xl rounded-2xl bg-navy/90 backdrop-blur-md px-5 py-4 md:px-7 md:py-6 text-center text-white shadow-2xl ring-1 ring-white/15">
-                <span class="block eyebrow text-brand-cyan">External video - Vimeo</span>
-                <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
-                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                  Load video from Vimeo · 02:19
-                </span>
-                <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
-                  Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See our privacy policy for details.
-                </span>
-              </span>
-            </span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Piece 02: Glacier change video -->
-      <div class="mb-10 md:mb-14" data-reveal>
-        <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
-          <div>
-            <span class="font-mono text-teal-deep text-sm">Ⅱ - long-running agent</span>
+            <span class="font-mono text-teal-deep text-sm">Ⅰ - long-running agent</span>
             <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight text-navy mt-2">An agent that measures glacier change</h3>
           </div>
           <p class="text-stone-600 leading-relaxed max-w-md text-sm md:text-base">
-            A long-running agent works through a complete analysis on its own:
-            it takes survey data of an alpine glacier and calculates how the ice has
-            changed - the kind of multi-step task agents can now carry end to end.
+            Agents don't chat about your survey data. This one runs a complete analysis on its own: two epochs of an alpine glacier in, a change result out - a multi-step task carried end to end, unattended.
           </p>
         </div>
 
@@ -360,20 +312,21 @@
             </span>
           </button>
         </div>
+
+        <p class="mt-5 font-serif italic text-lg md:text-xl text-navy/80 max-w-3xl">
+          Long-running, multi-step work on the data itself. That is the difference to a chat window.
+        </p>
       </div>
 
-      <!-- Piece 03: Crop monitoring video -->
-      <div class="mb-10 md:mb-14" data-reveal>
+
+      <div class="mb-14 md:mb-20" data-reveal>
         <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
           <div>
-            <span class="font-mono text-teal-deep text-sm">Ⅲ - raster data</span>
+            <span class="font-mono text-teal-deep text-sm">Ⅱ - raster data</span>
             <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight text-navy mt-2">An agent that monitors crops from satellite imagery</h3>
           </div>
           <p class="text-stone-600 leading-relaxed max-w-md text-sm md:text-base">
-            Spatial data is more than point clouds. This agent runs Monday triage
-            across a portfolio of fields: it reads crop stress from satellite imagery,
-            reasons about the likely cause field by field, and plans which fields an
-            advisor should visit first.
+            Spatial data is more than point clouds. This agent runs Monday triage across a portfolio of fields: it reads crop stress from satellite imagery, reasons about the likely cause field by field, and plans which fields an advisor should visit first.
           </p>
         </div>
 
@@ -396,7 +349,49 @@
             </span>
           </button>
         </div>
+
+        <p class="mt-5 font-serif italic text-lg md:text-xl text-navy/80 max-w-3xl">
+          The judgment work sits right next to the data work - the agent does not stop at the number.
+        </p>
       </div>
+
+
+      <div class="mb-14 md:mb-20" data-reveal>
+        <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+          <div>
+            <span class="font-mono text-teal-deep text-sm">Ⅲ - tool use</span>
+            <h3 class="font-display font-bold text-3xl md:text-4xl tracking-tight text-navy mt-2">An agent that drives CloudCompare</h3>
+          </div>
+          <p class="text-stone-600 leading-relaxed max-w-md text-sm md:text-base">
+            Agents are most useful when they can reach for the tools experts already use. Here an agent drives CloudCompare to run a volume calculation for slope monitoring - the same software, the same steps, no hands on the mouse.
+          </p>
+        </div>
+
+        <div class="relative aspect-video rounded-3xl overflow-hidden bg-navy ring-1 ring-navy/10 shadow-[0_40px_120px_-30px_rgba(13,74,74,0.45)]">
+          <!-- Vimeo facade: click to load. Vimeo IDs live in js/vimeo.js. -->
+          <button id="demoPlayCloudCompare" class="absolute inset-0 w-full h-full group" aria-label="Load CloudCompare integration demo from Vimeo and play">
+            <img src="img/vimeo-cloudcompare.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+
+            <span class="absolute inset-0 flex items-center justify-center p-4 bg-navy/20 group-hover:bg-navy/10 transition-colors">
+              <span class="block max-w-xl rounded-2xl bg-navy/90 backdrop-blur-md px-5 py-4 md:px-7 md:py-6 text-center text-white shadow-2xl ring-1 ring-white/15">
+                <span class="block eyebrow text-brand-cyan">External video - Vimeo</span>
+                <span class="mt-3 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 md:px-6 md:py-3 text-sm font-semibold text-navy group-hover:bg-brand-cyan transition-colors">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                  Load video from Vimeo · 02:19
+                </span>
+                <span class="mt-3 block text-[11px] md:text-xs leading-relaxed text-aqua/80">
+                  Loading this video connects to Vimeo. Vimeo receives technical data such as your IP address and may set cookies. See our privacy policy for details.
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+
+        <p class="mt-5 font-serif italic text-lg md:text-xl text-navy/80 max-w-3xl">
+          No new platform. Your existing software, driven by an agent.
+        </p>
+      </div>
+
 
       <!-- Piece 04: Research paper -->
       <article class="card group relative rounded-3xl p-8 md:p-10 bg-white ring-1 ring-mist hover:ring-brand-cyan flex flex-col" data-reveal>
@@ -423,20 +418,112 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- 03 RELIABILITY - rung 3: engineered, not hoped for. The differentiator. -->
+  <section id="reliability" class="relative py-20 md:py-28 bg-sand overflow-hidden">
+    <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
+      <div class="max-w-3xl mx-auto mb-10 md:mb-14 text-center" data-reveal>
+        <div class="eyebrow text-stone-500 mb-6">03 - Reliability</div>
+        <h2 class="display-section text-navy">
+          Reliable by design,<br/>
+          <span class="font-serif italic font-normal">not by luck.</span>
+        </h2>
+        <p class="mt-8 max-w-2xl mx-auto text-lg text-stone-600 leading-relaxed">
+          A demo proves an agent can do the job once. Your team needs it to do the job on
+          Tuesday, on the ugly dataset, without anyone watching. That is engineering work,
+          and it is most of what I do.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 md:gap-6">
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅰ</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Success is defined with your experts</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            Before an agent runs anything, we write down what a correct result looks like -
+            in your team's terms, on your data. Their judgment becomes the yardstick.
+          </p>
+        </div>
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅱ</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Every run is measured</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            Test sets and repeated runs show where the agent is right, where it fails, and
+            how often. Numbers your team can check, not a demo reel.
+          </p>
+        </div>
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅲ</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Checkpoints where they belong</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            Steps with real consequences wait for a person. The agent brings the result and
+            the evidence; your team decides. Autonomy is earned per step, not assumed.
+          </p>
+        </div>
+      </div>
+
+      <p class="mt-10 md:mt-14 text-center font-serif italic text-xl md:text-2xl text-navy/80 max-w-2xl mx-auto" data-reveal>
+        Agents fail in ways that look confident. The work is finding those failures before your clients do.
+      </p>
+    </div>
+  </section>
+
+  <!-- 04 YOUR TOOLS - rung 4: no IT project, no new platform. -->
+  <section id="your-tools" class="relative py-20 md:py-28 bg-sand overflow-hidden">
+    <div class="relative mx-auto max-w-[1300px] px-6 md:px-10">
+      <div class="max-w-3xl mx-auto mb-10 md:mb-14 text-center" data-reveal>
+        <div class="eyebrow text-stone-500 mb-6">04 - How it fits</div>
+        <h2 class="display-section text-navy">
+          Your tools.<br/>
+          <span class="font-serif italic font-normal">No new platform.</span>
+        </h2>
+        <p class="mt-8 max-w-2xl mx-auto text-lg text-stone-600 leading-relaxed">
+          This is not an IT project. Projects turn around faster without adding headcount,
+          your experts spend their time on judgment instead of clicking through the same
+          pipeline again, and the work stops depending on the one person who knows every
+          tool's quirks.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 md:gap-6">
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅰ</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Start from the real workflow</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            We look at where the hours actually go and pick the chore where an agent saves
+            the most - not where the hype points.
+          </p>
+        </div>
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅱ</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Your software, driven by an agent</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            The agent works in the tools you already license and trust - point cloud
+            software, GIS, scripts, spreadsheets. Nothing to migrate, nothing to re-learn.
+          </p>
+        </div>
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅲ</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Built to hand over</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            Documented, observable, and owned by your team when I leave - not a black box
+            that needs me to babysit it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 ABOUT -->
   <section id="about" class="relative py-20 md:py-28 bg-navy text-white overflow-hidden">
     <div class="absolute inset-0 bg-grid opacity-40"></div>
     <div class="relative mx-auto max-w-[1400px] px-6 md:px-10">
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
         <div class="lg:col-span-5" data-reveal>
-          <div class="eyebrow text-aqua/70 mb-6">03 - About</div>
+          <div class="eyebrow text-aqua/70 mb-6">05 - About</div>
           <h2 class="display-section">
             Fifteen years<br/>
             <span class="font-serif italic font-normal">shipping software.</span>
           </h2>
-          <img src="img/profile-picture.png?v=__ASSET_VERSION__"
-               alt="Alex Key" width="800" height="800" loading="lazy"
-               class="mt-8 w-52 h-52 md:w-72 md:h-72 rounded-3xl object-cover ring-1 ring-white/10">
         </div>
 
         <div class="lg:col-span-6 lg:col-start-7 self-end" data-reveal>
@@ -460,33 +547,67 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- 06 WORK WITH ME - what I do, named but not linked; vendors named at the bottom. -->
   <section id="contact" class="py-20 md:py-28 bg-sand">
-    <div class="mx-auto max-w-[1100px] px-6 md:px-10 text-center" data-reveal>
-      <div class="eyebrow text-stone-500 mb-8">04 - Work with me</div>
-      <h2 class="display-section text-navy">
-        Processing point clouds?<br/>
-        <span class="font-serif italic font-normal">Let's automate it.</span>
-      </h2>
-      <p class="mt-8 text-lg text-stone-600 max-w-xl mx-auto leading-relaxed">
-        Best fit: laser scanning, reality capture and survey teams that run point cloud
-        processing at volume - several people on the pipeline, projects every week. If
-        that's you and expert hours are going into repetitive work, that's usually where
-        an agent pays for itself first. I take on a small number of engagements at a
-        time; if you build software for teams like these, get in touch as well.
-      </p>
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+    <div class="mx-auto max-w-[1300px] px-6 md:px-10">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <div class="eyebrow text-stone-500 mb-8">06 - Work with me</div>
+        <h2 class="display-section text-navy">
+          Processing point clouds?<br/>
+          <span class="font-serif italic font-normal">Let's talk.</span>
+        </h2>
+        <p class="mt-8 text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+          Best fit: laser scanning, reality capture and survey teams that run point cloud
+          processing at volume - several people on the pipeline, projects every week. If
+          expert hours are going into repetitive work, that is usually where an agent pays
+          for itself first. I take on a small number of engagements at a time.
+        </p>
+      </div>
+
+      <div class="mt-12 md:mt-16 grid md:grid-cols-3 gap-5 md:gap-6">
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅰ - Advisory</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Find the right chore</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            A short engagement: we map where your team's hours go, pick the workflow where an
+            agent saves the most, and define what a correct result looks like. You leave with
+            a plan, not a pitch.
+          </p>
+        </div>
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅱ - Process automation</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Build the agent, hand it over</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            Hands-on: I build the agent into your workflow, with your tools, measured
+            against your quality standards - and leave it running in your team's hands.
+          </p>
+        </div>
+        <div class="card rounded-3xl p-8 bg-white ring-1 ring-mist" data-reveal>
+          <span class="font-mono text-teal-deep text-sm">Ⅲ - Workshop</span>
+          <h3 class="font-display font-bold text-xl tracking-tight text-navy mt-4">Get your team started</h3>
+          <p class="mt-3 text-stone-600 leading-relaxed">
+            Two half-days with your team on working with Claude Code on geo data. The
+            smallest first step - your people automate their own chores from day one.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-12 md:mt-16 text-center" data-reveal>
         <a href="https://www.linkedin.com/in/keyalex" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-navy text-white hover:bg-teal-deep transition px-7 py-3.5 rounded-full text-[14px] font-semibold">
           Reach out on LinkedIn
           <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
 
-      <!-- Quiet exit to the workshop offer. -->
-      <p class="mt-10 text-sm text-stone-500 max-w-xl mx-auto leading-relaxed">
-        Want your team to get productive with Claude Code on geo data first?
-        <a href="training.html" class="font-semibold text-teal-deep underline underline-offset-4 decoration-teal-deep/40 hover:decoration-teal-deep">There is a workshop for that.</a>
-      </p>
+      <!-- Vendor track: named at the bottom, never in the hero. -->
+      <div class="mt-16 md:mt-20 max-w-3xl mx-auto rounded-3xl p-8 md:p-10 bg-navy text-white ring-1 ring-navy" data-reveal>
+        <span class="eyebrow text-aqua/70">Building spatial software?</span>
+        <p class="mt-4 text-lg md:text-xl leading-relaxed">
+          I also help spatial software vendors bring AI agents into their products - so the
+          workflows your users run by hand today become something your product does for them,
+          with reliability you can measure.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -508,7 +629,7 @@
         <div class="md:col-span-2">
           <div class="eyebrow text-aqua/50 mb-4">Site</div>
           <ul class="space-y-2 text-aqua/80 text-sm">
-            <li><a href="#work" class="hover:text-white">Work</a></li>
+            <li><a href="#demos" class="hover:text-white">Work</a></li>
             <li><a href="#about" class="hover:text-white">About</a></li>
             <li><a href="#contact" class="hover:text-white">Contact</a></li>
             <li><a href="training.html" class="hover:text-white">Training</a></li>
