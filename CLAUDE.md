@@ -57,12 +57,13 @@ DM, a conference conversation or a LinkedIn post and will not self-serve into bu
 `index.html` has no hero CTA, no in-page navigation, and is structured to be read top to
 bottom along the belief ladder in `Belief building.md` (GTM folder): hero = the around-work
 is automatable (rung 1), 01 = not a chatbot, not a detector, straight into the demos as
-proof (rung 2), 02 = reliability in plain words (rung 3), 03 = your tools, no new platform
-(rung 4), 04 = work with me, 05 = about (last on purpose, after the argument). The only
-button in the hero is a scroll cue to section 01. Do not add a CTA above section 04 or
-links that let readers skip the demos.
+proof (rung 2), 02 = your tools, no new platform (rung 4), 03 = work with me, 04 = about
+(last on purpose, after the argument). Rung 3 (reliability is engineered) was removed from
+the page on 2026-08-28 as an implementation detail readers do not get at this point - it
+lives in conversations and content, not here. The only button in the hero is a scroll cue
+to section 01. Do not add a CTA above section 03 or links that let readers skip the demos.
 
-**Offers are named, not linked.** Section 04 names advisory, process automation and the
+**Offers are named, not linked.** Section 03 names the dataset challenge, process automation and the
 workshop as cards without links or prices; the vendor track sits in a navy box at the very
 bottom and never in the hero. The workshop page stays live but is linked from the footer
 only - the old hero ghost button and nav link are gone. Do not re-add them without being
@@ -76,7 +77,7 @@ paragraphs is the failure mode. `docs/training-offer-requirements.md` has the fu
 
 ## Design conventions to follow
 
-- Sections carry a numbered eyebrow: `01 - See what is now becoming possible`, `02 - Reliability`.
+- Sections carry a numbered eyebrow: `01 - See what is now becoming possible`, `02 - How it fits`.
 - Section headlines use `display-section` with the second line in serif italic:
   `First line<br><span class="font-serif italic font-normal">second line.</span>`
   Keep each line short. Long lines wrap into a third line and look broken at 1440px -
