@@ -2,34 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<title>Agent Evaluation Scorecard - Alex Key</title>
 <style>
   @font-face {
     font-family: "Manrope";
     font-weight: 100 900;
-    src: url("file:///Users/alex/kawunu/workspace-kawunu/panoriq-website/fonts/manrope-variable.woff2") format("woff2-variations");
+    src: url("fonts/manrope-variable.woff2") format("woff2-variations");
   }
   @font-face {
     font-family: "Inter";
     font-weight: 100 900;
-    src: url("file:///Users/alex/kawunu/workspace-kawunu/panoriq-website/fonts/inter-variable.woff2") format("woff2-variations");
+    src: url("fonts/inter-variable.woff2") format("woff2-variations");
   }
   @font-face {
     font-family: "Space Grotesk";
     font-weight: 300 700;
-    src: url("file:///Users/alex/kawunu/workspace-kawunu/panoriq-website/fonts/space-grotesk-variable.woff2") format("woff2-variations");
+    src: url("fonts/space-grotesk-variable.woff2") format("woff2-variations");
   }
 
   :root {
-    --navy: #0E2A47;
-    --navy-deeper: #081A2E;
-    --cyan: #1FC4C4;
-    --cyan-dark: #0FA5A5;
-    --teal-deep: #0D4A4A;
-    --aqua-surface: #EAFAFA;
-    --sand: #F7F8F9;
-    --stone-500: #5F6974;
-    --stone-600: #424B55;
-    --coral: #FF7A59;
+    --navy: #07313B;
+    --navy-deeper: #041E26;
+    --cyan: #1BCBB8;
+    --cyan-dark: #2F756F;
+    --teal-deep: #14554F;
+    --aqua-surface: #EAF6F2;
+    --sand: #F4F1E8;
+    --stone-500: #46575D;
+    --stone-600: #46575D;
+    --coral: #F26B52;
     --amber: #F5B544;
   }
 
@@ -43,7 +44,7 @@
   html, body {
     margin: 0;
     padding: 0;
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: "Manrope", system-ui, sans-serif;
     color: var(--stone-600);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -139,7 +140,7 @@
     font-family: "Manrope", sans-serif;
     font-weight: 800;
     font-size: 16pt;
-    color: var(--cyan);
+    color: var(--teal-deep);
     width: 26px;
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -208,6 +209,9 @@
     break-inside: avoid;
   }
   .callout .eyebrow { margin-bottom: 5px; display: block; }
+  .callout .eyebrow { color: var(--teal-deep); }
+  .page-two { break-before: page; }
+  .result-note { font-size: 9pt; margin: 0 0 8px; }
   .callout p { margin: 0; font-size: 9.5pt; color: var(--stone-600); }
   .callout strong { color: var(--navy); font-weight: 600; }
 
@@ -231,21 +235,11 @@
 <body>
 
   <div class="masthead">
-    <svg class="mark" viewBox="0 0 240 240" width="52" height="52" aria-hidden="true">
-      <defs><clipPath id="c"><circle cx="120" cy="120" r="106"/></clipPath></defs>
-      <circle cx="120" cy="120" r="110" fill="none" stroke="#1FC4C4" stroke-width="6"/>
-      <g clip-path="url(#c)">
-        <rect x="14" y="14" width="212" height="212" fill="#081A2E"/>
-        <path d="M14,118 Q70,92 130,108 T226,108 L226,150 L14,150 Z" fill="#0D4A4A"/>
-        <path d="M14,146 Q60,124 120,140 T226,140 L226,180 L14,180 Z" fill="#1F6B6B"/>
-        <path d="M14,172 Q70,156 130,170 T226,168 L226,200 L14,200 Z" fill="#0FA5A5"/>
-        <path d="M14,192 Q60,178 126,190 T226,188 L226,226 L14,226 Z" fill="#1FC4C4"/>
-      </g>
-    </svg>
+    <img class="mark" src="CI/logo/svg/mark-dark.svg" width="52" height="52" alt="panoriq">
     <div>
       <span class="eyebrow">Self-Assessment</span>
       <h1>Agent Evaluation Scorecard</h1>
-      <p>A self-assessment for teams building LLM agents. Mark where your team is today &mdash; honestly. The point is to find the gaps, not to feel good.</p>
+      <p>A self-assessment for teams building LLM agents. Mark where your team is today. Use the gaps to decide what to improve next.</p>
     </div>
   </div>
 
@@ -255,14 +249,14 @@
     <div class="cell"><div class="n">0</div><div class="lbl">Absent</div><div class="desc">We don&rsquo;t do this at all.</div></div>
     <div class="cell"><div class="n">1</div><div class="lbl">Ad-hoc</div><div class="desc">Sometimes, manually, no system.</div></div>
     <div class="cell"><div class="n">2</div><div class="lbl">Established</div><div class="desc">A defined process. It runs.</div></div>
-    <div class="cell"><div class="n">3</div><div class="lbl">Mature</div><div class="desc">Automated, continuous, feeds back into development.</div></div>
+    <div class="cell"><div class="n">3</div><div class="lbl">Mature</div><div class="desc">Applied consistently, reviewed, and used to improve development.</div></div>
   </div>
 
   <div class="dim">
     <div class="num">1</div>
     <div class="body">
       <h3>Defined success criteria</h3>
-      <p>Can anyone on your team write down in one paragraph what &ldquo;good&rdquo; looks like? Not &ldquo;it answers correctly&rdquo; &mdash; concrete, measurable, agreed across engineering, product, and the people who actually use it.</p>
+      <p>You define successful behavior before building or changing the agent. Concrete examples and measurable criteria reflect the needs of engineering, product, and the people who use it.</p>
     </div>
     <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
   </div>
@@ -271,7 +265,7 @@
     <div class="num">2</div>
     <div class="body">
       <h3>Evaluation dataset</h3>
-      <p>A curated set of inputs covering typical, ambiguous, edge, and known-failure cases. It is version-controlled. It grows.</p>
+      <p>A versioned set of tasks and success criteria covers typical cases, ambiguity, and known failures. Keep successful cases too. Expand coverage as you learn; a small starter set is not proof of production reliability.</p>
     </div>
     <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
   </div>
@@ -280,7 +274,7 @@
     <div class="num">3</div>
     <div class="body">
       <h3>Automated evaluation runs</h3>
-      <p>You can run your evaluation suite on demand and on every meaningful change &mdash; prompt, model, tool, code. Results are recorded.</p>
+      <p>You run evaluations on demand and on meaningful changes to prompts, models, tools, or code. Results are recorded. Grading rules are checked against human judgment where appropriate.</p>
     </div>
     <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
   </div>
@@ -289,7 +283,7 @@
     <div class="num">4</div>
     <div class="body">
       <h3>Trace visibility</h3>
-      <p>For any failure or surprising output, you can see the full execution: prompts, tool calls, intermediate steps, model responses, latency, cost. Not just the final answer.</p>
+      <p>You can inspect recorded prompts, tool calls, results, model responses, latency, and cost to investigate failures. You know what your instrumentation captures and where visibility is incomplete.</p>
     </div>
     <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
   </div>
@@ -297,17 +291,17 @@
   <div class="dim">
     <div class="num">5</div>
     <div class="body">
-      <h3>Reproducible failures</h3>
-      <p>When a user reports a problem or an evaluation fails, you can re-run the exact case and reliably see the same failure. You don&rsquo;t lose bugs to &ldquo;couldn&rsquo;t reproduce.&rdquo;</p>
+      <h3>Repeatable investigation</h3>
+      <p>You capture inputs, versions, and relevant environment state so you can rerun a failing case. For variable behavior, repeat trials to measure how often it fails. One passing rerun does not establish a fix.</p>
     </div>
     <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
   </div>
 
-  <div class="dim">
+  <div class="dim page-two">
     <div class="num">6</div>
     <div class="body">
       <h3>Version comparison</h3>
-      <p>You can compare two versions of your agent &mdash; different prompts, models, tool descriptions &mdash; side by side on the same dataset. You see which is better, and where.</p>
+      <p>You compare versions on the same cases and grading criteria, using repeated trials when needed. Inspect regressions as well as averages. Check improvements on additional cases before generalizing.</p>
     </div>
     <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
   </div>
@@ -330,29 +324,30 @@
     <div class="boxes">&#9744; 0 &nbsp;&#9744; 1 &nbsp;&#9744; 2 &nbsp;&#9744; 3</div>
   </div>
 
-  <div class="section-head">How to read your result &mdash; total / 24</div>
+  <div class="section-head">How to read your result - total / 24</div>
+  <p class="result-note">These bands are a discussion guide, not a validated benchmark or release gate. Review each dimension: a high total can hide a critical gap.</p>
 
   <div class="band">
-    <div class="range">0&ndash;8</div>
-    <div class="txt"><strong>The &ldquo;seems to work&rdquo; zone.</strong> Most teams are here. The risk is that you only find out what&rsquo;s broken when a user does. Start with dimensions 1, 2, and 4.</div>
+    <div class="range">0-8</div>
+    <div class="txt"><strong>Build the foundations.</strong> Start with explicit success criteria, a small set of representative cases, and enough trace visibility to investigate failures.</div>
   </div>
   <div class="band">
-    <div class="range">9&ndash;16</div>
-    <div class="txt"><strong>Some structure, not yet a system.</strong> Typical gap: you have a dataset and traces, but no automated runs and no production feedback loop. Connect what you already have.</div>
+    <div class="range">9-16</div>
+    <div class="txt"><strong>Connect the pieces.</strong> Review your lowest-scoring dimensions. Link evaluation runs, failure investigation, and production feedback into a regular process.</div>
   </div>
   <div class="band">
-    <div class="range">17&ndash;24</div>
-    <div class="txt"><strong>A real evaluation discipline.</strong> The remaining work is depth &mdash; better metrics, harder edge cases, faster iteration. The structure is in place.</div>
+    <div class="range">17-24</div>
+    <div class="txt"><strong>Test the depth.</strong> Challenge dataset coverage, grader quality, and consistency across runs. A strong self-assessment score does not establish production reliability.</div>
   </div>
 
   <div class="callout">
-    <span class="eyebrow">A note on dimension 1</span>
-    <p>This is the one most teams skip and most regret skipping. <strong>&ldquo;What does good look like?&rdquo;</strong> is not an engineering question &mdash; it requires product, domain experts, and the people who will actually use the output. If you can&rsquo;t answer it, no amount of tooling setup will help.</p>
+    <span class="eyebrow">Start with expectations</span>
+    <p><strong>Define what success looks like before you build, and make those expectations something you can repeatedly test.</strong> Start with a few real tasks and clear criteria. Grow the checks as you learn from users and failures.</p>
   </div>
 
   <div class="foot">
-    <span class="name">Alex Key &mdash; panoriq.ai</span>
-    <span>Spatial AI engineering &middot; Independent practice</span>
+    <span class="name">Alex Key - AI engineering</span>
+    <span>panoriq.com/agent-evaluation</span>
   </div>
 
 </body>
